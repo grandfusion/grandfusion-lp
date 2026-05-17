@@ -389,21 +389,86 @@ a:hover{opacity:.75}
 /* ============ BACK CTA ============ */
 .back-cta{
   background:linear-gradient(135deg,var(--c-cream) 0%,var(--c-beige-light) 100%);
-  padding:80px 40px;
+  padding:100px 40px;
   text-align:center;
+}
+.back-cta-inner{
+  max-width:960px;
+  margin:0 auto;
+}
+.back-cta-tag{
+  font-family:var(--ff-en);
+  font-size:12px;letter-spacing:.4em;
+  color:var(--c-gold);
+  padding:6px 18px;
+  border:1px solid var(--c-gold-light);
+  display:inline-block;
+  margin-bottom:24px;
 }
 .back-cta h3{
   font-family:var(--ff-serif);
-  font-size:24px;font-weight:500;
-  letter-spacing:.1em;
+  font-size:clamp(24px,2.8vw,32px);
+  font-weight:500;
+  letter-spacing:.08em;
   color:var(--c-text);
-  margin-bottom:16px;
+  margin-bottom:24px;
+  line-height:1.6;
+}
+.back-cta h3 em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:600;
 }
 .back-cta p{
   font-size:14px;
   color:var(--c-text-sub);
-  margin-bottom:30px;
-  line-height:2;
+  margin-bottom:50px;
+  line-height:2.1;
+  letter-spacing:.06em;
+}
+.back-cta p strong{
+  color:var(--c-text);
+  font-weight:600;
+}
+.back-cta-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:780px;
+  margin:0 auto 50px;
+}
+.back-cta-col{
+  background:#fff;
+  border:1px solid var(--c-line);
+  border-radius:4px;
+  padding:28px 18px;
+  text-align:center;
+  position:relative;
+}
+.back-cta-num{
+  font-family:var(--ff-en);
+  font-size:28px;
+  font-weight:300;
+  color:var(--c-gold);
+  margin-bottom:10px;
+  letter-spacing:.1em;
+}
+.back-cta-step{
+  font-family:var(--ff-serif);
+  font-size:13px;
+  line-height:1.8;
+  color:var(--c-text-sub);
+  letter-spacing:.05em;
+}
+.back-cta-step strong{
+  color:var(--c-gold-dark);
+  font-weight:600;
+}
+.back-cta-buttons{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
 }
 .btn{
   display:inline-flex;align-items:center;gap:12px;
@@ -416,7 +481,17 @@ a:hover{opacity:.75}
   transition:all .3s ease;
 }
 .btn:hover{background:var(--c-gold);color:#fff;opacity:1}
-.btn::before{content:"←";font-size:14px}
+.btn-fill{
+  background:var(--c-gold);
+  color:#fff;
+}
+.btn-fill:hover{
+  background:var(--c-gold-dark);
+  color:#fff;
+}
+@media(max-width:768px){
+  .back-cta-grid{grid-template-columns:1fr;gap:14px}
+}
 
 /* ============ FOOTER ============ */
 .footer{
@@ -680,12 +755,36 @@ a:hover{opacity:.75}
 
 <!-- ===== BACK CTA ===== -->
 <section class="back-cta">
-  <h3>会社情報・お問い合わせは<br>GrandFusionトップページへ</h3>
-  <p>
-    会社概要・代表の想い・サポート体制について詳しくはトップページをご覧ください。<br>
-    導入のご相談は公式LINEより承っております。
-  </p>
-  <a href="../index.html" class="btn">GrandFusionトップへ戻る</a>
+  <div class="back-cta-inner">
+    <div class="back-cta-tag">CONTACT</div>
+    <h3>お問い合わせは<br><em>各商材・マシンページ</em>の公式LINEから</h3>
+    <p>
+      製品のご相談・サンプル請求・導入のご質問などは、<br>
+      ご興味のある<strong>各商材・マシンの詳細ページ</strong>にある<br>
+      公式LINEから直接お問い合わせください。<br>
+      ご相談内容に応じて、専門の担当者がご対応いたします。
+    </p>
+
+    <div class="back-cta-grid">
+      <div class="back-cta-col">
+        <div class="back-cta-num">01</div>
+        <div class="back-cta-step">上の <strong>商材・マシン一覧</strong> から、<br>ご興味のある製品をクリック</div>
+      </div>
+      <div class="back-cta-col">
+        <div class="back-cta-num">02</div>
+        <div class="back-cta-step">該当製品の<strong>専用LP</strong>へ移動</div>
+      </div>
+      <div class="back-cta-col">
+        <div class="back-cta-num">03</div>
+        <div class="back-cta-step">そのページ内の<strong>公式LINE</strong>から<br>お問い合わせ</div>
+      </div>
+    </div>
+
+    <div class="back-cta-buttons">
+      <a href="#products" class="btn btn-fill">↑ 商材一覧へ戻る</a>
+      <a href="../index.html" class="btn">会社情報（GrandFusionトップ）</a>
+    </div>
+  </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
