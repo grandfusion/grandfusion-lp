@@ -183,6 +183,18 @@ a:hover{opacity:.75}
 .btn:hover{background:var(--c-gold);color:#fff;opacity:1}
 .btn-fill{background:var(--c-gold);color:#fff;border-color:var(--c-gold)}
 .btn-fill:hover{background:var(--c-gold-dark);border-color:var(--c-gold-dark)}
+.btn-disabled{
+  background:var(--c-line)!important;
+  border-color:var(--c-line)!important;
+  color:var(--c-text-sub)!important;
+  cursor:not-allowed;
+  opacity:.7;
+}
+.btn-disabled:hover{
+  background:var(--c-line)!important;
+  border-color:var(--c-line)!important;
+  color:var(--c-text-sub)!important;
+}
 .btn::after{content:"→";font-size:14px}
 
 .hero-scroll{
@@ -1301,7 +1313,17 @@ a:hover{opacity:.75}
 .contact-card p{
   font-size:14px;line-height:2;
   color:var(--c-text-sub);
-  margin-bottom:36px;
+  margin-bottom:24px;
+}
+.contact-card .contact-note{
+  display:inline-block;
+  font-size:13px;
+  color:var(--c-gold-dark);
+  background:var(--c-beige-light);
+  padding:14px 28px;
+  border-radius:2px;
+  margin-bottom:30px;
+  letter-spacing:.06em;
 }
 .contact-buttons{
   display:flex;justify-content:center;gap:16px;flex-wrap:wrap;
@@ -1549,7 +1571,7 @@ a:hover{opacity:.75}
           <li>学習ログの可視化・管理</li>
           <li>年1〜2回 GrandFusionアワード</li>
         </ul>
-        <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener" class="btn btn-fill">サンプルサイトを見る</a>
+        <span class="btn btn-fill btn-disabled" aria-disabled="true">サービス準備中</span>
       </div>
 
       <!-- ▼ ポータルのモックアップ -->
@@ -1642,7 +1664,6 @@ a:hover{opacity:.75}
           <li>学習ログの可視化・管理</li>
           <li>年1〜2回 GrandFusionアワード</li>
         </ul>
-        <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener" class="biz-link" style="margin-top:20px">サポートサイトへ</a>
       </div>
     </div>
   </div>
@@ -1779,14 +1800,17 @@ a:hover{opacity:.75}
       <div class="section-jp">お問い合わせ</div>
     </div>
     <div class="contact-card">
-      <h3>製品導入・OEM・開業相談まで<br>お気軽にお問い合わせください</h3>
+      <h3>製品導入・開業相談まで<br>お気軽にお問い合わせください</h3>
       <p>
         NUDUQUE製品の導入、業務用マシンのご紹介、サロン開業のご相談、教育プログラムについてなど、<br>
-        GrandFusionへのお問い合わせは公式LINEからお受けしております。
+        ご相談内容に応じて、各商材・マシンの専用ページに記載の<br>
+        公式LINEよりお問い合わせをお受けしております。
+      </p>
+      <p class="contact-note">
+        ご興味のある商材・サービスのページからご連絡いただけますとスムーズです。
       </p>
       <div class="contact-buttons">
-        <a href="https://lin.ee/example" target="_blank" rel="noopener" class="contact-line">公式LINEで相談する</a>
-        <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener" class="btn">メーカーサポートサイトへ</a>
+        <a href="products/index.html" class="btn btn-fill">商材・マシン一覧を見る</a>
       </div>
     </div>
   </div>
@@ -1804,7 +1828,6 @@ a:hover{opacity:.75}
     <a href="#voice">VOICE</a>
     <a href="#company">COMPANY</a>
     <a href="#contact">CONTACT</a>
-    <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener">MAKER PORTAL</a>
   </nav>
   <div class="copyright">© 2026 GrandFusion Co., Ltd. All Rights Reserved.</div>
 </footer>
