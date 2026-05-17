@@ -270,6 +270,51 @@ a:hover{opacity:.75}
 .biz-link--fill{background:var(--c-gold);color:#fff}
 .biz-link--fill:hover{background:var(--c-gold-dark);color:#fff}
 
+.biz-price{
+  display:inline-block;
+  font-family:var(--ff-en);
+  font-size:15px;
+  letter-spacing:.08em;
+  color:var(--c-gold-dark);
+  background:var(--c-beige-light);
+  padding:3px 12px;
+  border-radius:2px;
+  margin-left:8px;
+  vertical-align:middle;
+  font-weight:500;
+}
+.biz-features{
+  list-style:none;
+  margin:0 0 18px;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px 14px;
+}
+.biz-features li{
+  font-size:12.5px;
+  color:var(--c-text-sub);
+  padding-left:20px;
+  position:relative;
+  letter-spacing:.02em;
+}
+.biz-features li::before{
+  content:"";
+  position:absolute;left:0;top:7px;
+  width:12px;height:12px;
+  border-radius:50%;
+  border:1px solid var(--c-gold);
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/8px no-repeat;
+}
+.biz-note{
+  font-size:11px;
+  color:var(--c-text-light);
+  letter-spacing:.04em;
+  padding-top:12px;
+  border-top:1px solid var(--c-line);
+  margin-top:auto;
+}
+
 .biz-card--feature{
   border-color:var(--c-gold);
   border-width:2px;
@@ -731,17 +776,23 @@ a:hover{opacity:.75}
   </div>
 </section>
 
-<!-- ===== STARTUP / 開業パック ===== -->
+<!-- ===== STARTUP / 開業・融資サポート ===== -->
 <section class="section section-products" id="startup">
   <div class="section-inner">
     <div class="section-head">
-      <div class="section-en">Start Up</div>
-      <div class="section-jp">開業サポートパック</div>
+      <div class="section-en">Support Packages</div>
+      <div class="section-jp">開業・融資サポート</div>
     </div>
+    <p class="section-lead">
+      マシン導入とあわせて、開業準備から資金調達まで。<br>
+      サロン経営を一気通貫で支えるサポートをご用意しています。
+    </p>
 
-    <div class="biz-grid biz-grid--3" style="grid-template-columns:1fr;max-width:760px;margin:0 auto;">
+    <div class="biz-grid" style="grid-template-columns:repeat(2,1fr);gap:30px;max-width:1000px;margin:0 auto;">
+
+      <!-- ▼ 開業サポートパック -->
       <div class="biz-card biz-card--feature">
-        <div class="biz-visual biz-visual--photo" style="height:300px;">
+        <div class="biz-visual biz-visual--photo" style="height:240px;">
           <span class="biz-cat biz-cat--accent">開業パック</span>
           <img src="../images/kaigyopack-hero.webp" alt="開業サポートパック">
         </div>
@@ -752,6 +803,28 @@ a:hover{opacity:.75}
             BTXtherma × リジェセル マシン2台＋6ヶ月伴走サポート。価格設定・ブランディング不要で、「悩まない開業」を実現します。サロンの立ち上げから安定経営まで、伴走型でサポート。
           </p>
           <a href="https://kaigyopack-vejy2m8w.manus.space" target="_blank" rel="noopener" class="biz-link biz-link--fill">開業パック詳細を見る</a>
+        </div>
+      </div>
+
+      <!-- ▼ 融資サポート -->
+      <div class="biz-card">
+        <div class="biz-visual biz-visual--photo" style="height:240px;">
+          <span class="biz-cat">FINANCE</span>
+          <img src="../images/finance-support.jpg" alt="融資サポート">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">FINANCE SUPPORT</div>
+          <div class="biz-name">融資サポート <span class="biz-price">¥50,000</span></div>
+          <p class="biz-desc">
+            マシン導入時の資金調達を、専門スタッフがしっかりサポート。事業計画書の作成補助から金融機関への同行、補助金・助成金の申請支援まで、安心して開業準備を進められます。
+          </p>
+          <ul class="biz-features">
+            <li>事業計画書 作成補助</li>
+            <li>金融機関 同行</li>
+            <li>補助金・助成金 申請支援</li>
+            <li>資金調達 戦略アドバイス</li>
+          </ul>
+          <div class="biz-note">※ 別途お申し込みが必要なオプションサービスです</div>
         </div>
       </div>
     </div>
