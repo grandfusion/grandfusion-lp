@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrandFusion｜美容を軸に、女性の人生を輝かせるトータルメーカー</title>
+<meta name="description" content="株式会社GrandFusionは、美容・教育・経営・ライフスタイルを融合させ、女性が美しく豊かに自分らしく在るための新しい価値を提供するトータルメーカーです。NUDUQUEブランド、業務用マシン、開業・経営サポート、融資・教育まで、サロン様の成功を一気通貫で支えます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-base:#faf6f0;
+  --c-beige:#ede3d3;
+  --c-beige-light:#f5efe6;
+  --c-cream:#f7f1e6;
+  --c-gold:#b89968;
+  --c-gold-light:#d4b88a;
+  --c-gold-dark:#9c8062;
+  --c-text:#3d3329;
+  --c-text-sub:#6b5d4f;
+  --c-text-light:#9c8775;
+  --c-line:#d9ccb8;
+  --ff-serif:"Noto Serif JP","Yu Mincho",YuMincho,serif;
+  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-en:"Cormorant Garamond","Times New Roman",serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--ff-sans);
+  font-weight:400;
+  color:var(--c-text);
+  background:var(--c-base);
+  line-height:1.8;
+  letter-spacing:.04em;
+  font-feature-settings:"palt";
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:opacity .3s ease,color .3s ease}
+a:hover{opacity:.75}
+
+/* ============ HEADER ============ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,246,240,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--c-line);
+}
+.header-inner{
+  max-width:1280px;margin:0 auto;
+  padding:18px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:var(--ff-en);
+  font-size:24px;font-weight:500;
+  letter-spacing:.25em;
+  color:var(--c-text);
+  padding-left:.25em;
+}
+.logo small{
+  display:block;
+  font-family:var(--ff-serif);
+  font-size:9px;letter-spacing:.4em;
+  margin-top:2px;color:var(--c-text-light);
+}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{
+  font-family:var(--ff-serif);
+  font-size:13px;font-weight:500;
+  letter-spacing:.15em;
+  color:var(--c-text-sub);
+  position:relative;
+}
+.nav a::after{
+  content:"";position:absolute;left:50%;bottom:-6px;
+  width:0;height:1px;background:var(--c-gold);
+  transition:width .3s ease,left .3s ease;
+}
+.nav a:hover{color:var(--c-gold-dark);opacity:1}
+.nav a:hover::after{width:100%;left:0}
+.nav .cta-btn{
+  background:var(--c-gold);color:#fff;
+  padding:10px 24px;border-radius:2px;
+  font-size:12px;letter-spacing:.18em;
+}
+.nav .cta-btn::after{display:none}
+.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--c-text)}
+
+@media(max-width:900px){
+  .header-inner{padding:14px 20px}
+  .nav{display:none}
+  .nav.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--c-base);padding:26px 20px;gap:18px;
+    border-bottom:1px solid var(--c-line);
+  }
+  .menu-btn{display:block}
+  .logo{font-size:18px}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  padding:160px 40px 100px;
+  background:
+    radial-gradient(ellipse at 80% 20%,rgba(212,184,138,.25) 0%,transparent 50%),
+    radial-gradient(ellipse at 20% 80%,rgba(184,153,104,.15) 0%,transparent 50%),
+    linear-gradient(180deg,var(--c-base) 0%,var(--c-cream) 100%);
+  overflow:hidden;
+  display:flex;align-items:center;
+}
+.hero-inner{
+  max-width:1280px;margin:0 auto;
+  width:100%;text-align:center;
+  position:relative;
+}
+.hero-brand{
+  font-family:var(--ff-en);
+  font-size:14px;letter-spacing:.5em;
+  color:var(--c-gold);margin-bottom:36px;
+  display:inline-flex;align-items:center;gap:18px;
+}
+.hero-brand::before,.hero-brand::after{
+  content:"";width:48px;height:1px;background:var(--c-gold-light);
+}
+.hero-logo{
+  font-family:var(--ff-en);
+  font-size:clamp(48px,7vw,84px);
+  font-weight:500;
+  letter-spacing:.18em;
+  color:var(--c-text);
+  margin-bottom:14px;
+  line-height:1.1;
+  padding-left:.18em;
+}
+.hero-logo-jp{
+  font-family:var(--ff-serif);
+  font-size:14px;letter-spacing:.5em;
+  color:var(--c-text-sub);
+  margin-bottom:50px;
+}
+.hero-title{
+  font-family:var(--ff-serif);
+  font-size:clamp(28px,4vw,52px);
+  font-weight:400;
+  line-height:1.55;
+  letter-spacing:.08em;
+  color:var(--c-text);
+  margin-bottom:36px;
+}
+.hero-title em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:500;
+}
+.hero-sub{
+  font-family:var(--ff-serif);
+  font-size:16px;line-height:2.2;
+  color:var(--c-text-sub);
+  margin-bottom:50px;
+  letter-spacing:.1em;
+  max-width:740px;margin-left:auto;margin-right:auto;
+}
+.hero-cta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 36px;
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.2em;
+  border:1px solid var(--c-gold);
+  color:var(--c-gold-dark);
+  background:transparent;
+  transition:all .3s ease;cursor:pointer;
+}
+.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
+.btn-fill{background:var(--c-gold);color:#fff;border-color:var(--c-gold)}
+.btn-fill:hover{background:var(--c-gold-dark);border-color:var(--c-gold-dark)}
+.btn::after{content:"→";font-size:14px}
+
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;
+  transform:translateX(-50%);
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.4em;
+  color:var(--c-text-light);
+  writing-mode:vertical-rl;
+}
+.hero-scroll::after{
+  content:"";display:block;width:1px;height:50px;
+  background:var(--c-gold);
+  margin:14px auto 0;
+  animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine{
+  0%,100%{transform:scaleY(.3);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+}
+
+@media(max-width:900px){
+  .hero{padding:120px 20px 80px;min-height:auto}
+  .hero-scroll{display:none}
+}
+
+/* ============ SECTION COMMON ============ */
+.section{padding:120px 40px;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:70px}
+.section-en{
+  font-family:var(--ff-en);
+  font-size:42px;font-weight:400;
+  letter-spacing:.25em;
+  color:var(--c-gold-dark);
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.section-jp{
+  font-family:var(--ff-serif);
+  font-size:14px;letter-spacing:.4em;
+  color:var(--c-text-sub);
+  position:relative;display:inline-block;
+  padding:0 30px;
+}
+.section-jp::before,.section-jp::after{
+  content:"";position:absolute;top:50%;
+  width:20px;height:1px;background:var(--c-gold-light);
+}
+.section-jp::before{left:-10px}
+.section-jp::after{right:-10px}
+
+@media(max-width:900px){
+  .section{padding:80px 20px}
+  .section-en{font-size:30px}
+}
+
+/* ============ VISION / 代表の想い ============ */
+.vision{
+  background:var(--c-cream);
+  position:relative;overflow:hidden;
+}
+.vision::before{
+  content:"";position:absolute;top:-50px;left:-100px;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(184,153,104,.1),transparent);
+  pointer-events:none;
+}
+.vision-grid{
+  display:grid;
+  grid-template-columns:1fr 0.85fr;
+  gap:64px;align-items:center;
+}
+.vision-text .vision-catch{
+  font-family:var(--ff-serif);
+  font-size:clamp(28px,3.4vw,42px);
+  font-weight:500;line-height:1.5;
+  letter-spacing:.1em;
+  color:var(--c-gold-dark);
+  margin-bottom:40px;
+  position:relative;
+  padding-left:24px;
+}
+.vision-text .vision-catch::before{
+  content:"";position:absolute;left:0;top:8px;bottom:8px;
+  width:3px;background:linear-gradient(180deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
+}
+.vision-text p{
+  font-family:var(--ff-serif);
+  font-size:15px;line-height:2.2;
+  color:var(--c-text-sub);
+  margin-bottom:22px;
+  letter-spacing:.08em;
+}
+.vision-text p em{
+  font-style:normal;color:var(--c-gold-dark);font-weight:500;
+}
+.vision-author{
+  margin-top:40px;padding-top:30px;
+  border-top:1px solid var(--c-line);
+  display:flex;flex-direction:column;gap:4px;
+}
+.vision-author-role{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.3em;
+  color:var(--c-text-light);
+}
+.vision-author-name{
+  font-family:var(--ff-serif);
+  font-size:22px;font-weight:500;
+  letter-spacing:.2em;color:var(--c-text);
+}
+.vision-author-en{
+  font-family:var(--ff-en);
+  font-size:13px;letter-spacing:.15em;
+  color:var(--c-text-sub);margin-top:4px;
+}
+.vision-image{
+  position:relative;
+  width:100%;max-width:420px;
+  margin-left:auto;
+}
+.vision-image::before{
+  content:"";position:absolute;top:-15px;right:-15px;
+  width:100%;height:100%;
+  border:1px solid var(--c-gold);
+  z-index:0;
+}
+.vision-image img{
+  position:relative;z-index:1;
+  width:100%;
+  aspect-ratio:4/5;object-fit:cover;
+  object-position:center 20%;
+  background:#efe1d3;
+  box-shadow:0 20px 60px rgba(156,128,98,.15);
+}
+@media(max-width:768px){
+  .vision-grid{grid-template-columns:1fr;gap:40px}
+  .vision-image{max-width:320px;margin:0 auto}
+  .vision-text .vision-catch{font-size:26px;padding-left:18px}
+}
+
+/* ============ PHILOSOPHY (3要素) ============ */
+.philosophy{background:var(--c-base)}
+.philos-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:30px;
+}
+.philos-card{
+  background:#fff;
+  padding:48px 32px;
+  border:1px solid var(--c-line);
+  text-align:center;
+  transition:all .4s ease;
+}
+.philos-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(156,128,98,.15);
+  border-color:var(--c-gold-light);
+}
+.philos-num{
+  font-family:var(--ff-en);
+  font-size:42px;font-weight:300;
+  letter-spacing:.1em;
+  color:var(--c-gold-light);
+  margin-bottom:18px;line-height:1;
+}
+.philos-title{
+  font-family:var(--ff-serif);
+  font-size:20px;font-weight:600;
+  letter-spacing:.12em;
+  color:var(--c-text);margin-bottom:16px;
+}
+.philos-en{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.3em;
+  color:var(--c-gold);margin-bottom:18px;
+}
+.philos-desc{font-size:13px;line-height:1.95;color:var(--c-text-sub)}
+
+@media(max-width:900px){
+  .philos-grid{grid-template-columns:1fr;gap:20px}
+}
+
+/* ============ BUSINESS / 事業領域 ============ */
+.business{
+  background:linear-gradient(180deg,var(--c-cream) 0%,var(--c-beige-light) 100%);
+}
+.biz-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:36px;
+}
+.biz-card{
+  background:#fff;
+  border:1px solid var(--c-line);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  transition:all .4s ease;
+  position:relative;
+}
+.biz-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 70px rgba(156,128,98,.18);
+  border-color:var(--c-gold-light);
+}
+.biz-visual{
+  height:240px;
+  background:linear-gradient(135deg,var(--c-beige-light) 0%,var(--c-cream) 100%);
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.biz-visual::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at top right,rgba(212,184,138,.3),transparent 60%);
+  pointer-events:none;
+}
+.biz-icon{
+  width:90px;height:90px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid var(--c-gold-light);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--c-gold-dark);
+  box-shadow:0 8px 20px rgba(156,128,98,.12);
+  position:relative;z-index:1;
+}
+.biz-icon svg{width:42px;height:42px}
+.biz-cat{
+  position:absolute;top:20px;left:20px;
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.3em;
+  padding:5px 14px;
+  background:var(--c-gold);color:#fff;
+  z-index:1;
+}
+.biz-body{
+  padding:36px 36px 32px;
+  flex:1;
+  display:flex;flex-direction:column;
+}
+.biz-name-en{
+  font-family:var(--ff-en);
+  font-size:13px;letter-spacing:.25em;
+  color:var(--c-gold);margin-bottom:6px;
+}
+.biz-name{
+  font-family:var(--ff-serif);
+  font-size:24px;font-weight:600;
+  letter-spacing:.08em;color:var(--c-text);
+  margin-bottom:18px;
+}
+.biz-desc{
+  font-size:14px;line-height:1.95;
+  color:var(--c-text-sub);
+  margin-bottom:24px;
+  flex:1;
+}
+.biz-features{
+  list-style:none;margin:0 0 28px;
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.biz-features li{
+  font-family:var(--ff-serif);
+  font-size:11px;
+  letter-spacing:.1em;
+  padding:5px 12px;
+  background:var(--c-beige-light);
+  color:var(--c-text-sub);
+  border-radius:2px;
+}
+.biz-link{
+  display:inline-flex;align-items:center;
+  align-self:flex-start;
+  gap:12px;
+  padding:14px 28px;
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.2em;
+  border:1px solid var(--c-gold);
+  color:var(--c-gold-dark);
+  background:transparent;
+  transition:all .3s ease;
+}
+.biz-link:hover{background:var(--c-gold);color:#fff;opacity:1}
+.biz-link::after{content:"→";font-size:14px;transition:transform .3s ease}
+.biz-link:hover::after{transform:translateX(4px)}
+
+.biz-grid--4{
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.biz-grid--4 .biz-visual{height:180px}
+.biz-grid--4 .biz-body{padding:28px 24px 26px}
+.biz-grid--4 .biz-name{font-size:19px;margin-bottom:14px}
+.biz-grid--4 .biz-desc{font-size:13px;margin-bottom:20px}
+.biz-grid--4 .biz-link{padding:12px 22px;font-size:12px}
+
+.biz-lead{
+  text-align:center;
+  font-family:var(--ff-serif);
+  font-size:15px;
+  line-height:2;
+  color:var(--c-text-sub);
+  letter-spacing:.1em;
+  margin:-30px auto 60px;
+  max-width:760px;
+}
+.biz-foot{
+  text-align:center;
+  margin-top:50px;
+}
+@media(max-width:1024px){
+  .biz-grid--4{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .biz-grid{grid-template-columns:1fr}
+  .biz-grid--4{grid-template-columns:1fr}
+  .biz-body{padding:28px 24px 24px}
+}
+
+/* ============ 商品カード 写真モード ============ */
+.biz-visual--photo{
+  height:240px;
+  padding:0;
+  overflow:hidden;
+}
+.biz-visual--photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.biz-grid--4 .biz-visual--photo{height:200px}
+.biz-cat--accent{background:var(--c-text)!important}
+
+.biz-card--feature{
+  border-color:var(--c-gold);
+  border-width:2px;
+  position:relative;
+}
+.biz-card--feature::before{
+  content:"PICK UP";
+  position:absolute;top:-1px;right:-1px;
+  background:var(--c-gold);
+  color:#fff;
+  font-family:var(--ff-en);
+  font-size:10px;letter-spacing:.2em;
+  padding:5px 14px;
+  z-index:2;
+}
+.biz-link--fill{
+  background:var(--c-gold);color:#fff;
+}
+.biz-link--fill:hover{background:var(--c-gold-dark);color:#fff}
+
+/* ============ LINEUP CTA ============ */
+.lineup-cta{background:linear-gradient(135deg,var(--c-cream) 0%,var(--c-beige-light) 100%)}
+.lineup-card{
+  background:#fff;
+  border:1px solid var(--c-line);
+  display:grid;
+  grid-template-columns:0.9fr 1.1fr;
+  overflow:hidden;
+  position:relative;
+}
+.lineup-card::before{
+  content:"";position:absolute;top:0;left:0;
+  width:6px;height:100%;
+  background:linear-gradient(180deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
+  z-index:3;
+}
+.lineup-photos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-template-rows:repeat(2,1fr);
+  gap:2px;
+  background:var(--c-beige-light);
+  min-height:520px;
+}
+.lineup-photo{overflow:hidden;position:relative}
+.lineup-photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .6s ease;
+}
+.lineup-photo:hover img{transform:scale(1.05)}
+.lineup-text{
+  padding:64px 60px;
+  display:flex;flex-direction:column;
+  justify-content:center;
+}
+.lineup-tag{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.3em;
+  color:var(--c-gold);
+  padding:6px 14px;
+  border:1px solid var(--c-gold-light);
+  display:inline-block;
+  align-self:flex-start;
+  margin-bottom:24px;
+}
+.lineup-en{
+  font-family:var(--ff-en);
+  font-size:48px;
+  font-weight:400;
+  letter-spacing:.2em;
+  color:var(--c-gold-dark);
+  margin-bottom:6px;
+  line-height:1;
+}
+.lineup-title{
+  font-family:var(--ff-serif);
+  font-size:30px;
+  font-weight:600;
+  letter-spacing:.08em;
+  line-height:1.5;
+  margin-bottom:24px;
+  color:var(--c-text);
+}
+.lineup-desc{
+  font-family:var(--ff-serif);
+  font-size:14.5px;
+  line-height:2.1;
+  color:var(--c-text-sub);
+  letter-spacing:.06em;
+  margin-bottom:30px;
+}
+.lineup-items{
+  list-style:none;
+  margin:0 0 36px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px 18px;
+}
+.lineup-items li{
+  font-size:13px;
+  color:var(--c-text-sub);
+  padding-left:22px;
+  position:relative;
+}
+.lineup-items li::before{
+  content:"";position:absolute;left:0;top:8px;
+  width:14px;height:14px;border-radius:50%;
+  border:1px solid var(--c-gold);
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/9px no-repeat;
+}
+.btn-lg{
+  padding:20px 44px;
+  font-size:14px;
+  letter-spacing:.22em;
+  align-self:flex-start;
+}
+@media(max-width:900px){
+  .lineup-card{grid-template-columns:1fr}
+  .lineup-photos{min-height:280px}
+  .lineup-text{padding:40px 28px}
+  .lineup-title{font-size:24px}
+  .lineup-en{font-size:38px}
+  .lineup-items{grid-template-columns:1fr}
+}
+
+/* ============ MACHINES ============ */
+.machines{background:var(--c-base)}
+.biz-grid--3{
+  grid-template-columns:repeat(3,1fr);
+}
+@media(max-width:1024px){
+  .biz-grid--3{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .biz-grid--3{grid-template-columns:1fr}
+}
+
+/* ============ COMPARISON ============ */
+.comparison{background:var(--c-base)}
+.comp-wrap{
+  max-width:1080px;margin:0 auto;
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(156,128,98,.1);
+}
+.comp-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  font-family:var(--ff-serif);
+}
+.comp-table thead th{
+  background:var(--c-text);
+  color:#fff;
+  padding:24px 30px;
+  text-align:left;
+  font-weight:500;
+  font-size:15px;
+  letter-spacing:.1em;
+}
+.comp-table thead th.comp-us{color:var(--c-gold-light)}
+.comp-table thead th.comp-other{color:rgba(255,255,255,.6)}
+.comp-table thead th.comp-us,
+.comp-table thead th.comp-other{text-align:center;width:25%}
+.comp-table tbody tr{border-bottom:1px solid var(--c-line)}
+.comp-table tbody tr:last-child{border-bottom:none}
+.comp-table tbody tr:nth-child(even){background:var(--c-beige-light)}
+.comp-table tbody td{
+  padding:22px 30px;
+  font-size:14px;
+  color:var(--c-text);
+  letter-spacing:.05em;
+}
+.comp-table tbody td:nth-child(2),
+.comp-table tbody td:nth-child(3){
+  text-align:center;
+}
+.comp-ok,.comp-ng{
+  display:inline-block;width:30px;height:30px;
+  border-radius:50%;
+  position:relative;
+}
+.comp-ok{
+  border:1.5px solid var(--c-gold);
+}
+.comp-ok::after{
+  content:"";position:absolute;
+  left:50%;top:50%;
+  width:14px;height:8px;
+  border-left:2px solid var(--c-gold);
+  border-bottom:2px solid var(--c-gold);
+  transform:translate(-50%,-65%) rotate(-45deg);
+}
+.comp-ng{
+  border:1.5px solid #d9b8b8;
+}
+.comp-ng::before,.comp-ng::after{
+  content:"";position:absolute;
+  left:50%;top:50%;
+  width:14px;height:2px;
+  background:#d9b8b8;
+}
+.comp-ng::before{transform:translate(-50%,-50%) rotate(45deg)}
+.comp-ng::after{transform:translate(-50%,-50%) rotate(-45deg)}
+@media(max-width:768px){
+  .comp-table thead th,.comp-table tbody td{padding:14px 12px;font-size:12px}
+  .comp-table thead th.comp-us,.comp-table thead th.comp-other{width:22%}
+  .comp-ok,.comp-ng{width:24px;height:24px}
+}
+
+/* ============ VOICE ============ */
+.voice{background:linear-gradient(180deg,var(--c-cream) 0%,var(--c-beige-light) 100%)}
+.voice-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+.voice-card{
+  background:#fff;
+  padding:40px 32px;
+  border:1px solid var(--c-line);
+  display:flex;flex-direction:column;
+  transition:all .4s ease;
+}
+.voice-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(156,128,98,.12);
+  border-color:var(--c-gold-light);
+}
+.voice-stars{
+  font-size:18px;
+  color:var(--c-gold);
+  letter-spacing:.3em;
+  margin-bottom:22px;
+}
+.voice-text{
+  font-family:var(--ff-serif);
+  font-size:14px;
+  line-height:2;
+  color:var(--c-text);
+  letter-spacing:.05em;
+  margin-bottom:28px;
+  flex:1;
+}
+.voice-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:20px;
+  border-top:1px solid var(--c-line);
+}
+.voice-author{display:flex;flex-direction:column;gap:4px}
+.voice-name{
+  font-family:var(--ff-serif);
+  font-size:15px;font-weight:600;
+  color:var(--c-text);
+  letter-spacing:.1em;
+}
+.voice-info{
+  font-size:11px;
+  color:var(--c-text-sub);
+}
+.voice-rank{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.2em;
+  padding:6px 16px;
+  border-radius:20px;
+  border:1px solid var(--c-gold-light);
+  color:var(--c-gold-dark);
+  background:var(--c-beige-light);
+}
+.voice-rank--gold{background:#f5e6c8;color:#9c7a3a;border-color:#d4b88a}
+.voice-rank--diamond{background:#e8e0f5;color:#6a5b8c;border-color:#c2b4dc}
+.voice-rank--silver{background:#ecedef;color:#6b6f74;border-color:#c9ccd0}
+
+@media(max-width:900px){
+  .voice-grid{grid-template-columns:1fr}
+}
+
+/* ============ STARTUP / 開業パック ============ */
+.startup{
+  background:linear-gradient(135deg,var(--c-cream) 0%,var(--c-beige-light) 100%);
+  padding:100px 40px;
+}
+.startup-card{
+  max-width:1200px;
+  margin:0 auto;
+  background:#fff;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  border:1px solid var(--c-line);
+  overflow:hidden;
+  position:relative;
+}
+.startup-card::before{
+  content:"";
+  position:absolute;top:0;left:0;
+  width:6px;height:100%;
+  background:linear-gradient(180deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
+}
+.startup-text{padding:64px 60px}
+.startup-tag{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.3em;
+  color:var(--c-gold);
+  padding:6px 14px;
+  border:1px solid var(--c-gold-light);
+  display:inline-block;
+  margin-bottom:24px;
+}
+.startup-en{
+  font-family:var(--ff-en);
+  font-size:24px;
+  letter-spacing:.2em;
+  color:var(--c-gold-dark);
+  margin-bottom:10px;
+}
+.startup-title{
+  font-family:var(--ff-serif);
+  font-size:32px;
+  font-weight:600;
+  letter-spacing:.06em;
+  margin-bottom:24px;
+  line-height:1.5;
+  color:var(--c-text);
+}
+.startup-desc{
+  font-family:var(--ff-serif);
+  font-size:15px;line-height:2.1;
+  color:var(--c-text-sub);
+  margin-bottom:30px;
+  letter-spacing:.08em;
+}
+.startup-desc em{font-style:normal;color:var(--c-gold-dark);font-weight:500}
+.startup-features{
+  list-style:none;margin:0 0 36px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px 24px;
+}
+.startup-features li{
+  font-size:13px;
+  color:var(--c-text-sub);
+  padding-left:22px;
+  position:relative;
+}
+.startup-features li::before{
+  content:"";
+  position:absolute;left:0;top:9px;
+  width:14px;height:14px;
+  border-radius:50%;
+  border:1px solid var(--c-gold);
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/9px no-repeat;
+}
+.startup-visual{
+  background:
+    radial-gradient(ellipse at center,rgba(212,184,138,.3) 0%,transparent 70%),
+    linear-gradient(135deg,var(--c-beige-light) 0%,var(--c-cream) 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.startup-badge{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+}
+.startup-badge-en{
+  font-family:var(--ff-en);
+  font-size:28px;
+  letter-spacing:.3em;
+  color:var(--c-gold-dark);
+  margin-bottom:14px;
+}
+.startup-badge-line{
+  width:60px;height:1px;
+  background:var(--c-gold);
+  margin-bottom:14px;
+}
+.startup-badge-jp{
+  font-family:var(--ff-serif);
+  font-size:18px;
+  letter-spacing:.2em;
+  color:var(--c-text);
+}
+@media(max-width:900px){
+  .startup-card{grid-template-columns:1fr}
+  .startup-text{padding:40px 28px}
+  .startup-title{font-size:24px}
+  .startup-visual{padding:50px 20px;min-height:200px}
+  .startup-features{grid-template-columns:1fr}
+}
+
+/* ============ SUPPORT ============ */
+.support-section{background:var(--c-cream)}
+
+/* ============ PORTAL PREVIEW ============ */
+.portal-preview{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:60px;
+  align-items:center;
+  background:#fff;
+  border:1px solid var(--c-line);
+  padding:60px;
+  margin-bottom:80px;
+  position:relative;
+  overflow:hidden;
+}
+.portal-preview::before{
+  content:"";position:absolute;top:0;left:0;
+  width:6px;height:100%;
+  background:linear-gradient(180deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
+}
+.portal-tag{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.3em;
+  color:var(--c-gold);
+  padding:6px 14px;
+  border:1px solid var(--c-gold-light);
+  display:inline-block;margin-bottom:20px;
+}
+.portal-en{
+  font-family:var(--ff-en);
+  font-size:22px;letter-spacing:.2em;
+  color:var(--c-gold-dark);
+  margin-bottom:10px;
+}
+.portal-title{
+  font-family:var(--ff-serif);
+  font-size:28px;font-weight:600;
+  letter-spacing:.08em;
+  line-height:1.5;
+  margin-bottom:20px;
+  color:var(--c-text);
+}
+.portal-desc{
+  font-family:var(--ff-serif);
+  font-size:14px;line-height:2.1;
+  color:var(--c-text-sub);
+  letter-spacing:.06em;
+  margin-bottom:24px;
+}
+.portal-desc em{font-style:normal;color:var(--c-gold-dark);font-weight:500}
+.portal-features{
+  list-style:none;margin:0 0 30px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px 18px;
+}
+.portal-features li{
+  font-size:12.5px;
+  color:var(--c-text-sub);
+  padding-left:22px;position:relative;
+}
+.portal-features li::before{
+  content:"";position:absolute;left:0;top:8px;
+  width:14px;height:14px;border-radius:50%;
+  border:1px solid var(--c-gold);
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/9px no-repeat;
+}
+
+/* ▼ モックアップ画面 */
+.portal-mockup{position:relative}
+.mockup-frame{
+  background:#1f1810;
+  border-radius:10px;
+  padding:14px 14px 18px;
+  box-shadow:0 30px 80px rgba(31,24,16,.25);
+  overflow:hidden;
+}
+.mockup-bar{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 4px 12px;
+  position:relative;
+}
+.mockup-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:#3a3024;
+}
+.mockup-dot:nth-child(1){background:#e07d5b}
+.mockup-dot:nth-child(2){background:#dab46b}
+.mockup-dot:nth-child(3){background:#8aaa6b}
+.mockup-url{
+  margin:0 auto;
+  font-family:var(--ff-en);
+  font-size:11px;
+  letter-spacing:.15em;
+  color:#7a6a5a;
+  background:#2a2218;
+  padding:4px 16px;
+  border-radius:10px;
+}
+.mockup-screen{
+  background:linear-gradient(180deg,#faf6f0 0%,#f5efe6 100%);
+  border-radius:6px;
+  padding:22px 22px 24px;
+}
+/* ヘッダー */
+.mockup-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--c-line);
+  margin-bottom:18px;
+}
+.mockup-brand{
+  font-family:var(--ff-en);
+  font-size:14px;letter-spacing:.25em;
+  color:var(--c-text);
+  font-weight:500;
+}
+.mockup-rank{display:flex;align-items:center;gap:10px}
+.mockup-rank-label{
+  font-family:var(--ff-en);
+  font-size:9px;letter-spacing:.25em;
+  color:var(--c-text-light);
+}
+.mockup-rank-badge{
+  font-family:var(--ff-en);
+  font-size:10px;letter-spacing:.2em;
+  padding:4px 12px;border-radius:14px;
+  background:#f5e6c8;color:#9c7a3a;
+  border:1px solid #d4b88a;
+}
+/* 進捗 */
+.mockup-progress{
+  background:#fff;
+  border:1px solid var(--c-line);
+  border-radius:4px;
+  padding:14px 16px;
+  margin-bottom:18px;
+}
+.mockup-progress-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:10.5px;color:var(--c-text-sub);
+  letter-spacing:.05em;margin-bottom:8px;
+}
+.mockup-amount{
+  font-family:var(--ff-en);
+  font-size:13px;font-weight:600;
+  color:var(--c-gold-dark);
+  letter-spacing:.05em;
+}
+.mockup-bar-track{
+  width:100%;height:5px;
+  background:var(--c-beige-light);
+  border-radius:3px;overflow:hidden;
+}
+.mockup-bar-fill{
+  width:62%;height:100%;
+  background:linear-gradient(90deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
+  border-radius:3px;
+}
+.mockup-progress-foot{
+  font-size:9.5px;color:var(--c-text-light);
+  margin-top:6px;text-align:right;
+}
+/* 動画グリッド */
+.mockup-section-title{
+  font-family:var(--ff-serif);
+  font-size:12px;font-weight:600;
+  letter-spacing:.15em;
+  color:var(--c-text);
+  margin-bottom:10px;
+}
+.mockup-videos{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.mockup-video{
+  background:#fff;
+  border:1px solid var(--c-line);
+  border-radius:3px;
+  overflow:hidden;
+  position:relative;
+}
+.mockup-thumb{
+  height:60px;
+  background:linear-gradient(135deg,#d4b88a 0%,#b89968 100%);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+  font-size:18px;
+}
+.mockup-thumb--alt{background:linear-gradient(135deg,#c9ccd0 0%,#8b8e93 100%)}
+.mockup-thumb--gold{background:linear-gradient(135deg,#f0c878 0%,#c99847 100%)}
+.mockup-thumb--lock{
+  background:#ebe3d3;
+  color:#9c8775;
+  font-size:16px;
+}
+.mockup-play{
+  width:22px;height:22px;
+  border-radius:50%;
+  background:rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;
+  backdrop-filter:blur(4px);
+}
+.mockup-lock{font-size:14px;opacity:.6}
+.mockup-vtag{
+  position:absolute;top:6px;left:6px;
+  font-family:var(--ff-en);
+  font-size:8px;letter-spacing:.15em;
+  padding:2px 6px;border-radius:8px;
+  background:rgba(255,255,255,.95);
+  color:var(--c-gold-dark);
+  border:1px solid var(--c-gold-light);
+}
+.mockup-vtag--lock{
+  background:rgba(0,0,0,.4);
+  color:#fff;
+  border-color:transparent;
+}
+.mockup-vname{
+  padding:6px 8px;
+  font-family:var(--ff-serif);
+  font-size:10px;
+  color:var(--c-text);
+  letter-spacing:.02em;
+}
+.mockup-video--lock .mockup-vname{color:var(--c-text-light)}
+
+.portal-mockup-note{
+  text-align:right;
+  font-size:10px;
+  color:var(--c-text-light);
+  letter-spacing:.1em;
+  margin-top:10px;
+}
+
+@media(max-width:900px){
+  .portal-preview{grid-template-columns:1fr;gap:36px;padding:36px 24px}
+  .portal-title{font-size:22px}
+  .portal-features{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .mockup-videos{grid-template-columns:repeat(2,1fr)}
+}
+.support-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+.support-grid--2{
+  grid-template-columns:repeat(2,1fr);
+  max-width:880px;
+  margin:0 auto;
+}
+.support-card{
+  background:#fff;
+  padding:48px 36px;
+  border:1px solid var(--c-line);
+  transition:all .4s ease;
+}
+.support-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(156,128,98,.15);
+  border-color:var(--c-gold-light);
+}
+.support-en{
+  font-family:var(--ff-en);
+  font-size:12px;letter-spacing:.3em;
+  color:var(--c-gold);
+  padding-bottom:14px;
+  margin-bottom:20px;
+  border-bottom:1px solid var(--c-line);
+}
+.support-title{
+  font-family:var(--ff-serif);
+  font-size:19px;
+  font-weight:600;
+  letter-spacing:.08em;
+  line-height:1.6;
+  color:var(--c-text);
+  margin-bottom:24px;
+}
+.support-price{
+  display:inline-block;
+  font-family:var(--ff-en);
+  font-size:14px;letter-spacing:.15em;
+  color:var(--c-gold-dark);
+  margin-top:6px;
+}
+.support-list{
+  list-style:none;margin:0;padding:0;
+}
+.support-list li{
+  font-size:13px;
+  line-height:2;
+  color:var(--c-text-sub);
+  padding-left:22px;
+  position:relative;
+}
+.support-list li::before{
+  content:"";
+  position:absolute;left:0;top:11px;
+  width:8px;height:1px;
+  background:var(--c-gold);
+}
+@media(max-width:900px){
+  .support-grid{grid-template-columns:1fr}
+  .support-card{padding:36px 24px}
+}
+
+/* ============ MESSAGE  ============ */
+.message{
+  background:linear-gradient(135deg,var(--c-text) 0%,#5a4a3a 100%);
+  color:#fff;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.message::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at top right,rgba(212,184,138,.2),transparent 50%),
+    radial-gradient(ellipse at bottom left,rgba(184,153,104,.15),transparent 50%);
+}
+.message-inner{position:relative;z-index:1}
+.message-en{
+  font-family:var(--ff-en);
+  font-size:38px;font-weight:400;
+  letter-spacing:.25em;
+  color:var(--c-gold-light);margin-bottom:12px;
+}
+.message-jp{
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.35em;
+  color:rgba(255,255,255,.7);margin-bottom:50px;
+}
+.message-quote{
+  font-family:var(--ff-serif);
+  font-size:clamp(20px,2.4vw,28px);
+  font-weight:400;line-height:2;
+  letter-spacing:.1em;
+  max-width:880px;margin:0 auto 40px;
+}
+.message-quote em{font-style:normal;color:var(--c-gold-light)}
+
+/* ============ COMPANY ============ */
+.company{background:var(--c-base)}
+.company-table{
+  max-width:880px;margin:0 auto;
+  width:100%;border-collapse:collapse;
+}
+.company-table tr{border-bottom:1px solid var(--c-line)}
+.company-table tr:first-child{border-top:1px solid var(--c-line)}
+.company-table th{
+  width:30%;
+  text-align:left;
+  padding:24px 20px;
+  font-family:var(--ff-serif);
+  font-weight:500;
+  font-size:14px;letter-spacing:.15em;
+  color:var(--c-gold-dark);vertical-align:top;
+}
+.company-table td{
+  padding:24px 20px;
+  font-size:14px;color:var(--c-text-sub);
+  line-height:1.9;
+}
+@media(max-width:768px){
+  .company-table th,.company-table td{display:block;padding:14px 10px;width:100%}
+  .company-table th{padding-bottom:0;border:none}
+  .company-table tr{padding-bottom:14px}
+}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--c-cream)}
+.contact-card{
+  background:#fff;
+  padding:70px 60px;
+  border:1px solid var(--c-line);
+  text-align:center;
+  max-width:880px;margin:0 auto;
+}
+.contact-card h3{
+  font-family:var(--ff-serif);
+  font-size:26px;font-weight:500;
+  letter-spacing:.1em;
+  margin-bottom:20px;
+}
+.contact-card p{
+  font-size:14px;line-height:2;
+  color:var(--c-text-sub);
+  margin-bottom:36px;
+}
+.contact-buttons{
+  display:flex;justify-content:center;gap:16px;flex-wrap:wrap;
+}
+.contact-line{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 32px;
+  background:#06c755;color:#fff;
+  font-family:var(--ff-serif);
+  font-size:14px;letter-spacing:.15em;
+  border-radius:2px;
+}
+.contact-line:hover{background:#05a647;opacity:1}
+@media(max-width:768px){
+  .contact-card{padding:40px 24px}
+}
+
+/* ============ FOOTER ============ */
+.footer{
+  background:var(--c-text);
+  color:#d9ccb8;
+  padding:60px 40px 30px;
+  text-align:center;
+}
+.footer-logo{
+  font-family:var(--ff-en);
+  font-size:24px;letter-spacing:.3em;
+  color:var(--c-gold-light);
+  margin-bottom:8px;padding-left:.3em;
+}
+.footer-tag{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.25em;
+  color:rgba(217,204,184,.6);
+  margin-bottom:36px;
+}
+.footer-nav{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:32px;margin-bottom:40px;
+}
+.footer-nav a{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.15em;
+  color:rgba(217,204,184,.8);
+}
+.copyright{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.2em;
+  color:rgba(217,204,184,.5);
+  padding-top:30px;
+  border-top:1px solid rgba(217,204,184,.15);
+}
+
+/* ============ ANIMATIONS ============ */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      GrandFusion
+      <small>株式会社グランフュージョン</small>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#vision">VISION</a>
+      <a href="products/index.html">LINEUP</a>
+      <a href="#voice">VOICE</a>
+      <a href="#company">COMPANY</a>
+      <a href="#contact" class="cta-btn">CONTACT</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">≡</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-brand">CORPORATE SITE</div>
+    <div class="hero-logo">GrandFusion</div>
+    <div class="hero-logo-jp">株式会社 グランフュージョン</div>
+    <h1 class="hero-title">
+      うまれかわる、<em>美しさ</em>を。<br>
+      女性の人生を、輝かせるメーカーへ。
+    </h1>
+    <p class="hero-sub">
+      美容・教育・経営・ライフスタイルを融合させ、<br>
+      女性が"美しく、豊かに、自分らしく在る"ための新しい価値を。<br>
+      GrandFusionは、サロン様の成功を一気通貫で支える総合メーカーです。
+    </p>
+    <div class="hero-cta">
+      <a href="products/index.html" class="btn btn-fill">商材・マシンを見る</a>
+      <a href="#contact" class="btn">お問い合わせ</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ===== VISION / 代表の想い ===== -->
+<section class="section vision" id="vision">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Our Vision</div>
+      <div class="section-jp">メーカー・代表の想い</div>
+    </div>
+    <div class="vision-grid">
+      <div class="vision-text">
+        <div class="vision-catch">うまれかわる、美しさを。</div>
+        <p>
+          株式会社GrandFusionでは、<br>
+          女性が<em>"美しく、豊かに、自分らしく在る"</em>ために、<br>
+          美容・教育・経営・ライフスタイルを融合させた<br>
+          新しい価値を提供しています。
+        </p>
+        <p>
+          サロン運営、マシン・商材開発、教育事業など、<br>
+          美容を軸に多岐にわたるサービスを展開。<br>
+          ただ商品を届けるのではなく、<br>
+          <em>"女性の人生そのものを輝かせること"</em>を使命に、<br>
+          本質的な美しさと、持続可能な豊かさを追求しています。
+        </p>
+        <p>
+          また、GrandFusionでは<br>
+          サロン様が結果を出し続けられるよう、<br>
+          教育スキーム・経営ノウハウ・実践サポートを構築。<br>
+          「売るため」ではなく、<br>
+          <em>「愛され、選ばれ、続いていくサロン」</em>を育てるメーカーとして、<br>
+          自信と可能性に満ち溢れた女性たちを<br>
+          全国へ輩出してまいります。
+        </p>
+        <div class="vision-author">
+          <span class="vision-author-role">代表取締役</span>
+          <span class="vision-author-name">粕谷 ありさ</span>
+          <span class="vision-author-en">Arisa Kasuya / CEO, GrandFusion Co., Ltd.</span>
+        </div>
+      </div>
+      <div class="vision-image">
+        <img src="images/kasuya-arisa.jpg" alt="株式会社GrandFusion 代表取締役 粕谷ありさ" onerror="this.onerror=null;this.src='images/kasuya-arisa-placeholder.svg';">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHILOSOPHY ===== -->
+<section class="section philosophy" id="philosophy">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Philosophy</div>
+      <div class="section-jp">私たちの価値観</div>
+    </div>
+    <div class="philos-grid">
+      <div class="philos-card">
+        <div class="philos-num">01</div>
+        <div class="philos-en">AUTHENTIC BEAUTY</div>
+        <div class="philos-title">本質的な美しさ</div>
+        <p class="philos-desc">
+          表面的ではない、その人の生き方そのものを輝かせる本質的な美しさを追求します。
+        </p>
+      </div>
+      <div class="philos-card">
+        <div class="philos-num">02</div>
+        <div class="philos-en">SUSTAINABLE GROWTH</div>
+        <div class="philos-title">持続可能な豊かさ</div>
+        <p class="philos-desc">
+          一過性ではなく、サロン様・お客様双方が長く豊かであり続けられる仕組みを設計します。
+        </p>
+      </div>
+      <div class="philos-card">
+        <div class="philos-num">03</div>
+        <div class="philos-en">EMPOWERED WOMEN</div>
+        <div class="philos-title">自分らしく在る女性へ</div>
+        <p class="philos-desc">
+          自信と可能性に満ち溢れた女性たちを、美容を起点に全国へ輩出してまいります。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LINEUP CTA / 商材・メーカーページへ ===== -->
+<section class="section lineup-cta" id="lineup">
+  <div class="section-inner">
+    <div class="lineup-card">
+      <div class="lineup-photos">
+        <div class="lineup-photo lineup-photo--1">
+          <img src="images/nuduque-aura-pack.jpg" alt="NUDUQUE">
+        </div>
+        <div class="lineup-photo lineup-photo--2">
+          <img src="images/btxtherma-machine.webp" alt="Clinical Machines">
+        </div>
+        <div class="lineup-photo lineup-photo--3">
+          <img src="images/kaigyopack-hero.webp" alt="Start Up">
+        </div>
+        <div class="lineup-photo lineup-photo--4">
+          <img src="images/nuduque-protein.jpg" alt="NUDUQUE Inner">
+        </div>
+      </div>
+      <div class="lineup-text">
+        <div class="lineup-tag">PRODUCTS &amp; MACHINES</div>
+        <div class="lineup-en">Lineup</div>
+        <h2 class="lineup-title">各種商材・<br>メーカーページはこちら</h2>
+        <p class="lineup-desc">
+          自社ブランド「NUDUQUE」のスキンケア・インナーケア4商品、<br>
+          医療発想で開発したクリニカルマシン2機種、<br>
+          そして開業サポートパックまで。<br><br>
+          メーカー担当者の想いとともに、<br>
+          GrandFusionの商材を一覧でご覧いただけます。
+        </p>
+        <ul class="lineup-items">
+          <li><span>NUDUQUE 4商品</span></li>
+          <li><span>クリニカルマシン 2機種</span></li>
+          <li><span>開業サポートパック</span></li>
+          <li><span>メーカー担当者からのご挨拶</span></li>
+        </ul>
+        <a href="products/index.html" class="btn btn-fill btn-lg">商材ラインナップを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUPPORT / 導入サポート ===== -->
+<section class="section support-section" id="support">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Support</div>
+      <div class="section-jp">導入サポート体制</div>
+    </div>
+
+    <!-- ▼ メーカーポータル サンプル -->
+    <div class="portal-preview">
+      <div class="portal-preview__text">
+        <div class="portal-tag">MEMBERS ONLY</div>
+        <div class="portal-en">GrandFusion Maker Portal</div>
+        <h3 class="portal-title">導入者様専用<br>学習コンテンツポータル</h3>
+        <p class="portal-desc">
+          仕入れ額に応じて解放される、<em>50本以上の動画学習コンテンツ</em>を会員専用ポータルにて提供。<br>
+          施術技術・集客・経営・カウンセリングまで、サロン経営のすべてが学べます。
+        </p>
+        <ul class="portal-features">
+          <li>仕入れ額連動 8段階ランク制度</li>
+          <li>動画コンテンツ50本以上</li>
+          <li>学習ログの可視化・管理</li>
+          <li>年1〜2回 GrandFusionアワード</li>
+        </ul>
+        <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener" class="btn btn-fill">サンプルサイトを見る</a>
+      </div>
+
+      <!-- ▼ ポータルのモックアップ -->
+      <div class="portal-mockup">
+        <div class="mockup-frame">
+          <div class="mockup-bar">
+            <span class="mockup-dot"></span>
+            <span class="mockup-dot"></span>
+            <span class="mockup-dot"></span>
+            <span class="mockup-url">grandfusion-portal.com</span>
+          </div>
+          <div class="mockup-screen">
+            <!-- ヘッダー -->
+            <div class="mockup-header">
+              <div class="mockup-brand">GrandFusion</div>
+              <div class="mockup-rank">
+                <span class="mockup-rank-label">YOUR RANK</span>
+                <span class="mockup-rank-badge">GOLD</span>
+              </div>
+            </div>
+            <!-- 進捗 -->
+            <div class="mockup-progress">
+              <div class="mockup-progress-head">
+                <span>累計仕入れ額</span>
+                <span class="mockup-amount">¥ 620,000</span>
+              </div>
+              <div class="mockup-bar-track">
+                <div class="mockup-bar-fill"></div>
+              </div>
+              <div class="mockup-progress-foot">次のランク AMBER まで ¥80,000</div>
+            </div>
+            <!-- 動画グリッド -->
+            <div class="mockup-section-title">学習コンテンツ</div>
+            <div class="mockup-videos">
+              <div class="mockup-video">
+                <div class="mockup-thumb"><span class="mockup-play">▶</span></div>
+                <div class="mockup-vtag">BRONZE</div>
+                <div class="mockup-vname">商材の基礎知識</div>
+              </div>
+              <div class="mockup-video">
+                <div class="mockup-thumb mockup-thumb--alt"><span class="mockup-play">▶</span></div>
+                <div class="mockup-vtag">SILVER</div>
+                <div class="mockup-vname">カウンセリング術</div>
+              </div>
+              <div class="mockup-video">
+                <div class="mockup-thumb mockup-thumb--gold"><span class="mockup-play">▶</span></div>
+                <div class="mockup-vtag">GOLD</div>
+                <div class="mockup-vname">痩身技術アドバンス</div>
+              </div>
+              <div class="mockup-video mockup-video--lock">
+                <div class="mockup-thumb mockup-thumb--lock"><span class="mockup-lock">🔒</span></div>
+                <div class="mockup-vtag mockup-vtag--lock">AMBER</div>
+                <div class="mockup-vname">集客マーケ講座</div>
+              </div>
+              <div class="mockup-video mockup-video--lock">
+                <div class="mockup-thumb mockup-thumb--lock"><span class="mockup-lock">🔒</span></div>
+                <div class="mockup-vtag mockup-vtag--lock">DIAMOND</div>
+                <div class="mockup-vname">経営・マインド</div>
+              </div>
+              <div class="mockup-video mockup-video--lock">
+                <div class="mockup-thumb mockup-thumb--lock"><span class="mockup-lock">🔒</span></div>
+                <div class="mockup-vtag mockup-vtag--lock">LEGEND</div>
+                <div class="mockup-vname">全コンテンツ解放</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portal-mockup-note">※ イメージ画面です</div>
+      </div>
+    </div>
+
+    <div class="support-grid support-grid--2">
+      <div class="support-card">
+        <div class="support-en">FINANCE SUPPORT</div>
+        <h3 class="support-title">融資サポート<br><span class="support-price">別途 ¥50,000</span></h3>
+        <ul class="support-list">
+          <li>事業計画書の作成補助</li>
+          <li>金融機関への同行サポート</li>
+          <li>補助金・助成金の申請支援</li>
+          <li>資金調達戦略のアドバイス</li>
+        </ul>
+      </div>
+
+      <div class="support-card">
+        <div class="support-en">MAKER PORTAL</div>
+        <h3 class="support-title">メーカーサポート<br>会員ポータル</h3>
+        <ul class="support-list">
+          <li>仕入れ額連動型 8段階ランク制度</li>
+          <li>50以上の学習コンテンツ</li>
+          <li>学習ログの可視化・管理</li>
+          <li>年1〜2回 GrandFusionアワード</li>
+        </ul>
+        <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener" class="biz-link" style="margin-top:20px">サポートサイトへ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARISON / 他社比較表 ===== -->
+<section class="section comparison" id="comparison">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Comparison</div>
+      <div class="section-jp">他社との比較</div>
+    </div>
+
+    <div class="comp-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th class="comp-feature">機能・サービス</th>
+            <th class="comp-us">GrandFusion</th>
+            <th class="comp-other">一般的なメーカー</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>仕入れ額連動コンテンツ解放</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>学習ログの可視化・管理</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>GrandFusionアワード</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>マシン伴走型3ヶ月サポート</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>融資サポート（別途5万円）</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>顧客向け資料の一元管理</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>Vimeo高品質動画配信</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>将来のLMS移行対応</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOICE / 導入サロンの声 ===== -->
+<section class="section voice" id="voice">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Voice</div>
+      <div class="section-jp">導入サロンの声</div>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-stars">★ ★ ★ ★ ★</div>
+        <p class="voice-text">
+          "仕入れを増やすほどコンテンツが解放されるシステムが面白く、自然と仕入れ意欲が上がりました。集客講座のおかげで月商が1.5倍になりました。"
+        </p>
+        <div class="voice-foot">
+          <div class="voice-author">
+            <span class="voice-name">A様</span>
+            <span class="voice-info">東京都・痩身サロン</span>
+          </div>
+          <span class="voice-rank voice-rank--gold">GOLD</span>
+        </div>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-stars">★ ★ ★ ★ ★</div>
+        <p class="voice-text">
+          "マシン導入時の3ヶ月伴走サポートが本当に心強かったです。技術だけでなく、カウンセリングの仕方まで丁寧に教えていただきました。"
+        </p>
+        <div class="voice-foot">
+          <div class="voice-author">
+            <span class="voice-name">B様</span>
+            <span class="voice-info">大阪府・エステサロン</span>
+          </div>
+          <span class="voice-rank voice-rank--diamond">DIAMOND</span>
+        </div>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-stars">★ ★ ★ ★ ★</div>
+        <p class="voice-text">
+          "融資サポートのおかげでマシン導入の資金調達がスムーズにできました。事業計画書の作成から金融機関への同行まで、本当に助かりました。"
+        </p>
+        <div class="voice-foot">
+          <div class="voice-author">
+            <span class="voice-name">C様</span>
+            <span class="voice-info">福岡県・美容サロン</span>
+          </div>
+          <span class="voice-rank voice-rank--silver">SILVER</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MESSAGE ===== -->
+<section class="section message">
+  <div class="section-inner message-inner">
+    <div class="message-en">Our Mission</div>
+    <div class="message-jp">私たちの使命</div>
+    <p class="message-quote">
+      ただ商品を届けるのではなく、<br>
+      <em>"女性の人生そのものを輝かせること"</em>を使命に。<br>
+      本質的な美しさと、持続可能な豊かさを、<br>
+      全国のサロン様とともに。
+    </p>
+  </div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section class="section company" id="company">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Company</div>
+      <div class="section-jp">会社概要</div>
+    </div>
+    <table class="company-table">
+      <tr><th>会社名</th><td>株式会社 GrandFusion（グランフュージョン）</td></tr>
+      <tr><th>代表取締役</th><td>粕谷 ありさ（Arisa Kasuya）</td></tr>
+      <tr><th>事業内容</th><td>
+        ・化粧品・健康食品の企画・製造・販売（ブランド「NUDUQUE」）<br>
+        ・業務用美容マシン・機器の企画・開発・卸<br>
+        ・サロン開業・経営サポート<br>
+        ・融資・教育・キャリア支援事業
+      </td></tr>
+      <tr><th>事業理念</th><td>うまれかわる、美しさを。<br>女性が"美しく、豊かに、自分らしく在る"ための新しい価値を提供します。</td></tr>
+      <tr><th>ブランド</th><td>NUDUQUE（ヌドゥーク）</td></tr>
+      <tr><th>お問合せ</th><td>公式LINEまたはお問い合わせフォームより承ります</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Contact</div>
+      <div class="section-jp">お問い合わせ</div>
+    </div>
+    <div class="contact-card">
+      <h3>製品導入・OEM・開業相談まで<br>お気軽にお問い合わせください</h3>
+      <p>
+        NUDUQUE製品の導入、業務用マシンのご紹介、サロン開業のご相談、教育プログラムについてなど、<br>
+        GrandFusionへのお問い合わせは公式LINEからお受けしております。
+      </p>
+      <div class="contact-buttons">
+        <a href="https://lin.ee/example" target="_blank" rel="noopener" class="contact-line">公式LINEで相談する</a>
+        <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener" class="btn">メーカーサポートサイトへ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">GrandFusion</div>
+  <div class="footer-tag">株式会社グランフュージョン</div>
+  <nav class="footer-nav">
+    <a href="#vision">VISION</a>
+    <a href="products/index.html">LINEUP</a>
+    <a href="#support">SUPPORT</a>
+    <a href="#comparison">COMPARISON</a>
+    <a href="#voice">VOICE</a>
+    <a href="#company">COMPANY</a>
+    <a href="#contact">CONTACT</a>
+    <a href="https://grandfusionsupport.manus.space" target="_blank" rel="noopener">MAKER PORTAL</a>
+  </nav>
+  <div class="copyright">© 2026 GrandFusion Co., Ltd. All Rights Reserved.</div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // Coming soon
+  document.querySelectorAll('[data-coming]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (el.getAttribute('href') === '#') {
+        e.preventDefault();
+        alert('準備中です。LP公開までお待ちください。');
+      }
+    });
+  });
+
+  // フェードイン
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.section').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

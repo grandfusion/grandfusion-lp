@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUDUQUE（ヌドゥーク）公式サイト｜株式会社GrandFusion</title>
+<meta name="description" content="看護師がつくった本物志向の妥協なき美。NUDUQUE（ヌドゥーク）は、スキンケア×インナーケアで美しさの土台を整える、サロン品質のトータルビューティブランドです。">
+<meta name="robots" content="max-image-preview:large">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-base:#faf6f0;        /* オフホワイト */
+  --c-beige:#ede3d3;       /* ベージュ */
+  --c-beige-light:#f5efe6; /* ライトベージュ */
+  --c-cream:#f7f1e6;       /* クリーム */
+  --c-gold:#b89968;        /* ゴールド */
+  --c-gold-light:#d4b88a;  /* ライトゴールド */
+  --c-gold-dark:#9c8062;   /* ダークゴールド */
+  --c-text:#3d3329;        /* 文字メイン */
+  --c-text-sub:#6b5d4f;    /* 文字サブ */
+  --c-text-light:#9c8775;  /* 文字ライト */
+  --c-line:#d9ccb8;        /* ライン */
+  --ff-serif:"Noto Serif JP","Yu Mincho",YuMincho,serif;
+  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-en:"Cormorant Garamond","Times New Roman",serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--ff-sans);
+  font-weight:400;
+  color:var(--c-text);
+  background:var(--c-base);
+  line-height:1.8;
+  letter-spacing:.04em;
+  font-feature-settings:"palt";
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:opacity .3s ease, color .3s ease}
+a:hover{opacity:.7}
+
+/* ============ HEADER ============ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,246,240,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--c-line);
+  transition:all .3s ease;
+}
+.header-inner{
+  max-width:1280px;margin:0 auto;
+  padding:18px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:var(--ff-en);
+  font-size:26px;font-weight:500;
+  letter-spacing:.3em;
+  color:var(--c-text);
+  padding-left:.3em;
+}
+.logo small{
+  display:block;
+  font-family:var(--ff-serif);
+  font-size:9px;letter-spacing:.4em;
+  margin-top:2px;color:var(--c-text-light);
+  padding-left:.2em;
+}
+.nav{display:flex;align-items:center;gap:36px}
+.nav a{
+  font-family:var(--ff-serif);
+  font-size:13px;font-weight:500;
+  letter-spacing:.15em;
+  color:var(--c-text-sub);
+  position:relative;
+}
+.nav a::after{
+  content:"";position:absolute;left:50%;bottom:-6px;
+  width:0;height:1px;background:var(--c-gold);
+  transition:width .3s ease,left .3s ease;
+}
+.nav a:hover{color:var(--c-gold-dark);opacity:1}
+.nav a:hover::after{width:100%;left:0}
+.nav .cta-btn{
+  background:var(--c-gold);color:#fff;
+  padding:10px 24px;border-radius:2px;
+  font-size:12px;letter-spacing:.18em;
+}
+.nav .cta-btn::after{display:none}
+.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
+
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--c-text)}
+
+@media(max-width:900px){
+  .header-inner{padding:14px 20px}
+  .nav{display:none}
+  .nav.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--c-base);
+    padding:30px 20px;gap:22px;
+    border-bottom:1px solid var(--c-line);
+  }
+  .menu-btn{display:block}
+  .logo{font-size:20px}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  padding:140px 40px 80px;
+  background:linear-gradient(180deg,var(--c-base) 0%,var(--c-cream) 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;top:0;right:-10%;
+  width:60%;height:100%;
+  background:radial-gradient(ellipse at center,rgba(212,184,138,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+  position:relative;
+}
+.hero-text{position:relative}
+.hero-brand{
+  font-family:var(--ff-en);
+  font-size:18px;font-weight:400;
+  letter-spacing:.5em;
+  color:var(--c-gold);
+  margin-bottom:30px;
+  display:flex;align-items:center;gap:14px;
+}
+.hero-brand::before,.hero-brand::after{
+  content:"";flex:0 0 40px;height:1px;background:var(--c-gold-light);
+}
+.hero-title{
+  font-family:var(--ff-serif);
+  font-size:clamp(34px,4.5vw,58px);
+  font-weight:400;
+  line-height:1.45;
+  letter-spacing:.06em;
+  color:var(--c-text);
+  margin-bottom:30px;
+}
+.hero-title em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:500;
+}
+.hero-sub{
+  font-family:var(--ff-serif);
+  font-size:16px;
+  line-height:2;
+  color:var(--c-text-sub);
+  margin-bottom:40px;
+  letter-spacing:.1em;
+}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 36px;
+  font-family:var(--ff-serif);
+  font-size:13px;
+  letter-spacing:.2em;
+  border:1px solid var(--c-gold);
+  color:var(--c-gold-dark);
+  background:transparent;
+  transition:all .3s ease;
+  cursor:pointer;
+}
+.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
+.btn-fill{background:var(--c-gold);color:#fff;border-color:var(--c-gold)}
+.btn-fill:hover{background:var(--c-gold-dark);border-color:var(--c-gold-dark)}
+.btn::after{content:"→";font-size:14px}
+
+.hero-image{
+  position:relative;
+  text-align:center;
+}
+.hero-image img{
+  border-radius:4px;
+  box-shadow:0 30px 80px rgba(156,128,98,.18);
+}
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;
+  transform:translateX(-50%);
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.4em;
+  color:var(--c-text-light);
+  writing-mode:vertical-rl;
+}
+.hero-scroll::after{
+  content:"";display:block;width:1px;height:50px;
+  background:var(--c-gold);
+  margin:14px auto 0;
+  animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine{
+  0%,100%{transform:scaleY(.3);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+}
+
+@media(max-width:900px){
+  .hero{padding:110px 20px 60px;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-image{order:2}
+  .hero-scroll{display:none}
+}
+
+/* ============ SECTION COMMON ============ */
+.section{padding:120px 40px;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:70px}
+.section-en{
+  font-family:var(--ff-en);
+  font-size:42px;
+  font-weight:400;
+  letter-spacing:.25em;
+  color:var(--c-gold-dark);
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.section-jp{
+  font-family:var(--ff-serif);
+  font-size:14px;
+  letter-spacing:.4em;
+  color:var(--c-text-sub);
+  position:relative;
+  display:inline-block;
+  padding:0 30px;
+}
+.section-jp::before,.section-jp::after{
+  content:"";position:absolute;top:50%;
+  width:20px;height:1px;background:var(--c-gold-light);
+}
+.section-jp::before{left:-10px}
+.section-jp::after{right:-10px}
+
+@media(max-width:900px){
+  .section{padding:80px 20px}
+  .section-en{font-size:30px}
+}
+
+/* ============ NEWS ============ */
+.news{background:var(--c-base);padding:80px 40px}
+.news-inner{max-width:980px;margin:0 auto}
+.news-head{
+  text-align:center;
+  margin-bottom:40px;
+}
+.news-head .section-en{font-size:30px;margin-bottom:8px}
+.news-list{
+  border-top:1px solid var(--c-line);
+}
+.news-item{
+  display:flex;align-items:center;
+  padding:22px 16px;
+  border-bottom:1px solid var(--c-line);
+  gap:24px;
+  transition:background .3s ease;
+}
+.news-item:hover{background:var(--c-cream)}
+.news-date{
+  font-family:var(--ff-en);
+  font-size:14px;
+  letter-spacing:.1em;
+  color:var(--c-text-light);
+  min-width:110px;
+}
+.news-cat{
+  font-family:var(--ff-serif);
+  font-size:11px;
+  letter-spacing:.18em;
+  padding:5px 14px;
+  background:var(--c-gold);color:#fff;
+  min-width:90px;text-align:center;
+}
+.news-cat.info{background:var(--c-text-sub)}
+.news-cat.event{background:var(--c-gold-light)}
+.news-title{
+  flex:1;font-size:14px;color:var(--c-text);
+  font-family:var(--ff-serif);
+}
+@media(max-width:768px){
+  .news-item{flex-wrap:wrap;gap:10px}
+  .news-date{min-width:auto}
+  .news-title{flex-basis:100%}
+}
+
+/* ============ ABOUT ============ */
+.about{
+  background:var(--c-cream);
+  position:relative;
+  overflow:hidden;
+}
+.about::before{
+  content:"";position:absolute;top:-50px;left:-100px;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(184,153,104,.1),transparent);
+  pointer-events:none;
+}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;
+}
+.about-text h3{
+  font-family:var(--ff-serif);
+  font-size:28px;
+  font-weight:500;
+  line-height:1.7;
+  letter-spacing:.08em;
+  margin-bottom:30px;
+  color:var(--c-text);
+}
+.about-text h3 em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+}
+.about-text p{
+  font-family:var(--ff-serif);
+  font-size:15px;
+  line-height:2.2;
+  color:var(--c-text-sub);
+  margin-bottom:20px;
+  letter-spacing:.08em;
+}
+.about-image{
+  position:relative;
+}
+.about-image::before{
+  content:"";position:absolute;top:-20px;right:-20px;
+  width:100%;height:100%;
+  border:1px solid var(--c-gold-light);
+  z-index:0;
+}
+.about-image img{
+  position:relative;z-index:1;
+  border-radius:2px;
+  box-shadow:0 20px 60px rgba(156,128,98,.15);
+  width:100%;
+}
+/* 代表者写真用ポートレート */
+.about-image--portrait{
+  max-width:440px;
+  margin-left:auto;
+}
+.about-image--portrait::before{
+  border-color:var(--c-gold);
+  width:calc(100% + 20px);
+  height:calc(100% + 20px);
+  top:-10px;right:-10px;
+}
+.about-image--portrait img{
+  aspect-ratio:4/5;
+  object-fit:cover;
+  background:#efe1d3;
+}
+.portrait-fallback{
+  display:none;
+  position:relative;z-index:1;
+  aspect-ratio:4/5;
+  background:linear-gradient(135deg,#efe1d3 0%,#dcc9b3 100%);
+  align-items:center;justify-content:center;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(156,128,98,.15);
+}
+.portrait-fallback-en{
+  font-family:var(--ff-en);
+  font-size:18px;letter-spacing:.4em;
+  color:var(--c-gold-dark);margin-bottom:14px;
+}
+.portrait-fallback-jp{
+  font-family:var(--ff-serif);
+  font-size:22px;letter-spacing:.15em;
+  color:var(--c-text);margin-bottom:18px;
+}
+.portrait-fallback-note{
+  font-family:var(--ff-serif);
+  font-size:12px;color:var(--c-text-sub);
+  line-height:1.7;letter-spacing:.1em;
+}
+
+/* ビジョンキャッチコピー */
+.vision-catch{
+  font-family:var(--ff-serif);
+  font-size:clamp(28px,3.4vw,42px);
+  font-weight:500;
+  line-height:1.5;
+  letter-spacing:.1em;
+  color:var(--c-gold-dark);
+  margin-bottom:40px;
+  position:relative;
+  padding-left:24px;
+}
+.vision-catch::before{
+  content:"";position:absolute;left:0;top:8px;bottom:8px;
+  width:3px;background:linear-gradient(180deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
+}
+.about-text p em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:500;
+}
+.vision-author{
+  margin-top:40px;
+  padding-top:30px;
+  border-top:1px solid var(--c-line);
+  display:flex;flex-direction:column;gap:4px;
+}
+.vision-author-role{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.3em;
+  color:var(--c-text-light);
+}
+.vision-author-name{
+  font-family:var(--ff-serif);
+  font-size:22px;font-weight:500;
+  letter-spacing:.2em;
+  color:var(--c-text);
+}
+.vision-author-en{
+  font-family:var(--ff-en);
+  font-size:13px;letter-spacing:.15em;
+  color:var(--c-text-sub);
+  margin-top:4px;
+}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-text h3{font-size:22px}
+  .about-image--portrait{max-width:340px;margin:0 auto}
+  .vision-catch{font-size:26px;padding-left:18px}
+}
+
+/* ============ MESSAGE ============ */
+.message{
+  background:linear-gradient(135deg,var(--c-beige-light) 0%,var(--c-cream) 100%);
+  text-align:center;
+}
+.message-quote{
+  font-family:var(--ff-serif);
+  font-size:clamp(22px,2.6vw,32px);
+  font-weight:400;
+  line-height:2;
+  color:var(--c-text);
+  max-width:880px;margin:0 auto 50px;
+  letter-spacing:.1em;
+  position:relative;
+}
+.message-quote::before{
+  content:"\201C";
+  font-family:var(--ff-en);
+  font-size:120px;
+  color:var(--c-gold-light);
+  position:absolute;top:-50px;left:50%;
+  transform:translateX(-50%);
+  opacity:.5;
+}
+.message-author{
+  font-family:var(--ff-serif);
+  font-size:14px;
+  letter-spacing:.2em;
+  color:var(--c-text-sub);
+}
+.message-author span{
+  display:block;
+  font-size:18px;
+  margin-top:8px;
+  color:var(--c-text);
+}
+
+/* ============ COMMITMENT (4つのこだわり) ============ */
+.commitment{background:var(--c-base)}
+.commit-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+.commit-card{
+  background:#fff;
+  padding:50px 30px;
+  text-align:center;
+  border:1px solid var(--c-line);
+  transition:all .4s ease;
+  position:relative;
+}
+.commit-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(156,128,98,.15);
+  border-color:var(--c-gold-light);
+}
+.commit-num{
+  font-family:var(--ff-en);
+  font-size:14px;letter-spacing:.3em;
+  color:var(--c-gold);
+  margin-bottom:20px;
+}
+.commit-icon{
+  width:80px;height:80px;
+  margin:0 auto 24px;
+  border-radius:50%;
+  border:1px solid var(--c-gold-light);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--c-gold-dark);
+}
+.commit-icon svg{width:36px;height:36px}
+.commit-title{
+  font-family:var(--ff-serif);
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:.12em;
+  margin-bottom:14px;
+  color:var(--c-text);
+}
+.commit-desc{
+  font-size:13px;
+  line-height:1.9;
+  color:var(--c-text-sub);
+}
+@media(max-width:900px){
+  .commit-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .commit-card{padding:36px 20px}
+}
+@media(max-width:480px){
+  .commit-grid{grid-template-columns:1fr}
+}
+
+/* ============ FEATURE (こだわり) ============ */
+.feature{
+  background:var(--c-cream);
+  background-image:
+    radial-gradient(ellipse at top right,rgba(212,184,138,.12),transparent 50%),
+    radial-gradient(ellipse at bottom left,rgba(212,184,138,.1),transparent 50%);
+}
+.feature-block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  margin-bottom:100px;
+}
+.feature-block:last-child{margin-bottom:0}
+.feature-block:nth-child(even) .feature-img{order:2}
+.feature-img{position:relative}
+.feature-img::before{
+  content:"";position:absolute;top:-15px;left:-15px;
+  width:80px;height:80px;
+  background:var(--c-gold);
+  z-index:0;
+}
+.feature-img img{
+  position:relative;z-index:1;
+  width:100%;
+  box-shadow:0 20px 50px rgba(156,128,98,.15);
+}
+.feature-num{
+  font-family:var(--ff-en);
+  font-size:80px;
+  font-weight:300;
+  color:var(--c-gold-light);
+  line-height:1;
+  margin-bottom:20px;
+}
+.feature-num span{color:var(--c-text)}
+.feature-title{
+  font-family:var(--ff-serif);
+  font-size:30px;
+  font-weight:500;
+  letter-spacing:.08em;
+  color:var(--c-text);
+  margin-bottom:24px;
+  line-height:1.6;
+}
+.feature-text{
+  font-family:var(--ff-serif);
+  font-size:15px;
+  line-height:2.1;
+  color:var(--c-text-sub);
+  margin-bottom:30px;
+  letter-spacing:.06em;
+}
+@media(max-width:900px){
+  .feature-block{grid-template-columns:1fr;gap:30px;margin-bottom:60px}
+  .feature-block:nth-child(even) .feature-img{order:0}
+  .feature-title{font-size:22px}
+  .feature-num{font-size:60px}
+}
+
+/* ============ PRODUCTS ============ */
+.products{background:var(--c-base)}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+.product-card{
+  background:#fff;
+  border:1px solid var(--c-line);
+  border-radius:4px;
+  overflow:hidden;
+  transition:all .4s ease;
+  display:flex;flex-direction:column;
+}
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 25px 60px rgba(156,128,98,.15);
+  border-color:var(--c-gold-light);
+}
+.product-img{
+  background:linear-gradient(135deg,var(--c-beige-light) 0%,var(--c-cream) 100%);
+  padding:50px 30px;
+  text-align:center;
+  position:relative;
+  min-height:300px;
+  display:flex;align-items:center;justify-content:center;
+}
+.product-img .product-label{
+  position:absolute;top:24px;left:24px;
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.25em;
+  color:var(--c-gold-dark);
+  padding:6px 14px;
+  border:1px solid var(--c-gold-light);
+  background:#fff;
+}
+.product-img img{
+  max-height:240px;
+  width:auto;
+  filter:drop-shadow(0 12px 24px rgba(156,128,98,.18));
+}
+.product-body{
+  padding:30px 30px 36px;
+  flex:1;
+  display:flex;flex-direction:column;
+}
+.product-name-en{
+  font-family:var(--ff-en);
+  font-size:14px;
+  letter-spacing:.25em;
+  color:var(--c-gold);
+  margin-bottom:8px;
+  text-transform:lowercase;
+}
+.product-name{
+  font-family:var(--ff-serif);
+  font-size:24px;
+  font-weight:600;
+  letter-spacing:.06em;
+  color:var(--c-text);
+  margin-bottom:18px;
+}
+.product-features{
+  list-style:none;margin:0 0 20px;
+  flex:1;
+}
+.product-features li{
+  font-size:13px;
+  line-height:1.9;
+  color:var(--c-text-sub);
+  padding-left:22px;
+  position:relative;
+  margin-bottom:8px;
+}
+.product-features li::before{
+  content:"";position:absolute;
+  left:0;top:9px;
+  width:14px;height:14px;
+  border-radius:50%;
+  border:1px solid var(--c-gold);
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/9px no-repeat;
+}
+.product-meta{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding-top:18px;
+  border-top:1px solid var(--c-line);
+}
+.product-volume{
+  font-family:var(--ff-en);
+  font-size:13px;
+  color:var(--c-text-light);
+  letter-spacing:.1em;
+}
+.product-price{
+  font-family:var(--ff-serif);
+  font-size:22px;
+  font-weight:500;
+  color:var(--c-gold-dark);
+}
+.product-price small{font-size:11px;color:var(--c-text-light);margin-left:4px}
+
+@media(max-width:768px){
+  .product-grid{grid-template-columns:1fr}
+}
+
+/* ============ HIRING / OEM CTA ============ */
+.hiring{
+  background:linear-gradient(135deg,var(--c-text) 0%,#5a4a3a 100%);
+  color:#fff;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hiring::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at top right,rgba(212,184,138,.2),transparent 50%),
+    radial-gradient(ellipse at bottom left,rgba(184,153,104,.15),transparent 50%);
+}
+.hiring-inner{position:relative;z-index:1}
+.hiring-en{
+  font-family:var(--ff-en);
+  font-size:38px;
+  font-weight:400;
+  letter-spacing:.25em;
+  color:var(--c-gold-light);
+  margin-bottom:12px;
+}
+.hiring-jp{
+  font-family:var(--ff-serif);
+  font-size:13px;
+  letter-spacing:.35em;
+  color:rgba(255,255,255,.7);
+  margin-bottom:36px;
+}
+.hiring h2{
+  font-family:var(--ff-serif);
+  font-size:clamp(26px,3.2vw,40px);
+  font-weight:500;
+  line-height:1.6;
+  letter-spacing:.08em;
+  margin-bottom:24px;
+}
+.hiring h2 em{font-style:normal;color:var(--c-gold-light)}
+.hiring-sub{
+  font-family:var(--ff-serif);
+  font-size:17px;
+  color:var(--c-gold-light);
+  margin-bottom:30px;
+  letter-spacing:.12em;
+}
+.hiring p{
+  max-width:760px;margin:0 auto 40px;
+  font-size:15px;
+  line-height:2;
+  color:rgba(255,255,255,.85);
+  letter-spacing:.06em;
+}
+.hiring .btn{
+  border-color:var(--c-gold-light);
+  color:var(--c-gold-light);
+  background:transparent;
+  padding:18px 50px;
+}
+.hiring .btn:hover{
+  background:var(--c-gold);
+  color:#fff;
+  border-color:var(--c-gold);
+}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--c-cream)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+  background:#fff;
+  padding:60px;
+  border:1px solid var(--c-line);
+}
+.contact-left h3{
+  font-family:var(--ff-serif);
+  font-size:24px;
+  font-weight:500;
+  margin-bottom:20px;
+  letter-spacing:.08em;
+}
+.contact-left p{
+  font-size:14px;
+  line-height:2;
+  color:var(--c-text-sub);
+  margin-bottom:24px;
+}
+.contact-line{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 30px;
+  background:#06c755;color:#fff;
+  font-family:var(--ff-serif);
+  font-size:14px;letter-spacing:.15em;
+  border-radius:2px;
+}
+.contact-line:hover{background:#05a647;opacity:1}
+.contact-line::before{
+  content:"";
+  width:22px;height:22px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M12 2C6.48 2 2 5.86 2 10.61c0 3.04 1.83 5.69 4.56 7.21-.2.74-.71 2.63-.81 3.04-.13.5.18.5.39.36.16-.11 2.6-1.77 3.65-2.49.74.11 1.5.17 2.21.17 5.52 0 10-3.86 10-8.61S17.52 2 12 2zM7.4 13.07h-2c-.13 0-.23-.11-.23-.24V8.95c0-.13.1-.24.23-.24s.23.11.23.24v3.63h1.77c.13 0 .23.11.23.24s-.1.24-.23.24zm1.41-.24c0 .13-.1.24-.23.24s-.23-.11-.23-.24V8.95c0-.13.1-.24.23-.24s.23.11.23.24v3.88z'/></svg>") center/contain no-repeat;
+}
+.contact-right{
+  text-align:center;
+  padding:30px;
+  background:var(--c-cream);
+  border:1px dashed var(--c-gold-light);
+}
+.contact-right .label{
+  font-family:var(--ff-serif);
+  font-size:13px;
+  letter-spacing:.2em;
+  color:var(--c-text-sub);
+  margin-bottom:14px;
+}
+.contact-right .qr-placeholder{
+  width:160px;height:160px;
+  margin:0 auto 14px;
+  background:#fff;
+  border:1px solid var(--c-line);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-en);
+  font-size:12px;
+  color:var(--c-text-light);
+  letter-spacing:.2em;
+}
+.contact-right .small{
+  font-size:11px;color:var(--c-text-light);
+  font-family:var(--ff-serif);
+  letter-spacing:.1em;
+}
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr;padding:30px;gap:36px}
+}
+
+/* ============ COMPANY ============ */
+.company{background:var(--c-base)}
+.company-table{
+  max-width:880px;margin:0 auto;
+  width:100%;border-collapse:collapse;
+}
+.company-table tr{border-bottom:1px solid var(--c-line)}
+.company-table tr:first-child{border-top:1px solid var(--c-line)}
+.company-table th{
+  width:30%;
+  text-align:left;
+  padding:24px 20px;
+  font-family:var(--ff-serif);
+  font-weight:500;
+  font-size:14px;
+  letter-spacing:.15em;
+  color:var(--c-gold-dark);
+  vertical-align:top;
+}
+.company-table td{
+  padding:24px 20px;
+  font-size:14px;
+  color:var(--c-text-sub);
+  line-height:1.9;
+}
+@media(max-width:768px){
+  .company-table th,.company-table td{display:block;padding:14px 10px;width:100%}
+  .company-table th{padding-bottom:0;border:none}
+  .company-table tr{padding-bottom:14px}
+}
+
+/* ============ FOOTER ============ */
+.footer{
+  background:var(--c-text);
+  color:#d9ccb8;
+  padding:60px 40px 30px;
+  text-align:center;
+}
+.footer-logo{
+  font-family:var(--ff-en);
+  font-size:24px;
+  letter-spacing:.35em;
+  color:var(--c-gold-light);
+  margin-bottom:8px;
+  padding-left:.35em;
+}
+.footer-tag{
+  font-family:var(--ff-serif);
+  font-size:12px;
+  letter-spacing:.25em;
+  color:rgba(217,204,184,.6);
+  margin-bottom:36px;
+}
+.footer-nav{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:32px;
+  margin-bottom:40px;
+}
+.footer-nav a{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.15em;
+  color:rgba(217,204,184,.8);
+}
+.copyright{
+  font-family:var(--ff-en);
+  font-size:11px;
+  letter-spacing:.2em;
+  color:rgba(217,204,184,.5);
+  padding-top:30px;
+  border-top:1px solid rgba(217,204,184,.15);
+}
+
+/* ============ Animations ============ */
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      NUDUQUE
+      <small>by GrandFusion</small>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#about">ABOUT</a>
+      <a href="#commitment">COMMITMENT</a>
+      <a href="#feature">FEATURE</a>
+      <a href="#products">PRODUCTS</a>
+      <a href="#company">COMPANY</a>
+      <a href="#contact" class="cta-btn">CONTACT</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">≡</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-brand">NUDUQUE</div>
+      <h1 class="hero-title">
+        素肌が変わると、<br>
+        <em>人生</em>が変わる。
+      </h1>
+      <p class="hero-sub">
+        看護師がつくった、本物志向の妥協なき美。<br>
+        スキンケア × インナーケアで、美しさの土台を整える。
+      </p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-fill">商品を見る</a>
+        <a href="#contact" class="btn">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/nuduque-main.webp" alt="NUDUQUEブランド商品">
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section class="news">
+  <div class="news-inner">
+    <div class="news-head">
+      <div class="section-en" style="font-size:30px">NEWS</div>
+      <div class="section-jp">新着情報</div>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">2026.05.10</span>
+        <span class="news-cat">NEW</span>
+        <span class="news-title">aura protein（高級抹茶ご褒美プロテイン）が新登場しました</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2026.04.20</span>
+        <span class="news-cat event">EVENT</span>
+        <span class="news-title">サロン様向けNUDUQUE導入セミナーを開催いたします</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2026.03.15</span>
+        <span class="news-cat info">INFO</span>
+        <span class="news-title">公式LINEにて商品サンプル・資料請求の受付を開始しました</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT / 代表メッセージ ===== -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Our Vision</div>
+      <div class="section-jp">メーカー・代表の想い</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="vision-catch">うまれかわる、美しさを。</div>
+        <p>
+          株式会社GrandFusionでは、<br>
+          女性が<em>“美しく、豊かに、自分らしく在る”</em>ために、<br>
+          美容・教育・経営・ライフスタイルを融合させた<br>
+          新しい価値を提供しています。
+        </p>
+        <p>
+          サロン運営、マシン・商材開発、教育事業など、<br>
+          美容を軸に多岐にわたるサービスを展開。<br>
+          ただ商品を届けるのではなく、<br>
+          <em>“女性の人生そのものを輝かせること”</em>を使命に、<br>
+          本質的な美しさと、持続可能な豊かさを追求しています。
+        </p>
+        <p>
+          また、GrandFusionでは<br>
+          サロン様が結果を出し続けられるよう、<br>
+          教育スキーム・経営ノウハウ・実践サポートを構築。<br>
+          「売るため」ではなく、<br>
+          <em>「愛され、選ばれ、続いていくサロン」</em>を育てるメーカーとして、<br>
+          自信と可能性に満ち溢れた女性たちを<br>
+          全国へ輩出してまいります。
+        </p>
+        <div class="vision-author">
+          <span class="vision-author-role">代表取締役</span>
+          <span class="vision-author-name">粕谷 ありさ</span>
+          <span class="vision-author-en">Arisa Kasuya / CEO, GrandFusion Co., Ltd.</span>
+        </div>
+      </div>
+      <div class="about-image about-image--portrait">
+        <img src="images/kasuya-arisa.jpg" alt="株式会社GrandFusion 代表取締役 粕谷ありさ" onerror="this.onerror=null;this.src='images/kasuya-arisa-placeholder.svg';">
+        <div class="portrait-fallback">
+          <div>
+            <div class="portrait-fallback-en">PORTRAIT</div>
+            <div class="portrait-fallback-jp">粕谷 ありさ</div>
+            <div class="portrait-fallback-note">写真をここに配置<br>（images/kasuya-arisa.jpg）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMITMENT (4つのこだわり) ===== -->
+<section class="section commitment" id="commitment">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Commitment</div>
+      <div class="section-jp">4つのこだわり</div>
+    </div>
+    <div class="commit-grid">
+      <div class="commit-card">
+        <div class="commit-num">01</div>
+        <div class="commit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/>
+          </svg>
+        </div>
+        <div class="commit-title">看護師監修</div>
+        <p class="commit-desc">医療知識に基づいた処方設計で、安心と効果を両立。</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-num">02</div>
+        <div class="commit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M6 3h12l4 6-10 12L2 9z"/>
+            <path d="M2 9h20M10 3l2 6 2-6"/>
+          </svg>
+        </div>
+        <div class="commit-title">本物志向の成分</div>
+        <p class="commit-desc">妥協なき原料選定と品質管理で、確かな結果を。</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-num">03</div>
+        <div class="commit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
+          </svg>
+        </div>
+        <div class="commit-title">サロン品質</div>
+        <p class="commit-desc">プロが認めた実力。サロンレベルのケアを自宅で。</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-num">04</div>
+        <div class="commit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 21c-4-4-8-8-8-13a5 5 0 0110-1 5 5 0 0110 1c0 5-4 9-8 13z"/>
+            <path d="M12 7c-2 2-4 4-4 6"/>
+          </svg>
+        </div>
+        <div class="commit-title">内外からのケア</div>
+        <p class="commit-desc">スキンケア×インナーケアの統合で、根本から美しく。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURE ===== -->
+<section class="section feature" id="feature">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Feature</div>
+      <div class="section-jp">こだわり</div>
+    </div>
+
+    <div class="feature-block">
+      <div class="feature-img">
+        <img src="images/nuduque-front.webp" alt="NUDUQUE スキンケアライン">
+      </div>
+      <div class="feature-content">
+        <div class="feature-num"><span>0</span>1</div>
+        <h3 class="feature-title">サロン品質のスキンケアライン</h3>
+        <p class="feature-text">
+          炭酸オーラパック・リペアクリーム pro・水素パウダーの3ラインで、肌本来の力を引き出すサロン品質のスキンケアを実現。CO₂ボーア効果、PDRN、グルタチオン、パンテノールなど、結果にこだわった先端成分を惜しみなく配合しています。
+        </p>
+        <a href="#products" class="btn">スキンケアを見る</a>
+      </div>
+    </div>
+
+    <div class="feature-block">
+      <div class="feature-img">
+        <img src="images/nuduque-collection.webp" alt="NUDUQUE インナーケア">
+      </div>
+      <div class="feature-content">
+        <div class="feature-num"><span>0</span>2</div>
+        <h3 class="feature-title">内側から美を支えるインナーケア</h3>
+        <p class="feature-text">
+          高級抹茶ご褒美プロテイン「aura protein」は、たんぱく質20g・ビタミンC・葉酸・鉄・亜鉛をバランスよく配合。6つのフリー処方とマタニティ認証取得で、女性のからだに本気で寄り添うインナービューティを叶えます。
+        </p>
+        <a href="#products" class="btn">インナーケアを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="section products" id="products">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Products</div>
+      <div class="section-jp">商品ラインナップ</div>
+    </div>
+
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-img">
+          <span class="product-label">SKIN CARE</span>
+          <img src="images/nuduque-collection.webp" alt="炭酸オーラパック" style="object-fit:contain;">
+        </div>
+        <div class="product-body">
+          <div class="product-name-en">repair aura pack</div>
+          <div class="product-name">炭酸オーラパック</div>
+          <ul class="product-features">
+            <li>CO₂ボーア効果で肌本来の力を引き出す</li>
+            <li>グルタチオン・PDRN配合</li>
+            <li>約50〜100回分の集中ケア</li>
+          </ul>
+          <div class="product-meta">
+            <div class="product-volume">100g</div>
+            <div class="product-price">¥13,200<small>（税込）</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-img">
+          <span class="product-label">SKIN CARE</span>
+          <img src="images/nuduque-collection.webp" alt="リペアクリーム pro" style="object-fit:contain;">
+        </div>
+        <div class="product-body">
+          <div class="product-name-en">repair cream pro</div>
+          <div class="product-name">リペアクリーム pro</div>
+          <ul class="product-features">
+            <li>先端成分が肌のうるおいとハリをサポート</li>
+            <li>パンテノール配合で保湿・修復</li>
+            <li>毎日のスキンケアの仕上げに</li>
+          </ul>
+          <div class="product-meta">
+            <div class="product-volume">CREAM</div>
+            <div class="product-price">¥13,200<small>（税込）</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-img">
+          <span class="product-label">SKIN CARE</span>
+          <img src="images/nuduque-collection.webp" alt="水素パウダー" style="object-fit:contain;">
+        </div>
+        <div class="product-body">
+          <div class="product-name-en">skin bank H⁺</div>
+          <div class="product-name">水素パウダー</div>
+          <ul class="product-features">
+            <li>水素の力で肌を活性化</li>
+            <li>透明感あふれる美しい肌へ</li>
+            <li>サロンケアのブースターに</li>
+          </ul>
+          <div class="product-meta">
+            <div class="product-volume">30g</div>
+            <div class="product-price">¥13,200<small>（税込）</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-img">
+          <span class="product-label">INNER CARE</span>
+          <img src="images/nuduque-collection.webp" alt="高級抹茶ご褒美プロテイン" style="object-fit:contain;">
+        </div>
+        <div class="product-body">
+          <div class="product-name-en">aura protein</div>
+          <div class="product-name">高級抹茶ご褒美プロテイン</div>
+          <ul class="product-features">
+            <li>たんぱく質20g・ビタミンC・葉酸・鉄・亜鉛</li>
+            <li>6つのフリー処方</li>
+            <li>マタニティ認証取得</li>
+          </ul>
+          <div class="product-meta">
+            <div class="product-volume">500g</div>
+            <div class="product-price">¥7,000<small>（税込 ¥7,560）</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HIRING / OEM CTA ===== -->
+<section class="section hiring">
+  <div class="section-inner hiring-inner">
+    <div class="hiring-en">PARTNERS</div>
+    <div class="hiring-jp">取扱サロン・代理店募集</div>
+    <h2>NUDUQUE 導入サロンを<br><em>募集しています</em>。</h2>
+    <div class="hiring-sub">高品質な製品と、結果にこだわるサロンケア。</div>
+    <p>
+      看護師監修・本物志向の成分・サロン品質・内外からのケア──<br>
+      NUDUQUEは、お客様の「変わる肌」を確かな技術と製品でサポートします。<br>
+      取扱サロン様・代理店様のお問い合わせはこちらから。
+    </p>
+    <a href="#contact" class="btn">お問い合わせはこちら</a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Contact</div>
+      <div class="section-jp">お問い合わせ・導入のご相談</div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h3>お問い合わせ・<br>導入のご相談はこちら</h3>
+        <p>
+          NUDUQUE製品の導入、OEM・代理店、サンプル請求、メディア掲載などのご相談を承っております。<br>
+          公式LINEを友だち追加いただくと、商品資料・サンプル情報をお届けいたします。
+        </p>
+        <a href="#" class="contact-line">公式LINEを友だち追加</a>
+      </div>
+      <div class="contact-right">
+        <div class="label">QR CODE</div>
+        <div class="qr-placeholder">公式LINE<br>QRコード</div>
+        <div class="small">スマホで読み取って<br>友だち追加</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section class="section company" id="company">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Company</div>
+      <div class="section-jp">会社概要</div>
+    </div>
+    <table class="company-table">
+      <tr><th>会社名</th><td>株式会社 GrandFusion</td></tr>
+      <tr><th>ブランド</th><td>NUDUQUE（ヌドゥーク）</td></tr>
+      <tr><th>事業内容</th><td>化粧品・健康食品の企画・製造・販売／OEM事業／サロン向け商品の卸売</td></tr>
+      <tr><th>コンセプト</th><td>看護師がつくった、本物志向の妥協なき美。<br>スキンケア × インナーケアで、美しさの土台を整える。</td></tr>
+      <tr><th>製品カテゴリ</th><td>スキンケア／インナーケア／サロン専売品</td></tr>
+      <tr><th>お問合せ</th><td>公式LINEまたはお問い合わせフォームより承ります</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">NUDUQUE</div>
+  <div class="footer-tag">by GrandFusion</div>
+  <nav class="footer-nav">
+    <a href="#about">ABOUT</a>
+    <a href="#commitment">COMMITMENT</a>
+    <a href="#feature">FEATURE</a>
+    <a href="#products">PRODUCTS</a>
+    <a href="#company">COMPANY</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+  <div class="copyright">© 2026 NUDUQUE / GrandFusion Co., Ltd. All Rights Reserved.</div>
+</footer>
+
+<script>
+  // モバイルメニュー
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // スクロールアニメーション
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.section, .news, .hero-text, .hero-image').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

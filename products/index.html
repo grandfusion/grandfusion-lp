@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商材・マシンラインナップ｜GrandFusion</title>
+<meta name="description" content="株式会社GrandFusionの商材・マシンラインナップ。NUDUQUEブランドの4商品、自社クリニカルマシン、開業サポートパックなど、サロン経営を支える商材をご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-base:#faf6f0;
+  --c-beige:#ede3d3;
+  --c-beige-light:#f5efe6;
+  --c-cream:#f7f1e6;
+  --c-gold:#b89968;
+  --c-gold-light:#d4b88a;
+  --c-gold-dark:#9c8062;
+  --c-text:#3d3329;
+  --c-text-sub:#6b5d4f;
+  --c-text-light:#9c8775;
+  --c-line:#d9ccb8;
+  --ff-serif:"Noto Serif JP","Yu Mincho",YuMincho,serif;
+  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-en:"Cormorant Garamond","Times New Roman",serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--ff-sans);
+  font-weight:400;
+  color:var(--c-text);
+  background:var(--c-base);
+  line-height:1.8;
+  letter-spacing:.04em;
+  font-feature-settings:"palt";
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:opacity .3s ease,color .3s ease}
+a:hover{opacity:.75}
+
+/* ============ HEADER ============ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,246,240,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--c-line);
+}
+.header-inner{
+  max-width:1280px;margin:0 auto;
+  padding:18px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:var(--ff-en);
+  font-size:24px;font-weight:500;
+  letter-spacing:.25em;
+  color:var(--c-text);
+  padding-left:.25em;
+}
+.logo small{
+  display:block;
+  font-family:var(--ff-serif);
+  font-size:9px;letter-spacing:.4em;
+  margin-top:2px;color:var(--c-text-light);
+}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{
+  font-family:var(--ff-serif);
+  font-size:13px;font-weight:500;
+  letter-spacing:.15em;
+  color:var(--c-text-sub);
+  position:relative;
+}
+.nav a::after{
+  content:"";position:absolute;left:50%;bottom:-6px;
+  width:0;height:1px;background:var(--c-gold);
+  transition:width .3s ease,left .3s ease;
+}
+.nav a:hover{color:var(--c-gold-dark);opacity:1}
+.nav a:hover::after{width:100%;left:0}
+.nav .cta-btn{
+  background:var(--c-gold);color:#fff;
+  padding:10px 24px;border-radius:2px;
+  font-size:12px;letter-spacing:.18em;
+}
+.nav .cta-btn::after{display:none}
+.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--c-text)}
+
+@media(max-width:900px){
+  .header-inner{padding:14px 20px}
+  .nav{display:none}
+  .nav.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--c-base);padding:26px 20px;gap:18px;
+    border-bottom:1px solid var(--c-line);
+  }
+  .menu-btn{display:block}
+  .logo{font-size:18px}
+}
+
+/* ============ PAGE HERO ============ */
+.page-hero{
+  padding:180px 40px 100px;
+  background:
+    radial-gradient(ellipse at 80% 20%,rgba(212,184,138,.2) 0%,transparent 50%),
+    linear-gradient(180deg,var(--c-base) 0%,var(--c-cream) 100%);
+  text-align:center;
+  position:relative;
+}
+.crumb{
+  font-family:var(--ff-en);
+  font-size:12px;letter-spacing:.25em;
+  color:var(--c-text-light);
+  margin-bottom:30px;
+}
+.crumb a{color:var(--c-gold-dark)}
+.crumb span{margin:0 12px;opacity:.4}
+.page-en{
+  font-family:var(--ff-en);
+  font-size:clamp(38px,5vw,64px);
+  font-weight:400;
+  letter-spacing:.2em;
+  color:var(--c-text);
+  margin-bottom:14px;
+  line-height:1.1;
+  padding-left:.2em;
+}
+.page-jp{
+  font-family:var(--ff-serif);
+  font-size:15px;letter-spacing:.4em;
+  color:var(--c-text-sub);
+  position:relative;display:inline-block;
+  padding:0 36px;
+  margin-bottom:40px;
+}
+.page-jp::before,.page-jp::after{
+  content:"";position:absolute;top:50%;
+  width:24px;height:1px;background:var(--c-gold-light);
+}
+.page-jp::before{left:-10px}
+.page-jp::after{right:-10px}
+.page-lead{
+  font-family:var(--ff-serif);
+  font-size:16px;line-height:2.2;
+  color:var(--c-text-sub);
+  max-width:700px;margin:0 auto;
+  letter-spacing:.08em;
+}
+@media(max-width:900px){
+  .page-hero{padding:130px 20px 70px}
+}
+
+/* ============ SECTION ============ */
+.section{padding:90px 40px;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:60px}
+.section-en{
+  font-family:var(--ff-en);
+  font-size:36px;font-weight:400;
+  letter-spacing:.25em;
+  color:var(--c-gold-dark);
+  margin-bottom:12px;
+  text-transform:uppercase;
+}
+.section-jp{
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.4em;
+  color:var(--c-text-sub);
+  position:relative;display:inline-block;
+  padding:0 30px;
+}
+.section-jp::before,.section-jp::after{
+  content:"";position:absolute;top:50%;
+  width:20px;height:1px;background:var(--c-gold-light);
+}
+.section-jp::before{left:-10px}
+.section-jp::after{right:-10px}
+@media(max-width:900px){
+  .section{padding:70px 20px}
+  .section-en{font-size:28px}
+}
+
+/* ============ BIZ CARDS ============ */
+.biz-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+.biz-grid--4{
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.biz-grid--3{grid-template-columns:repeat(3,1fr)}
+.biz-card{
+  background:#fff;
+  border:1px solid var(--c-line);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  transition:all .4s ease;
+}
+.biz-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 70px rgba(156,128,98,.18);
+  border-color:var(--c-gold-light);
+}
+.biz-visual--photo{
+  height:240px;
+  overflow:hidden;
+  position:relative;
+}
+.biz-grid--4 .biz-visual--photo{height:200px}
+.biz-visual--photo img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+}
+.biz-cat{
+  position:absolute;top:20px;left:20px;
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.3em;
+  padding:5px 14px;
+  background:var(--c-gold);color:#fff;
+  z-index:1;
+}
+.biz-cat--accent{background:var(--c-text)}
+.biz-body{
+  padding:32px 30px 30px;
+  flex:1;
+  display:flex;flex-direction:column;
+}
+.biz-grid--4 .biz-body{padding:26px 22px 24px}
+.biz-name-en{
+  font-family:var(--ff-en);
+  font-size:13px;letter-spacing:.25em;
+  color:var(--c-gold);margin-bottom:6px;
+}
+.biz-name{
+  font-family:var(--ff-serif);
+  font-size:22px;font-weight:600;
+  letter-spacing:.08em;color:var(--c-text);
+  margin-bottom:16px;
+}
+.biz-grid--4 .biz-name{font-size:18px;margin-bottom:12px}
+.biz-desc{
+  font-size:13.5px;line-height:1.95;
+  color:var(--c-text-sub);
+  margin-bottom:22px;flex:1;
+}
+.biz-grid--4 .biz-desc{font-size:13px}
+.biz-link{
+  display:inline-flex;align-items:center;
+  align-self:flex-start;gap:12px;
+  padding:14px 28px;
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.2em;
+  border:1px solid var(--c-gold);
+  color:var(--c-gold-dark);
+  background:transparent;
+  transition:all .3s ease;
+}
+.biz-grid--4 .biz-link{padding:12px 22px;font-size:12px}
+.biz-link:hover{background:var(--c-gold);color:#fff;opacity:1}
+.biz-link::after{content:"→";font-size:14px;transition:transform .3s ease}
+.biz-link:hover::after{transform:translateX(4px)}
+.biz-link--fill{background:var(--c-gold);color:#fff}
+.biz-link--fill:hover{background:var(--c-gold-dark);color:#fff}
+
+.biz-card--feature{
+  border-color:var(--c-gold);
+  border-width:2px;
+  position:relative;
+}
+.biz-card--feature::before{
+  content:"PICK UP";
+  position:absolute;top:-1px;right:-1px;
+  background:var(--c-gold);color:#fff;
+  font-family:var(--ff-en);
+  font-size:10px;letter-spacing:.2em;
+  padding:5px 14px;z-index:2;
+}
+
+.section-lead{
+  text-align:center;
+  font-family:var(--ff-serif);
+  font-size:15px;line-height:2;
+  color:var(--c-text-sub);
+  letter-spacing:.1em;
+  margin:-30px auto 50px;
+  max-width:760px;
+}
+
+@media(max-width:1024px){
+  .biz-grid--4{grid-template-columns:repeat(2,1fr)}
+  .biz-grid--3{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .biz-grid,.biz-grid--3,.biz-grid--4{grid-template-columns:1fr}
+}
+
+/* ============ DIVIDER ============ */
+.section-products{background:var(--c-base)}
+.section-machines{background:var(--c-cream)}
+.voice-section{background:var(--c-cream)}
+
+/* ============ MEMBER (代表+担当者) ============ */
+.member-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:50px;
+}
+.member-card{
+  background:#fff;
+  border:1px solid var(--c-line);
+  display:grid;
+  grid-template-rows:auto 1fr;
+  overflow:hidden;
+}
+.member-image{
+  position:relative;
+  height:380px;
+  overflow:hidden;
+  background:#efe1d3;
+}
+.member-image img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 18%;
+  display:block;
+}
+.member-image::after{
+  content:"";position:absolute;
+  bottom:0;left:0;right:0;
+  height:40%;
+  background:linear-gradient(180deg,transparent 0%,rgba(61,51,41,.45) 100%);
+  pointer-events:none;
+}
+.member-body{
+  padding:36px 40px 42px;
+  position:relative;
+}
+.member-role{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.3em;
+  color:var(--c-gold);
+  padding-bottom:14px;
+  margin-bottom:16px;
+  border-bottom:1px solid var(--c-line);
+}
+.member-name{
+  font-family:var(--ff-serif);
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:.15em;
+  color:var(--c-text);
+  margin-bottom:24px;
+}
+.member-name .member-en{
+  font-family:var(--ff-en);
+  font-size:14px;
+  font-weight:400;
+  letter-spacing:.15em;
+  color:var(--c-text-sub);
+  margin-left:8px;
+}
+.member-quote{
+  font-family:var(--ff-serif);
+  font-size:14px;
+  line-height:2.1;
+  color:var(--c-text-sub);
+  letter-spacing:.05em;
+}
+.member-quote em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:500;
+}
+@media(max-width:900px){
+  .member-grid{grid-template-columns:1fr;gap:36px}
+  .member-image{height:320px}
+  .member-body{padding:28px 24px 32px}
+  .member-name{font-size:18px}
+}
+
+/* ============ BACK CTA ============ */
+.back-cta{
+  background:linear-gradient(135deg,var(--c-cream) 0%,var(--c-beige-light) 100%);
+  padding:80px 40px;
+  text-align:center;
+}
+.back-cta h3{
+  font-family:var(--ff-serif);
+  font-size:24px;font-weight:500;
+  letter-spacing:.1em;
+  color:var(--c-text);
+  margin-bottom:16px;
+}
+.back-cta p{
+  font-size:14px;
+  color:var(--c-text-sub);
+  margin-bottom:30px;
+  line-height:2;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 36px;
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.2em;
+  border:1px solid var(--c-gold);
+  color:var(--c-gold-dark);
+  background:transparent;
+  transition:all .3s ease;
+}
+.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
+.btn::before{content:"←";font-size:14px}
+
+/* ============ FOOTER ============ */
+.footer{
+  background:var(--c-text);
+  color:#d9ccb8;
+  padding:50px 40px 28px;
+  text-align:center;
+}
+.footer-logo{
+  font-family:var(--ff-en);
+  font-size:22px;letter-spacing:.3em;
+  color:var(--c-gold-light);
+  margin-bottom:8px;padding-left:.3em;
+}
+.footer-tag{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.25em;
+  color:rgba(217,204,184,.6);
+  margin-bottom:30px;
+}
+.footer-nav{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:24px;margin-bottom:30px;
+}
+.footer-nav a{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.15em;
+  color:rgba(217,204,184,.8);
+}
+.copyright{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.2em;
+  color:rgba(217,204,184,.5);
+  padding-top:24px;
+  border-top:1px solid rgba(217,204,184,.15);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      GrandFusion
+      <small>株式会社グランフュージョン</small>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="../index.html">TOP</a>
+      <a href="#products">PRODUCTS</a>
+      <a href="#machines">MACHINES</a>
+      <a href="#startup">START UP</a>
+      <a href="../index.html#contact" class="cta-btn">CONTACT</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">≡</button>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="crumb">
+    <a href="../index.html">TOP</a><span>/</span>商材・マシンラインナップ
+  </div>
+  <div class="page-en">Lineup</div>
+  <div class="page-jp">商材・マシン ラインナップ</div>
+  <p class="page-lead">
+    自社ブランド「NUDUQUE」のスキンケア・インナーケアから、<br>
+    医療発想で開発したクリニカルマシン、開業サポートパックまで。<br>
+    GrandFusionが提供する商材を一覧でご覧いただけます。
+  </p>
+</section>
+
+<!-- ===== VOICE FROM US / メーカー・商材への想い ===== -->
+<section class="section voice-section">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Our Thoughts</div>
+      <div class="section-jp">メーカー・商材への想い</div>
+    </div>
+
+    <div class="member-grid">
+      <!-- ▼ 粕谷ありさ -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="../images/kasuya-arisa.jpg" alt="株式会社GrandFusion 代表取締役 粕谷ありさ" onerror="this.onerror=null;this.src='../images/kasuya-arisa-placeholder.svg';">
+        </div>
+        <div class="member-body">
+          <div class="member-role">CEO / 代表取締役</div>
+          <div class="member-name">粕谷 ありさ <span class="member-en">Arisa Kasuya</span></div>
+          <p class="member-quote">
+            「商材は、人の人生を変えうるもの。」<br><br>
+            私たちが提供するのは、ただの化粧品・マシンではありません。<br>
+            肌が変わると、自信が変わる。自信が変わると、人生が変わる。<br>
+            その確信を、自社で開発する一つひとつの商材に込めています。<br><br>
+            看護師として、医療現場で多くの女性の悩みに向き合ってきた経験から、<br>
+            「本当に結果が出るもの」だけを、妥協なく厳選しました。<br>
+            GrandFusionの商材が、あなたのサロンの<em>"選ばれる理由"</em>になりますように。
+          </p>
+        </div>
+      </div>
+
+      <!-- ▼ 仁木愛結 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="../images/niki-mayu.jpg" alt="株式会社GrandFusion メーカー担当 仁木愛結" onerror="this.onerror=null;this.src='../images/niki-mayu-placeholder.svg';">
+        </div>
+        <div class="member-body">
+          <div class="member-role">MAKER MANAGER / メーカー担当</div>
+          <div class="member-name">仁木 愛結 <span class="member-en">Mayu Niki</span></div>
+          <p class="member-quote">
+            「サロン様の隣で、結果を一緒に喜びたい。」<br><br>
+            導入後の"使いこなし"までが、メーカーの役目だと思っています。<br>
+            商材の選び方、施術の流れ、お客様への伝え方、そして仕入れの組み立てまで。<br>
+            ひとつひとつのご質問に、一番近くで向き合うのが私の仕事です。<br><br>
+            「売って終わり」ではなく、<em>「使い続けて、結果を出し続けるサロン」</em>を、<br>
+            メーカー担当として全力でサポートいたします。<br>
+            気軽に、なんでもご相談ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS / NUDUQUE ===== -->
+<section class="section section-products" id="products">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Products</div>
+      <div class="section-jp">NUDUQUE 商材ラインナップ</div>
+    </div>
+    <p class="section-lead">
+      看護師発想・実体験から生まれた、結果にこだわる<br>
+      自社メーカーコスメティクス「NUDUQUE」。
+    </p>
+
+    <div class="biz-grid biz-grid--4">
+      <div class="biz-card">
+        <div class="biz-visual biz-visual--photo">
+          <span class="biz-cat">NUDUQUE</span>
+          <img src="../images/nuduque-aura-pack.jpg" alt="炭酸オーラパック">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">repair aura pack</div>
+          <div class="biz-name">炭酸オーラパック</div>
+          <p class="biz-desc">CO₂による細胞活性アプローチ。医療技術から生まれた次世代スキンケア。</p>
+          <a href="https://nuduquelp-aura.manus.space" target="_blank" rel="noopener" class="biz-link">商品LPを見る</a>
+        </div>
+      </div>
+
+      <div class="biz-card">
+        <div class="biz-visual biz-visual--photo">
+          <span class="biz-cat">NUDUQUE</span>
+          <img src="../images/nuduque-repair-cream.webp" alt="リペアクリーム pro">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">repair cream pro</div>
+          <div class="biz-name">リペアクリーム pro</div>
+          <p class="biz-desc">施術後の肌を素早く回復。バリア機能をサポートする高機能クリーム。</p>
+          <a href="https://repair-blp.manus.space" target="_blank" rel="noopener" class="biz-link">商品LPを見る</a>
+        </div>
+      </div>
+
+      <div class="biz-card">
+        <div class="biz-visual biz-visual--photo">
+          <span class="biz-cat">NUDUQUE</span>
+          <img src="../images/nuduque-protein.jpg" alt="オーラプロテイン">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">aura protein</div>
+          <div class="biz-name">オーラプロテイン</div>
+          <p class="biz-desc">体質改善・根本改善をサポート。インナーから美しさを引き出す。</p>
+          <a href="https://nuduqueprotein-blp.manus.space" target="_blank" rel="noopener" class="biz-link">商品LPを見る</a>
+        </div>
+      </div>
+
+      <div class="biz-card">
+        <div class="biz-visual biz-visual--photo">
+          <span class="biz-cat">NUDUQUE</span>
+          <img src="../images/nuduque-skinbank.jpg" alt="水素 skin bank H⁺">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">skin bank H⁺</div>
+          <div class="biz-name">水素 skin bank H⁺</div>
+          <p class="biz-desc">次世代高濃度水素パウダー。活性酸素を除去し、細胞レベルから整える。</p>
+          <a href="https://nuduque-suisotob.manus.space" target="_blank" rel="noopener" class="biz-link">商品LPを見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MACHINES ===== -->
+<section class="section section-machines" id="machines">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Clinical Machines</div>
+      <div class="section-jp">自社クリニカルマシン</div>
+    </div>
+    <p class="section-lead">
+      医療発想で開発した自社メーカーマシン。<br>
+      クリニックレベルの結果を、サロンに。
+    </p>
+
+    <div class="biz-grid">
+      <div class="biz-card">
+        <div class="biz-visual biz-visual--photo">
+          <span class="biz-cat">NUDUQUE</span>
+          <img src="../images/btxtherma-machine.webp" alt="BTXtherma">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">CLINICAL GRADE RF</div>
+          <div class="biz-name">BTXtherma</div>
+          <p class="biz-desc">40.68MHz超高周波を採用した次世代RFマシン。高い安全性と、幅広い施術メニュー展開を実現します。</p>
+          <a href="https://btxtherma-lp.manus.space" target="_blank" rel="noopener" class="biz-link">マシンLPを見る</a>
+        </div>
+      </div>
+
+      <div class="biz-card">
+        <div class="biz-visual biz-visual--photo">
+          <span class="biz-cat">NUDUQUE</span>
+          <img src="../images/regecell-machine.webp" alt="リジェセル">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">ELECTROPORATION</div>
+          <div class="biz-name">リジェセル</div>
+          <p class="biz-desc">エレクトロポレーション技術で有効成分を真皮層まで浸透。クリニック級の結果をサロンで実現します。</p>
+          <a href="https://regecell-grandfusion.manus.space" target="_blank" rel="noopener" class="biz-link">マシンLPを見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STARTUP / 開業パック ===== -->
+<section class="section section-products" id="startup">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-en">Start Up</div>
+      <div class="section-jp">開業サポートパック</div>
+    </div>
+
+    <div class="biz-grid biz-grid--3" style="grid-template-columns:1fr;max-width:760px;margin:0 auto;">
+      <div class="biz-card biz-card--feature">
+        <div class="biz-visual biz-visual--photo" style="height:300px;">
+          <span class="biz-cat biz-cat--accent">開業パック</span>
+          <img src="../images/kaigyopack-hero.webp" alt="開業サポートパック">
+        </div>
+        <div class="biz-body">
+          <div class="biz-name-en">ALL-IN-ONE PACKAGE</div>
+          <div class="biz-name">開業サポートパック</div>
+          <p class="biz-desc">
+            BTXtherma × リジェセル マシン2台＋6ヶ月伴走サポート。価格設定・ブランディング不要で、「悩まない開業」を実現します。サロンの立ち上げから安定経営まで、伴走型でサポート。
+          </p>
+          <a href="https://kaigyopack-vejy2m8w.manus.space" target="_blank" rel="noopener" class="biz-link biz-link--fill">開業パック詳細を見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BACK CTA ===== -->
+<section class="back-cta">
+  <h3>会社情報・お問い合わせは<br>GrandFusionトップページへ</h3>
+  <p>
+    会社概要・代表の想い・サポート体制について詳しくはトップページをご覧ください。<br>
+    導入のご相談は公式LINEより承っております。
+  </p>
+  <a href="../index.html" class="btn">GrandFusionトップへ戻る</a>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">GrandFusion</div>
+  <div class="footer-tag">株式会社グランフュージョン</div>
+  <nav class="footer-nav">
+    <a href="../index.html">TOP</a>
+    <a href="#products">PRODUCTS</a>
+    <a href="#machines">MACHINES</a>
+    <a href="#startup">START UP</a>
+    <a href="../index.html#contact">CONTACT</a>
+  </nav>
+  <div class="copyright">© 2026 GrandFusion Co., Ltd. All Rights Reserved.</div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
+
+</body>
+</html>
