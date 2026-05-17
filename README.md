@@ -1,1 +1,3 @@
 # grandfusion-lp
+
+GrandFusion メーカーコーポレートLP
