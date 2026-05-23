@@ -520,6 +520,24 @@ a:hover{opacity:.75}
   gap:16px;
   flex-wrap:wrap;
 }
+.back-cta-buttons--primary{
+  margin-bottom:18px;
+}
+.contact-line{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:18px 36px;
+  background:#06c755;color:#fff;
+  font-family:var(--ff-serif);
+  font-size:14px;letter-spacing:.18em;
+  border-radius:2px;
+  transition:background .3s ease;
+}
+.contact-line:hover{background:#05a647;opacity:1}
+.contact-line::before{
+  content:"";
+  width:22px;height:22px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M12 2C6.48 2 2 5.86 2 10.61c0 3.04 1.83 5.69 4.56 7.21-.2.74-.71 2.63-.81 3.04-.13.5.18.5.39.36.16-.11 2.6-1.77 3.65-2.49.74.11 1.5.17 2.21.17 5.52 0 10-3.86 10-8.61S17.52 2 12 2z'/></svg>") center/contain no-repeat;
+}
 .btn{
   display:inline-flex;align-items:center;gap:12px;
   padding:16px 36px;
@@ -862,6 +880,9 @@ a:hover{opacity:.75}
       </div>
     </div>
 
+    <div class="back-cta-buttons back-cta-buttons--primary">
+      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="contact-line">お問い合わせはこちら</a>
+    </div>
     <div class="back-cta-buttons">
       <a href="#products" class="btn btn-fill">↑ 商材一覧へ戻る</a>
       <a href="../index.html" class="btn">会社情報（GrandFusionトップ）</a>
