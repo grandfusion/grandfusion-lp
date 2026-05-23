@@ -669,8 +669,223 @@ a:hover{opacity:.75}
   .biz-grid--3{grid-template-columns:1fr}
 }
 
-/* ============ COMPARISON ============ */
+/* ============ COMPARISON / DIFFERENCE ============ */
 .comparison{background:var(--c-base)}
+
+.diff-message{
+  text-align:center;
+  margin:-30px auto 60px;
+  max-width:880px;
+}
+.diff-catch{
+  font-family:var(--ff-serif);
+  font-size:clamp(24px,3vw,36px);
+  font-weight:500;
+  letter-spacing:.08em;
+  color:var(--c-text);
+  line-height:1.5;
+  margin-bottom:24px;
+}
+.diff-catch em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:600;
+}
+.diff-quote{
+  font-family:var(--ff-serif);
+  font-size:15px;
+  line-height:2.2;
+  color:var(--c-text-sub);
+  letter-spacing:.08em;
+}
+.diff-quote em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:600;
+}
+
+.comp-table--v2 thead th.comp-other{
+  text-align:center;
+  width:34%;
+  color:rgba(255,255,255,.6);
+}
+.comp-table--v2 thead th.comp-us{
+  text-align:center;
+  width:34%;
+  color:var(--c-gold-light);
+}
+.comp-table--v2 tbody td{
+  text-align:left;
+  font-family:var(--ff-serif);
+  font-size:13.5px;
+  line-height:1.7;
+}
+.comp-table--v2 tbody td:nth-child(1){
+  font-weight:600;
+  color:var(--c-text);
+  width:18%;
+  padding-left:30px;
+}
+.comp-table--v2 tbody td:nth-child(2){
+  color:var(--c-text-light);
+  text-align:center;
+  width:36%;
+}
+.comp-table--v2 tbody td:nth-child(3){
+  color:var(--c-gold-dark);
+  text-align:center;
+  width:42%;
+  font-weight:500;
+}
+.comp-table--v2 tr.comp-row-key{
+  background:var(--c-beige-light)!important;
+}
+.comp-table--v2 tr.comp-row-key td:nth-child(1){
+  color:var(--c-text);
+}
+.comp-table--v2 tr.comp-row-key td:nth-child(3){
+  font-family:var(--ff-serif);
+  font-size:16px;
+  color:var(--c-gold-dark);
+  font-weight:700;
+}
+
+/* 5つの本質 */
+.essence-wrap{
+  margin-top:90px;
+}
+.essence-head{
+  text-align:center;
+  margin-bottom:50px;
+}
+.essence-en{
+  font-family:var(--ff-en);
+  font-size:32px;
+  letter-spacing:.25em;
+  color:var(--c-gold-dark);
+  margin-bottom:10px;
+}
+.essence-title{
+  font-family:var(--ff-serif);
+  font-size:clamp(22px,2.5vw,30px);
+  font-weight:500;
+  letter-spacing:.08em;
+  color:var(--c-text);
+}
+.essence-title em{
+  font-style:normal;
+  color:var(--c-gold-dark);
+  font-weight:600;
+}
+.essence-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+  max-width:1080px;
+  margin:0 auto;
+}
+.essence-card{
+  background:#fff;
+  border:1px solid var(--c-line);
+  padding:30px 18px 28px;
+  text-align:center;
+  position:relative;
+  transition:all .3s ease;
+}
+.essence-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(156,128,98,.12);
+  border-color:var(--c-gold-light);
+}
+.essence-num{
+  font-family:var(--ff-en);
+  font-size:22px;
+  font-weight:300;
+  letter-spacing:.1em;
+  color:var(--c-gold);
+  margin-bottom:14px;
+}
+.essence-cat{
+  font-family:var(--ff-en);
+  font-size:10px;
+  letter-spacing:.25em;
+  color:var(--c-text-light);
+  margin-bottom:10px;
+}
+.essence-name{
+  font-family:var(--ff-serif);
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:.18em;
+  color:var(--c-text);
+  margin-bottom:14px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--c-line);
+}
+.essence-detail{
+  font-family:var(--ff-serif);
+  font-size:12px;
+  line-height:1.8;
+  color:var(--c-text-sub);
+  letter-spacing:.04em;
+  text-align:left;
+}
+
+/* ポジショニング宣言 */
+.positioning{
+  margin:80px auto 0;
+  max-width:880px;
+  padding:50px 40px;
+  background:linear-gradient(135deg,var(--c-text) 0%,#5a4a3a 100%);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.positioning::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at top right,rgba(212,184,138,.18),transparent 50%),
+    radial-gradient(ellipse at bottom left,rgba(184,153,104,.12),transparent 50%);
+}
+.positioning-tag{
+  font-family:var(--ff-serif);
+  font-size:13px;
+  letter-spacing:.2em;
+  color:rgba(217,204,184,.7);
+  margin-bottom:24px;
+  position:relative;
+}
+.positioning-statement{
+  font-family:var(--ff-serif);
+  font-size:clamp(20px,2.6vw,32px);
+  font-weight:500;
+  line-height:1.7;
+  letter-spacing:.08em;
+  color:#fff;
+  position:relative;
+}
+.positioning-statement em{
+  font-style:normal;
+  color:var(--c-gold-light);
+  font-weight:600;
+}
+.sp-only{display:none}
+
+@media(max-width:1024px){
+  .essence-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .comp-table--v2 thead th,
+  .comp-table--v2 tbody td{
+    padding:14px 10px;
+    font-size:11.5px;
+  }
+  .comp-table--v2 tbody td:nth-child(1){padding-left:14px;font-size:12px}
+  .essence-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .essence-card{padding:24px 14px 22px}
+  .sp-only{display:inline}
+  .positioning{padding:36px 24px;margin-top:60px}
+}
 .comp-wrap{
   max-width:1080px;margin:0 auto;
   border-radius:4px;
@@ -1671,34 +1886,100 @@ a:hover{opacity:.75}
   </div>
 </section>
 
-<!-- ===== COMPARISON / 他社比較表 ===== -->
+<!-- ===== COMPARISON / 他社メーカーとの違い ===== -->
 <section class="section comparison" id="comparison">
   <div class="section-inner">
     <div class="section-head">
-      <div class="section-en">Comparison</div>
-      <div class="section-jp">他社との比較</div>
+      <div class="section-en">Difference</div>
+      <div class="section-jp">他社メーカーとの違い</div>
     </div>
 
+    <!-- ▼ ブランドメッセージ -->
+    <div class="diff-message">
+      <div class="diff-catch">流行ではなく、<em>本質</em>を届けるメーカー</div>
+      <p class="diff-quote">
+        "売れる"より、"必要か"で選ぶ。<br>
+        本当に良いと思えないものは扱いません。<br>
+        私たちは「売れる商品」ではなく、<em>「残る美容」</em>を選びます。
+      </p>
+    </div>
+
+    <!-- ▼ 比較表 -->
     <div class="comp-wrap">
-      <table class="comp-table">
+      <table class="comp-table comp-table--v2">
         <thead>
           <tr>
-            <th class="comp-feature">機能・サービス</th>
+            <th class="comp-feature">項目</th>
+            <th class="comp-other">一般的な美容メーカー</th>
             <th class="comp-us">GrandFusion</th>
-            <th class="comp-other">一般的なメーカー</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>仕入れ額連動コンテンツ解放</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
-          <tr><td>学習ログの可視化・管理</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
-          <tr><td>GrandFusionアワード</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
-          <tr><td>マシン伴走型3ヶ月サポート</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
-          <tr><td>融資サポート（別途5万円）</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
-          <tr><td>顧客向け資料の一元管理</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
-          <tr><td>Vimeo高品質動画配信</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
-          <tr><td>将来のLMS移行対応</td><td><span class="comp-ok"></span></td><td><span class="comp-ng"></span></td></tr>
+          <tr><td>マシン</td><td>海外OEM・代理店販売が中心</td><td>医療知識をベースにオリジナル開発</td></tr>
+          <tr><td>導入後サポート</td><td>操作説明のみ</td><td>売上導線・教育・経営まで支援</td></tr>
+          <tr><td>実店舗運営</td><td>なし</td><td>自社エステサロン運営</td></tr>
+          <tr><td>現場理解</td><td>営業主体</td><td>現場で結果を出し続ける運営主体</td></tr>
+          <tr><td>教育体制</td><td>単発講習</td><td>売れる導線を網羅した教育体制</td></tr>
+          <tr><td>コンサル</td><td>別料金・高額</td><td>伴走型コンサル選択可能</td></tr>
+          <tr><td>融資支援</td><td>基本なし</td><td>融資通過率99%サポート</td></tr>
+          <tr><td>開業支援</td><td>一部のみ</td><td>不動産・内装・事業設計まで対応</td></tr>
+          <tr><td>メンテナンス</td><td>外注対応が多い</td><td>修理工場・メンテ体制あり</td></tr>
+          <tr><td>機械入替</td><td>売り切り</td><td>中古買取サービスあり</td></tr>
+          <tr><td>商品選定</td><td>流行重視</td><td>本当に必要なもののみ厳選</td></tr>
+          <tr class="comp-row-key"><td>ゴール</td><td>機械販売</td><td>サロン成功</td></tr>
+          <tr class="comp-row-key"><td>視点</td><td>"売る"</td><td>"勝たせる"</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- ▼ 5つの本質 -->
+    <div class="essence-wrap">
+      <div class="essence-head">
+        <div class="essence-en">Our Essence</div>
+        <h3 class="essence-title">GrandFusionの<em>5つの本質</em></h3>
+      </div>
+
+      <div class="essence-grid">
+        <div class="essence-card">
+          <div class="essence-num">01</div>
+          <div class="essence-cat">CURRENT</div>
+          <div class="essence-name">現場</div>
+          <div class="essence-detail">自社エステサロンを運営する、現役のプレイヤー視点。</div>
+        </div>
+        <div class="essence-card">
+          <div class="essence-num">02</div>
+          <div class="essence-cat">MEDICAL</div>
+          <div class="essence-name">医療</div>
+          <div class="essence-detail">看護師視点と医療知識をベースにした、本物の安全性。</div>
+        </div>
+        <div class="essence-card">
+          <div class="essence-num">03</div>
+          <div class="essence-cat">MANAGEMENT</div>
+          <div class="essence-name">経営</div>
+          <div class="essence-detail">売上導線・教育・融資・事業設計まで、経営を包括サポート。</div>
+        </div>
+        <div class="essence-card">
+          <div class="essence-num">04</div>
+          <div class="essence-cat">INFRASTRUCTURE</div>
+          <div class="essence-name">インフラ</div>
+          <div class="essence-detail">不動産・内装・修理・中古買取まで、運営の裏側を全部支える。</div>
+        </div>
+        <div class="essence-card">
+          <div class="essence-num">05</div>
+          <div class="essence-cat">PHILOSOPHY</div>
+          <div class="essence-name">哲学</div>
+          <div class="essence-detail">流行ではなく、本当に必要なものだけを届ける姿勢。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ▼ ポジショニング宣言 -->
+    <div class="positioning">
+      <div class="positioning-tag">つまり、わたしたちは何者か？</div>
+      <div class="positioning-statement">
+        「美容メーカー」ではなく、<br>
+        <em>"成功する美容事業を作る、<br class="sp-only">総合支援メーカー"</em>
+      </div>
     </div>
   </div>
 </section>
