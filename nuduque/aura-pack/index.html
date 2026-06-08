@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NUDUQUE 炭酸オーラパック（repair aura pack）｜サロン導入LP｜GrandFusion</title>
+<meta name="description" content="医療発想の炭酸CO₂パック「NUDUQUE repair aura pack」。分子の小さい炭酸CO₂が皮膚バリアを越え真皮層まで直接浸透し、グルタチオン・PDRNなど6つの主要美容成分を細胞レベルへ届けます。サロンの差別化と高収益を同時に叶える、サロン様向け導入LP。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-base:#faf6f0;--c-beige:#ede3d3;--c-beige-light:#f5efe6;--c-cream:#f7f1e6;
+  --c-gold:#b89968;--c-gold-light:#d4b88a;--c-gold-dark:#9c8062;
+  --c-text:#3d3329;--c-text-sub:#6b5d4f;--c-text-light:#9c8775;--c-line:#d9ccb8;
+  --ff-serif:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-en:"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-sans);color:var(--c-text);background:var(--c-base);line-height:1.8;letter-spacing:.04em;font-feature-settings:"palt";-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:opacity .3s ease,color .3s ease}
+a:hover{opacity:.75}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,246,240,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--c-line)}
+.header-inner{max-width:1280px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--ff-en);font-size:24px;font-weight:500;letter-spacing:.16em;color:var(--c-text);padding-left:.25em;white-space:nowrap}
+.logo small{display:block;font-family:var(--ff-serif);font-size:9px;letter-spacing:.4em;margin-top:2px;color:var(--c-text-light)}
+.nav{display:flex;align-items:center;gap:14px}
+.nav a{font-family:var(--ff-serif);font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--c-text-sub);position:relative;white-space:nowrap}
+.nav a::after{content:"";position:absolute;left:50%;bottom:-6px;width:0;height:1px;background:var(--c-gold);transition:width .3s ease,left .3s ease}
+.nav a:hover{color:var(--c-gold-dark);opacity:1}
+.nav a:hover::after{width:100%;left:0}
+.nav .cta-btn{background:var(--c-gold);color:#fff;padding:10px 24px;border-radius:2px;font-size:12px;letter-spacing:.18em}
+.nav .cta-btn::after{display:none}
+.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--c-text)}
+.nav-item{position:relative;display:inline-flex;align-items:center}
+.nav-drop-trigger{cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.nav-caret{font-size:9px;color:var(--c-gold);transition:transform .25s ease}
+.nav-dropdown.open .nav-caret{transform:rotate(180deg)}
+.dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);min-width:252px;background:#fff;border:1px solid var(--c-line);box-shadow:0 24px 56px rgba(156,128,98,.18);padding:10px 0;margin-top:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:200}
+.nav-dropdown:hover .dropdown,.nav-dropdown.open .dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.dropdown::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+.dropdown a{display:block;padding:11px 24px;font-family:var(--ff-serif);font-size:13px;letter-spacing:.04em;color:var(--c-text-sub);white-space:nowrap}
+.dropdown a::after{display:none}
+.dropdown a:hover{background:var(--c-beige-light);color:var(--c-gold-dark);opacity:1}
+.dropdown a small{display:block;font-size:10px;letter-spacing:.1em;color:var(--c-text-light);margin-top:2px}
+.dropdown a.is-current{color:var(--c-gold-dark);background:var(--c-beige-light)}
+.dropdown-head{color:var(--c-gold-dark)!important;font-weight:600;border-bottom:1px solid var(--c-line);margin-bottom:6px}
+@media(max-width:1080px){
+  .header-inner{padding:14px 20px}.nav{display:none}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--c-base);padding:26px 20px;gap:18px;border-bottom:1px solid var(--c-line)}
+  .menu-btn{display:block}.logo{font-size:18px}
+  .nav-item{display:block}
+  .dropdown{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;border-left:2px solid var(--c-gold-light);margin:6px 0 10px 12px;padding:2px 0;min-width:0}
+  .dropdown::before{display:none}.nav-caret{display:none}
+}
+
+/* HERO */
+.lp-hero{padding:170px 40px 110px;background:radial-gradient(ellipse at 75% 25%,rgba(212,184,138,.28) 0%,transparent 55%),linear-gradient(180deg,var(--c-base) 0%,var(--c-cream) 100%);position:relative;overflow:hidden}
+.lp-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.lp-hero-tag{font-family:var(--ff-en);font-size:12px;letter-spacing:.35em;color:var(--c-gold);margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+.lp-hero-tag::before{content:"";width:42px;height:1px;background:var(--c-gold-light)}
+.lp-hero .h-jp{font-family:var(--ff-serif);font-size:15px;letter-spacing:.2em;color:var(--c-gold-dark);margin-bottom:10px}
+.lp-hero h1{font-family:var(--ff-en);font-size:clamp(40px,5.4vw,68px);font-weight:500;letter-spacing:.04em;color:var(--c-text);line-height:1.05;margin-bottom:6px}
+.lp-hero .h1-jp{font-family:var(--ff-serif);font-size:22px;font-weight:600;letter-spacing:.12em;color:var(--c-text);margin-bottom:26px}
+.lp-hero-catch{font-family:var(--ff-serif);font-size:clamp(19px,2.2vw,26px);font-weight:500;line-height:1.6;color:var(--c-text);margin-bottom:22px}
+.lp-hero-catch em{font-style:normal;color:var(--c-gold-dark)}
+.lp-hero-sub{font-family:var(--ff-serif);font-size:15px;line-height:2;color:var(--c-text-sub);margin-bottom:34px}
+.lp-hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.lp-hero-img{position:relative}
+.lp-hero-img::before{content:"";position:absolute;top:-16px;right:-16px;width:100%;height:100%;border:1px solid var(--c-gold);z-index:0}
+.lp-hero-img img{position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:0 30px 80px rgba(156,128,98,.22)}
+@media(max-width:900px){.lp-hero{padding:120px 20px 70px}.lp-hero-inner{grid-template-columns:1fr;gap:40px}.lp-hero-img{max-width:340px;margin:0 auto}}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;font-family:var(--ff-serif);font-size:13px;letter-spacing:.16em;border:1px solid var(--c-gold);color:var(--c-gold-dark);background:transparent;transition:all .3s ease;cursor:pointer}
+.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
+.btn::after{content:"→"}
+.btn-line{background:#06c755;color:#fff;border-color:#06c755}
+.btn-line:hover{background:#05a647;border-color:#05a647;color:#fff}
+.btn-line::after{content:""}
+.btn-fill{background:var(--c-gold);color:#fff}
+.btn-fill:hover{background:var(--c-gold-dark)}
+.btn-lg{padding:20px 44px;font-size:14px;letter-spacing:.2em}
+
+/* SECTION */
+.sec{padding:96px 40px}
+.sec-inner{max-width:1080px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:52px}
+.sec-en{font-family:var(--ff-en);font-size:34px;letter-spacing:.22em;color:var(--c-gold-dark);text-transform:uppercase;margin-bottom:10px}
+.sec-jp{font-family:var(--ff-serif);font-size:13px;letter-spacing:.34em;color:var(--c-text-sub);display:inline-block;padding:0 26px;position:relative}
+.sec-jp::before,.sec-jp::after{content:"";position:absolute;top:50%;width:18px;height:1px;background:var(--c-gold-light)}
+.sec-jp::before{left:-6px}.sec-jp::after{right:-6px}
+.sec-lead{text-align:center;max-width:840px;margin:0 auto 46px;font-family:var(--ff-serif);font-size:16px;line-height:2.1;color:var(--c-text-sub)}
+.sec-lead em{font-style:normal;color:var(--c-gold-dark);font-weight:600}
+@media(max-width:900px){.sec{padding:70px 20px}.sec-en{font-size:26px}}
+
+/* PROBLEM */
+.problem{background:linear-gradient(135deg,var(--c-text) 0%,#5a4a3a 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+.problem::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(212,184,138,.18),transparent 55%)}
+.problem-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.problem-q{font-family:var(--ff-serif);font-size:clamp(20px,2.6vw,30px);font-weight:500;line-height:1.7;margin-bottom:36px}
+.problem-q em{font-style:normal;color:var(--c-gold-light)}
+.problem-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.problem-list div{background:rgba(255,255,255,.06);border:1px solid rgba(217,204,184,.25);padding:24px 20px;font-family:var(--ff-serif);font-size:14.5px;line-height:1.7;color:#f0e9de}
+@media(max-width:768px){.problem-list{grid-template-columns:1fr}}
+
+/* CARDS */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.card{background:#fff;border:1px solid var(--c-line);padding:36px 28px;transition:all .4s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(156,128,98,.16);border-color:var(--c-gold-light)}
+.card-en{font-family:var(--ff-en);font-size:11px;letter-spacing:.25em;color:var(--c-gold);margin-bottom:8px}
+.card-ttl{font-family:var(--ff-serif);font-size:18px;font-weight:600;color:var(--c-text);margin-bottom:13px;line-height:1.5}
+.card-desc{font-size:13.5px;line-height:1.95;color:var(--c-text-sub)}
+@media(max-width:900px){.cards3,.cards2{grid-template-columns:1fr}}
+
+/* MECHANISM */
+.mech{background:var(--c-cream)}
+.mech-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-bottom:56px}
+.mech-grid img{width:100%;border:1px solid var(--c-line);box-shadow:0 20px 50px rgba(156,128,98,.14);background:#fff}
+.mech-points{display:flex;flex-direction:column;gap:18px}
+.mech-point{display:flex;gap:16px;align-items:flex-start}
+.mech-point .mp-no{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--c-gold);color:var(--c-gold-dark);font-family:var(--ff-en);display:flex;align-items:center;justify-content:center;font-size:15px}
+.mech-point h4{font-family:var(--ff-serif);font-size:15px;color:var(--c-text);margin-bottom:4px}
+.mech-point p{font-size:13px;line-height:1.8;color:var(--c-text-sub)}
+@media(max-width:900px){.mech-grid{grid-template-columns:1fr;gap:30px}}
+
+/* INGREDIENTS */
+.ing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ing{background:#fff;border:1px solid var(--c-line);padding:30px 26px;transition:all .4s ease}
+.ing:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(156,128,98,.13);border-color:var(--c-gold-light)}
+.ing-tag{font-family:var(--ff-en);font-size:10px;letter-spacing:.2em;color:var(--c-gold);margin-bottom:8px}
+.ing h4{font-family:var(--ff-serif);font-size:17px;font-weight:600;color:var(--c-text);margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--c-line)}
+.ing p{font-size:13px;line-height:1.85;color:var(--c-text-sub)}
+@media(max-width:900px){.ing-grid{grid-template-columns:1fr}}
+
+/* CASES */
+.cases{background:var(--c-cream)}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case{background:#fff;border:1px solid var(--c-line);overflow:hidden;transition:all .4s ease}
+.case:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(156,128,98,.15);border-color:var(--c-gold-light)}
+.case img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--c-beige-light)}
+.case-body{padding:20px 22px 24px}
+.case-cat{font-family:var(--ff-en);font-size:10px;letter-spacing:.2em;color:var(--c-gold);margin-bottom:6px}
+.case-ttl{font-family:var(--ff-serif);font-size:15px;font-weight:600;color:var(--c-text);margin-bottom:8px}
+.case-desc{font-size:12.5px;line-height:1.7;color:var(--c-text-sub)}
+@media(max-width:900px){.case-grid{grid-template-columns:1fr}}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{text-align:center;padding:30px 20px;background:#fff;border:1px solid var(--c-line)}
+.step-no{font-family:var(--ff-en);font-size:28px;color:var(--c-gold-light);margin-bottom:12px}
+.step h4{font-family:var(--ff-serif);font-size:15px;color:var(--c-text);margin-bottom:8px}
+.step p{font-size:12.5px;line-height:1.7;color:var(--c-text-sub)}
+@media(max-width:768px){.steps{grid-template-columns:1fr 1fr}}
+
+/* PRICE */
+.price{background:var(--c-cream)}
+.price-card{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--c-line);padding:48px 44px}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--c-line)}
+.price-row .pr-label{font-family:var(--ff-serif);font-size:15px;color:var(--c-text)}
+.price-row .pr-val{font-family:var(--ff-en);font-size:22px;color:var(--c-gold-dark);font-weight:600;letter-spacing:.02em}
+.price-row .pr-val small{font-family:var(--ff-sans);font-size:12px;color:var(--c-text-light);margin-left:6px}
+.price-row--accent .pr-label{font-weight:700}
+.price-row--accent .pr-val{font-size:26px}
+.price-note{display:block;font-size:12px;color:var(--c-text-light);margin-top:18px;line-height:1.9}
+.price-cta{text-align:center;margin-top:30px}
+
+/* FAQ */
+.faq{max-width:840px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--c-line);padding:24px 0}
+.faq-q{font-family:var(--ff-serif);font-size:16px;font-weight:600;color:var(--c-text);display:flex;gap:12px;margin-bottom:12px}
+.faq-q::before{content:"Q";font-family:var(--ff-en);color:var(--c-gold);font-size:18px}
+.faq-a{font-size:14px;line-height:1.95;color:var(--c-text-sub);padding-left:26px}
+
+/* CTA */
+.lp-cta{background:linear-gradient(135deg,var(--c-cream) 0%,var(--c-beige-light) 100%);text-align:center}
+.lp-cta-card{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--c-line);padding:64px 48px}
+.lp-cta-card h2{font-family:var(--ff-serif);font-size:clamp(24px,3vw,34px);font-weight:600;color:var(--c-text);margin-bottom:18px;line-height:1.5}
+.lp-cta-card h2 em{font-style:normal;color:var(--c-gold-dark)}
+.lp-cta-card p{font-size:14px;line-height:2;color:var(--c-text-sub);margin-bottom:32px}
+.lp-cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+@media(max-width:768px){.lp-cta-card{padding:44px 24px}}
+
+/* FOOTER */
+.footer{background:var(--c-text);color:#d9ccb8;padding:54px 40px 28px;text-align:center}
+.footer-logo{font-family:var(--ff-en);font-size:22px;letter-spacing:.3em;color:var(--c-gold-light);margin-bottom:8px}
+.footer-tag{font-family:var(--ff-serif);font-size:12px;letter-spacing:.25em;color:rgba(217,204,184,.6);margin-bottom:30px}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:28px;margin-bottom:32px}
+.footer-nav a{font-family:var(--ff-serif);font-size:12px;letter-spacing:.15em;color:rgba(217,204,184,.8)}
+.copyright{font-family:var(--ff-en);font-size:11px;letter-spacing:.2em;color:rgba(217,204,184,.5);padding-top:26px;border-top:1px solid rgba(217,204,184,.15)}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== 流体タイポ（モバイル/PC 安定化 / fluid typography） ===== */
+.sec-en{font-size:clamp(24px,5.6vw,34px)}
+.sec-lead{font-size:clamp(14.5px,1.5vw,16px)}
+.lp-hero .h1-jp{font-size:clamp(18px,2.5vw,22px)}
+.lp-hero-sub{font-size:clamp(14px,1.5vw,15px)}
+.card-ttl{font-size:clamp(16px,2vw,18px)}
+.card-desc,.case-desc,.voice p{font-size:clamp(13px,1.6vw,13.5px)}
+.ing h4{font-size:clamp(15.5px,2vw,17px)}
+.case-ttl,.flow-step h4,.faq-q{font-size:clamp(15px,1.9vw,16px)}
+.faq-a{font-size:clamp(13.5px,1.6vw,14px)}
+.lp-cta-card h2,.motto h2{font-size:clamp(22px,4.6vw,34px)}
+.profile-body .pf-name{font-size:clamp(21px,3.2vw,26px)}
+.price-row .pr-val{font-size:clamp(17px,2.6vw,22px)}
+.stat .st-val,.sim .sim-val{font-size:clamp(24px,4.6vw,34px)}
+.problem-q{font-size:clamp(19px,3.6vw,30px)}
+.pack-hero,.archive h2{font-size:clamp(18px,3.2vw,24px)}
+.section-en{font-size:clamp(26px,6vw,42px)}
+.philos-title,.support-title{font-size:clamp(17px,2.2vw,20px)}
+.biz-name{font-size:clamp(18px,2.6vw,24px)}
+.biz-desc,.voice-text,.philos-desc,.essence-detail{font-size:clamp(13px,1.6vw,14px)}
+.essence-name,.vision-author-name,.member-name{font-size:clamp(18px,2.4vw,22px)}
+.contact-card h3{font-size:clamp(20px,3.2vw,26px)}
+.blog-title{font-size:clamp(15px,1.9vw,16px)}
+.lineup-title{font-size:clamp(22px,3.4vw,30px)}
+.lineup-en{font-size:clamp(34px,6vw,48px)}
+.startup-title{font-size:clamp(23px,3.4vw,32px)}
+.portal-title{font-size:clamp(22px,3.1vw,28px)}
+.page-lead{font-size:clamp(14.5px,1.6vw,16px)}
+.member-quote,.lineup-desc,.startup-desc{font-size:clamp(14px,1.6vw,15px)}
+</style>
+</head>
+<body>
+<div id="gfGate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#faf6f0,#f7f1e6);display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP',sans-serif">
+  <form id="gfGateForm" style="background:#fff;border:1px solid #d9ccb8;padding:46px 38px;max-width:360px;width:90%;text-align:center;box-shadow:0 24px 56px rgba(156,128,98,.18)">
+    <div style="font-size:12px;letter-spacing:.32em;color:#b89968;margin-bottom:12px">GRAND FUSION</div>
+    <div style="font-size:16px;font-weight:600;color:#3d3329;margin-bottom:6px">関係者限定プレビュー</div>
+    <div style="font-size:12px;color:#9c8775;margin-bottom:22px;line-height:1.7">合言葉を入力してください</div>
+    <input id="gfPw" type="password" placeholder="合言葉" autofocus style="width:100%;padding:12px 14px;border:1px solid #d9ccb8;border-radius:2px;font-size:14px;text-align:center;box-sizing:border-box">
+    <div id="gfErr" style="display:none;color:#b76a6a;font-size:12px;margin-top:10px">合言葉が違います</div>
+    <button type="submit" style="width:100%;margin-top:16px;padding:13px;background:#b89968;color:#fff;border:none;border-radius:2px;font-size:13px;letter-spacing:.12em;cursor:pointer">閲覧する</button>
+  </form>
+</div>
+<script>
+(function(){var KEY="gf_prev_ok",PW="gf-preview-2026";var g=document.getElementById("gfGate");
+function go(){if(g&&g.parentNode)g.parentNode.removeChild(g);document.documentElement.style.overflow="";}
+try{if(new URLSearchParams(location.search).get("k")===PW){localStorage.setItem(KEY,"1");}if(localStorage.getItem(KEY)==="1"){go();return;}}catch(e){}
+document.documentElement.style.overflow="hidden";
+var f=document.getElementById("gfGateForm");
+f.addEventListener("submit",function(e){e.preventDefault();
+if(document.getElementById("gfPw").value.trim()===PW){try{localStorage.setItem(KEY,"1");}catch(e){}go();}
+else{document.getElementById("gfErr").style.display="block";document.getElementById("gfPw").value="";}});})();
+</script>
+
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../../index.html" class="logo">Grand Fusion<small>株式会社グランフュージョン</small></a>
+    <nav class="nav" id="nav">
+      <a href="../../beauty_salon_mgmt/index.html">エステサロン経営</a>
+      <a href="../../products/index.html#machines">エステマシン販売</a>
+      <div class="nav-item nav-dropdown">
+        <a href="../index.html" class="nav-drop-trigger">ヌドゥーク<span class="nav-caret">▾</span></a>
+        <div class="dropdown">
+          <a href="../index.html" class="dropdown-head">NUDUQUE ブランドサイト</a>
+          <a href="../suiso/index.html">水素 skin bank H⁺<small>水素パウダー</small></a>
+          <a href="index.html" class="is-current">炭酸オーラパック</a>
+          <a href="../repair-cream/index.html">リペアクリーム pro</a>
+          <a href="../protein/index.html">オーラプロテイン</a>
+        </div>
+      </div>
+      <a href="https://grandfusion-official.site/hair_salon/">美容室</a>
+      <a href="../../index.html#blog">BLOG</a>
+      <a href="#">イベント・セミナー</a>
+      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=wJnQ6k&amp;ts=1779511836" target="_blank" rel="noopener" class="cta-btn">お問い合わせ</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">≡</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="lp-hero">
+  <div class="lp-hero-inner">
+    <div class="lp-hero-text">
+      <div class="lp-hero-tag">repair aura pack / NUDUQUE</div>
+      <div class="h-jp">医療発想の炭酸CO₂パック</div>
+      <h1>Aura Pack</h1>
+      <div class="h1-jp">炭酸オーラパック</div>
+      <p class="lp-hero-catch">
+        炭酸CO₂が持つ唯一無二の浸透力で、<br>
+        表面ケアの限界を超えた<em>「細胞レベルの修復」</em>を。
+      </p>
+      <p class="lp-hero-sub">
+        サロンの差別化と高収益を同時に叶える、医療発想のスキンケア。<br>
+        どんな施術もより高い効果へ。確実な結果を、サロンへ。
+      </p>
+      <div class="lp-hero-cta">
+        <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=wJnQ6k&amp;ts=1779511836" target="_blank" rel="noopener" class="btn btn-line">公式LINEで相談する</a>
+        <a href="#price" class="btn">価格・収益モデルを見る</a>
+      </div>
+    </div>
+    <div class="lp-hero-img">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/product_real_1_32739e1f.jpg" alt="NUDUQUE repair aura pack 炭酸オーラパック 商品">
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section class="sec problem">
+  <div class="problem-inner">
+    <p class="problem-q">
+      なぜ、頑張っているのに肌が変わらないのか？<br>
+      その答えは、<em>「届いていない」</em>ことにあります。
+    </p>
+    <div class="problem-list">
+      <div>一般化粧品の有効成分は、薬機法の制約で<strong>角質層（表皮）まで</strong>しか届きません。</div>
+      <div>どんなに良い美容成分も、<strong>皮膚バリアを越えられなければ</strong>効果は限定的。</div>
+      <div>似たような製品・施術では<strong>価格競争</strong>に巻き込まれるだけ。差別化が必要です。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="sec" id="product">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Solution</div>
+      <div class="sec-jp">炭酸CO₂だけが持つ「唯一の突破口」</div>
+    </div>
+    <p class="sec-lead">
+      炭酸CO₂は分子が非常に小さく、皮膚バリアを通過して<em>真皮層まで直接届きます</em>。<br>
+      配合された美容成分を<em>細胞レベルまで</em>届け、シミ・くすみ・毛穴・たるみを根本から改善します。
+    </p>
+    <div class="cards3">
+      <div class="card">
+        <div class="card-en">DEEP DELIVERY</div>
+        <div class="card-ttl">真皮層まで直接浸透</div>
+        <p class="card-desc">一般的なスキンケアが「表皮」にとどまるのに対し、炭酸CO₂は真皮層まで直接浸透。線維芽細胞に働きかけ、肌の根本的な再生を促します。</p>
+      </div>
+      <div class="card">
+        <div class="card-en">6 INGREDIENTS</div>
+        <div class="card-ttl">6つの主要美容成分</div>
+        <p class="card-desc">グルタチオン・PDRN・アルブチン・加水分解コラーゲン・パンテノール・ヒアルロン酸Naを配合。CO₂の浸透力で細胞レベルへ届けます。</p>
+      </div>
+      <div class="card">
+        <div class="card-en">EASY</div>
+        <div class="card-ttl">一剤式で手間なし</div>
+        <p class="card-desc">一剤式で手間なく、サロン施術にもホームケアにも最適。約1ヶ月分・50回分で、店販がサロン経営の強力な柱になります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MECHANISM ===== -->
+<section class="sec mech" id="mechanism">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Mechanism</div>
+      <div class="sec-jp">炭酸ケアが肌に働くしくみ</div>
+    </div>
+    <div class="mech-grid">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/mechanism_diagram_6b4cd41a.jpg" alt="炭酸CO₂のメカニズム図解">
+      <div class="mech-points">
+        <div class="mech-point"><span class="mp-no">1</span><div><h4>ボーア効果で酸素供給UP</h4><p>CO₂が血液に溶け込むとヘモグロビンが酸素を放出しやすくなり、肌細胞への酸素供給が増加。代謝が活性化します。</p></div></div>
+        <div class="mech-point"><span class="mp-no">2</span><div><h4>ATP産生促進</h4><p>酸素供給の増加で、細胞のエネルギー通貨ATPの産生が促進。細胞の自己修復力・再生力が高まります。</p></div></div>
+        <div class="mech-point"><span class="mp-no">3</span><div><h4>体温上昇でシミ排出</h4><p>体温が上昇し代謝が活性化。蓄積されたメラニン（シミの原因）の排出を促進します。</p></div></div>
+        <div class="mech-point"><span class="mp-no">4</span><div><h4>血流促進で成分浸透UP</h4><p>血行が促進され、配合された美容成分がより効率よく肌細胞に到達。施術効果を最大化します。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INGREDIENTS ===== -->
+<section class="sec" id="ingredients">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Ingredients</div>
+      <div class="sec-jp">6つの主要美容成分</div>
+    </div>
+    <p class="sec-lead">炭酸独特の乾燥・摩擦を防ぐため、<em>保湿・肌弾力再生・美白の3成分</em>をさらに追加。他社との圧倒的な差別化を実現します。</p>
+    <div class="ing-grid">
+      <div class="ing"><div class="ing-tag">美白・抗酸化</div><h4>グルタチオン</h4><p>「美白の王様」とも呼ばれる強力な抗酸化成分。メラニン生成を抑制し、シミ・くすみを改善。細胞を酸化ストレスから守ります。</p></div>
+      <div class="ing"><div class="ing-tag">再生・修復</div><h4>PDRN（サーモンDNA）</h4><p>サーモンDNAから抽出した再生成分。損傷した細胞の修復を促進し、コラーゲン産生を活性化。肌のハリ・弾力を取り戻します。</p></div>
+      <div class="ing"><div class="ing-tag">美白・くすみ改善</div><h4>アルブチン</h4><p>メラニン生成を抑制する美白成分。グルタチオンとの相乗効果で、シミ・くすみ・色素沈着をより効果的にアプローチします。</p></div>
+      <div class="ing"><div class="ing-tag">肌弾力再生</div><h4>加水分解コラーゲン</h4><p>低分子化されたコラーゲンが肌深部に浸透。炭酸CO₂の浸透力と組み合わせ、肌弾力の再生を強力にサポートします。</p></div>
+      <div class="ing"><div class="ing-tag">保湿・バリア</div><h4>パンテノール</h4><p>プロビタミンB5とも呼ばれる高機能保湿成分。肌のバリア機能を強化し、深部からの保湿を実現。敏感肌にも安心です。</p></div>
+      <div class="ing"><div class="ing-tag">保湿・乾燥改善</div><h4>ヒアルロン酸Na</h4><p>炭酸ケア特有の乾燥を防ぐために配合。高い保水力で肌の水分を逃さず、使用後もしっとりとした感触を持続させます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CASES ===== -->
+<section class="sec cases" id="cases">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Cases</div>
+      <div class="sec-jp">症例・ビフォーアフター</div>
+    </div>
+    <p class="sec-lead">実際のお客様の変化をご覧ください。<em>「結果が出る」から続けたくなる</em>。それがNUDUQUEです。</p>
+    <div class="case-grid">
+      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/case_cheek_ba_09e2e601.jpg" alt="頬のシミ改善 ビフォーアフター"><div class="case-body"><div class="case-cat">頬のシミ改善</div><div class="case-ttl">くすみが解消し均一なトーンへ</div><p class="case-desc">頬のシミが薄くなり、全体的な肌のくすみが解消。</p></div></div>
+      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/case_micro_ba_13a8c71d.jpg" alt="毛穴の開き改善 ビフォーアフター"><div class="case-body"><div class="case-cat">毛穴・キメ</div><div class="case-ttl">なめらかな陶器肌へ</div><p class="case-desc">開き毛穴が目立たなくなり、なめらかな肌質へ。</p></div></div>
+      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/case_acne_ba_1667bdfe.jpg" alt="ニキビ跡・色素沈着 ビフォーアフター"><div class="case-body"><div class="case-cat">ニキビ跡・色素沈着</div><div class="case-ttl">赤み・色素沈着が改善</div><p class="case-desc">ニキビ跡の赤みと色素沈着が改善。均一なトーンへ。</p></div></div>
+      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/case_eyelid_ba_62f3a0fe.jpg" alt="目元のたるみ ビフォーアフター"><div class="case-body"><div class="case-cat">目元・たるみ</div><div class="case-ttl">引き締まった印象に</div><p class="case-desc">目元のたるみが改善し、引き締まった印象に。</p></div></div>
+      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/case_texture_f7225836.jpg" alt="キメ・透明感 ビフォーアフター"><div class="case-body"><div class="case-cat">キメ・透明感</div><div class="case-ttl">透明感のある陶器肌へ</div><p class="case-desc">キメが整い、透明感のある陶器肌へ。</p></div></div>
+      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/YDd9HJ9kbsnFY9rC6Whzn5/case_1year_5ad0a64f.jpg" alt="1年使用の変化 ビフォーアフター"><div class="case-body"><div class="case-cat">1年使用の変化</div><div class="case-ttl">根本から変わる継続の力</div><p class="case-desc">継続使用で肌の根本から変わる。シミ・くすみが劇的に改善。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEPS ===== -->
+<section class="sec" id="howto">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">How to use</div>
+      <div class="sec-jp">シンプルな使い方</div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-no">01</div><h4>水分を拭き取る</h4><p>洗顔後、タオルで水分をしっかり拭き取ります。乾いた肌への使用が必須です。</p></div>
+      <div class="step"><div class="step-no">02</div><h4>適量を手に取る</h4><p>推奨量は2g（最大）。少量（0.5g〜）から始め、慣れたら増量してください。</p></div>
+      <div class="step"><div class="step-no">03</div><h4>やさしくなじませる</h4><p>やさしくなじませます。塗布後5分で有効成分が血管まで到達します。</p></div>
+      <div class="step"><div class="step-no">04</div><h4>20〜30分後に洗い流す</h4><p>20〜30分経ったら洗い流し、その後にスキンケアを行います。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICE ===== -->
+<section class="sec price" id="price">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Price</div>
+      <div class="sec-jp">価格設定と収益モデル</div>
+    </div>
+    <div class="price-card">
+      <div class="price-row"><span class="pr-label">サロン様 仕入れ価格（下代）</span><span class="pr-val">8,250円<small>税込／1個</small></span></div>
+      <div class="price-row"><span class="pr-label">お客様 販売価格（上代）</span><span class="pr-val">13,200円<small>税込・約1ヶ月50回分</small></span></div>
+      <div class="price-row price-row--accent"><span class="pr-label">サロン様1個あたりの粗利</span><span class="pr-val">4,950円</span></div>
+      <span class="price-note">
+        ※ 最低ロット：5個〜（5個ご発注時の1個あたりの価格です）。<br>
+        ※ お客様は1回あたり約264円の高コスパ。「結果が出るから続けたい」という高いリピート率と相まって、大掛かりな機材投資なしで安定した高収益モデルを構築できます。
+      </span>
+      <div class="price-cta">
+        <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=wJnQ6k&amp;ts=1779511836" target="_blank" rel="noopener" class="btn btn-line btn-lg">公式LINEで導入相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec mech" id="faq">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">FAQ</div>
+      <div class="sec-jp">よくあるご質問</div>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">使い始めてどのくらいで効果が出ますか？</div><p class="faq-a">個人差はありますが、多くのお客様が初回使用後から肌のもちもち感や透明感の変化を実感されています。継続使用で1〜3ヶ月後には目に見える変化が現れます。</p></div>
+      <div class="faq-item"><div class="faq-q">どんな肌質でも使えますか？</div><p class="faq-a">はい。敏感肌・乾燥肌・脂性肌など、あらゆる肌質に対応しています。炭酸CO₂は皮膚科学的に安全性が確認されており、刺激が少ないのが特徴です。</p></div>
+      <div class="faq-item"><div class="faq-q">他の施術と組み合わせることはできますか？</div><p class="faq-a">はい。フェイシャルマシンや美容液との組み合わせで相乗効果が期待できます。特にイオン導入やマシン施術の前後に使用することで、有効成分の浸透が高まります。</p></div>
+      <div class="faq-item"><div class="faq-q">サロン導入の最低ロットはありますか？</div><p class="faq-a">最低ロットは5個からとなります。5個ご発注いただいた場合、1個あたり8,250円（税込）でのご提供となります。まずはお気軽にお問い合わせください。</p></div>
+      <div class="faq-item"><div class="faq-q">施術中に赤みが出ることはありますか？</div><p class="faq-a">炭酸CO₂の作用で一時的に血行が促進され、ほんのり赤みが出る場合があります。これはボーア効果による正常な反応で、通常30分〜1時間で落ち着きます。</p></div>
+      <div class="faq-item"><div class="faq-q">返品・交換は可能ですか？</div><p class="faq-a">商品の品質に問題がある場合は、到着後7日以内にご連絡ください。お客様都合による返品は対応しておりませんが、初回導入時のサポートは万全に行います。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="sec lp-cta" id="contact">
+  <div class="lp-cta-card">
+    <h2>全てのサロンの土台に、<em>炭酸ケア</em>を。<br>導入のご相談はこちら</h2>
+    <p>
+      業種を問わず、あらゆるサロンの施術効果を底上げする「土台」として機能します。<br>
+      サロンの差別化と高収益を、NUDUQUEと一緒に。まずはお気軽にお問い合わせください。
+    </p>
+    <div class="lp-cta-btns">
+      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=wJnQ6k&amp;ts=1779511836" target="_blank" rel="noopener" class="btn btn-line btn-lg">公式LINEで相談・お申し込み</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">NUDUQUE</div>
+  <div class="footer-tag">repair aura pack / by GrandFusion</div>
+  <nav class="footer-nav">
+    <a href="../../index.html">GrandFusion TOP</a>
+    <a href="../index.html">NUDUQUE</a>
+    <a href="#product">製品</a>
+    <a href="#cases">症例</a>
+    <a href="#price">価格</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+  <div class="copyright">© 2026 NUDUQUE / GrandFusion Co., Ltd. All Rights Reserved.</div>
+</footer>
+
+<script>
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('nav');
+  if(menuBtn){menuBtn.addEventListener('click',function(){nav.classList.toggle('open');});}
+  (function(){
+    var trigs=document.querySelectorAll('.nav-dropdown > .nav-drop-trigger');
+    trigs.forEach(function(t){
+      t.addEventListener('click',function(e){
+        if(window.innerWidth>1080){
+          e.preventDefault();
+          var p=t.parentElement, was=p.classList.contains('open');
+          document.querySelectorAll('.nav-dropdown.open').forEach(function(o){o.classList.remove('open');});
+          if(!was){p.classList.add('open');}
+        }
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.nav-dropdown')){
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(o){o.classList.remove('open');});
+      }
+    });
+  })();
+  var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:0.1});
+  document.querySelectorAll('.sec').forEach(function(el){el.classList.add('fade-in');ob.observe(el);});
+</script>
+</body>
+</html>

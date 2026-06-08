@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>開業パック（Start up course）｜クリニカルサロン開業の完全サポート｜GrandFusion</title>
+<meta name="description" content="ボトックスサーマ（BTXtherma）×リジェセル×独自手技「巡リフト」×オリジナル商材を組み合わせた、他にはないクリニカルサロン開業パック。マシン2台＋巡リフト＋講師の6ヶ月伴走（月2回以上の個別コンサル）で、開業準備から集客・経営まで月商100万円達成を徹底サポート。主宰 粕谷ありさ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-base:#faf6f0;--c-beige:#ede3d3;--c-beige-light:#f5efe6;--c-cream:#f7f1e6;
+  --c-gold:#b89968;--c-gold-light:#d4b88a;--c-gold-dark:#9c8062;
+  --c-text:#3d3329;--c-text-sub:#6b5d4f;--c-text-light:#9c8775;--c-line:#d9ccb8;
+  --ff-serif:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-en:"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-sans);color:var(--c-text);background:var(--c-base);line-height:1.8;letter-spacing:.04em;font-feature-settings:"palt";-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:opacity .3s ease,color .3s ease}
+a:hover{opacity:.75}
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,246,240,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--c-line)}
+.header-inner{max-width:1280px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--ff-en);font-size:24px;font-weight:500;letter-spacing:.16em;color:var(--c-text);padding-left:.25em;white-space:nowrap}
+.logo small{display:block;font-family:var(--ff-serif);font-size:9px;letter-spacing:.4em;margin-top:2px;color:var(--c-text-light)}
+.nav{display:flex;align-items:center;gap:14px}
+.nav a{font-family:var(--ff-serif);font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--c-text-sub);position:relative;white-space:nowrap}
+.nav a::after{content:"";position:absolute;left:50%;bottom:-6px;width:0;height:1px;background:var(--c-gold);transition:width .3s ease,left .3s ease}
+.nav a:hover{color:var(--c-gold-dark);opacity:1}
+.nav a:hover::after{width:100%;left:0}
+.nav .cta-btn{background:var(--c-gold);color:#fff;padding:10px 24px;border-radius:2px;font-size:12px;letter-spacing:.18em}
+.nav .cta-btn::after{display:none}
+.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--c-text)}
+.nav-item{position:relative;display:inline-flex;align-items:center}
+.nav-drop-trigger{cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.nav-caret{font-size:9px;color:var(--c-gold);transition:transform .25s ease}
+.nav-dropdown.open .nav-caret{transform:rotate(180deg)}
+.dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);min-width:252px;background:#fff;border:1px solid var(--c-line);box-shadow:0 24px 56px rgba(156,128,98,.18);padding:10px 0;margin-top:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:200}
+.nav-dropdown:hover .dropdown,.nav-dropdown.open .dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.dropdown::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+.dropdown a{display:block;padding:11px 24px;font-family:var(--ff-serif);font-size:13px;letter-spacing:.04em;color:var(--c-text-sub);white-space:nowrap}
+.dropdown a::after{display:none}
+.dropdown a:hover{background:var(--c-beige-light);color:var(--c-gold-dark);opacity:1}
+.dropdown a small{display:block;font-size:10px;letter-spacing:.1em;color:var(--c-text-light);margin-top:2px}
+.dropdown-head{color:var(--c-gold-dark)!important;font-weight:600;border-bottom:1px solid var(--c-line);margin-bottom:6px}
+@media(max-width:1080px){
+  .header-inner{padding:14px 20px}.nav{display:none}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--c-base);padding:26px 20px;gap:18px;border-bottom:1px solid var(--c-line)}
+  .menu-btn{display:block}.logo{font-size:18px}.nav-item{display:block}
+  .dropdown{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;border-left:2px solid var(--c-gold-light);margin:6px 0 10px 12px;padding:2px 0;min-width:0}
+  .dropdown::before{display:none}.nav-caret{display:none}
+}
+.lp-hero{padding:170px 40px 110px;background:radial-gradient(ellipse at 75% 25%,rgba(212,184,138,.28) 0%,transparent 55%),linear-gradient(180deg,var(--c-base) 0%,var(--c-cream) 100%);position:relative;overflow:hidden}
+.lp-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.lp-hero-tag{font-family:var(--ff-en);font-size:12px;letter-spacing:.35em;color:var(--c-gold);margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+.lp-hero-tag::before{content:"";width:42px;height:1px;background:var(--c-gold-light)}
+.lp-hero .h-jp{font-family:var(--ff-serif);font-size:15px;letter-spacing:.2em;color:var(--c-gold-dark);margin-bottom:10px}
+.lp-hero h1{font-family:var(--ff-en);font-size:clamp(38px,5vw,60px);font-weight:500;letter-spacing:.04em;color:var(--c-text);line-height:1.05;margin-bottom:6px}
+.lp-hero .h1-jp{font-family:var(--ff-serif);font-size:22px;font-weight:600;letter-spacing:.12em;color:var(--c-text);margin-bottom:26px}
+.lp-hero-catch{font-family:var(--ff-serif);font-size:clamp(19px,2.2vw,26px);font-weight:500;line-height:1.6;color:var(--c-text);margin-bottom:22px}
+.lp-hero-catch em{font-style:normal;color:var(--c-gold-dark)}
+.lp-hero-sub{font-family:var(--ff-serif);font-size:15px;line-height:2;color:var(--c-text-sub);margin-bottom:34px}
+.lp-hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.lp-hero-img{position:relative}
+.lp-hero-img::before{content:"";position:absolute;top:-16px;right:-16px;width:100%;height:100%;border:1px solid var(--c-gold);z-index:0}
+.lp-hero-img img{position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:0 30px 80px rgba(156,128,98,.22)}
+@media(max-width:900px){.lp-hero{padding:120px 20px 70px}.lp-hero-inner{grid-template-columns:1fr;gap:40px}.lp-hero-img{max-width:340px;margin:0 auto}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;font-family:var(--ff-serif);font-size:13px;letter-spacing:.16em;border:1px solid var(--c-gold);color:var(--c-gold-dark);background:transparent;transition:all .3s ease;cursor:pointer}
+.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
+.btn::after{content:"→"}
+.btn-line{background:#06c755;color:#fff;border-color:#06c755}
+.btn-line:hover{background:#05a647;border-color:#05a647;color:#fff}
+.btn-line::after{content:""}
+.btn-lg{padding:20px 44px;font-size:14px;letter-spacing:.2em}
+.sec{padding:96px 40px}
+.sec-inner{max-width:1080px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:52px}
+.sec-en{font-family:var(--ff-en);font-size:34px;letter-spacing:.22em;color:var(--c-gold-dark);text-transform:uppercase;margin-bottom:10px}
+.sec-jp{font-family:var(--ff-serif);font-size:13px;letter-spacing:.34em;color:var(--c-text-sub);display:inline-block;padding:0 26px;position:relative}
+.sec-jp::before,.sec-jp::after{content:"";position:absolute;top:50%;width:18px;height:1px;background:var(--c-gold-light)}
+.sec-jp::before{left:-6px}.sec-jp::after{right:-6px}
+.sec-lead{text-align:center;max-width:860px;margin:0 auto 46px;font-family:var(--ff-serif);font-size:16px;line-height:2.1;color:var(--c-text-sub)}
+.sec-lead em{font-style:normal;color:var(--c-gold-dark);font-weight:600}
+@media(max-width:900px){.sec{padding:70px 20px}.sec-en{font-size:26px}}
+.problem{background:linear-gradient(135deg,var(--c-text) 0%,#5a4a3a 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+.problem::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(212,184,138,.18),transparent 55%)}
+.problem-inner{position:relative;z-index:1;max-width:980px;margin:0 auto}
+.problem-q{font-family:var(--ff-serif);font-size:clamp(20px,2.6vw,30px);font-weight:500;line-height:1.7;margin-bottom:36px}
+.problem-q em{font-style:normal;color:var(--c-gold-light)}
+.problem-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:780px;margin:0 auto}
+.problem-list div{background:rgba(255,255,255,.06);border:1px solid rgba(217,204,184,.25);padding:20px 22px;font-family:var(--ff-serif);font-size:14.5px;line-height:1.7;color:#f0e9de;text-align:left}
+@media(max-width:768px){.problem-list{grid-template-columns:1fr}}
+.pack{background:var(--c-cream)}
+.pack-hero{text-align:center;font-family:var(--ff-serif);font-size:clamp(18px,2.2vw,24px);font-weight:600;line-height:1.7;color:var(--c-text);margin-bottom:44px}
+.pack-hero em{font-style:normal;color:var(--c-gold-dark)}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:#fff;border:1px solid var(--c-line);padding:36px 28px;transition:all .4s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(156,128,98,.16);border-color:var(--c-gold-light)}
+.card-en{font-family:var(--ff-en);font-size:11px;letter-spacing:.25em;color:var(--c-gold);margin-bottom:8px}
+.card-ttl{font-family:var(--ff-serif);font-size:18px;font-weight:600;color:var(--c-text);margin-bottom:13px;line-height:1.5}
+.card-desc{font-size:13.5px;line-height:1.95;color:var(--c-text-sub)}
+@media(max-width:900px){.cards3{grid-template-columns:1fr}}
+.cases{background:var(--c-base)}
+.case-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.case{background:#fff;border:1px solid var(--c-line);overflow:hidden;transition:all .4s ease}
+.case:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(156,128,98,.15);border-color:var(--c-gold-light)}
+.case img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--c-beige-light)}
+.case-body{padding:14px 16px 18px}
+.case-ttl{font-family:var(--ff-serif);font-size:13px;font-weight:600;color:var(--c-text)}
+@media(max-width:768px){.case-grid{grid-template-columns:1fr 1fr}}
+.profile{background:var(--c-cream)}
+.profile-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+.profile-grid img{width:100%;border:1px solid var(--c-line);box-shadow:0 20px 50px rgba(156,128,98,.16)}
+.profile-body .pf-role{font-family:var(--ff-serif);font-size:12px;letter-spacing:.2em;color:var(--c-text-light);margin-bottom:6px}
+.profile-body .pf-name{font-family:var(--ff-serif);font-size:26px;font-weight:600;color:var(--c-text);margin-bottom:18px}
+.profile-body p{font-family:var(--ff-serif);font-size:14.5px;line-height:2.05;color:var(--c-text-sub);margin-bottom:14px}
+.profile-body em{font-style:normal;color:var(--c-gold-dark);font-weight:600}
+@media(max-width:900px){.profile-grid{grid-template-columns:1fr;gap:30px}}
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.voice{background:#fff;border:1px solid var(--c-line);padding:32px 28px;display:flex;flex-direction:column}
+.voice-stars{color:var(--c-gold);letter-spacing:.2em;margin-bottom:16px}
+.voice p{font-family:var(--ff-serif);font-size:13.5px;line-height:1.95;color:var(--c-text);flex:1;margin-bottom:18px}
+.voice-name{font-size:12px;color:var(--c-text-sub);padding-top:14px;border-top:1px solid var(--c-line)}
+@media(max-width:900px){.voice-grid{grid-template-columns:1fr}}
+.flow{max-width:760px;margin:0 auto}
+.flow-step{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--c-line);align-items:flex-start}
+.flow-no{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--c-gold);color:#fff;font-family:var(--ff-en);display:flex;align-items:center;justify-content:center;font-size:16px}
+.flow-step h4{font-family:var(--ff-serif);font-size:16px;color:var(--c-text);margin-bottom:5px}
+.flow-step p{font-size:13px;color:var(--c-text-sub);line-height:1.8}
+.faq{max-width:840px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--c-line);padding:24px 0}
+.faq-q{font-family:var(--ff-serif);font-size:16px;font-weight:600;color:var(--c-text);display:flex;gap:12px;margin-bottom:12px}
+.faq-q::before{content:"Q";font-family:var(--ff-en);color:var(--c-gold);font-size:18px}
+.faq-a{font-size:14px;line-height:1.95;color:var(--c-text-sub);padding-left:26px}
+.lp-cta{background:linear-gradient(135deg,var(--c-cream) 0%,var(--c-beige-light) 100%);text-align:center}
+.lp-cta-card{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--c-line);padding:64px 48px}
+.lp-cta-card h2{font-family:var(--ff-serif);font-size:clamp(24px,3vw,34px);font-weight:600;color:var(--c-text);margin-bottom:18px;line-height:1.5}
+.lp-cta-card h2 em{font-style:normal;color:var(--c-gold-dark)}
+.lp-cta-card p{font-size:14px;line-height:2;color:var(--c-text-sub);margin-bottom:32px}
+.lp-cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+@media(max-width:768px){.lp-cta-card{padding:44px 24px}}
+.footer{background:var(--c-text);color:#d9ccb8;padding:54px 40px 28px;text-align:center}
+.footer-logo{font-family:var(--ff-en);font-size:22px;letter-spacing:.3em;color:var(--c-gold-light);margin-bottom:8px}
+.footer-tag{font-family:var(--ff-serif);font-size:12px;letter-spacing:.25em;color:rgba(217,204,184,.6);margin-bottom:30px}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:28px;margin-bottom:32px}
+.footer-nav a{font-family:var(--ff-serif);font-size:12px;letter-spacing:.15em;color:rgba(217,204,184,.8)}
+.copyright{font-family:var(--ff-en);font-size:11px;letter-spacing:.2em;color:rgba(217,204,184,.5);padding-top:26px;border-top:1px solid rgba(217,204,184,.15)}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== 流体タイポ（モバイル/PC 安定化 / fluid typography） ===== */
+.sec-en{font-size:clamp(24px,5.6vw,34px)}
+.sec-lead{font-size:clamp(14.5px,1.5vw,16px)}
+.lp-hero .h1-jp{font-size:clamp(18px,2.5vw,22px)}
+.lp-hero-sub{font-size:clamp(14px,1.5vw,15px)}
+.card-ttl{font-size:clamp(16px,2vw,18px)}
+.card-desc,.case-desc,.voice p{font-size:clamp(13px,1.6vw,13.5px)}
+.ing h4{font-size:clamp(15.5px,2vw,17px)}
+.case-ttl,.flow-step h4,.faq-q{font-size:clamp(15px,1.9vw,16px)}
+.faq-a{font-size:clamp(13.5px,1.6vw,14px)}
+.lp-cta-card h2,.motto h2{font-size:clamp(22px,4.6vw,34px)}
+.profile-body .pf-name{font-size:clamp(21px,3.2vw,26px)}
+.price-row .pr-val{font-size:clamp(17px,2.6vw,22px)}
+.stat .st-val,.sim .sim-val{font-size:clamp(24px,4.6vw,34px)}
+.problem-q{font-size:clamp(19px,3.6vw,30px)}
+.pack-hero,.archive h2{font-size:clamp(18px,3.2vw,24px)}
+.section-en{font-size:clamp(26px,6vw,42px)}
+.philos-title,.support-title{font-size:clamp(17px,2.2vw,20px)}
+.biz-name{font-size:clamp(18px,2.6vw,24px)}
+.biz-desc,.voice-text,.philos-desc,.essence-detail{font-size:clamp(13px,1.6vw,14px)}
+.essence-name,.vision-author-name,.member-name{font-size:clamp(18px,2.4vw,22px)}
+.contact-card h3{font-size:clamp(20px,3.2vw,26px)}
+.blog-title{font-size:clamp(15px,1.9vw,16px)}
+.lineup-title{font-size:clamp(22px,3.4vw,30px)}
+.lineup-en{font-size:clamp(34px,6vw,48px)}
+.startup-title{font-size:clamp(23px,3.4vw,32px)}
+.portal-title{font-size:clamp(22px,3.1vw,28px)}
+.page-lead{font-size:clamp(14.5px,1.6vw,16px)}
+.member-quote,.lineup-desc,.startup-desc{font-size:clamp(14px,1.6vw,15px)}
+</style>
+</head>
+<body>
+<div id="gfGate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#faf6f0,#f7f1e6);display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP',sans-serif">
+  <form id="gfGateForm" style="background:#fff;border:1px solid #d9ccb8;padding:46px 38px;max-width:360px;width:90%;text-align:center;box-shadow:0 24px 56px rgba(156,128,98,.18)">
+    <div style="font-size:12px;letter-spacing:.32em;color:#b89968;margin-bottom:12px">GRAND FUSION</div>
+    <div style="font-size:16px;font-weight:600;color:#3d3329;margin-bottom:6px">関係者限定プレビュー</div>
+    <div style="font-size:12px;color:#9c8775;margin-bottom:22px;line-height:1.7">合言葉を入力してください</div>
+    <input id="gfPw" type="password" placeholder="合言葉" autofocus style="width:100%;padding:12px 14px;border:1px solid #d9ccb8;border-radius:2px;font-size:14px;text-align:center;box-sizing:border-box">
+    <div id="gfErr" style="display:none;color:#b76a6a;font-size:12px;margin-top:10px">合言葉が違います</div>
+    <button type="submit" style="width:100%;margin-top:16px;padding:13px;background:#b89968;color:#fff;border:none;border-radius:2px;font-size:13px;letter-spacing:.12em;cursor:pointer">閲覧する</button>
+  </form>
+</div>
+<script>
+(function(){var KEY="gf_prev_ok",PW="gf-preview-2026";var g=document.getElementById("gfGate");
+function go(){if(g&&g.parentNode)g.parentNode.removeChild(g);document.documentElement.style.overflow="";}
+try{if(new URLSearchParams(location.search).get("k")===PW){localStorage.setItem(KEY,"1");}if(localStorage.getItem(KEY)==="1"){go();return;}}catch(e){}
+document.documentElement.style.overflow="hidden";
+var f=document.getElementById("gfGateForm");
+f.addEventListener("submit",function(e){e.preventDefault();
+if(document.getElementById("gfPw").value.trim()===PW){try{localStorage.setItem(KEY,"1");}catch(e){}go();}
+else{document.getElementById("gfErr").style.display="block";document.getElementById("gfPw").value="";}});})();
+</script>
+
+
+<header class="header">
+  <div class="header-inner">
+    <a href="../../index.html" class="logo">Grand Fusion<small>株式会社グランフュージョン</small></a>
+    <nav class="nav" id="nav">
+      <a href="../../beauty_salon_mgmt/index.html">エステサロン経営</a>
+      <a href="../index.html#machines">エステマシン販売</a>
+      <div class="nav-item nav-dropdown">
+        <a href="../../nuduque/index.html" class="nav-drop-trigger">ヌドゥーク<span class="nav-caret">▾</span></a>
+        <div class="dropdown">
+          <a href="../../nuduque/index.html" class="dropdown-head">NUDUQUE ブランドサイト</a>
+          <a href="../../nuduque/suiso/index.html">水素 skin bank H⁺<small>水素パウダー</small></a>
+          <a href="../../nuduque/aura-pack/index.html">炭酸オーラパック</a>
+          <a href="../../nuduque/repair-cream/index.html">リペアクリーム pro</a>
+          <a href="../../nuduque/protein/index.html">オーラプロテイン</a>
+        </div>
+      </div>
+      <a href="https://grandfusion-official.site/hair_salon/">美容室</a>
+      <a href="../../index.html#blog">BLOG</a>
+      <a href="#">イベント・セミナー</a>
+      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="cta-btn">お問い合わせ</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">≡</button>
+  </div>
+</header>
+
+<section class="lp-hero">
+  <div class="lp-hero-inner">
+    <div class="lp-hero-text">
+      <div class="lp-hero-tag">Start up course / GrandFusion</div>
+      <div class="h-jp">クリニカルサロン開業の完全サポート</div>
+      <h1>Start Up</h1>
+      <div class="h1-jp">開業パック</div>
+      <p class="lp-hero-catch">
+        クリニカルパッケージで、<br>
+        あなたの理想のサロンを、<em>現実に</em>。
+      </p>
+      <p class="lp-hero-sub">
+        ボトックスサーマ × リジェセル × 独自手技「巡リフト」× オリジナル商材。<br>
+        マシン2台＋巡リフト＋講師の6ヶ月伴走で、<em>月商100万円達成</em>を徹底サポート。
+      </p>
+      <div class="lp-hero-cta">
+        <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="btn btn-line">まずは無料で相談する</a>
+        <a href="#pack" class="btn">パック内容を見る</a>
+      </div>
+    </div>
+    <div class="lp-hero-img">
+      <img src="images/btxtherma.jpg" alt="開業パック クリニカルマシン">
+    </div>
+  </div>
+</section>
+
+<section class="sec problem">
+  <div class="problem-inner">
+    <p class="problem-q">開業について、<em>こんな不安</em>はありませんか？</p>
+    <div class="problem-list">
+      <div>エステの技術だけでは<strong>差別化できない</strong>と感じている</div>
+      <div>マシンを買っても<strong>集客できなかったら…</strong>と不安</div>
+      <div>一人で開業して、<strong>相談できる人がいない</strong>のが怖い</div>
+      <div>マシンを<strong>買って終わり</strong>のサポートでは不安</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec pack" id="pack">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Package</div>
+      <div class="sec-jp">パック内容</div>
+    </div>
+    <p class="pack-hero">
+      ボトックスサーマ × リジェセル × 巡リフト × オリジナル商材 × 脂肪増減剤。<br>
+      <em>他にはない独自の組み合わせ</em>で、圧倒的な差別化を実現する開業パックです。
+    </p>
+    <div class="cards3">
+      <div class="card"><div class="card-en">MACHINE ×2</div><div class="card-ttl">クリニカルマシン2台セット</div><p class="card-desc">ボトックスサーマ（高周波）＋リジェセル（ポレーション）。クリニックレベルの結果を、美容医療の1/10の価格でお客様に提供できます。</p></div>
+      <div class="card"><div class="card-en">TECHNIQUE</div><div class="card-ttl">独自手技「巡リフト」</div><p class="card-desc">オリジナルマッサージ手技「巡リフト」を習得。クリニカルマシンと組み合わせることで、他のサロンにはない結果を実現します。</p></div>
+      <div class="card"><div class="card-en">6 MONTHS</div><div class="card-ttl">講師の6ヶ月伴走</div><p class="card-desc">あなた専属の講師が月2回以上の個別コンサルで徹底伴走。リアルな課題をマンツーマンで解決します。</p></div>
+      <div class="card"><div class="card-en">CONTENTS</div><div class="card-ttl">100本以上の動画見放題</div><p class="card-desc">Dr.監修コンテンツ、マーケティング、ブランディング、エステティシャンマインドなど、いつでも学べる動画ライブラリ。</p></div>
+      <div class="card"><div class="card-en">LINE</div><div class="card-ttl">LINEサポート無制限</div><p class="card-desc">いつでも相談できるLINEグループ。日々の疑問や不安をすぐに解消できます。</p></div>
+      <div class="card"><div class="card-en">SALES</div><div class="card-ttl">集客・経営の完全サポート</div><p class="card-desc">マシン選びから技術習得、商材選定、集客、経営まで。開業準備から月商100万円達成までの全てを支えます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cases" id="cases">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Cases</div>
+      <div class="sec-jp">施術ビフォーアフター</div>
+    </div>
+    <p class="sec-lead">クリニカルパッケージの施術による<em>実際の変化</em>をご覧ください。たるみ改善・リフトアップ・中顔面短縮・フェイスライン引き締めなど。</p>
+    <div class="case-grid">
+      <div class="case"><img src="images/case1.png" alt="クリニカルパッケージ 症例1"><div class="case-body"><div class="case-ttl">CASE 01</div></div></div>
+      <div class="case"><img src="images/case2.png" alt="クリニカルパッケージ 症例2"><div class="case-body"><div class="case-ttl">CASE 02</div></div></div>
+      <div class="case"><img src="images/case3.png" alt="クリニカルパッケージ 症例3"><div class="case-body"><div class="case-ttl">CASE 03</div></div></div>
+      <div class="case"><img src="images/case4.png" alt="クリニカルパッケージ 症例4"><div class="case-body"><div class="case-ttl">CASE 04</div></div></div>
+    </div>
+    <p class="sec-lead" style="margin-top:28px;font-size:12px">※ 個人の実績であり、成果を保証するものではありません。</p>
+  </div>
+</section>
+
+<section class="sec profile" id="profile">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Mentor</div>
+      <div class="sec-jp">主宰者の想い</div>
+    </div>
+    <div class="profile-grid">
+      <img src="images/arisa.jpg" alt="開業パック 主宰 粕谷ありさ">
+      <div class="profile-body">
+        <div class="pf-role">主宰 / 株式会社GrandFusion 代表</div>
+        <div class="pf-name">粕谷 ありさ</div>
+        <p>シングルマザーで子供との時間もなく、自由な働き方を求めて<em>看護師から起業</em>。サロン経営では月商500万〜1,000万円を達成し、マシン販売・美容室経営・FC展開・設計事務所経営と事業を拡張してきました。</p>
+        <p>「美容で人生を変える」という信念のもと、<em>Start up course</em>を開講。経営思考と人格形成の基礎を伝授し、美容分野で独立・活躍できる人材を輩出し続けています。</p>
+        <p>マシンを買って終わりではありません。月2回以上の個別コンサルと豊富なコンテンツで、<em>開業準備から集客・経営まで6ヶ月間徹底的に伴走</em>します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="voice">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Voice</div>
+      <div class="sec-jp">マシン導入者の声</div>
+    </div>
+    <div class="voice-grid">
+      <div class="voice"><div class="voice-stars">★ ★ ★ ★ ★</div><p>「シングルマザーで子供との時間もなく、自由な働き方を求めて看護師から起業。マシン導入と伴走サポートのおかげで、夢が広がる毎日です。」</p><div class="voice-name">H.E さん</div></div>
+      <div class="voice"><div class="voice-stars">★ ★ ★ ★ ★</div><p>「経営未経験からのスタートでしたが、マインドセットから資金管理・集客まで体系的に学べました。月商の目標も達成できています。」</p><div class="voice-name">N.Y さん</div></div>
+      <div class="voice"><div class="voice-stars">★ ★ ★ ★ ★</div><p>「マシンを買って終わりではなく、月2回の個別コンサルで一緒に走ってくれる。クリニカルパッケージで他店との差別化ができました。」</p><div class="voice-name">T.A さん</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec pack" id="flow">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Flow</div>
+      <div class="sec-jp">お申し込みの流れ</div>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><span class="flow-no">1</span><div><h4>説明会を視聴する</h4><p>まずはお気軽に無料の説明会をご視聴ください。パックの全体像と成果イメージをご確認いただけます。</p></div></div>
+      <div class="flow-step"><span class="flow-no">2</span><div><h4>無料個別相談</h4><p>公式LINEよりご相談ください。ご状況やご希望をお伺いし、最適なプランをご提案します。</p></div></div>
+      <div class="flow-step"><span class="flow-no">3</span><div><h4>エントリー（審査制）</h4><p>本気で成功を手に入れたい方のみで構成するため、審査制となっております。一括・クレジット分割（最大36回）に対応。</p></div></div>
+      <div class="flow-step"><span class="flow-no">4</span><div><h4>6ヶ月の徹底伴走スタート</h4><p>マシン導入・技術習得・集客・経営まで、講師が月2回以上の個別コンサルで月商100万円達成へ伴走します。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">FAQ</div>
+      <div class="sec-jp">よくあるご質問</div>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">経営未経験でも大丈夫ですか？</div><p class="faq-a">はい、もちろんです。受講生のほとんどが経営未経験からスタートしています。マインドセットから資金管理、マーケティング、集客まで、ゼロから体系的に学べるカリキュラムをご用意しています。</p></div>
+      <div class="faq-item"><div class="faq-q">看護師資格がなくても受けられますか？</div><p class="faq-a">はい、看護師資格がなくても開業パックは受けられます。ただし「看護師クリニカル認定サロン」の認定試験を受けられるのは看護師資格をお持ちの方に限ります。看護師の方は認定サロン取得という大きな付加価値があります。</p></div>
+      <div class="faq-item"><div class="faq-q">入学時期や支払い方法の相談はできますか？</div><p class="faq-a">はい、入学時期や支払い方法のご相談も承っております。一括払い、クレジット分割（最大36回）に対応しており、お客様の状況に合わせたプランをご提案いたします。</p></div>
+      <div class="faq-item"><div class="faq-q">融資や資金管理の相談もできますか？</div><p class="faq-a">はい、融資や資金管理のご相談もしっかりサポートいたします。開業資金の調達は経営の始まりですので、お気軽にご相談ください。</p></div>
+      <div class="faq-item"><div class="faq-q">6ヶ月のサポート終了後はどうなりますか？</div><p class="faq-a">7ヶ月目以降もサポートの継続をご希望の場合、月額11,000円で商標利用権・質問し放題・マシン費用割引などの特典を受けることができます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec lp-cta" id="contact">
+  <div class="lp-cta-card">
+    <h2>あなたの開業を、<em>全力で支えます</em>。<br>まずは説明会・無料相談から。</h2>
+    <p>
+      マシン選びから技術習得、集客、経営まで。<br>
+      他にはないクリニカルパッケージで、理想のサロンを現実にしませんか。
+    </p>
+    <div class="lp-cta-btns">
+      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="btn btn-line btn-lg">公式LINEで相談・お申し込み</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">Start Up</div>
+  <div class="footer-tag">開業パック / by GrandFusion</div>
+  <nav class="footer-nav">
+    <a href="../../index.html">GrandFusion TOP</a>
+    <a href="../index.html">商材・マシン一覧</a>
+    <a href="#pack">パック内容</a>
+    <a href="#cases">症例</a>
+    <a href="#flow">お申し込み</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+  <div class="copyright">© 2026 GrandFusion Co., Ltd. All Rights Reserved.</div>
+</footer>
+
+<script>
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('nav');
+  if(menuBtn){menuBtn.addEventListener('click',function(){nav.classList.toggle('open');});}
+  (function(){
+    var trigs=document.querySelectorAll('.nav-dropdown > .nav-drop-trigger');
+    trigs.forEach(function(t){
+      t.addEventListener('click',function(e){
+        if(window.innerWidth>1080){
+          e.preventDefault();
+          var p=t.parentElement, was=p.classList.contains('open');
+          document.querySelectorAll('.nav-dropdown.open').forEach(function(o){o.classList.remove('open');});
+          if(!was){p.classList.add('open');}
+        }
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.nav-dropdown')){
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(o){o.classList.remove('open');});
+      }
+    });
+  })();
+  var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:0.1});
+  document.querySelectorAll('.sec').forEach(function(el){el.classList.add('fade-in');ob.observe(el);});
+</script>
+</body>
+</html>

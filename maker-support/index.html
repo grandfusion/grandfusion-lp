@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrandFusion メーカーサポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   GrandFusion — "Nude Luxe" Design System
+   導入商材連動型 会員制プラットフォーム (Mock)
+=================================================================== */
+:root{
+  --nude-50:  oklch(0.985 0.006 70);
+  --nude-100: oklch(0.965 0.012 68);
+  --nude-200: oklch(0.93 0.018 66);
+  --nude-300: oklch(0.88 0.026 60);
+  --nude-400: oklch(0.80 0.035 56);
+  --nude-500: oklch(0.70 0.040 52);
+  --nude-600: oklch(0.58 0.040 48);
+  --clay:     oklch(0.62 0.060 50);
+  --mocha:    oklch(0.42 0.038 50);
+  --espresso: oklch(0.28 0.028 55);
+  --ink:      oklch(0.22 0.018 60);
+  --gold:     oklch(0.74 0.090 78);
+  --gold-deep:oklch(0.62 0.095 70);
+  --rose:     oklch(0.74 0.055 30);
+  --line:     oklch(0.88 0.018 62);
+  --bg:       oklch(0.975 0.010 72);
+  --card:     oklch(0.995 0.004 80);
+  --ok:       oklch(0.62 0.10 150);
+  --warn:     oklch(0.70 0.12 60);
+  --shadow:   0 14px 50px -20px oklch(0.4 0.03 55 / 0.35);
+  --shadow-sm:0 6px 22px -14px oklch(0.4 0.03 55 / 0.4);
+  --serif: "Cormorant Garamond", serif;
+  --display: "Jost", "Noto Sans JP", sans-serif;
+  --body: "Noto Sans JP", sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.8;font-weight:300;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.eyebrow{font-family:var(--display);font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--clay);font-weight:500}
+.serif{font-family:var(--serif)}
+h1,h2,h3{font-weight:400;letter-spacing:.02em;line-height:1.35}
+.section{max-width:1180px;margin:0 auto;padding:96px 28px}
+.center{text-align:center}
+.muted{color:var(--mocha)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-family:var(--display);font-weight:500;letter-spacing:.12em;font-size:.82rem;text-transform:uppercase;padding:15px 30px;border-radius:999px;transition:.25s;white-space:nowrap}
+.btn-primary{background:var(--espresso);color:var(--nude-50)}
+.btn-primary:hover{background:var(--ink);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold-deep));color:var(--espresso)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn-ghost{border:1px solid var(--line);color:var(--mocha)}
+.btn-ghost:hover{border-color:var(--clay);color:var(--espresso)}
+.btn-sm{padding:9px 18px;font-size:.72rem}
+.tag{font-family:var(--display);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 12px;border-radius:999px;border:1px solid var(--line);color:var(--clay)}
+
+header.nav{position:sticky;top:0;z-index:80;backdrop-filter:blur(14px);background:oklch(0.975 0.01 72 / .82);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:24px}
+.brand{font-family:var(--display);font-weight:600;letter-spacing:.22em;font-size:1.05rem}
+.brand small{display:block;font-size:.52rem;letter-spacing:.4em;color:var(--clay);font-weight:400}
+.nav-links{display:flex;gap:22px;margin-left:auto;align-items:center}
+.nav-links a{font-family:var(--display);font-size:.8rem;letter-spacing:.08em;color:var(--mocha);transition:.2s}
+.nav-links a:hover{color:var(--espresso)}
+.nav-toggle{display:none;margin-left:auto;font-size:1.4rem}
+@media(max-width:880px){.nav-links{display:none}.nav-toggle{display:block}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--card);padding:18px 28px;gap:16px;border-bottom:1px solid var(--line)}}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg, oklch(0.97 0.01 72 / .96) 0%, oklch(0.95 0.015 70 / .7) 42%, oklch(0.9 0.02 65 / .25) 100%)}
+.hero-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 28px;width:100%}
+.hero h1{font-family:var(--serif);font-size:clamp(2.6rem,6vw,4.7rem);font-weight:500;margin:18px 0 22px;line-height:1.18}
+.hero p.lead{font-size:1.02rem;color:var(--mocha);max-width:30em;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-family:var(--display);font-size:.6rem;letter-spacing:.3em;color:var(--clay)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.stat{background:var(--card);padding:34px 18px;text-align:center}
+.stat b{font-family:var(--serif);font-size:2.4rem;color:var(--espresso);font-weight:600;display:block}
+.stat span{font-size:.78rem;color:var(--mocha)}
+@media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+.sec-head{text-align:center;max-width:46em;margin:0 auto 56px}
+.sec-head h2{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:500;margin:14px 0}
+.sec-head p{color:var(--mocha)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:860px){.grid-3,.grid-2{grid-template-columns:1fr}}
+.feature{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:38px 30px;transition:.3s}
+.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.feature .num{font-family:var(--serif);font-size:1.4rem;color:var(--gold-deep)}
+.feature h3{font-size:1.18rem;margin:10px 0 12px;font-weight:500}
+.feature p{font-size:.9rem;color:var(--mocha)}
+
+.prod{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.prod:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.prod .ph{aspect-ratio:4/3;overflow:hidden;background:var(--nude-200)}
+.prod .ph img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.prod:hover .ph img{transform:scale(1.05)}
+.prod .body{padding:24px;display:flex;flex-direction:column;flex:1}
+.prod .kw{font-family:var(--display);font-size:.62rem;letter-spacing:.28em;color:var(--clay)}
+.prod h3{font-size:1.22rem;margin:6px 0 10px;font-weight:500}
+.prod p{font-size:.86rem;color:var(--mocha);flex:1}
+.prod .lp-link{margin-top:16px;font-family:var(--display);font-size:.74rem;letter-spacing:.1em;color:var(--espresso);border-bottom:1px solid var(--clay);align-self:flex-start;padding-bottom:2px}
+
+/* unlock-map cards (LPの旧ランク部分の置換) */
+.umap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.umap{grid-template-columns:1fr}}
+.ucard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+.ucard::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--uc,var(--clay))}
+.ucard .typ{font-family:var(--display);font-size:.64rem;letter-spacing:.24em;color:var(--clay)}
+.ucard h3{font-size:1.1rem;margin:6px 0 8px;font-weight:500}
+.ucard p{font-size:.84rem;color:var(--mocha)}
+
+.cmp{width:100%;border-collapse:collapse;background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.cmp th,.cmp td{padding:16px 18px;text-align:center;border-bottom:1px solid var(--line);font-size:.88rem}
+.cmp th{font-family:var(--display);letter-spacing:.08em;background:var(--nude-100);font-weight:500}
+.cmp td:first-child{text-align:left;color:var(--mocha)}
+.cmp .yes{color:var(--ok);font-weight:700}
+.cmp .no{color:var(--nude-400)}
+.cmp tr td:nth-child(2){background:oklch(0.97 0.02 78 / .5)}
+
+.voice{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px 28px}
+.voice .quote{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--espresso);margin-bottom:18px;line-height:1.7}
+.voice .who{display:flex;align-items:center;gap:12px}
+.voice .av{width:42px;height:42px;border-radius:999px;background:linear-gradient(135deg,var(--nude-300),var(--clay));display:grid;place-items:center;font-family:var(--serif);color:var(--card);font-size:1.1rem}
+.voice .who b{font-size:.9rem;font-weight:500}
+.voice .who span{font-size:.74rem;color:var(--mocha);display:block}
+
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:.95rem;color:var(--espresso)}
+.faq-q .ic{font-family:var(--serif);font-size:1.4rem;color:var(--clay);transition:.3s}
+.faq-item.open .ic{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 24px}
+.faq-item.open .faq-a{max-height:260px;padding:0 24px 22px}
+.faq-a p{font-size:.88rem;color:var(--mocha)}
+
+.cta-band{background:linear-gradient(120deg,var(--espresso),var(--mocha));color:var(--nude-50);border-radius:24px;padding:64px 40px;text-align:center}
+.cta-band h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:500;margin-bottom:14px}
+.cta-band p{color:var(--nude-200);margin-bottom:30px}
+.cta-band .btn-ghost{border-color:oklch(0.7 0.02 60 / .5);color:var(--nude-100)}
+.cta-band .btn-ghost:hover{border-color:var(--nude-100);color:var(--nude-50)}
+
+footer.ft{background:var(--ink);color:var(--nude-200);padding:50px 28px;text-align:center}
+footer.ft .brand{color:var(--nude-50);margin-bottom:10px}
+footer.ft small{font-size:.72rem;color:var(--nude-400)}
+
+/* ===================== MEMBER AREA ===================== */
+.app-shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+@media(max-width:900px){.app-shell{grid-template-columns:1fr}}
+.side{background:var(--espresso);color:var(--nude-200);padding:26px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+@media(max-width:900px){.side{position:static;height:auto}}
+.side .brand{color:var(--nude-50);margin-bottom:6px}
+.side .me{background:oklch(0.34 0.03 55);border-radius:14px;padding:16px;margin:18px 0 22px}
+.side .me .nm{color:var(--nude-50);font-weight:500;font-size:.95rem}
+.side .me .salon{font-size:.74rem;color:var(--nude-300)}
+.side .me .cnt{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--display);letter-spacing:.1em;font-size:.66rem;padding:5px 12px;border-radius:999px;background:var(--clay);color:var(--nude-50);font-weight:600}
+.side nav a{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;font-size:.86rem;color:var(--nude-200);transition:.2s;margin-bottom:3px}
+.side nav a:hover{background:oklch(0.34 0.03 55);color:var(--nude-50)}
+.side nav a.active{background:var(--clay);color:var(--nude-50)}
+.side nav .grp{font-family:var(--display);font-size:.6rem;letter-spacing:.26em;color:var(--nude-400);margin:18px 0 8px;padding:0 14px}
+.side .ico{width:18px;text-align:center;opacity:.85}
+.main{padding:34px 38px;overflow:auto;background:var(--bg)}
+@media(max-width:600px){.main{padding:24px 18px}}
+.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.page-head h1{font-family:var(--serif);font-size:2.1rem;font-weight:500}
+.page-head p{color:var(--mocha);font-size:.9rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.kpi b{font-family:var(--serif);font-size:1.9rem;color:var(--espresso);display:block}
+.kpi span{font-size:.78rem;color:var(--mocha)}
+
+.bar{height:12px;border-radius:999px;background:var(--nude-200);overflow:hidden}
+.bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--clay),var(--gold));border-radius:999px;transition:width .8s}
+
+.grouphead{display:flex;align-items:center;gap:12px;margin:34px 0 16px}
+.grouphead h2{font-family:var(--serif);font-size:1.45rem;font-weight:500}
+.grouphead .ct{font-family:var(--display);font-size:.66rem;letter-spacing:.14em;color:var(--clay);background:var(--nude-100);padding:3px 10px;border-radius:999px}
+.grouphead .ln{flex:1;height:1px;background:var(--line)}
+
+.courses{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:20px}
+.course{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;transition:.3s}
+.course:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.course .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--nude-300),var(--nude-500));position:relative;display:grid;place-items:center;overflow:hidden}
+.course .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.course .thumb .play{width:46px;height:46px;border-radius:999px;background:oklch(1 0 0 / .9);display:grid;place-items:center;color:var(--espresso);font-size:1rem;padding-left:3px;position:relative;z-index:2}
+.course .thumb .badge2{position:absolute;top:10px;left:10px;z-index:2;font-family:var(--display);font-size:.6rem;letter-spacing:.14em;padding:3px 9px;border-radius:999px;background:oklch(0 0 0 / .5);color:#fff}
+.course .meta{padding:18px}
+.course .cat{font-family:var(--display);font-size:.62rem;letter-spacing:.2em;color:var(--clay)}
+.course h3{font-size:1rem;margin:6px 0;font-weight:500;line-height:1.4}
+.course .dur{font-size:.74rem;color:var(--mocha)}
+.course.locked .thumb{filter:grayscale(.7) brightness(.82)}
+.course .lock-ov{position:absolute;inset:0;background:oklch(0.22 0.02 60 / .62);display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--nude-100);text-align:center;padding:14px;z-index:3}
+.course.locked .lock-ov{display:flex}
+.course .lock-ov .lk{font-size:1.4rem}
+.course .lock-ov small{font-size:.72rem;line-height:1.5}
+.course .lock-ov a{margin-top:4px;font-family:var(--display);font-size:.66rem;letter-spacing:.1em;border-bottom:1px solid var(--gold);color:var(--gold);padding-bottom:1px}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 30px;margin-bottom:22px}
+.panel h2{font-family:var(--serif);font-size:1.4rem;font-weight:500;margin-bottom:16px}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th,.tbl td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;font-size:.86rem}
+.tbl th{font-family:var(--display);font-size:.68rem;letter-spacing:.12em;color:var(--clay);text-transform:uppercase}
+.tbl tr:hover td{background:var(--nude-50)}
+.badge{font-family:var(--display);font-size:.62rem;letter-spacing:.1em;padding:3px 10px;border-radius:999px}
+.badge.ok{background:oklch(0.92 0.06 150);color:var(--ok)}
+.badge.wait{background:oklch(0.94 0.05 80);color:var(--gold-deep)}
+.badge.muted{background:var(--nude-200);color:var(--mocha)}
+
+.news-item{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.news-item .date{font-family:var(--display);font-size:.74rem;color:var(--clay);min-width:92px;letter-spacing:.06em}
+.news-item h3{font-size:1rem;font-weight:500;margin-bottom:4px}
+.news-item p{font-size:.84rem;color:var(--mocha)}
+
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:30px;background:linear-gradient(120deg,var(--nude-100),var(--nude-300))}
+.login-card{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:48px 42px;max-width:420px;width:100%}
+.login-card .brand{text-align:center;margin-bottom:8px}
+.login-card h1{font-family:var(--serif);font-size:1.7rem;text-align:center;font-weight:500;margin-bottom:6px}
+.login-card p.sub{text-align:center;color:var(--mocha);font-size:.84rem;margin-bottom:26px}
+.field{margin-bottom:16px}
+.field label{font-family:var(--display);font-size:.7rem;letter-spacing:.1em;color:var(--clay);display:block;margin-bottom:6px}
+.field input,.field select{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;font-family:var(--body);font-size:.9rem;background:var(--nude-50)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--clay)}
+.demo-note{background:var(--nude-100);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;font-size:.78rem;color:var(--mocha);margin-top:18px}
+.demo-note b{color:var(--espresso)}
+
+.modal{position:fixed;inset:0;z-index:200;background:oklch(0.2 0.02 60 / .72);display:none;place-items:center;padding:24px;backdrop-filter:blur(4px)}
+.modal.show{display:grid}
+.modal-card{background:var(--card);border-radius:20px;max-width:760px;width:100%;overflow:hidden;box-shadow:var(--shadow)}
+.modal-card .vid{aspect-ratio:16/9;background:linear-gradient(135deg,var(--espresso),var(--mocha));display:grid;place-items:center;color:var(--nude-200);text-align:center;gap:8px;flex-direction:column}
+.modal-card .vid .pl{width:60px;height:60px;border-radius:999px;background:oklch(1 0 0 / .15);display:grid;place-items:center;font-size:1.4rem}
+.modal-card .mbody{padding:26px 30px}
+.modal-card .mbody h2{font-family:var(--serif);font-size:1.4rem;font-weight:500;margin-bottom:6px}
+.modal-card .mbody p{font-size:.86rem;color:var(--mocha)}
+.modal-card .close{position:absolute;top:16px;right:20px;color:#fff;font-size:1.6rem;z-index:2}
+
+.back-link{font-family:var(--display);font-size:.74rem;letter-spacing:.1em;color:var(--clay);margin-bottom:18px;display:inline-block}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<div class="modal" id="modal">
+  <div class="modal-card" style="position:relative">
+    <button class="close" onclick="closeModal()">&times;</button>
+    <div class="vid"><div class="pl">&#9658;</div><span style="font-family:var(--display);letter-spacing:.2em;font-size:.7rem">HD VIDEO STREAM (DEMO)</span></div>
+    <div class="mbody"><h2 id="mtitle"></h2><p id="mdesc"></p></div>
+  </div>
+</div>
+
+<script>
+/* ===================================================================
+   MOCK DATA  —  解放は「導入商材・マシン・有料講座」連動 (ランク制度なし)
+=================================================================== */
+const IMG = {
+  hero:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-hero-products_6bdc7be0.jpg",
+  aura:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-aura-pack_bf792d56.jpg",
+  repair:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-repair-cream_e39c5659.webp",
+  protein:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-protein_a44a55a2.jpg",
+  skinbank:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-skinbank_33abd3db.jpg",
+  btx:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/btxtherma-machine_b8b7295a.webp",
+  rege:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/regecell-machine_786263b5.webp",
+  kaigyo:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/kaigyopack-hero_94e4ee44.webp",
+};
+
+// --- 商材・マシン (productKey) ---
+const PRODUCTS = [
+  {productKey:"aura_pack",  name:"炭酸オーラパック",  brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:IMG.aura,
+   desc:"CO₂による細胞活性アプローチ。医療技術から生まれた次世代スキンケア。", lp:"https://nuduquelp-aura.manus.space",
+   unlock:"炭酸パック施術マスター講座を解放"},
+  {productKey:"repair_cream",name:"リペアクリーム pro", brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:IMG.repair,
+   desc:"施術後の肌を素早く回復。バリア機能をサポートする高機能クリーム。", lp:"https://repair-blp.manus.space",
+   unlock:"アフターケア指導講座を解放"},
+  {productKey:"protein",   name:"オーラプロテイン",  brand:"NUDUQUE", kind:"商材", cat:"INNER", img:IMG.protein,
+   desc:"体質改善・根本改善をサポート。インナーから美しさを引き出す。", lp:"https://nuduqueprotein-blp.manus.space",
+   unlock:"プロテインマスターコースを解放"},
+  {productKey:"skin_bank", name:"水素skin bank H⁺", brand:"NUDUQUE", kind:"商材", cat:"INNER", img:IMG.skinbank,
+   desc:"次世代高濃度水素パウダー。活性酸素を除去し、細胞レベルから整える。", lp:"https://nuduque-suisotob.manus.space",
+   unlock:"水素ケア理論講座を解放"},
+  {productKey:"btxtherma", name:"BTXtherma",       brand:"NUDUQUE", kind:"マシン", cat:"MACHINE", img:IMG.btx,
+   desc:"40.68MHz超高周波RFマシン。高い安全性と幅広い施術メニュー展開。", lp:"https://btxtherma-lp.manus.space",
+   unlock:"RF施術 完全マニュアルを解放"},
+  {productKey:"regecell",  name:"リジェセル",       brand:"NUDUQUE", kind:"マシン", cat:"MACHINE", img:IMG.rege,
+   desc:"エレクトロポレーション技術で有効成分を真皮層まで浸透。", lp:"https://regecell-grandfusion.manus.space",
+   unlock:"エレポレ施術 実践講座を解放"},
+  {productKey:"kaigyo_pack",name:"開業サポートパック", brand:"Grand Fusion", kind:"マシン", cat:"PACKAGE", img:IMG.kaigyo,
+   desc:"BTXtherma×リジェセル2台＋6ヶ月伴走サポート。「悩まない開業」を実現。", lp:"https://kaigyopack-vejy2m8w.manus.space",
+   unlock:"開業フルパッケージ講座を解放"},
+];
+
+// --- 有料講座 (paid_items) ---
+const PAID_COURSES = [
+  {key:"course_marketing", name:"集客・マーケティング完全講座", price:"¥39,800", desc:"Instagram/LINE公式を使った集客導線を体系的に習得。"},
+  {key:"course_management",name:"サロン経営マスター講座",     price:"¥49,800", desc:"数字管理・KPI・オーナーマインドまで経営全般を学ぶ。"},
+  {key:"course_finance",   name:"融資・補助金 実務講座",       price:"¥29,800", desc:"事業計画書の作成から金融機関対応・補助金申請まで。"},
+];
+
+// --- 学習コンテンツ (type: free=無料 / product=商材 / machine=マシン / paid=有料講座) ---
+const COURSES = [
+  // 無料講座（全会員）
+  {id:1, title:"NUDUQUEブランド理解と商材入門",   cat:"無料講座", dur:"18:40", type:"free", key:null, img:IMG.hero},
+  {id:2, title:"サロン衛生管理とコンプライアンス", cat:"無料講座", dur:"22:10", type:"free", key:null, img:null},
+  {id:3, title:"カウンセリング基礎フロー",         cat:"無料講座", dur:"27:30", type:"free", key:null, img:null},
+  // 商材コンテンツ（導入者のみ）
+  {id:4, title:"炭酸オーラパック 施術マスター",     cat:"商材コンテンツ", dur:"31:05", type:"product", key:"aura_pack", img:IMG.aura},
+  {id:5, title:"リペアクリーム アフターケア指導",   cat:"商材コンテンツ", dur:"19:50", type:"product", key:"repair_cream", img:IMG.repair},
+  {id:6, title:"水素skin bank ケア理論",          cat:"商材コンテンツ", dur:"24:15", type:"product", key:"skin_bank", img:IMG.skinbank},
+  // マシンコンテンツ（導入者のみ）
+  {id:7, title:"BTXtherma RF施術 完全マニュアル",  cat:"マシンコンテンツ", dur:"58:00", type:"machine", key:"btxtherma", img:IMG.btx},
+  {id:8, title:"リジェセル エレポレ実践",          cat:"マシンコンテンツ", dur:"39:10", type:"machine", key:"regecell", img:IMG.rege},
+  {id:9, title:"開業フルパッケージ講座",           cat:"マシンコンテンツ", dur:"46:30", type:"machine", key:"kaigyo_pack", img:IMG.kaigyo},
+  // 有料講座（購入者のみ）
+  {id:10,title:"集客・マーケティング完全講座",      cat:"有料講座", dur:"35:50", type:"paid", key:"course_marketing", img:null},
+  {id:11,title:"サロン経営マスター講座",            cat:"有料講座", dur:"44:10", type:"paid", key:"course_management", img:null},
+  {id:12,title:"融資・補助金 実務講座",            cat:"有料講座", dur:"48:00", type:"paid", key:"course_finance", img:null},
+];
+
+// プロテインマスターコース（オーラプロテイン導入者のみ）
+const PROTEIN_COURSE = {
+  productKey:"protein",
+  lessons:[
+    {title:"オーラプロテインの設計思想", dur:"14:20"},
+    {title:"体質改善の栄養学ベーシック", dur:"26:40"},
+    {title:"顧客タイプ別 提案トーク",    dur:"22:15"},
+    {title:"継続率を高めるフォロー設計", dur:"19:05"},
+    {title:"プロテイン物販の収益モデル", dur:"24:50"},
+  ]
+};
+
+const NEWS = [
+  {date:"2026.06.01", tag:"新講座", title:"有料講座「サロン経営マスター講座」を公開", body:"数字管理からオーナーマインドまでを体系化した新講座を追加しました。"},
+  {date:"2026.05.20", tag:"新商材", title:"水素skin bank H⁺ リニューアル発売", body:"高濃度水素パウダーの配合を刷新。導入サロン向けケア理論講座を公開しました。"},
+  {date:"2026.05.08", tag:"コンテンツ", title:"集客・マーケティング完全講座に新章を追加", body:"LINE公式アカウントを活用した再来導線設計の動画を追加しました。"},
+  {date:"2026.04.15", tag:"サポート", title:"融資サポートの受付枠を拡大", body:"事業計画書作成補助の対応枠を増やしました。LINEよりお申し込みください。"},
+];
+
+// --- clients : products に「商材key + 有料講座key」を保有 ---
+const CLIENTS = [
+  {id:"GF-1024", salon:"Lumiere 表参道", owner:"佐藤 美咲", pref:"東京都", joined:"2025-08",
+   products:["aura_pack","protein","btxtherma","course_marketing"]},
+  {id:"GF-1031", salon:"Belle Osaka",   owner:"田中 彩",   pref:"大阪府", joined:"2025-05",
+   products:["aura_pack","repair_cream","regecell","btxtherma","course_management"]},
+  {id:"GF-1048", salon:"Aura 福岡",      owner:"鈴木 玲奈", pref:"福岡県", joined:"2025-11",
+   products:["aura_pack","skin_bank"]},
+  {id:"GF-1055", salon:"Reine 名古屋",    owner:"高橋 由紀", pref:"愛知県", joined:"2024-12",
+   products:["aura_pack","repair_cream","protein","skin_bank","btxtherma","regecell","kaigyo_pack","course_marketing","course_management","course_finance"]},
+  {id:"GF-1067", salon:"Noble 横浜",      owner:"伊藤 香織", pref:"神奈川県", joined:"2025-02",
+   products:["aura_pack","protein","btxtherma","regecell","course_finance"]},
+  {id:"GF-1072", salon:"Eclat 札幌",      owner:"渡辺 直美", pref:"北海道", joined:"2026-03",
+   products:["aura_pack"]},
+];
+
+const APPLICATIONS = [
+  {id:"AP-301", client:"Lumiere 表参道", item:"融資サポート", price:"¥50,000", status:"承認待ち", date:"2026.06.03"},
+  {id:"AP-298", client:"Belle Osaka",   item:"開業サポートパック", price:"お見積り", status:"対応中", date:"2026.05.28"},
+  {id:"AP-292", client:"Noble 横浜",     item:"サロン経営マスター講座", price:"¥49,800", status:"完了", date:"2026.05.10"},
+];
+
+let SESSION = null; // {role:'client'|'admin', clientId}
+
+/* ===================================================================
+   解放ロジック  —  導入商材・有料講座の所有のみで判定
+=================================================================== */
+function currentClient(){ return CLIENTS.find(c=>c.id===SESSION?.clientId); }
+function keyName(key){
+  const p=PRODUCTS.find(x=>x.productKey===key); if(p) return p.name;
+  const c=PAID_COURSES.find(x=>x.key===key); if(c) return c.name;
+  return key;
+}
+function keyLp(key){
+  const p=PRODUCTS.find(x=>x.productKey===key); return p?p.lp:null;
+}
+function isUnlocked(course, client){
+  if(SESSION?.role==="admin") return true;
+  if(course.type==="free") return true;
+  return client.products.includes(course.key);
+}
+
+/* ===================================================================
+   ROUTER
+=================================================================== */
+const routes = {};
+function route(path, fn){ routes[path]=fn; }
+function go(path){ location.hash = path; }
+function render(){
+  const hash = location.hash.replace(/^#/,'') || "/";
+  const [path] = hash.split("?");
+  const fn = routes[path] || routes["/"];
+  document.getElementById("root").innerHTML = fn(hash);
+  window.scrollTo(0,0);
+  bindFaq();
+}
+window.addEventListener("hashchange", render);
+window.addEventListener("load", render);
+
+function topnav(){
+  return `<header class="nav"><div class="nav-in">
+    <a href="#/" class="brand">GRANDFUSION<small>MAKER SUPPORT</small></a>
+    <button class="nav-toggle" onclick="document.getElementById('nlinks').classList.toggle('open')">&#9776;</button>
+    <nav class="nav-links" id="nlinks">
+      <a href="#/#about">強み</a><a href="#/#products">商材</a>
+      <a href="#/#unlock">解放のしくみ</a><a href="#/#support">サポート</a><a href="#/#faq">FAQ</a>
+      <a href="https://lin.ee/example" target="_blank">LINE相談</a>
+      <a href="#/login" class="btn btn-primary btn-sm">会員ログイン</a>
+    </nav></div></header>`;
+}
+
+/* ===================================================================
+   PUBLIC LP
+=================================================================== */
+route("/", () => `
+${topnav()}
+<section class="hero">
+  <div class="hero-bg"><img src="${IMG.hero}" alt=""></div>
+  <div class="hero-in">
+    <span class="eyebrow">Grandfusion Maker Support Portal</span>
+    <h1>導入した商材が、<br>学びに変わる。</h1>
+    <p class="lead">導入した商材・マシン・講座ごとに、専用の限定コンテンツが解放される会員制プラットフォーム。</p>
+    <div class="hero-cta">
+      <a href="#/login" class="btn btn-primary">会員ログイン</a>
+      <a href="#/login" class="btn btn-gold">無料体験（7日間）</a>
+      <a href="#about" class="btn btn-ghost">詳しく見る</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL ▾</div>
+</section>
+
+<div class="section" style="padding-top:64px;padding-bottom:0">
+  <div class="stats">
+    <div class="stat"><b>2,000+</b><span>サロンオーナーリスト</span></div>
+    <div class="stat"><b>50+</b><span>学習コンテンツ数</span></div>
+    <div class="stat"><b>商材連動</b><span>導入者限定で解放</span></div>
+    <div class="stat"><b>HD配信</b><span>高品質動画配信</span></div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="sec-head"><span class="eyebrow">About</span>
+    <h2>GrandFusion サポートの強み</h2>
+    <p>医療発想のマシン開発と実体験に基づいた厳選商材で、サロン経営を次のステージへ。</p></div>
+  <div class="grid-3">
+    <div class="feature"><span class="num">01</span><h3>導入商材連動型 学習システム</h3>
+      <p>導入した商材・マシン・有料講座ごとに、その活用に直結する専用コンテンツが解放されます。必要な学びだけに最短でアクセスできる設計です。</p></div>
+    <div class="feature"><span class="num">02</span><h3>看護師発想の 医療グレード商材</h3>
+      <p>難病を乗り越えた看護師出身の代表が、自身の実体験から結果が出るものだけを厳選。クリニックレベルの結果をサロンで実現できます。</p></div>
+    <div class="feature"><span class="num">03</span><h3>マシン導入から 経営まで伴走サポート</h3>
+      <p>350万円以上のマシン購入で3ヶ月の伴走型講師サポート付き。技術・集客・カウンセリングまで専任講師が個別サポートします。</p></div>
+  </div>
+</section>
+
+<section class="section" id="products" style="background:var(--nude-100)">
+  <div class="sec-head"><span class="eyebrow">Products</span>
+    <h2>NUDUQUE 商材ラインナップ</h2>
+    <p>看護師発想・実体験から生まれた、結果にこだわる自社メーカーコスメティクス。</p></div>
+  <div class="grid-2">
+    ${PRODUCTS.filter(p=>p.cat==="COSMETIC"||p.cat==="INNER").map(prodCard).join("")}
+  </div>
+  <div class="sec-head" style="margin-top:80px"><span class="eyebrow">Clinical Machines</span>
+    <h2>自社クリニカルマシン</h2>
+    <p>医療発想で開発した自社メーカーマシン。クリニックレベルの結果をサロンに。</p></div>
+  <div class="grid-3">
+    ${PRODUCTS.filter(p=>p.cat==="MACHINE"||p.cat==="PACKAGE").map(prodCard).join("")}
+  </div>
+</section>
+
+<section class="section" id="unlock">
+  <div class="sec-head"><span class="eyebrow">Unlock System</span>
+    <h2>導入商材でコンテンツが解放</h2>
+    <p>ランクや仕入れ額に関係なく、導入した商材・マシン・講座ごとに専用コンテンツが解放されます。</p></div>
+  <div class="umap">
+    <div class="ucard" style="--uc:var(--ok)"><span class="typ">FREE</span><h3>無料講座</h3>
+      <p>ブランド理解・衛生管理・カウンセリング基礎など、全会員がいつでも視聴できる基礎コンテンツ。</p></div>
+    <div class="ucard" style="--uc:var(--clay)"><span class="typ">PRODUCT</span><h3>商材コンテンツ</h3>
+      <p>炭酸オーラパック・プロテイン等、導入した商材ごとに施術・提案ノウハウが解放されます。</p></div>
+    <div class="ucard" style="--uc:var(--espresso)"><span class="typ">MACHINE</span><h3>マシンコンテンツ</h3>
+      <p>BTXtherma・リジェセル等、導入したマシンの施術マニュアルと実践講座が解放されます。</p></div>
+    <div class="ucard" style="--uc:var(--gold-deep)"><span class="typ">PAID COURSE</span><h3>有料講座</h3>
+      <p>集客・経営・融資など、購入した有料講座が解放されます。必要な講座だけ単体で受講可能。</p></div>
+    <div class="ucard" style="--uc:var(--rose)"><span class="typ">SUPPORT</span><h3>伴走サポート</h3>
+      <p>マシン350万円以上の導入で、3ヶ月の専任講師による個別伴走サポートが付帯します。</p></div>
+    <div class="ucard" style="--uc:var(--nude-500)"><span class="typ">VIDEO</span><h3>高品質動画配信</h3>
+      <p>すべてのコンテンツはHDストリーミングで配信。スマホ・PCどちらでも視聴できます。</p></div>
+  </div>
+</section>
+
+<section class="section" id="support" style="background:var(--nude-100)">
+  <div class="sec-head"><span class="eyebrow">Support</span><h2>導入サポート体制</h2></div>
+  <div class="grid-2">
+    <div class="feature"><span class="eyebrow">Machine Support</span>
+      <h3 style="margin-top:8px">マシン350万円以上購入で 3ヶ月伴走型サポート</h3>
+      <p>・施術技術の個別指導<br>・集客・SNS戦略のサポート<br>・カウンセリングトーク研修<br>・売上目標の設定と進捗管理</p></div>
+    <div class="feature"><span class="eyebrow">Finance Support</span>
+      <h3 style="margin-top:8px">融資サポート 別途 ¥50,000</h3>
+      <p>・事業計画書の作成補助<br>・金融機関への同行サポート<br>・補助金・助成金の申請支援<br>・資金調達戦略のアドバイス</p>
+      <a href="#/login" class="btn btn-gold btn-sm" style="margin-top:16px;align-self:flex-start">申し込む</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head"><span class="eyebrow">Comparison</span><h2>他社との比較</h2></div>
+  <div style="overflow-x:auto">
+  <table class="cmp"><thead><tr><th>機能・サービス</th><th>GrandFusion</th><th>一般的なメーカー</th></tr></thead>
+  <tbody>
+    ${[
+      "導入商材連動コンテンツ解放","無料・有料講座の使い分け","商材・マシン別 専用講座",
+      "マシン伴走型3ヶ月サポート","融資サポート（別途5万円）","顧客向け資料の一元管理",
+      "高品質動画配信","スマホ・PC対応"
+    ].map(f=>`<tr><td>${f}</td><td class="yes">●</td><td class="no">—</td></tr>`).join("")}
+  </tbody></table></div>
+</section>
+
+<section class="section" id="voice" style="background:var(--nude-100)">
+  <div class="sec-head"><span class="eyebrow">Voice</span><h2>導入サロンの声</h2></div>
+  <div class="grid-3">
+    ${[
+      {q:"導入した商材ごとに専用講座が見られるので、無駄なく必要な技術だけ学べました。炭酸オーラパックの施術がすぐに自信を持てるようになりました。",n:"A様",p:"東京都・痩身サロン"},
+      {q:"マシン導入時の3ヶ月伴走サポートが本当に心強かったです。技術だけでなく、カウンセリングの仕方まで丁寧に教えていただきました。",n:"B様",p:"大阪府・エステサロン"},
+      {q:"融資・補助金の有料講座と融資サポートのおかげで、マシン導入の資金調達がスムーズにできました。本当に助かりました。",n:"C様",p:"福岡県・美容サロン"},
+    ].map(v=>`<div class="voice"><p class="quote">"${v.q}"</p>
+      <div class="who"><div class="av">${v.n[0]}</div><div><b>${v.n}</b><span>${v.p}</span></div></div></div>`).join("")}
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="sec-head"><span class="eyebrow">FAQ</span><h2>よくある質問</h2></div>
+  <div style="max-width:760px;margin:0 auto">
+    ${[
+      ["コンテンツはどのように解放されますか？","導入した商材・マシン・有料講座ごとに、対応する専用コンテンツが自動で解放されます。無料講座はすべての会員がいつでも視聴できます。"],
+      ["動画コンテンツはどこで視聴できますか？","会員ログイン後の「コンテンツ」ページから、高品質ストリーミングで視聴できます。スマホ・PCどちらにも対応しています。"],
+      ["有料講座は単体で購入できますか？","はい。集客・経営・融資などの有料講座は、必要なものだけを単体で購入・受講できます。購入後すぐにコンテンツが解放されます。"],
+      ["マシン350万円以上購入の伴走サポートとは？","技術指導・集客戦略・カウンセリング研修・売上進捗管理を含む3ヶ月の専任講師サポートです。導入後すぐに結果を出すための個別伴走プログラムです。"],
+      ["融資サポートはどのような内容ですか？","別途¥50,000で、事業計画書の作成補助、金融機関への同行、補助金・助成金の申請支援、資金調達戦略のアドバイスを提供します。"],
+    ].map(([q,a])=>`<div class="faq-item"><button class="faq-q">${q}<span class="ic">+</span></button>
+      <div class="faq-a"><p>${a}</p></div></div>`).join("")}
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-band">
+    <span class="eyebrow" style="color:var(--gold)">Contact</span>
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>導入に関するご質問・ご相談はLINEまたはお電話で承ります。</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://lin.ee/example" target="_blank" class="btn btn-gold">LINEで相談する（無料）</a>
+      <a href="tel:0120000000" class="btn btn-ghost">電話で相談する</a>
+    </div>
+    <p style="margin-top:22px"><a href="#/login" style="color:var(--nude-200);border-bottom:1px solid var(--clay);font-size:.82rem">すでに会員の方はこちら →</a></p>
+  </div>
+</section>
+
+<footer class="ft"><div class="brand">GRANDFUSION<small>MAKER SUPPORT</small></div>
+  <small>© 2026 GrandFusion. All rights reserved.</small></footer>
+`);
+
+function prodCard(p){
+  return `<div class="prod"><div class="ph"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="body"><span class="kw">${p.brand}</span><h3>${p.name}</h3>
+    <p>${p.desc}</p>
+    <a href="${p.lp}" target="_blank" class="lp-link">詳しく見る（LP）→</a></div></div>`;
+}
+
+/* ===================================================================
+   LOGIN
+=================================================================== */
+route("/login", () => `
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="brand" style="font-family:var(--display);font-weight:600;letter-spacing:.22em">GRANDFUSION
+      <span style="display:block;font-size:.5rem;letter-spacing:.4em;color:var(--clay)">MAKER SUPPORT</span></div>
+    <h1>会員ログイン</h1>
+    <p class="sub">導入商材連動型 学習プラットフォーム</p>
+    <div class="field"><label>ログインする会員（デモ）</label>
+      <select id="loginClient">
+        ${CLIENTS.map(c=>`<option value="${c.id}">${c.salon}（導入 ${c.products.length} 件）</option>`).join("")}
+      </select></div>
+    <div class="field"><label>パスワード</label><input type="password" value="demo1234" placeholder="••••••••"></div>
+    <button class="btn btn-primary" style="width:100%" onclick="loginAs()">会員エリアへ入る</button>
+    <button class="btn btn-ghost" style="width:100%;margin-top:10px" onclick="loginAdmin()">管理者としてログイン</button>
+    <div class="demo-note"><b>デモについて：</b> 実サイトは LINEログイン＋販売管理システム連携で認証されます。本デモでは会員を選択すると、その<b>導入商材・マシン・有料講座に応じた解放コンテンツ</b>が再現されます。</div>
+    <p class="center" style="margin-top:16px"><a href="#/" style="font-size:.78rem;color:var(--clay)">← トップへ戻る</a></p>
+  </div>
+</div>
+`);
+function loginAs(){ SESSION={role:"client",clientId:document.getElementById("loginClient").value}; go("/courses"); }
+function loginAdmin(){ SESSION={role:"admin",clientId:CLIENTS[3].id}; go("/admin"); }
+function logout(){ SESSION=null; go("/"); }
+
+/* ===================================================================
+   MEMBER SHELL
+=================================================================== */
+function shell(active, body){
+  const c = currentClient();
+  const adminLinks = SESSION.role==="admin" ? `
+    <div class="grp">管理</div>
+    <a href="#/admin" class="${active==='admin'?'active':''}"><span class="ico">▤</span>管理ダッシュボード</a>
+    <a href="#/admin/clients" class="${active==='clients'?'active':''}"><span class="ico">◍</span>クライアント管理</a>
+    <a href="#/admin/paiditems" class="${active==='paiditems'?'active':''}"><span class="ico">▦</span>商材・有料講座・申込</a>
+    <a href="#/admin/news" class="${active==='adnews'?'active':''}"><span class="ico">✎</span>お知らせ管理</a>` : "";
+  return `<div class="app-shell">
+    <aside class="side">
+      <a href="#/" class="brand">GRANDFUSION<small>MAKER SUPPORT</small></a>
+      <div class="me"><div class="nm">${c.owner} 様</div><div class="salon">${c.salon} ・ ${c.pref}</div>
+        <span class="cnt">導入 ${c.products.length} 件</span></div>
+      <nav>
+        <div class="grp">マイページ</div>
+        <a href="#/courses" class="${active==='courses'?'active':''}"><span class="ico">▷</span>コンテンツ</a>
+        <a href="#/protein" class="${active==='protein'?'active':''}"><span class="ico">◆</span>プロテインマスター</a>
+        <a href="#/news" class="${active==='news'?'active':''}"><span class="ico">✦</span>お知らせ</a>
+        <a href="#/myproducts" class="${active==='myproducts'?'active':''}"><span class="ico">◷</span>導入商材・講座</a>
+        ${adminLinks}
+        <div class="grp">アカウント</div>
+        <a href="#/"><span class="ico">⤺</span>公開サイト</a>
+        <a href="#" onclick="logout();return false"><span class="ico">⏻</span>ログアウト</a>
+      </nav>
+    </aside>
+    <main class="main">${body}</main>
+  </div>`;
+}
+
+function courseCard(co, c){
+  const open=isUnlocked(co,c);
+  const lp=keyLp(co.key);
+  const reason = co.type==="paid"
+    ? `「${keyName(co.key)}」購入で解放`
+    : `「${keyName(co.key)}」導入で解放`;
+  return `<div class="course ${open?'':'locked'}" ${open?`onclick="openCourse('${co.title.replace(/'/g,'')}','${co.dur}')" style="cursor:pointer"`:''}>
+    <div class="thumb">${co.img?`<img src="${co.img}" alt="">`:''}
+      <span class="badge2">${co.type==='free'?'無料':co.type==='paid'?'有料講座':co.type==='machine'?'マシン':'商材'}</span>
+      ${open?'<div class="play">▶</div>':''}
+      <div class="lock-ov"><span class="lk">🔒</span><small>${reason}</small>
+        ${lp?`<a href="${lp}" target="_blank" onclick="event.stopPropagation()">商材LPを見る →</a>`:''}</div>
+    </div>
+    <div class="meta"><span class="cat">${co.cat}</span><h3>${co.title}</h3><span class="dur">▷ ${co.dur}</span></div></div>`;
+}
+
+/* ---------- Courses (商材連動) ---------- */
+route("/courses", () => {
+  if(!SESSION) return routes["/login"]();
+  const c=currentClient();
+  const groups=[
+    {key:"free",   label:"無料講座",        note:"全会員が視聴可能"},
+    {key:"product",label:"商材コンテンツ",  note:"導入商材のみ"},
+    {key:"machine",label:"マシンコンテンツ",note:"導入マシンのみ"},
+    {key:"paid",   label:"有料講座",        note:"購入講座のみ"},
+  ];
+  const sections = groups.map(g=>{
+    const list=COURSES.filter(x=>x.type===g.key);
+    const openN=list.filter(x=>isUnlocked(x,c)).length;
+    return `<div class="grouphead"><h2>${g.label}</h2>
+        <span class="ct">${g.note}・解放 ${openN}/${list.length}</span><span class="ln"></span></div>
+      <div class="courses">${list.map(co=>courseCard(co,c)).join("")}</div>`;
+  }).join("");
+  const totalOpen=COURSES.filter(x=>isUnlocked(x,c)).length;
+  return shell("courses", `
+    <div class="page-head"><div><h1>コンテンツ</h1>
+      <p>導入した商材・マシン・講座に応じて解放されています（解放 ${totalOpen}/${COURSES.length}）</p></div></div>
+    ${sections}
+  `);
+});
+
+/* ---------- Protein Master Course ---------- */
+route("/protein", () => {
+  if(!SESSION) return routes["/login"]();
+  const c=currentClient();
+  const open = c.products.includes("protein") || SESSION.role==="admin";
+  const body = open ? `
+    <div class="panel" style="background:linear-gradient(120deg,var(--espresso),var(--mocha));color:var(--nude-100);border:none">
+      <span class="eyebrow" style="color:var(--gold)">Protein Master Course</span>
+      <h2 style="color:var(--nude-50);font-size:1.7rem">オーラプロテイン マスターコース</h2>
+      <p style="color:var(--nude-200);max-width:40em">体質改善・物販収益までを体系的に学ぶ専用カリキュラム。「オーラプロテイン」導入サロン限定で解放されています。</p>
+    </div>
+    <div class="panel"><h2>カリキュラム（全${PROTEIN_COURSE.lessons.length}章）</h2>
+      <table class="tbl"><thead><tr><th>章</th><th>タイトル</th><th>時間</th><th></th></tr></thead><tbody>
+      ${PROTEIN_COURSE.lessons.map((l,i)=>`<tr><td>${i+1}</td><td>${l.title}</td><td>${l.dur}</td>
+        <td><button class="btn btn-primary btn-sm" onclick="openCourse('${l.title}','${l.dur}')">▶ 視聴</button></td></tr>`).join("")}
+      </tbody></table></div>` : `
+    <div class="panel center" style="padding:60px">
+      <div style="font-size:2.4rem">🔒</div>
+      <h2 style="margin-top:10px">このコースはロックされています</h2>
+      <p class="muted" style="margin-bottom:20px">「オーラプロテイン」を導入すると<br>プロテインマスターコースが解放されます。</p>
+      <a href="${PRODUCTS.find(p=>p.productKey==='protein').lp}" target="_blank" class="btn btn-gold">オーラプロテインを見る（LP）</a>
+    </div>`;
+  return shell("protein", `<a href="#/courses" class="back-link">← コンテンツへ戻る</a>${body}`);
+});
+
+/* ---------- News ---------- */
+route("/news", () => {
+  if(!SESSION) return routes["/login"]();
+  return shell("news", `
+    <div class="page-head"><div><h1>お知らせ</h1><p>運営からの最新情報</p></div></div>
+    <div class="panel">
+      ${NEWS.map(n=>`<div class="news-item"><div class="date">${n.date}</div>
+        <div><span class="tag">${n.tag}</span><h3 style="margin-top:6px">${n.title}</h3><p>${n.body}</p></div></div>`).join("")}
+    </div>
+  `);
+});
+
+/* ---------- My products / courses ---------- */
+route("/myproducts", () => {
+  if(!SESSION) return routes["/login"]();
+  const c=currentClient();
+  const myProd=PRODUCTS.filter(p=>c.products.includes(p.productKey));
+  const myCourse=PAID_COURSES.filter(p=>c.products.includes(p.key));
+  const availProd=PRODUCTS.filter(p=>!c.products.includes(p.productKey));
+  const availCourse=PAID_COURSES.filter(p=>!c.products.includes(p.key));
+  return shell("myproducts", `
+    <div class="page-head"><div><h1>導入商材・講座</h1><p>導入済みの商材・マシン・有料講座と解放コンテンツ</p></div></div>
+    <div class="panel"><h2>導入済み 商材・マシン（${myProd.length}）</h2>
+      <div class="grid-3" style="margin-top:8px">
+      ${myProd.length?myProd.map(p=>`<div class="prod"><div class="ph"><img src="${p.img}"></div>
+        <div class="body"><span class="kw">${p.brand} ・ ${p.kind}</span><h3 style="font-size:1.05rem">${p.name}</h3>
+        <p style="font-size:.8rem"><span class="badge ok">解放済</span> ${p.unlock}</p></div></div>`).join(""):'<p class="muted">導入済みの商材はありません。</p>'}
+      </div></div>
+    <div class="panel"><h2>受講中 有料講座（${myCourse.length}）</h2>
+      ${myCourse.length?`<table class="tbl"><thead><tr><th>講座</th><th>価格</th><th>内容</th><th>状態</th></tr></thead><tbody>
+        ${myCourse.map(p=>`<tr><td><b>${p.name}</b></td><td>${p.price}</td><td class="muted">${p.desc}</td>
+          <td><span class="badge ok">解放済</span></td></tr>`).join("")}</tbody></table>`
+        :'<p class="muted">購入済みの有料講座はありません。</p>'}</div>
+    <div class="panel"><h2>導入・購入で解放できるもの</h2>
+      <table class="tbl"><thead><tr><th>項目</th><th>種別</th><th>解放されるもの</th><th></th></tr></thead><tbody>
+      ${availProd.map(p=>`<tr><td>${p.name}</td><td>${p.kind}</td><td class="muted">${p.unlock}</td>
+        <td><a href="${p.lp}" target="_blank" class="btn btn-ghost btn-sm">LP →</a></td></tr>`).join("")}
+      ${availCourse.map(p=>`<tr><td>${p.name}</td><td>有料講座</td><td class="muted">${p.desc}（${p.price}）</td>
+        <td><a href="https://lin.ee/example" target="_blank" class="btn btn-gold btn-sm">購入</a></td></tr>`).join("")}
+      </tbody></table></div>
+  `);
+});
+
+/* ===================================================================
+   ADMIN
+=================================================================== */
+route("/admin", () => {
+  if(SESSION?.role!=="admin") return routes["/login"]();
+  // 商材・講座別 導入数
+  const allKeys=[...PRODUCTS.map(p=>({key:p.productKey,name:p.name,kind:p.kind})),
+                 ...PAID_COURSES.map(p=>({key:p.key,name:p.name,kind:"有料講座"}))];
+  const counts=allKeys.map(k=>({...k,n:CLIENTS.filter(c=>c.products.includes(k.key)).length}))
+                      .sort((a,b)=>b.n-a.n);
+  const maxN=Math.max(...counts.map(c=>c.n),1);
+  return shell("admin", `
+    <div class="page-head"><div><h1>管理ダッシュボード</h1><p>GrandFusion 運営コンソール</p></div></div>
+    <div class="cards" style="margin-bottom:24px">
+      <div class="kpi"><b>${CLIENTS.length}</b><span>登録サロン</span></div>
+      <div class="kpi"><b>${PRODUCTS.length}</b><span>商材・マシン</span></div>
+      <div class="kpi"><b>${COURSES.length}</b><span>学習コンテンツ</span></div>
+      <div class="kpi"><b>${APPLICATIONS.filter(a=>a.status!=='完了').length}</b><span>未対応申込</span></div>
+    </div>
+    <div class="panel"><h2>商材・有料講座別 導入数</h2>
+      ${counts.map(k=>`<div style="display:flex;align-items:center;gap:14px;margin-bottom:9px">
+        <span style="min-width:170px;font-size:.84rem">${k.name} <span class="badge muted">${k.kind}</span></span>
+        <div class="bar" style="flex:1"><i style="width:${k.n/maxN*100}%"></i></div>
+        <b style="font-family:var(--serif);min-width:24px;text-align:right">${k.n}</b></div>`).join("")}
+    </div>
+  `);
+});
+
+route("/admin/clients", () => {
+  if(SESSION?.role!=="admin") return routes["/login"]();
+  return shell("clients", `
+    <div class="page-head"><div><h1>クライアント管理</h1><p>clients テーブル ・ ${CLIENTS.length}件</p></div></div>
+    <div class="panel"><table class="tbl"><thead><tr>
+      <th>ID</th><th>サロン</th><th>オーナー</th><th>地域</th><th>導入数</th><th>導入商材・講座</th></tr></thead><tbody>
+      ${CLIENTS.map(c=>`<tr><td>${c.id}</td><td><b>${c.salon}</b></td><td>${c.owner}</td><td>${c.pref}</td>
+        <td><span class="badge muted">${c.products.length}件</span></td>
+        <td style="font-size:.78rem;color:var(--mocha)">${c.products.map(keyName).join(" / ")}</td></tr>`).join("")}
+    </tbody></table></div>
+  `);
+});
+
+route("/admin/paiditems", () => {
+  if(SESSION?.role!=="admin") return routes["/login"]();
+  const st=s=>s==="完了"?"ok":s==="承認待ち"?"wait":"muted";
+  return shell("paiditems", `
+    <div class="page-head"><div><h1>商材・有料講座・申込</h1><p>paid_items / paid_item_applications</p></div></div>
+    <div class="panel"><h2>商材・マシン マスタ</h2><table class="tbl"><thead><tr><th>名称</th><th>種別</th><th>解放されるコンテンツ</th></tr></thead><tbody>
+      ${PRODUCTS.map(p=>`<tr><td><b>${p.name}</b></td><td>${p.kind}</td><td class="muted">${p.unlock}</td></tr>`).join("")}
+    </tbody></table></div>
+    <div class="panel"><h2>有料講座 マスタ</h2><table class="tbl"><thead><tr><th>講座</th><th>価格</th><th>内容</th></tr></thead><tbody>
+      ${PAID_COURSES.map(p=>`<tr><td><b>${p.name}</b></td><td>${p.price}</td><td class="muted">${p.desc}</td></tr>`).join("")}
+      <tr><td><b>融資サポート</b></td><td>¥50,000</td><td class="muted">事業計画書・融資同行・補助金申請</td></tr>
+    </tbody></table></div>
+    <div class="panel"><h2>申込一覧</h2><table class="tbl"><thead><tr><th>申込ID</th><th>サロン</th><th>項目</th><th>金額</th><th>日付</th><th>状態</th></tr></thead><tbody>
+      ${APPLICATIONS.map(a=>`<tr><td>${a.id}</td><td>${a.client}</td><td>${a.item}</td><td>${a.price}</td><td>${a.date}</td>
+        <td><span class="badge ${st(a.status)}">${a.status}</span></td></tr>`).join("")}
+    </tbody></table></div>
+  `);
+});
+
+route("/admin/news", () => {
+  if(SESSION?.role!=="admin") return routes["/login"]();
+  return shell("adnews", `
+    <div class="page-head"><div><h1>お知らせ管理</h1><p>announcements テーブル</p></div>
+      <button class="btn btn-primary btn-sm" onclick="alert('デモ：新規お知らせ作成フォームが開きます')">+ 新規作成</button></div>
+    <div class="panel"><table class="tbl"><thead><tr><th>日付</th><th>区分</th><th>タイトル</th><th>操作</th></tr></thead><tbody>
+      ${NEWS.map(n=>`<tr><td>${n.date}</td><td><span class="tag">${n.tag}</span></td><td>${n.title}</td>
+        <td><button class="btn btn-ghost btn-sm" onclick="alert('デモ：編集')">編集</button></td></tr>`).join("")}
+    </tbody></table></div>
+  `);
+});
+
+/* ===================================================================
+   helpers
+=================================================================== */
+function openCourse(title,dur){
+  document.getElementById("mtitle").textContent=title;
+  document.getElementById("mdesc").textContent=`再生時間 ${dur} ・ HD動画配信（デモ）。導入商材・有料講座に応じて解放されたコンテンツです。`;
+  document.getElementById("modal").classList.add("show");
+}
+function closeModal(){ document.getElementById("modal").classList.remove("show"); }
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal();});
+function bindFaq(){ document.querySelectorAll(".faq-q").forEach(q=>{ q.onclick=()=>q.parentElement.classList.toggle("open"); }); }
+</script>
+</body>
+</html>

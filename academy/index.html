@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>商材・マシンラインナップ｜GrandFusion</title>
+<title>アカデミー運営｜GrandFusion</title>
 <meta name="description" content="株式会社GrandFusionの商材・マシンラインナップ。NUDUQUEブランドの4商品、自社クリニカルマシン、開業サポートパックなど、サロン経営を支える商材をご紹介します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,6 +221,29 @@ a:hover{opacity:.75}
 .biz-visual--photo img{
   width:100%;height:100%;
   object-fit:cover;display:block;
+}
+.biz-visual{
+  height:240px;
+  background:linear-gradient(135deg,var(--c-beige-light) 0%,var(--c-cream) 100%);
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.biz-visual::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at top right,rgba(212,184,138,.3),transparent 60%);
+  pointer-events:none;
+}
+.biz-grid--4 .biz-visual{height:170px}
+.biz-icon{
+  width:84px;height:84px;border-radius:50%;
+  background:#fff;border:1px solid var(--c-gold-light);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-en);font-size:26px;font-weight:300;
+  color:var(--c-gold-dark);
+  box-shadow:0 8px 20px rgba(156,128,98,.12);
+  position:relative;z-index:1;
+  letter-spacing:.05em;
 }
 .biz-cat{
   position:absolute;top:20px;left:20px;
@@ -692,7 +715,7 @@ else{document.getElementById("gfErr").style.display="block";document.getElementB
     </a>
     <nav class="nav" id="nav">
       <a href="../beauty_salon_mgmt/index.html">エステサロン経営</a>
-      <a href="#machines">エステマシン販売</a>
+      <a href="../products/index.html#machines">エステマシン販売</a>
             <div class="nav-item nav-dropdown">
         <a href="../nuduque/index.html" class="nav-drop-trigger">ヌドゥーク<span class="nav-caret">▾</span></a>
         <div class="dropdown">
@@ -715,270 +738,144 @@ else{document.getElementById("gfErr").style.display="block";document.getElementB
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="crumb">
-    <a href="../index.html">TOP</a><span>/</span>商材・マシンラインナップ
+    <a href="../index.html">TOP</a><span>/</span>アカデミー運営
   </div>
-  <div class="page-en">Lineup</div>
-  <div class="page-jp">商材・マシン ラインナップ</div>
+  <div class="page-en">Academy</div>
+  <div class="page-jp">アカデミー運営</div>
   <p class="page-lead">
-    自社ブランド「NUDUQUE」のスキンケア・インナーケアから、<br>
-    医療発想で開発したクリニカルマシン、開業サポートパックまで。<br>
-    GrandFusionが提供する商材を一覧でご覧いただけます。
+    看護師の経験を、美容で生きる人生へ。<br>
+    GrandFusionアカデミーは、転職・独立・開業・経営までを体系的に学べる、<br>
+    看護師・女性のための美容ビジネス教育プログラムです。
   </p>
 </section>
 
-<!-- ===== VOICE FROM US / メーカー・商材への想い ===== -->
-<section class="section voice-section">
+<!-- ===== INTRO ===== -->
+<section class="section" id="about">
   <div class="section-inner">
     <div class="section-head">
-      <div class="section-en">Our Thoughts</div>
-      <div class="section-jp">メーカー・商材への想い</div>
+      <div class="section-en">About</div>
+      <div class="section-jp">アカデミーとは</div>
     </div>
-
-    <div class="member-grid">
-      <!-- ▼ 粕谷ありさ -->
-      <div class="member-card">
-        <div class="member-image">
-          <img src="../images/kasuya-arisa.jpg" alt="株式会社GrandFusion 代表取締役 粕谷ありさ" onerror="this.onerror=null;this.src='../images/kasuya-arisa-placeholder.svg';">
-        </div>
-        <div class="member-body">
-          <div class="member-role">CEO / 代表取締役</div>
-          <div class="member-name">粕谷 ありさ <span class="member-en">Arisa Kasuya</span></div>
-          <p class="member-quote">
-            「商材は、人の人生を変えうるもの。」<br><br>
-            私たちが提供するのは、ただの化粧品・マシンではありません。<br>
-            肌が変わると、自信が変わる。自信が変わると、人生が変わる。<br>
-            その確信を、自社で開発する一つひとつの商材に込めています。<br><br>
-            看護師として、医療現場で多くの女性の悩みに向き合ってきた経験から、<br>
-            「本当に結果が出るもの」だけを、妥協なく厳選しました。<br>
-            GrandFusionの商材が、あなたのサロンの<em>"選ばれる理由"</em>になりますように。
-          </p>
-        </div>
-      </div>
-
-      <!-- ▼ 仁木愛結 -->
-      <div class="member-card">
-        <div class="member-image">
-          <img src="../images/niki-mayu.jpg" alt="株式会社GrandFusion メーカー担当 仁木愛結" onerror="this.onerror=null;this.src='../images/niki-mayu-placeholder.svg';">
-        </div>
-        <div class="member-body">
-          <div class="member-role">MAKER MANAGER / メーカー担当</div>
-          <div class="member-name">仁木 愛結 <span class="member-en">Mayu Niki</span></div>
-          <p class="member-quote">
-            「サロン様の隣で、結果を一緒に喜びたい。」<br><br>
-            導入後の"使いこなし"までが、メーカーの役目だと思っています。<br>
-            商材の選び方、施術の流れ、お客様への伝え方、そして仕入れの組み立てまで。<br>
-            ひとつひとつのご質問に、一番近くで向き合うのが私の仕事です。<br><br>
-            「売って終わり」ではなく、<em>「使い続けて、結果を出し続けるサロン」</em>を、<br>
-            メーカー担当として全力でサポートいたします。<br>
-            気軽に、なんでもご相談ください。
-          </p>
-        </div>
-      </div>
-    </div>
+    <p class="section-lead">
+      GrandFusionアカデミーは、代表・粕谷ありさ自身の実体験をもとに設計した教育プログラムです。<br>
+      「看護師の強み」を美容業界で最大限に活かし、転職から独立・開業、そして"続く経営"までを一気通貫で学べます。<br>
+      単なるスキルではなく、幸福度と自分軸を大切にしたキャリアを伴走します。
+    </p>
   </div>
 </section>
 
-<!-- ===== PRODUCTS / NUDUQUE ===== -->
-<section class="section section-products" id="products">
+<!-- ===== FEATURES ===== -->
+<section class="section section-products" id="features">
   <div class="section-inner">
     <div class="section-head">
-      <div class="section-en">Products</div>
-      <div class="section-jp">NUDUQUE 商材ラインナップ</div>
+      <div class="section-en">Features</div>
+      <div class="section-jp">アカデミーの4つの柱</div>
     </div>
-    <p class="section-lead">
-      看護師発想・実体験から生まれた、結果にこだわる<br>
-      自社メーカーコスメティクス「NUDUQUE」。
-    </p>
-
     <div class="biz-grid biz-grid--4">
       <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/nuduque-aura-pack.jpg" alt="炭酸オーラパック">
+        <div class="biz-visual">
+          <span class="biz-cat">CAREER</span>
+          <div class="biz-icon">01</div>
         </div>
         <div class="biz-body">
-          <div class="biz-name-en">repair aura pack</div>
-          <div class="biz-name">炭酸オーラパック</div>
-          <p class="biz-desc">CO₂による細胞活性アプローチ。医療技術から生まれた次世代スキンケア。</p>
-          <a href="../nuduque/aura-pack/index.html" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <div class="biz-name-en">Career Change</div>
+          <div class="biz-name">美容業界への転職</div>
+          <p class="biz-desc">看護師の強みを活かし、美容クリニック・サロンへの転職を基礎から支援します。</p>
         </div>
       </div>
-
       <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/nuduque-repair-cream.webp" alt="リペアクリーム pro">
+        <div class="biz-visual">
+          <span class="biz-cat">INDEPENDENCE</span>
+          <div class="biz-icon">02</div>
         </div>
         <div class="biz-body">
-          <div class="biz-name-en">repair cream pro</div>
-          <div class="biz-name">リペアクリーム pro</div>
-          <p class="biz-desc">施術後の肌を素早く回復。バリア機能をサポートする高機能クリーム。</p>
-          <a href="../nuduque/repair-cream/index.html" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <div class="biz-name-en">Independence</div>
+          <div class="biz-name">独立・開業支援</div>
+          <p class="biz-desc">開業資金・融資・事業設計まで、独立への道のりを体系的にサポートします。</p>
         </div>
       </div>
-
       <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/nuduque-protein.jpg" alt="オーラプロテイン">
+        <div class="biz-visual">
+          <span class="biz-cat">MANAGEMENT</span>
+          <div class="biz-icon">03</div>
         </div>
         <div class="biz-body">
-          <div class="biz-name-en">aura protein</div>
-          <div class="biz-name">オーラプロテイン</div>
-          <p class="biz-desc">体質改善・根本改善をサポート。インナーから美しさを引き出す。</p>
-          <a href="../nuduque/protein/index.html" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <div class="biz-name-en">Management</div>
+          <div class="biz-name">経営・ビジネス力</div>
+          <p class="biz-desc">集客・ブランディング・数字管理など、続く事業をつくる経営力を養成します。</p>
         </div>
       </div>
-
       <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/nuduque-skinbank.jpg" alt="水素 skin bank H⁺">
+        <div class="biz-visual">
+          <span class="biz-cat">LIFE</span>
+          <div class="biz-icon">04</div>
         </div>
         <div class="biz-body">
-          <div class="biz-name-en">skin bank H⁺</div>
-          <div class="biz-name">水素 skin bank H⁺</div>
-          <p class="biz-desc">次世代高濃度水素パウダー。活性酸素を除去し、細胞レベルから整える。</p>
-          <a href="../nuduque/suiso/index.html" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <div class="biz-name-en">Life Design</div>
+          <div class="biz-name">キャリア・人生設計</div>
+          <p class="biz-desc">仕事と家庭の両立、幸福度を重視した"自分軸"のキャリアを一緒に設計します。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== MACHINES ===== -->
-<section class="section section-machines" id="machines">
+<!-- ===== CURRICULUM ===== -->
+<section class="section" id="curriculum">
   <div class="section-inner">
     <div class="section-head">
-      <div class="section-en">Clinical Machines</div>
-      <div class="section-jp">自社クリニカルマシン</div>
+      <div class="section-en">Curriculum</div>
+      <div class="section-jp">学べること</div>
     </div>
-    <p class="section-lead">
-      医療発想で開発した自社メーカーマシン。<br>
-      クリニックレベルの結果を、サロンに。
-    </p>
-
-    <div class="biz-grid">
+    <div class="biz-grid biz-grid--3">
       <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/btxtherma-machine.webp" alt="BTXtherma">
+        <div class="biz-visual">
+          <span class="biz-cat">STEP 01</span>
+          <div class="biz-icon">転職</div>
         </div>
         <div class="biz-body">
-          <div class="biz-name-en">CLINICAL GRADE RF</div>
-          <div class="biz-name">BTXtherma</div>
-          <p class="biz-desc">40.68MHz超高周波を採用した次世代RFマシン。高い安全性と、幅広い施術メニュー展開を実現します。</p>
-          <a href="btxtherma/index.html" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
+          <div class="biz-name">転職・キャリア</div>
+          <p class="biz-desc">美容業界への転職に必要なスキルと考え方を、基礎から体系的に学べます。</p>
         </div>
       </div>
-
       <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/regecell-machine.webp" alt="リジェセル">
+        <div class="biz-visual">
+          <span class="biz-cat">STEP 02</span>
+          <div class="biz-icon">開業</div>
         </div>
         <div class="biz-body">
-          <div class="biz-name-en">ELECTROPORATION</div>
-          <div class="biz-name">リジェセル</div>
-          <p class="biz-desc">エレクトロポレーション技術で有効成分を真皮層まで浸透。クリニック級の結果をサロンで実現します。</p>
-          <a href="regecell/index.html" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
+          <div class="biz-name">独立・開業</div>
+          <p class="biz-desc">開業資金・融資・物件・集客まで、開業準備の全体像を習得します。</p>
+        </div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-visual">
+          <span class="biz-cat">STEP 03</span>
+          <div class="biz-icon">経営</div>
+        </div>
+        <div class="biz-body">
+          <div class="biz-name">経営・集客</div>
+          <p class="biz-desc">SNS・ブランディング・リピート設計など、続けるための経営を学びます。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== STARTUP / 開業・融資サポート ===== -->
-<section class="section section-products" id="startup">
-  <div class="section-inner">
-    <div class="section-head">
-      <div class="section-en">Support Packages</div>
-      <div class="section-jp">開業・融資サポート</div>
-    </div>
-    <p class="section-lead">
-      マシン導入とあわせて、開業準備から資金調達まで。<br>
-      サロン経営をワンストップで支えるサポートをご用意しています。
-    </p>
-
-    <div class="biz-grid" style="grid-template-columns:repeat(2,1fr);gap:30px;max-width:1000px;margin:0 auto;">
-
-      <!-- ▼ 開業サポートパック -->
-      <div class="biz-card biz-card--feature">
-        <div class="biz-visual biz-visual--photo" style="height:240px;">
-          <span class="biz-cat biz-cat--accent">開業パック</span>
-          <img src="../images/kaigyopack-hero.webp" alt="開業サポートパック">
-        </div>
-        <div class="biz-body">
-          <div class="biz-name-en">ALL-IN-ONE PACKAGE</div>
-          <div class="biz-name">開業サポートパック</div>
-          <p class="biz-desc">
-            BTXtherma × リジェセル マシン2台＋6ヶ月伴走サポート。価格設定・ブランディング不要で、「悩まない開業」を実現します。サロンの立ち上げから安定経営まで、伴走型でサポート。
-          </p>
-          <a href="kaigyo/index.html" target="_blank" rel="noopener" class="biz-link biz-link--fill">開業パック詳細を見る</a>
-        </div>
-      </div>
-
-      <!-- ▼ 融資サポート -->
-      <div class="biz-card">
-        <div class="biz-visual biz-visual--photo" style="height:240px;">
-          <span class="biz-cat">FINANCE</span>
-          <img src="../images/finance-support.jpg" alt="融資サポート">
-        </div>
-        <div class="biz-body">
-          <div class="biz-name-en">FINANCE SUPPORT</div>
-          <div class="biz-name">融資サポート <span class="biz-price">¥50,000</span></div>
-          <p class="biz-desc">
-            マシン導入時の資金調達を、専門スタッフがしっかりサポート。事業計画書の作成サポート・添削、補助金・助成金の申請支援、さらに「誰に相談したらいいか分からない」ご質問まで個別に対応します。
-          </p>
-          <ul class="biz-features">
-            <li>事業計画書 作成サポート</li>
-            <li>書類の添削・整備</li>
-            <li>補助金・助成金 申請支援</li>
-            <li>個別ご相談対応</li>
-          </ul>
-          <a href="financing/index.html" target="_blank" rel="noopener" class="biz-link biz-link--fill">融資サポートはこちら</a>
-          <div class="biz-note">※ 別途お申し込みが必要なオプションサービスです</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== BACK CTA ===== -->
+<!-- ===== CTA ===== -->
 <section class="back-cta">
   <div class="back-cta-inner">
     <div class="back-cta-tag">CONTACT</div>
-    <h3>お問い合わせは<br><em>商材ごとの紹介ページ</em>から</h3>
+    <h3>看護師向けアカデミーの<br><em>詳細・ご相談</em>はこちら</h3>
     <p>
-      製品のご相談・サンプル請求・導入のご質問は、<br>
-      気になる商材・マシンの紹介ページにある<br>
-      <strong>公式LINE</strong>から直接お受けしております。<br>
-      ご相談内容に合わせて、専門の担当者がご対応します。
+      受講内容や進め方、キャリアやお金のご相談まで、<br>
+      公式LINEで承っています。<br>
+      あなたの状況に合わせて、専門の担当者がご案内します。
     </p>
-
-    <div class="back-cta-grid">
-      <div class="back-cta-col">
-        <div class="back-cta-num">01</div>
-        <div class="back-cta-step-title">気になる商材を選ぶ</div>
-        <div class="back-cta-step-note">上の一覧からクリック</div>
-      </div>
-      <div class="back-cta-col">
-        <div class="back-cta-num">02</div>
-        <div class="back-cta-step-title">紹介ページが開きます</div>
-        <div class="back-cta-step-note">商材ごとの詳しい説明</div>
-      </div>
-      <div class="back-cta-col">
-        <div class="back-cta-num">03</div>
-        <div class="back-cta-step-title">LINEでお問い合わせ</div>
-        <div class="back-cta-step-note">ページ内のボタンから</div>
-      </div>
-    </div>
-
     <div class="back-cta-buttons back-cta-buttons--primary">
-      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="contact-line">お問い合わせはこちら</a>
+      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="contact-line">公式LINEで相談する</a>
     </div>
     <div class="back-cta-buttons">
-      <a href="#products" class="btn btn-fill">↑ 商材一覧へ戻る</a>
       <a href="../index.html" class="btn">会社情報（GrandFusionトップ）</a>
     </div>
   </div>
@@ -1041,9 +938,9 @@ else{document.getElementById("gfErr").style.display="block";document.getElementB
   <div class="footer-tag">株式会社グランフュージョン</div>
   <nav class="footer-nav">
     <a href="../index.html">TOP</a>
-    <a href="#products">PRODUCTS</a>
-    <a href="#machines">MACHINES</a>
-    <a href="#startup">START UP</a>
+    <a href="#about">ABOUT</a>
+    <a href="#features">FEATURES</a>
+    <a href="#curriculum">CURRICULUM</a>
     <a href="#blog">BLOG</a>
     <a href="../index.html#contact">CONTACT</a>
   </nav>
