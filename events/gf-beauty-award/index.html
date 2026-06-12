@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUDUQUE × GF BEAUTY AWARD ｜ イベント企画書</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nude:#FDE9DE;          /* DIC2019 ベースヌード */
+    --nude-soft:#FAF1EA;      /* 淡いヌード（ピンク不使用） */
+    --nude-deep:#EBD4C7;      /* 影のヌード */
+    --ink:#4A433E;            /* PANTONE410C寄りの墨グレージュ */
+    --ink-soft:#7A716A;
+    --line:#D9C7BB;
+    --paper:#FBF7F4;
+    --white:#FFFFFF;
+    --green:#B8C4A8;          /* aura protein のセージ差し色 */
+    --gold:#C9A877;           /* AWARD アクセント */
+    --serif:"Cormorant Garamond",serif;
+    --mincho:"Shippori Mincho",serif;
+    --sans:"Jost","Zen Kaku Gothic New",sans-serif;
+    --jp:"Zen Kaku Gothic New",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--jp);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.9;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+
+  /* ---- layout ---- */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  section{padding:88px 0}
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:12px;letter-spacing:.38em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:20px;font-weight:400;
+  }
+  h2{
+    font-family:var(--mincho);
+    font-weight:500;font-size:30px;letter-spacing:.06em;
+    line-height:1.5;margin-bottom:28px;
+  }
+  h2 .en{
+    display:block;font-family:var(--serif);font-style:italic;
+    font-size:18px;letter-spacing:.04em;color:var(--ink-soft);
+    font-weight:400;margin-top:8px;
+  }
+  h3{
+    font-family:var(--mincho);font-weight:500;font-size:19px;
+    letter-spacing:.04em;margin-bottom:14px;
+  }
+  p{font-size:15.5px;letter-spacing:.02em}
+  .lead{font-size:17px;line-height:2.1;color:var(--ink)}
+  .muted{color:var(--ink-soft)}
+  .divider{height:1px;background:var(--line);border:0;margin:0}
+
+  /* ---- hero ---- */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    background:linear-gradient(165deg,var(--nude) 0%, var(--nude-deep) 100%);
+    padding:80px 32px;position:relative;overflow:hidden;
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;width:100%;position:relative;z-index:2}
+  .hero .tm{
+    font-family:var(--sans);font-size:13px;letter-spacing:.42em;
+    color:var(--ink-soft);margin-bottom:40px;text-transform:uppercase;font-weight:400;
+  }
+  .hero h1{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(54px,9vw,116px);line-height:.98;letter-spacing:.02em;
+    color:var(--ink);
+  }
+  .hero h1 em{font-style:italic;font-weight:400}
+  .hero .sub{
+    font-family:var(--mincho);font-size:clamp(16px,2.4vw,22px);
+    letter-spacing:.14em;margin-top:36px;color:var(--ink);font-weight:400;
+  }
+  .hero .meta{
+    margin-top:48px;display:flex;gap:40px;flex-wrap:wrap;
+    font-family:var(--sans);font-size:13px;letter-spacing:.16em;color:var(--ink-soft);
+  }
+  .hero .meta b{display:block;font-weight:500;color:var(--ink);font-size:15px;letter-spacing:.08em;margin-top:4px}
+  .hero-mark{
+    position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+    font-family:var(--serif);font-size:clamp(200px,40vw,560px);
+    color:var(--white);opacity:.32;font-style:italic;line-height:1;
+    pointer-events:none;z-index:1;
+  }
+
+  /* ---- brand strip ---- */
+  .brandbar{background:var(--nude-soft);padding:0}
+  .brandbar .wrap{display:flex;align-items:center;gap:48px;padding-top:64px;padding-bottom:64px;flex-wrap:wrap}
+  .brandbar .logo{font-family:var(--serif);font-size:40px;letter-spacing:.22em;color:var(--ink);font-weight:400}
+  .brandbar .logo small{display:block;font-family:var(--mincho);font-size:13px;letter-spacing:.3em;margin-top:6px;color:var(--ink-soft)}
+  .brandbar p{flex:1;min-width:280px;font-size:16px;line-height:2.1}
+
+  /* ---- concept ---- */
+  .concept-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+  .concept-quote{
+    font-family:var(--mincho);font-size:24px;line-height:2;letter-spacing:.06em;
+    font-weight:400;
+  }
+  .concept-quote span{color:var(--gold)}
+  .figframe{background:var(--white);padding:18px;box-shadow:0 24px 60px -36px rgba(74,67,62,.4)}
+  .figframe img{width:100%}
+  .figcap{font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-top:12px;text-align:center}
+
+  /* ---- colorway ---- */
+  .colorway{background:var(--white)}
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:32px;border:1px solid var(--line)}
+  .sw{aspect-ratio:1/1.1;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;border-right:1px solid var(--line)}
+  .sw:last-child{border-right:0}
+  .sw b{font-family:var(--sans);font-size:12px;letter-spacing:.1em;font-weight:500}
+  .sw span{font-family:var(--sans);font-size:10px;letter-spacing:.08em;color:var(--ink-soft)}
+
+  /* ---- pillars ---- */
+  .pillars{background:var(--nude)}
+  .pillar-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);margin-top:40px}
+  .pillar{background:var(--nude);padding:32px 22px;min-height:230px}
+  .pillar .no{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--ink-soft)}
+  .pillar h4{font-family:var(--mincho);font-size:16px;margin:14px 0 10px;letter-spacing:.04em;font-weight:500}
+  .pillar p{font-size:13px;line-height:1.85;color:var(--ink-soft)}
+
+  /* ---- venue ---- */
+  .venue{background:var(--ink);color:var(--nude)}
+  .venue .eyebrow{color:var(--nude-deep)}
+  .venue h2{color:var(--white)}
+  .venue h2 .en{color:var(--nude-deep)}
+  .venue p{color:#E8DAD0}
+  .venue-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:48px;border-top:1px solid rgba(217,199,187,.3);padding-top:40px}
+  .vstat b{font-family:var(--serif);font-size:46px;font-weight:300;color:var(--white);display:block;line-height:1}
+  .vstat span{font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--nude-deep);margin-top:10px;display:block}
+  .venue-note{margin-top:40px;font-size:14px;color:#CBB9AD;border-left:2px solid var(--gold);padding-left:20px}
+
+  /* ---- zones map ---- */
+  .zones{background:var(--paper)}
+  .zonemap{
+    margin-top:44px;border:1px solid var(--line);background:var(--white);
+    display:grid;grid-template-columns:1.3fr 1fr;min-height:360px;position:relative;
+  }
+  .zone-main{border-right:1px dashed var(--line);padding:30px;display:flex;flex-direction:column;gap:18px}
+  .zone-side{padding:30px;display:flex;flex-direction:column;gap:18px;background:var(--nude-soft)}
+  .zcard{border:1px solid var(--line);padding:16px 18px;background:var(--paper)}
+  .zone-side .zcard{background:var(--white)}
+  .zcard .ztag{font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .zcard h4{font-family:var(--mincho);font-size:16px;margin:6px 0 6px;font-weight:500}
+  .zcard p{font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+  .zonemap .partition{position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none}
+
+  /* ---- timeline ---- */
+  .timeline{background:var(--white)}
+  .tline{margin-top:44px}
+  .trow{display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 0;border-top:1px solid var(--line);align-items:start}
+  .trow:last-child{border-bottom:1px solid var(--line)}
+  .ttime{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold);letter-spacing:.02em}
+  .tphase{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:6px}
+  .tcontent h4{font-family:var(--mincho);font-size:17px;font-weight:500;margin-bottom:6px}
+  .tcontent p{font-size:14px;color:var(--ink-soft);line-height:1.8}
+
+  /* ---- award ---- */
+  .award{background:linear-gradient(165deg,var(--nude-soft),var(--nude));position:relative;overflow:hidden}
+  .award-badge{
+    width:120px;height:120px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-bottom:32px;
+    font-family:var(--serif);font-style:italic;font-size:46px;color:var(--gold);
+  }
+  .award h2 .en{color:var(--gold)}
+  .award-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  .acat{background:rgba(255,255,255,.55);padding:26px 22px;border:1px solid var(--line)}
+  .acat .acatno{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:20px}
+  .acat h4{font-family:var(--mincho);font-size:16px;font-weight:500;margin:8px 0 8px}
+  .acat p{font-size:13px;color:var(--ink-soft);line-height:1.75}
+
+  /* ---- influencer ---- */
+  .infl{background:var(--nude)}
+  .infl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+  .icard{background:var(--white);padding:30px 26px;border-top:3px solid var(--gold)}
+  .icard:nth-child(2){border-top-color:var(--ink-soft)}
+  .icard:nth-child(3){border-top-color:var(--line)}
+  .icard .ico{font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase}
+  .icard h4{font-family:var(--mincho);font-size:18px;font-weight:500;margin:10px 0}
+  .icard p{font-size:13.5px;color:var(--ink-soft);line-height:1.8}
+  .stars{color:var(--gold);font-size:13px;letter-spacing:.1em;margin-top:14px}
+
+  /* ---- budget ---- */
+  .budget{background:var(--white)}
+  .btable{width:100%;border-collapse:collapse;margin-top:36px;font-size:14.5px}
+  .btable th{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:14px 16px;border-bottom:2px solid var(--ink);font-weight:500}
+  .btable td{padding:16px;border-bottom:1px solid var(--line)}
+  .btable td.amt{font-family:var(--serif);font-size:19px;text-align:right;white-space:nowrap}
+  .btable tr.total td{border-bottom:0;border-top:2px solid var(--ink);font-weight:500}
+  .btable tr.total .amt{color:var(--gold);font-size:24px}
+  .bbar{display:inline-block;height:7px;background:var(--nude-deep);border-radius:4px;vertical-align:middle;margin-left:10px}
+
+  /* ---- gallery ---- */
+  .moodgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .moodgrid .figframe{padding:12px}
+  .mood-tall{grid-row:span 2}
+
+  /* ---- checklist ---- */
+  .checklist{background:var(--nude-soft)}
+  .checks{margin-top:32px;columns:2;column-gap:48px}
+  .check{break-inside:avoid;display:flex;gap:14px;padding:12px 0;align-items:baseline;font-size:14.5px}
+  .check .box{width:14px;height:14px;border:1px solid var(--ink-soft);flex:none;margin-top:4px}
+
+  /* ---- footer ---- */
+  footer{background:var(--ink);color:var(--nude-deep);padding:64px 32px;text-align:center}
+  footer .fmark{font-family:var(--serif);font-size:40px;letter-spacing:.2em;color:var(--white);font-weight:300}
+  footer p{font-size:12px;letter-spacing:.16em;margin-top:18px;color:var(--nude-deep);line-height:2}
+
+  @media(max-width:860px){
+    .concept-grid,.venue-stats,.pillar-row,.award-cats,.infl-grid,.moodgrid,.zonemap,.swatches{grid-template-columns:1fr}
+    .pillar-row{gap:1px}
+    .venue-stats{grid-template-columns:repeat(2,1fr);gap:28px}
+    .swatches{grid-template-columns:repeat(2,1fr)}
+    .checks{columns:1}
+    .trow{grid-template-columns:84px 1fr;gap:16px}
+    .hero-mark{display:none}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-mark">N</div>
+  <div class="hero-inner">
+    <div class="tm">NUDUQUE &nbsp;/&nbsp; RE:NU™ &nbsp;Brand Experience</div>
+    <h1>The <em>Nude</em><br>Atelier</h1>
+    <div class="sub">エステ業界、いちばん洗練された一日へ。</div>
+    <div class="meta">
+      <div>VENUE<b>IMAGINE & DESIGN ／ 南船場</b></div>
+      <div>GUESTS<b>約100名 ・ 招待制</b></div>
+      <div>BUDGET<b>¥5,000,000</b></div>
+      <div>TARGET<b>エステ・医療系美容人材</b></div>
+    </div>
+  </div>
+</header>
+
+<!-- BRAND -->
+<div class="brandbar">
+  <div class="wrap">
+    <div class="logo">RE:NU<small>NUDUQUE</small></div>
+    <p>「美しさを、もう一度。」内側と外側の両面からアプローチし、本来のコンディションを引き出す——NUDUQUE独自の美容哲学を、ヌードカラーの世界観そのものとして一日に立ち上げる。製品を売る場ではなく、<b>来場者の人生にインパクトを与える場</b>として設計する。</p>
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section class="concept">
+  <div class="wrap">
+    <div class="eyebrow">01 — Concept</div>
+    <h2>世界観を「体験」に翻訳する<span class="en">From product to experience</span></h2>
+    <div class="concept-grid">
+      <div>
+        <p class="lead">アパレルや韓国コスメのポップアップのように、<b>ブランドの世界観に没入させる</b>。来場者は商品説明を聞きに来るのではなく、ヌードカラーの空間に身を置き、最新の美容を肌で体験し、明日サロンで使えるスキルを持ち帰る。</p>
+        <p class="lead" style="margin-top:20px">そして各自が、その洗練された風景を自分のSNSで発信する。<b>100名が各自のフォロワーに発信＝ブランド認知の二次拡散</b>。これがイベントの設計思想。</p>
+      </div>
+      <div class="figframe">
+        <img src="assets/renu_concept.jpg" alt="RE:NU コンセプト">
+        <div class="figcap">RE:NU™ — Brand Philosophy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLORWAY -->
+<section class="colorway">
+  <div class="wrap">
+    <div class="eyebrow">02 — Colorway</div>
+    <h2>ヌードカラーを基調に、引き算で作る<span class="en">Built by subtraction, not decoration</span></h2>
+    <p class="lead muted">白い汎用空間ではなく、ブランドのヌードカラーを空間言語に。装飾を足すのではなく、余白と素材の質感で世界観を成立させる。</p>
+    <div class="swatches">
+      <div class="sw" style="background:#FDE9DE"><b>Base Nude</b><span>DIC 2019 / #FDE9DE</span></div>
+      <div class="sw" style="background:#FAF1EA"><b>Soft Nude</b><span>#FAF1EA</span></div>
+      <div class="sw" style="background:#EBD4C7"><b>Shadow Nude</b><span>#EBD4C7</span></div>
+      <div class="sw" style="background:#4A433E"><b style="color:#FDE9DE">Ink Greige</b><span style="color:#D9C7BB">PANTONE 410C寄</span></div>
+      <div class="sw" style="background:#B8C4A8"><b>Sage Accent</b><span>aura protein</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT MOOD -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">03 — Product as Object</div>
+    <h2>製品を「作品」として展示する<span class="en">The product, exhibited</span></h2>
+    <div class="moodgrid">
+      <div class="figframe mood-tall"><img src="assets/aura_cream.png" alt="NUDUQUE aura cream"><div class="figcap">aura cream</div></div>
+      <div class="figframe"><img src="assets/aura_protein.jpg" alt="aura protein"><div class="figcap">aura protein</div></div>
+      <div class="figframe"><img src="assets/renu_logo.png" alt="RE:NU logo"><div class="figcap">RE:NU™</div></div>
+    </div>
+    <p class="lead muted" style="margin-top:28px">量陳ではなく美術館展示。1点ずつ余白をとり、自然光〜ニュートラル白の照明で「製品本来の色とテクスチャ」が正しく見える設計。ヌードカラーの什器とクリアアクリルで、製品そのものをオブジェ化する。</p>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue">
+  <div class="wrap">
+    <div class="eyebrow">04 — Venue</div>
+    <h2>安藤忠雄建築 ／ IMAGINE & DESIGN<span class="en">Minami-Senba, Osaka</span></h2>
+    <p class="lead">世界で活躍する建築家・安藤忠雄が手がけたコンクリート打ちっ放しの建物。その1Fに広がる展示会場は、可動式間仕切りを開けば<b style="color:#fff">243㎡・天井高4.7m</b>の大空間に。建築の格そのものが、NUDUQUEの「洗練」を裏付ける。</p>
+    <div class="venue-stats">
+      <div class="vstat"><b>243<span style="font-size:18px">㎡</span></b><span>Max Floor</span></div>
+      <div class="vstat"><b>4.7<span style="font-size:18px">m</span></b><span>Ceiling</span></div>
+      <div class="vstat"><b>100</b><span>Guests</span></div>
+      <div class="vstat"><b>5<span style="font-size:18px">min</span></b><span>心斎橋 / 長堀橋駅</span></div>
+    </div>
+    <div class="venue-note">ギャラリー＋サロンの2室構成。パーティー時はサロンを円卓のメイン会場、ギャラリーをビュッフェ、キッチンカウンターをフリードリンクに——とゾーニングが最初から想定されている。立食・展示・体験・学習・交流の5機能を1会場に収められる稀有な箱。</div>
+  </div>
+</section>
+
+<!-- ZONES -->
+<section class="zones">
+  <div class="wrap">
+    <div class="eyebrow">05 — Zoning</div>
+    <h2>ひとつの会場に、5つの体験<span class="en">Five experiences, one floor</span></h2>
+    <p class="lead muted">可動間仕切りを活かし、回遊しながら全機能を巡る構造に。来場者を一方向に流さず、各ゾーンを行き来させることで滞在密度と交流を最大化する。</p>
+    <div class="zonemap">
+      <div class="zone-main">
+        <div class="zcard"><span class="ztag">Gallery — Exhibition</span><h4>展示｜製品ギャラリー</h4><p>aura cream / protein / RE:NUを美術館展示。実テクスチャ体験のタッチポイントを併設。</p></div>
+        <div class="zcard"><span class="ztag">Stage — Learning</span><h4>学習｜セミナーステージ</h4><p>最新の集客セミナー・痩身/店販の売上UP実務。スクリーンに手元・実演をアップ投影。</p></div>
+        <div class="zcard"><span class="ztag">Experience</span><h4>体験｜最新美容デモ</h4><p>最新美容機器・製品のハンズオン。その場で身につくスキル＆テクニックを提供。</p></div>
+      </div>
+      <div class="zone-side">
+        <div class="zcard"><span class="ztag">Buffet</span><h4>立食｜ヌードビュッフェ</h4><p>料理・ドリンクもヌードカラーで統一。世界観に没入する食の演出。</p></div>
+        <div class="zcard"><span class="ztag">Lounge — Network</span><h4>交流｜ラウンジ</h4><p>サロンオーナー・医療系人材の名刺交換と商談。次回コラボの種まきの場。</p></div>
+        <div class="zcard"><span class="ztag">Photo</span><h4>撮影｜フォトスポット</h4><p>拡散装置。全身が映るブランド背景＋手元/施術撮影ブース。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="eyebrow">06 — Program</div>
+    <h2>来場者の人生に、インパクトを<span class="en">What they take home</span></h2>
+    <div class="pillar-row">
+      <div class="pillar"><div class="no">i</div><h4>売上UP実務</h4><p>店販・痩身の売上を上げる具体策。明日から店舗で回せる形で持ち帰る。</p></div>
+      <div class="pillar"><div class="no">ii</div><h4>最新集客セミナー</h4><p>サロン集客の最新手法。SNS・紹介・単価設計までを実務レベルで。</p></div>
+      <div class="pillar"><div class="no">iii</div><h4>当日習得スキル</h4><p>その日のうちに身につくテクニック。受け身でなく手を動かす体験型。</p></div>
+      <div class="pillar"><div class="no">iv</div><h4>最新製品体験</h4><p>NUDUQUE最新ラインを実際に試す。発色・質感・使用感を肌で。</p></div>
+      <div class="pillar"><div class="no">v</div><h4>横のつながり</h4><p>エステ・医療系美容のトップ層と出会う。経営の孤独を超える場。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="wrap">
+    <div class="eyebrow">07 — Flow</div>
+    <h2>当日のタイムライン<span class="en">A day, orchestrated</span></h2>
+    <p class="lead muted">没入 → 学び → 体験 → 表彰 → 接続。一日を5幕で構成し、最後のGF BEAUTY AWARDで感情のピークを作る。</p>
+    <div class="tline">
+      <div class="trow"><div class="ttime">I</div><div class="tcontent"><span class="tphase">Immersion ・ 受付〜開演</span><h4>没入のウェルカム</h4><p>ガラス越しの世界観→ヌードの入口→香りでブランドに入る。受付で最新ラインの極小サンプルを手渡し、最初の30秒で「特別な場」を体感させる。ウェルカムドリンク。</p></div></div>
+      <div class="trow"><div class="ttime">II</div><div class="tcontent"><span class="tphase">Learning ・ セミナー①</span><h4>最新集客＆売上UPセミナー</h4><p>店販・痩身の売上を上げる実務、最新の集客手法。サロン経営に直結するテーマで、来場者の「学びに来た」期待に最初に応える。</p></div></div>
+      <div class="trow"><div class="ttime">III</div><div class="tcontent"><span class="tphase">Experience ・ 体験</span><h4>最新美容製品・機器のハンズオン</h4><p>NUDUQUE最新ラインと美容機器を実際に体験。その場で身につくスキル・テクニックを、スタッフのサポート付きで習得。</p></div></div>
+      <div class="trow"><div class="ttime">IV</div><div class="tcontent"><span class="tphase">Network ・ 回遊</span><h4>ヌードビュッフェ＆交流</h4><p>世界観で統一した立食。展示を巡り、撮影し、名刺交換。エステティシャン・アートメイクナースら医療系人材の商談が生まれる時間。</p></div></div>
+      <div class="trow"><div class="ttime">V</div><div class="tcontent"><span class="tphase">Climax ・ 表彰式</span><h4>GF BEAUTY AWARD</h4><p>半年の実績を称える表彰式。感情のピークをここに。受賞者の喜びと誇りが、最高の拡散コンテンツになる。フィナーレに次回予告・限定コミュニティ案内・当日発注特典クローズ。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARD -->
+<section class="award">
+  <div class="wrap">
+    <div class="eyebrow">08 — Ceremony</div>
+    <div class="award-badge">G</div>
+    <h2>GF BEAUTY AWARD<span class="en">Celebrating six months of results</span></h2>
+    <p class="lead">この半年、努力し結果を出したサロン・人材を称える表彰式。「認められる」体験こそ、ファン化の最強のドライバー。受賞者は誇りとともにSNSで発信し、来年の参加意欲を一気に押し上げる。<b>イベントを単発で終わらせず、年次の祭典へ育てる装置。</b></p>
+    <div class="award-cats">
+      <div class="acat"><div class="acatno">01</div><h4>店販売上 アワード</h4><p>NUDUQUE製品の店販実績を称える。仕入れ・継続発注のインセンティブにも直結。</p></div>
+      <div class="acat"><div class="acatno">02</div><h4>ベストサロン アワード</h4><p>世界観の体現・施術・集客で際立つサロンを表彰。次回コラボ候補の発掘も兼ねる。</p></div>
+      <div class="acat"><div class="acatno">03</div><h4>ライジング アワード</h4><p>この半年で急成長した人材・サロンへ。医療系美容の新しい才能にスポットを。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFLUENCER -->
+<section class="infl">
+  <div class="wrap">
+    <div class="eyebrow">09 — Reach</div>
+    <h2>インフルエンサー設計（3階層）<span class="en">Designed for amplification</span></h2>
+    <p class="lead muted">多くのインフルエンサーを呼び、アパレルのような魅せ方で写真を拡散してもらう。予算を1人に全張りせず、役割で3階層に分散する。</p>
+    <div class="infl-grid">
+      <div class="icard"><div class="ico">Tier 01 — 主役</div><h4>業界内インフルエンサー</h4><p>現役の人気エステティシャン・医療系美容のトップ層。来場動機と権威づけの核。デモ・セミナー登壇も担う。</p><div class="stars">★★★ 当日の主役</div></div>
+      <div class="icard"><div class="ico">Tier 02 — 彩り</div><h4>美容・トレンド系発信者</h4><p>洗練された世界観に憧れる層を呼ぶ。アパレル的な絵づくりで会場のビジュアルを牽引、SNS映えの燃料に。</p><div class="stars">★★ 世界観の拡散</div></div>
+      <div class="icard"><div class="ico">Tier 03 — 拡散</div><h4>中〜大型インフルエンサー</h4><p>事後の動画・リールで新規認知を拡大。美容業界で名の通る人を起用し、来られなかった層へ届ける。</p><div class="stars">★ 事後の認知拡大</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section class="budget">
+  <div class="wrap">
+    <div class="eyebrow">10 — Budget</div>
+    <h2>予算配分 ／ 総額 ¥5,000,000<span class="en">Allocation draft</span></h2>
+    <p class="lead muted">「洗練された世界観」「多数のインフルエンサー」「人生にインパクトを与える体験」「AWARD」に重点配分。下記は配分のたたき台で、各項目は実見積で精緻化する。</p>
+    <table class="btable">
+      <thead><tr><th>項目</th><th>内容</th><th style="text-align:right">概算</th></tr></thead>
+      <tbody>
+        <tr><td>会場費</td><td>IMAGINE&DESIGN 全面（搬入出含む）</td><td class="amt">¥500,000<span class="bbar" style="width:30px"></span></td></tr>
+        <tr><td>空間装飾・什器</td><td>ヌード世界観の作り込み・展示什器・照明</td><td class="amt">¥900,000<span class="bbar" style="width:54px"></span></td></tr>
+        <tr><td>インフルエンサー</td><td>3階層・複数名の起用＋ギフティング</td><td class="amt">¥1,200,000<span class="bbar" style="width:72px"></span></td></tr>
+        <tr><td>ビュッフェ・ドリンク</td><td>世界観統一のケータリング（100名）</td><td class="amt">¥700,000<span class="bbar" style="width:42px"></span></td></tr>
+        <tr><td>体験・機材・登壇</td><td>最新美容機器・セミナー講師・実演運営</td><td class="amt">¥650,000<span class="bbar" style="width:39px"></span></td></tr>
+        <tr><td>撮影・記録・配信</td><td>写真/動画チーム（事後拡散素材）</td><td class="amt">¥500,000<span class="bbar" style="width:30px"></span></td></tr>
+        <tr><td>GF BEAUTY AWARD</td><td>トロフィー・表彰演出・記念品</td><td class="amt">¥350,000<span class="bbar" style="width:21px"></span></td></tr>
+        <tr><td>販促・運営</td><td>招待状・ノベルティ・サイン・人員・予備費</td><td class="amt">¥200,000<span class="bbar" style="width:12px"></span></td></tr>
+        <tr class="total"><td>合計</td><td>回収は参加費でなく仕入れ・継続発注で</td><td class="amt">¥5,000,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="checklist">
+  <div class="wrap">
+    <div class="eyebrow">11 — Next Steps</div>
+    <h2>次に決めること<span class="en">To confirm</span></h2>
+    <div class="checks">
+      <div class="check"><span class="box"></span><span>会場へ正式見積・空き状況・最低保証額を問い合わせ</span></div>
+      <div class="check"><span class="box"></span><span>開催日と入替制／同時開催の確定</span></div>
+      <div class="check"><span class="box"></span><span>インフルエンサーの人選（3階層・医療系優先）</span></div>
+      <div class="check"><span class="box"></span><span>GF BEAUTY AWARDの審査基準・受賞枠の設計</span></div>
+      <div class="check"><span class="box"></span><span>セミナー講師・体験コンテンツの確定</span></div>
+      <div class="check"><span class="box"></span><span>ビュッフェのケータリング選定（世界観統一）</span></div>
+      <div class="check"><span class="box"></span><span>撮影チーム・ハッシュタグ・投稿キャンペーン設計</span></div>
+      <div class="check"><span class="box"></span><span>招待リスト（エステ・アートメイクナース等）作成</span></div>
+      <div class="check"><span class="box"></span><span>当日限定の発注特典・限定コミュニティの準備</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fmark">RE:NU</div>
+  <p>NUDUQUE × GF BEAUTY AWARD<br>Brand Experience Plan ・ Minami-Senba, Osaka<br>※本企画書はたたき台です。会場見積と開催日確定後に各項目を精緻化します。</p>
+</footer>
+
+</body>
+</html>
