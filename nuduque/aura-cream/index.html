@@ -226,12 +226,23 @@ a:hover{opacity:.75}
 .faq-a{font-size:clamp(13.5px,1.6vw,14px)}
 .lp-cta-card h2{font-size:clamp(22px,4.6vw,34px)}
 .problem-q{font-size:clamp(19px,3.6vw,30px)}
+
+/* === 導入者様専用サイト リンク === */
+.header-left{display:flex;align-items:center;gap:16px}
+.portal-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--ff-serif);font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--c-gold-dark);background:var(--c-beige-light);border:1px solid var(--c-gold-light);border-radius:3px;padding:5px 11px;white-space:nowrap;line-height:1.2}
+.portal-link:hover{background:var(--c-gold);color:#fff;border-color:var(--c-gold);opacity:1}
+.portal-ic{font-size:11px;line-height:1}
+@media(max-width:1080px){.header-left{gap:10px}.portal-link{font-size:10px;padding:4px 8px}}
+@media(max-width:520px){.portal-label{display:none}.portal-link{padding:5px 7px}}
 </style>
 </head>
 <body>
 <header class="header">
   <div class="header-inner">
-    <a href="../../index.html" class="logo">Grand Fusion<small>株式会社グランフュージョン</small></a>
+    <div class="header-left">
+      <a href="../../index.html" class="logo">Grand Fusion<small>株式会社グランフュージョン</small></a>
+      <a class="portal-link" href="https://grandfusion-lp.vercel.app/learning-site/" target="_blank" rel="noopener" title="導入者様専用 学習サイト"><span class="portal-ic">🔑</span><span class="portal-label">導入者様専用サイト</span></a>
+    </div>
     <nav class="nav" id="nav">
       <a href="../../beauty_salon_mgmt/index.html">エステサロン経営</a>
       <a href="../../products/index.html#machines">エステマシン販売</a>
