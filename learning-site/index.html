@@ -297,6 +297,9 @@ const PRODUCTS = [
   {productKey:"aura_pack",  name:"炭酸オーラパック",  brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:IMG.aura,
    desc:"CO₂による細胞活性アプローチ。医療技術から生まれた次世代スキンケア。", lp:"https://nuduquelp-aura.manus.space",
    unlock:"炭酸パック施術マスター講座を解放"},
+  {productKey:"aura_cream", name:"オーラクリーム",      brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:"https://grandfusion-lp.vercel.app/nuduque/aura-cream/images/product.png",
+   desc:"守りながら、育てる。紫外線対策と肌育を一本に。AC-11配合の業務用 仕上げオーラクリーム。", lp:"https://grandfusion-lp.vercel.app/nuduque/aura-cream/index.html",
+   unlock:"オーラクリーム 仕上げ活用講座を解放"},
   {productKey:"repair_cream",name:"リペアクリーム pro", brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:IMG.repair,
    desc:"施術後の肌を素早く回復。バリア機能をサポートする高機能クリーム。", lp:"https://repair-blp.manus.space",
    unlock:"アフターケア指導講座を解放"},
@@ -416,7 +419,7 @@ const CLIENTS = [
   {id:"GF-1048", salon:"Aura 福岡",      owner:"鈴木 玲奈", pref:"福岡県", joined:"2025-11",
    products:["aura_pack","skin_bank"]},
   {id:"GF-1055", salon:"Reine 名古屋",    owner:"高橋 由紀", pref:"愛知県", joined:"2024-12",
-   products:["aura_pack","repair_cream","protein","skin_bank","btxtherma","regecell","kaigyo_pack","course_marketing","course_management","course_finance","nas_salon"]},
+   products:["aura_pack","aura_cream","repair_cream","protein","skin_bank","btxtherma","regecell","kaigyo_pack","course_marketing","course_management","course_finance","nas_salon"]},
   {id:"GF-1067", salon:"Noble 横浜",      owner:"伊藤 香織", pref:"神奈川県", joined:"2025-02",
    products:["aura_pack","protein","btxtherma","regecell","course_finance"]},
   {id:"GF-1072", salon:"Eclat 札幌",      owner:"渡辺 直美", pref:"北海道", joined:"2026-03",
@@ -440,6 +443,11 @@ let ADMIN_PASS = "";    // 管理者パスコード（書き込み用）
 
 /* 管理者表示用プロフィール（全解放） */
 const ADMIN_PROFILE = {owner:"運営管理者", salon:"GrandFusion 運営", pref:"", products:[]};
+/* ゲスト（ログイン不要・無料コンテンツのみ） */
+const GUEST_PROFILE = {owner:"ゲスト閲覧中", salon:"無料コンテンツを表示中", pref:"", products:[]};
+/* ログイン無しでも入れるようゲストセッションを用意 */
+function ensureGuest(){ if(!SESSION){ SESSION={role:"guest"}; if(GAS_ENABLED && DYNAMIC.news===null) loadContent(); } }
+function enterGuest(){ ensureGuest(); go("/courses"); }
 
 /* GASから取得した動的コンテンツ（未取得はnull→ビルトインにフォールバック）*/
 const DYNAMIC = { news:null, blog:null, videos:null, clients:null, apps:null };
@@ -492,6 +500,7 @@ function gasPost(payload, cb){
 function currentClient(){
   if(SESSION?.role==="admin") return ADMIN_PROFILE;
   if(SESSION?.live) return LIVE;
+  if(SESSION?.role==="guest") return GUEST_PROFILE;
   return CLIENTS.find(c=>c.id===SESSION?.clientId);
 }
 /* 動的動画をcourseオブジェクトへ変換 */
@@ -546,10 +555,10 @@ function topnav(){
     <a href="#/" class="brand">GRANDFUSION<small>MAKER SUPPORT</small></a>
     <button class="nav-toggle" onclick="document.getElementById('nlinks').classList.toggle('open')">&#9776;</button>
     <nav class="nav-links" id="nlinks">
-      <a href="#/#about">強み</a><a href="#/#products">商材</a>
+      <a href="#/#about">強み</a><a href="#/#philosophy">哲学</a><a href="#/#products">商材</a>
       <a href="#/#unlock">解放のしくみ</a><a href="#/#blog">ブログ</a><a href="#/#support">サポート</a><a href="#/#faq">FAQ</a>
-      <a href="https://lin.ee/example" target="_blank">LINE相談</a>
-      <a href="#/login" class="btn btn-primary btn-sm">会員ログイン</a>
+      <a href="https://lin.ee/wNXRto9" target="_blank">LINE相談</a>
+      <a href="#/courses" class="btn btn-primary btn-sm">コンテンツを見る</a>
     </nav></div></header>`;
 }
 
@@ -565,24 +574,15 @@ ${topnav()}
     <h1>サロン様専用<br>学習サイト</h1>
     <p class="lead">導入した商材・マシン・講座ごとに、専用の限定コンテンツが解放されるサロンオーナーのための学習サイト。</p>
     <div class="hero-cta">
-      <a href="#/login" class="btn btn-primary">会員ログイン</a>
-      <a href="#/login" class="btn btn-gold">無料体験（7日間）</a>
-      <a href="#about" class="btn btn-ghost">詳しく見る</a>
+      <a href="#/courses" class="btn btn-primary">コンテンツを見る</a>
+      <a href="#/news" class="btn btn-gold">お知らせ・ブログ</a>
+      <a href="#philosophy" class="btn btn-ghost">詳しく見る</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL ▾</div>
 </section>
 
-<div class="section" style="padding-top:64px;padding-bottom:0">
-  <div class="stats">
-    <div class="stat"><b>2,000+</b><span>サロンオーナーリスト</span></div>
-    <div class="stat"><b>50+</b><span>学習コンテンツ数</span></div>
-    <div class="stat"><b>商材連動</b><span>導入者限定で解放</span></div>
-    <div class="stat"><b>HD配信</b><span>高品質動画配信</span></div>
-  </div>
-</div>
-
-<section class="section" id="about">
+<section class="section" id="about" style="padding-top:96px">
   <div class="sec-head"><span class="eyebrow">About</span>
     <h2>GrandFusion サポートの強み</h2>
     <p>医療発想のマシン開発と実体験に基づいた厳選商材で、サロン経営を次のステージへ。</p></div>
@@ -593,6 +593,20 @@ ${topnav()}
       <p>看護師出身の代表が、自身の実体験から結果が出るものだけを厳選。細胞から巻き戻す設計を基本に、クリニックレベルの結果をサロンで実現できます。</p></div>
     <div class="feature"><span class="num">03</span><h3>マシン導入から 経営まで伴走サポート</h3>
       <p>350万円以上のマシン購入で3ヶ月の伴走型講師サポート付き。技術・集客・カウンセリングまで専任講師が個別サポートします。</p></div>
+  </div>
+</section>
+
+<section class="section" id="philosophy" style="background:var(--nude-100)">
+  <div style="max-width:680px;margin:0 auto;text-align:center">
+    <span class="eyebrow">Philosophy</span>
+    <div style="font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,7vw,3.6rem);letter-spacing:.16em;color:var(--espresso);margin-top:14px">RE<span style="color:var(--clay)">:</span>NU<sup style="font-size:.34em;vertical-align:super">™</sup></div>
+    <div style="font-family:var(--display);letter-spacing:.4em;font-size:.78rem;color:var(--clay);margin-top:6px">NUDUQUE</div>
+    <div style="width:1px;height:48px;background:var(--clay);margin:28px auto"></div>
+    <h2 class="serif" style="font-size:clamp(1.6rem,4vw,2.2rem);font-weight:500;color:var(--espresso);margin-bottom:28px">美しさを、もう一度。</h2>
+    <p style="color:var(--mocha);font-size:1rem;line-height:2.1;margin-bottom:22px">年齢を重ねることは止められない。<br>しかし、美しさの可能性は更新できる。</p>
+    <p style="color:var(--mocha);font-size:.95rem;line-height:2.1">RE:NU™は、内側と外側の両面からアプローチし、<br>本来のコンディションを引き出すための<br>NUDUQUE独自の美容哲学です。</p>
+    <div style="width:1px;height:48px;background:var(--line);margin:34px auto 0"></div>
+    <p style="color:var(--clay);font-size:.86rem;line-height:2;margin-top:24px;font-family:var(--serif);font-style:italic">細胞から巻き戻す。<br>看護師発想から生まれた、結果にこだわる美容哲学。</p>
   </div>
 </section>
 
@@ -640,7 +654,7 @@ ${topnav()}
     <div class="feature"><span class="eyebrow">Finance Support</span>
       <h3 style="margin-top:8px">融資サポート 別途 ¥50,000</h3>
       <p>・事業計画書の作成補助<br>・金融機関への同行サポート<br>・補助金・助成金の申請支援<br>・資金調達戦略のアドバイス</p>
-      <a href="#/login" class="btn btn-gold btn-sm" style="margin-top:16px;align-self:flex-start">申し込む</a></div>
+      <a href="https://lin.ee/wNXRto9" target="_blank" class="btn btn-gold btn-sm" style="margin-top:16px;align-self:flex-start">申し込む</a></div>
   </div>
 </section>
 
@@ -667,7 +681,7 @@ ${(()=>{const bl=getBlog().filter(b=>String(b.published)!=="FALSE"&&(b.scope==="
   <div style="max-width:760px;margin:0 auto">
     ${[
       ["コンテンツはどのように解放されますか？","導入した商材・マシン・有料講座ごとに、対応する専用コンテンツが自動で解放されます。無料講座はすべての会員がいつでも視聴できます。"],
-      ["動画コンテンツはどこで視聴できますか？","会員ログイン後の「コンテンツ」ページから、高品質ストリーミングで視聴できます。スマホ・PCどちらにも対応しています。"],
+      ["動画コンテンツはどこで視聴できますか？","「コンテンツ」ページからログイン不要で視聴できます。導入者専用の動画は、お申し込み時のメールアドレスを入力すると解放されます。スマホ・PCどちらにも対応しています。"],
       ["有料講座は単体で購入できますか？","はい。集客・経営・融資などの有料講座は、必要なものだけを単体で購入・受講できます。購入後すぐにコンテンツが解放されます。"],
       ["マシン350万円以上購入の伴走サポートとは？","技術指導・集客戦略・カウンセリング研修・売上進捗管理を含む3ヶ月の専任講師サポートです。導入後すぐに結果を出すための個別伴走プログラムです。"],
       ["融資サポートはどのような内容ですか？","別途¥50,000で、事業計画書の作成補助、金融機関への同行、補助金・助成金の申請支援、資金調達戦略のアドバイスを提供します。"],
@@ -682,15 +696,16 @@ ${(()=>{const bl=getBlog().filter(b=>String(b.published)!=="FALSE"&&(b.scope==="
     <h2>まずはお気軽にご相談ください</h2>
     <p>導入に関するご質問・ご相談はLINEまたはお電話で承ります。</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="https://lin.ee/example" target="_blank" class="btn btn-gold">LINEで相談する（無料）</a>
+      <a href="https://lin.ee/wNXRto9" target="_blank" class="btn btn-gold">LINEで相談する（無料）</a>
       <a href="tel:0120000000" class="btn btn-ghost">電話で相談する</a>
     </div>
-    <p style="margin-top:22px"><a href="#/login" style="color:var(--nude-200);border-bottom:1px solid var(--clay);font-size:.82rem">すでに会員の方はこちら →</a></p>
+    <p style="margin-top:22px"><a href="#/courses" style="color:var(--nude-200);border-bottom:1px solid var(--clay);font-size:.82rem">コンテンツを見る →</a></p>
   </div>
 </section>
 
 <footer class="ft"><div class="brand">GRANDFUSION<small>MAKER SUPPORT</small></div>
-  <small>© 2026 GrandFusion. All rights reserved.</small></footer>
+  <small>© 2026 GrandFusion. All rights reserved.</small>
+  <div style="margin-top:10px"><a href="#/login" style="font-size:.66rem;color:var(--nude-400);letter-spacing:.1em">運営ログイン</a></div></footer>
 `);
 
 function prodCard(p){
@@ -708,14 +723,10 @@ route("/login", () => `
   <div class="login-card">
     <div class="brand" style="font-family:var(--display);font-weight:600;letter-spacing:.22em">GRANDFUSION
       <span style="display:block;font-size:.5rem;letter-spacing:.4em;color:var(--clay)">MAKER SUPPORT</span></div>
-    <h1>会員ログイン</h1>
-    <p class="sub">サロン様専用 学習サイト</p>
-    <div class="field"><label>メールアドレス</label><input id="memEmail" type="email" placeholder="お申し込み時のメールアドレス"></div>
-    <div class="field"><label>合言葉</label><input id="memPass" type="password" placeholder="運営から共有された合言葉"></div>
-    <button class="btn btn-primary" style="width:100%" onclick="loginMember()">ログイン</button>
-    <div class="err hidden" id="loginErr" style="background:oklch(0.94 0.06 30);color:oklch(0.5 0.12 30);border-radius:10px;padding:11px 13px;font-size:.8rem;margin-top:12px"></div>
-    <p class="center" style="font-size:.7rem;color:var(--clay);margin:16px 0 14px">— または デモ会員で確認 —</p>
-    <div class="field"><label>ログインする会員（デモ）</label>
+    <h1>運営・デモ用</h1>
+    <p class="sub">コンテンツはログイン不要で閲覧できます。<br>こちらは運営・デモ確認用です。</p>
+    <a href="#/courses" class="btn btn-gold" style="width:100%;margin-bottom:18px" onclick="enterGuest();return false">コンテンツを見る（ログイン不要）</a>
+    <div class="field"><label>デモ会員で確認</label>
       <select id="loginClient">
         ${CLIENTS.map(c=>`<option value="${c.id}">${c.salon}（導入 ${c.products.length} 件）</option>`).join("")}
       </select></div>
@@ -735,28 +746,25 @@ function loginAdmin(){
 }
 function logout(){ SESSION=null; LIVE=null; ADMIN_PASS=""; go("/"); }
 
-/* メール＋合言葉ログイン（LINE不要）*/
-function loginMember(){
-  const err=document.getElementById("loginErr"); err.classList.add("hidden");
-  const email=(document.getElementById("memEmail").value||"").trim();
-  const pass=document.getElementById("memPass").value||"";
-  if(!email){ err.textContent="メールアドレスを入力してください。"; err.classList.remove("hidden"); return; }
-  if(!GAS_ENABLED){ err.textContent="デモ環境です。GAS_URL を設定すると本番ログインが有効になります。下のデモ会員でお試しください。"; err.classList.remove("hidden"); return; }
-  const url=GAS_URL+"?action=member&email="+encodeURIComponent(email)+"&pass="+encodeURIComponent(pass);
-  fetch(url).then(r=>r.json()).then(res=>{
+/* 任意：メールで自分の導入コンテンツを解放（ログインではなく解放のみ）*/
+function unlockByEmail(){
+  const email=(val("guestEmail")||"").trim();
+  const box=document.getElementById("guestMsg");
+  const msg=t=>{ if(box) box.textContent=t; };
+  if(!email){ msg("メールアドレスを入力してください。"); return; }
+  if(!GAS_ENABLED){ msg("デモ環境では解放できません（GAS_URL 設定後に有効）。"); return; }
+  msg("確認中…");
+  fetch(GAS_URL+"?action=member&email="+encodeURIComponent(email)).then(r=>r.json()).then(res=>{
     if(res && res.ok){
       LIVE={salon:res.salon,owner:res.owner,pref:res.pref,email:res.email,products:res.products||[]};
       SESSION={role:"client",live:true};
-      loadContent();
-      go("/courses");
+      render();
     } else {
-      err.textContent = res && res.error==="passcode" ? "合言葉が違います。"
-        : res && res.error==="not_found" ? "このメールアドレスは登録されていません。運営にお問い合わせください。"
-        : "ログインに失敗しました。"+(res&&res.error?"("+res.error+")":"");
-      err.classList.remove("hidden");
+      msg("このメールアドレスは登録が見つかりませんでした。運営にお問い合わせください。");
     }
-  }).catch(()=>{ err.textContent="通信エラーが発生しました。"; err.classList.remove("hidden"); });
+  }).catch(()=>msg("通信エラーが発生しました。"));
 }
+function backToGuest(){ LIVE=null; SESSION={role:"guest"}; render(); }
 
 /* LINEログインのコールバック先（GASが #/auth?token=... へ戻す） */
 route("/auth", (hash) => {
@@ -802,9 +810,13 @@ function shell(active, body){
     <a href="#/admin/videos" class="${active==='advideos'?'active':''}"><span class="ico">▷</span>動画コンテンツ管理</a>
     <a href="#/admin/clients" class="${active==='clients'?'active':''}"><span class="ico">◍</span>クライアント管理</a>
     <a href="#/admin/paiditems" class="${active==='paiditems'?'active':''}"><span class="ico">▦</span>商材・有料講座・申込</a>` : "";
+  const isGuest = SESSION.role==="guest";
   const meBox = isAdmin
     ? `<div class="me"><div class="nm">${c.owner}</div><div class="salon">${c.salon}</div>
         <span class="cnt">管理モード</span></div>`
+    : isGuest
+    ? `<div class="me"><div class="nm">${c.owner}</div><div class="salon">${c.salon}</div>
+        <span class="cnt">ログイン不要</span></div>`
     : `<div class="me"><div class="nm">${c.owner} 様</div><div class="salon">${c.salon} ・ ${c.pref}</div>
         <span class="cnt">導入 ${c.products.length} 件</span></div>`;
   return `<div class="app-shell">
@@ -872,7 +884,7 @@ function exclusiveSection(g, c){
     ${vids}${docs}`;
 }
 route("/courses", () => {
-  if(!SESSION) return routes["/login"]();
+  ensureGuest();
   const c=currentClient();
   const groups=[
     {key:"free",   label:"無料講座",        note:"全会員が視聴可能"},
@@ -890,9 +902,20 @@ route("/courses", () => {
   }).join("");
   const exclusives = EXCLUSIVE.map(g=>exclusiveSection(g,c)).join("");
   const totalOpen=all.filter(x=>isUnlocked(x,c)).length;
+  const banner = SESSION.role==="guest"
+    ? `<div class="panel" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div style="flex:1;min-width:220px"><b>導入済みの方へ</b>
+          <span class="muted" style="font-size:.85rem">お申し込み時のメールアドレスを入力すると、導入済みコンテンツが解放されます（任意）。</span></div>
+        <div style="display:flex;gap:8px"><input id="guestEmail" type="email" placeholder="メールアドレス" style="padding:10px 12px;border:1px solid var(--line);border-radius:10px">
+          <button class="btn btn-primary btn-sm" onclick="unlockByEmail()">解放</button></div>
+        <div id="guestMsg" class="muted" style="font-size:.8rem;width:100%"></div></div>`
+    : (SESSION.live ? `<div class="panel" style="padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <span class="muted" style="font-size:.85rem"><b>${LIVE.salon}</b> として表示中（導入 ${LIVE.products.length} 件を解放）</span>
+        <a href="#" onclick="backToGuest();return false" style="font-size:.8rem;color:var(--clay)">解除する</a></div>` : "");
   return shell("courses", `
     <div class="page-head"><div><h1>コンテンツ</h1>
-      <p>導入した商材・マシン・講座に応じて解放されています（解放 ${totalOpen}/${all.length}）</p></div></div>
+      <p>お知らせ・ブログ・無料講座は全員に公開。導入者専用は解放されたもののみ表示（${totalOpen}/${all.length}）</p></div></div>
+    ${banner}
     ${sections}
     ${exclusives}
   `);
@@ -900,7 +923,7 @@ route("/courses", () => {
 
 /* ---------- Protein Master Course ---------- */
 route("/protein", () => {
-  if(!SESSION) return routes["/login"]();
+  ensureGuest();
   const c=currentClient();
   const open = c.products.includes("protein") || SESSION.role==="admin";
   const body = open ? `
@@ -929,7 +952,7 @@ route("/protein", () => {
 
 /* ---------- News ---------- */
 route("/news", () => {
-  if(!SESSION) return routes["/login"]();
+  ensureGuest();
   const list=getNews();
   return shell("news", `
     <div class="page-head"><div><h1>お知らせ</h1><p>運営からの最新情報</p></div></div>
@@ -950,7 +973,7 @@ function blogCard(b){
     <span class="lp-link">続きを読む →</span></div></div>`;
 }
 route("/blog", () => {
-  if(!SESSION) return routes["/login"]();
+  ensureGuest();
   const list=getBlog().filter(b=>String(b.published)!=="FALSE" && (b.scope==="member"||b.scope==="both"||!b.scope));
   return shell("blog", `
     <div class="page-head"><div><h1>ブログ</h1><p>サロン経営・商材活用のヒント</p></div></div>
@@ -975,7 +998,7 @@ route("/blogpost", (hash) => {
 
 /* ---------- My products / courses ---------- */
 route("/myproducts", () => {
-  if(!SESSION) return routes["/login"]();
+  ensureGuest();
   const c=currentClient();
   const myProd=PRODUCTS.filter(p=>c.products.includes(p.productKey));
   const myCourse=PAID_COURSES.filter(p=>c.products.includes(p.key));
@@ -999,7 +1022,7 @@ route("/myproducts", () => {
       ${availProd.map(p=>`<tr><td>${p.name}</td><td>${p.kind}</td><td class="muted">${p.unlock}</td>
         <td><a href="${p.lp}" target="_blank" class="btn btn-ghost btn-sm">LP →</a></td></tr>`).join("")}
       ${availCourse.map(p=>`<tr><td>${p.name}</td><td>有料講座</td><td class="muted">${p.desc}（${p.price}）</td>
-        <td><a href="https://lin.ee/example" target="_blank" class="btn btn-gold btn-sm">購入</a></td></tr>`).join("")}
+        <td><a href="https://lin.ee/wNXRto9" target="_blank" class="btn btn-gold btn-sm">購入</a></td></tr>`).join("")}
       </tbody></table></div>
   `);
 });
