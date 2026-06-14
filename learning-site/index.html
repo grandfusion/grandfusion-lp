@@ -439,7 +439,7 @@ const APPLICATIONS = [
 let SESSION = null; // {role:'client'|'admin', clientId} または {role:'client', live:true, token}
 
 /* ===== 連携設定：GASウェブアプリURL（/exec）を貼り付け。未設定ならデモ動作 ===== */
-const GAS_URL = "PASTE_YOUR_GAS_WEBAPP_URL_HERE";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyK0kqm7poOtrZFj08C6_gjESa9SXeoGnMEJ4MXbaYs8-GwAmrHnXo223aM70ctYm08/exec";
 const GAS_ENABLED = GAS_URL.indexOf("PASTE_") !== 0;
 const LINE_ENABLED = GAS_ENABLED; // 旧フロー互換
 let LIVE = null;        // ログイン中サロン {salon,owner,pref,email,products}
@@ -954,14 +954,12 @@ route("/protein", () => {
       <div><b style="color:var(--nude-50)">解放済み — 全${PROTEIN_COURSE.lessons.length}章視聴可能</b>
         <div style="font-size:.84rem;color:var(--nude-200)">各チャプターをタップして動画を再生してください。</div></div>
     </div>
-    ${PROTEIN_COURSE.lessons.map((l,i)=>`
-      <div class="panel chaprow" style="display:flex;align-items:center;gap:18px;cursor:pointer;margin-bottom:12px"
-           onclick="openYouTube('${l.yt}',${l.start||0},'${l.title.replace(/'/g,'')}')">
-        <div class="chapnum">${i+1}</div>
-        <div style="flex:1"><div class="eyebrow" style="font-size:.6rem">Chapter ${i+1}</div>
-          <h3 style="font-size:1.08rem;font-weight:500;margin-top:4px">${l.title}</h3></div>
-        <span class="btn btn-ghost btn-sm">▷ 動画</span>
-      </div>`).join("")}` : `${head}
+    <div class="courses">
+      ${PROTEIN_COURSE.lessons.map((l,i)=>`<div class="course" style="cursor:pointer" onclick="openYouTube('${l.yt}',${l.start||0},'${l.title.replace(/'/g,'')}')">
+        <div class="thumb"><img src="https://img.youtube.com/vi/${l.yt}/hqdefault.jpg" alt="" loading="lazy">
+          <span class="badge2">CHAPTER ${i+1}</span><div class="play">▶</div></div>
+        <div class="meta"><span class="cat">プロテインマスター ・ 第${i+1}章</span><h3>${l.title}</h3></div></div>`).join("")}
+    </div>` : `${head}
     <div class="panel center" style="padding:56px">
       <div style="font-size:2.2rem">🔒</div>
       <h2 style="margin-top:10px;font-size:1.3rem">このコースはロックされています</h2>
