@@ -223,6 +223,10 @@ footer.ft small{font-size:.72rem;color:var(--nude-400)}
 .client-card .ch{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 .client-card .ch b{font-size:1rem}
 .client-card .ch small{color:var(--mocha);font-size:.78rem}
+.chaprow{transition:.2s}
+.chaprow:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.chapnum{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:var(--nude-100);
+  display:grid;place-items:center;font-family:var(--serif);font-size:1.4rem;color:var(--clay);flex:none}
 
 .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 30px;margin-bottom:22px}
 .panel h2{font-family:var(--serif);font-size:1.4rem;font-weight:500;margin-bottom:16px}
@@ -351,11 +355,11 @@ const COURSES = [
 const PROTEIN_COURSE = {
   productKey:"protein",
   lessons:[
-    {title:"オーラプロテインの設計思想", yt:"DAowMyGqi4w", start:7},
-    {title:"体質改善の栄養学ベーシック", yt:"aLYZpiWfpVo", start:0},
-    {title:"顧客タイプ別 提案トーク",    yt:"XkJVUzPBte8", start:0},
-    {title:"継続率を高めるフォロー設計", yt:"JlZr9syIwy4", start:0},
-    {title:"プロテイン物販の収益モデル", yt:"RybgmdJayiU", start:0},
+    {title:"なぜ今、タンパク質なのか",                 yt:"DAowMyGqi4w", start:7},
+    {title:"オーラプロテインの成分と栄養機能",         yt:"aLYZpiWfpVo", start:0},
+    {title:"タンパク質と美容・健康の深い関係",         yt:"XkJVUzPBte8", start:0},
+    {title:"食事置き換えダイエットシミュレーション",   yt:"JlZr9syIwy4", start:0},
+    {title:"ターゲット別アプローチとカウンセリング術", yt:"RybgmdJayiU", start:0},
   ]
 };
 
@@ -541,6 +545,9 @@ function go(path){ location.hash = path; }
 function render(){
   const hash = location.hash.replace(/^#/,'') || "/";
   const [path] = hash.split("?");
+  // 申込後 ?email=... が付いていれば、どのページでも自動解放
+  const aEmail = new URLSearchParams(hash.split("?")[1]||"").get("email");
+  if(aEmail && GAS_ENABLED && !(SESSION && SESSION.live)){ ensureGuest(); autoUnlock(aEmail); }
   const fn = routes[path] || routes["/"];
   document.getElementById("root").innerHTML = fn(hash);
   window.scrollTo(0,0);
@@ -765,6 +772,17 @@ function unlockByEmail(){
   }).catch(()=>msg("通信エラーが発生しました。"));
 }
 function backToGuest(){ LIVE=null; SESSION={role:"guest"}; render(); }
+/* 申し込み後にメール付きで遷移してきたら自動解放 */
+function autoUnlock(email){
+  if(!GAS_ENABLED || !email) return;
+  fetch(GAS_URL+"?action=member&email="+encodeURIComponent(email)).then(r=>r.json()).then(res=>{
+    if(res && res.ok){
+      LIVE={salon:res.salon,owner:res.owner,pref:res.pref,email:res.email,products:res.products||[]};
+      SESSION={role:"client",live:true};
+      render();
+    }
+  }).catch(()=>{});
+}
 
 /* LINEログインのコールバック先（GASが #/auth?token=... へ戻す） */
 route("/auth", (hash) => {
@@ -926,27 +944,30 @@ route("/protein", () => {
   ensureGuest();
   const c=currentClient();
   const open = c.products.includes("protein") || SESSION.role==="admin";
-  const body = open ? `
-    <div class="panel" style="background:linear-gradient(120deg,var(--espresso),var(--mocha));color:var(--nude-100);border:none">
-      <span class="eyebrow" style="color:var(--gold)">Protein Master Course</span>
-      <h2 style="color:var(--nude-50);font-size:1.7rem">オーラプロテイン マスターコース</h2>
-      <p style="color:var(--nude-200);max-width:40em">体質改善・物販収益までを体系的に学ぶ専用カリキュラム。「オーラプロテイン」導入サロン限定で解放されています。</p>
+  const head = `
+    <span class="eyebrow">Protein Master Course</span>
+    <h1 style="font-family:var(--serif);font-size:2.2rem;font-weight:500;margin:10px 0 6px">プロテインマスター講座</h1>
+    <p class="muted" style="margin-bottom:22px">オーラプロテイン15kg以上ご購入サロン様限定の全${PROTEIN_COURSE.lessons.length}章講座。</p>`;
+  const body = open ? `${head}
+    <div class="panel" style="background:linear-gradient(120deg,var(--espresso),var(--mocha));color:var(--nude-100);border:none;display:flex;gap:16px;align-items:center">
+      <span style="font-size:1.5rem">🔓</span>
+      <div><b style="color:var(--nude-50)">解放済み — 全${PROTEIN_COURSE.lessons.length}章視聴可能</b>
+        <div style="font-size:.84rem;color:var(--nude-200)">各チャプターをタップして動画を再生してください。</div></div>
     </div>
-    <div class="grouphead"><h2>カリキュラム（全${PROTEIN_COURSE.lessons.length}章）</h2>
-      <span class="ct">オーラプロテイン導入者専用</span><span class="ln"></span></div>
-    <div class="courses">
-      ${PROTEIN_COURSE.lessons.map((l,i)=>`<div class="course" style="cursor:pointer" onclick="openYouTube('${l.yt}',${l.start||0})">
-        <div class="thumb"><img src="https://img.youtube.com/vi/${l.yt}/hqdefault.jpg" alt="" loading="lazy">
-          <span class="badge2">第${i+1}章</span><div class="play">▶</div></div>
-        <div class="meta"><span class="cat">プロテインマスター</span><h3 id="ytt-${l.yt}" class="muted">読み込み中…</h3></div></div>`).join("")}
-    </div>` : `
-    <div class="panel center" style="padding:60px">
-      <div style="font-size:2.4rem">🔒</div>
-      <h2 style="margin-top:10px">このコースはロックされています</h2>
-      <p class="muted" style="margin-bottom:20px">「オーラプロテイン」を導入すると<br>プロテインマスターコースが解放されます。</p>
+    ${PROTEIN_COURSE.lessons.map((l,i)=>`
+      <div class="panel chaprow" style="display:flex;align-items:center;gap:18px;cursor:pointer;margin-bottom:12px"
+           onclick="openYouTube('${l.yt}',${l.start||0},'${l.title.replace(/'/g,'')}')">
+        <div class="chapnum">${i+1}</div>
+        <div style="flex:1"><div class="eyebrow" style="font-size:.6rem">Chapter ${i+1}</div>
+          <h3 style="font-size:1.08rem;font-weight:500;margin-top:4px">${l.title}</h3></div>
+        <span class="btn btn-ghost btn-sm">▷ 動画</span>
+      </div>`).join("")}` : `${head}
+    <div class="panel center" style="padding:56px">
+      <div style="font-size:2.2rem">🔒</div>
+      <h2 style="margin-top:10px;font-size:1.3rem">このコースはロックされています</h2>
+      <p class="muted" style="margin:10px 0 20px">オーラプロテインを導入すると、プロテインマスター講座（全${PROTEIN_COURSE.lessons.length}章）が解放されます。<br>導入済みの方は「コンテンツ」画面でメールアドレスを入力すると解放されます。</p>
       <a href="${PRODUCTS.find(p=>p.productKey==='protein').lp}" target="_blank" class="btn btn-gold">オーラプロテインを見る（LP）</a>
     </div>`;
-  if(open) setTimeout(loadProteinTitles, 0);
   return shell("protein", `<a href="#/courses" class="back-link">← コンテンツへ戻る</a>${body}`);
 });
 
@@ -1284,9 +1305,9 @@ function openCourse(title,dur){
   document.getElementById("modal").classList.add("show");
 }
 const YT_TITLES = {}; // {videoId: "YouTubeの実タイトル"}
-function openYouTube(id,start){
-  document.getElementById("mtitle").textContent = YT_TITLES[id] || "プロテインマスターコース";
-  document.getElementById("mdesc").textContent="プロテインマスターコース ・ オーラプロテイン導入者専用";
+function openYouTube(id,start,title){
+  document.getElementById("mtitle").textContent = title || YT_TITLES[id] || "プロテインマスター講座";
+  document.getElementById("mdesc").textContent="プロテインマスター講座 ・ オーラプロテイン導入者専用";
   const src="https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1"+(start?("&start="+start):"");
   document.querySelector("#modal .vid").innerHTML=
     '<iframe src="'+src+'" style="width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
