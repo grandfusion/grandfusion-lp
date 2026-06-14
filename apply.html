@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>導入申し込み | GrandFusion メーカーサポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nude-100:oklch(0.965 0.012 68);--nude-200:oklch(0.93 0.018 66);--nude-300:oklch(0.88 0.026 60);
+  --nude-400:oklch(0.80 0.035 56);--nude-50:oklch(0.985 0.006 70);
+  --clay:oklch(0.62 0.060 50);--mocha:oklch(0.42 0.038 50);--espresso:oklch(0.28 0.028 55);
+  --ink:oklch(0.22 0.018 60);--gold:oklch(0.74 0.090 78);--gold-deep:oklch(0.62 0.095 70);
+  --line:oklch(0.88 0.018 62);--card:oklch(0.995 0.004 80);--ok:oklch(0.62 0.10 150);
+  --serif:"Cormorant Garamond",serif;--display:"Jost","Noto Sans JP",sans-serif;--body:"Noto Sans JP",sans-serif;
+  --shadow:0 14px 50px -20px oklch(0.4 0.03 55 / 0.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--ink);font-weight:300;line-height:1.8;letter-spacing:.02em;
+  background:linear-gradient(125deg,var(--nude-100),var(--nude-300));min-height:100vh;padding:40px 20px}
+.wrap{max-width:680px;margin:0 auto}
+.brand{font-family:var(--display);font-weight:600;letter-spacing:.22em;text-align:center;color:var(--espresso)}
+.brand small{display:block;font-size:.52rem;letter-spacing:.4em;color:var(--clay);font-weight:400}
+.card{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:46px 42px;margin-top:22px}
+@media(max-width:560px){.card{padding:32px 22px}}
+.eyebrow{font-family:var(--display);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--clay);text-align:center;display:block}
+h1{font-family:var(--serif);font-size:2rem;font-weight:500;text-align:center;margin:8px 0 4px}
+.lead{text-align:center;color:var(--mocha);font-size:.88rem;margin-bottom:30px}
+.field{margin-bottom:20px}
+.field label{font-family:var(--display);font-size:.72rem;letter-spacing:.1em;color:var(--clay);display:block;margin-bottom:7px}
+.field .req{color:var(--gold-deep)}
+.field input,.field textarea{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;
+  font-family:var(--body);font-size:.92rem;background:var(--nude-50);font-weight:300}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--clay)}
+.field textarea{resize:vertical;min-height:90px}
+.grouptitle{font-family:var(--display);font-size:.72rem;letter-spacing:.1em;color:var(--clay);margin:26px 0 10px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.checks{grid-template-columns:1fr}}
+.chk{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:13px 15px;
+  cursor:pointer;transition:.2s;background:var(--nude-50)}
+.chk:hover{border-color:var(--clay)}
+.chk input{margin-top:3px;accent-color:var(--clay);width:16px;height:16px}
+.chk.on{border-color:var(--clay);background:oklch(0.97 0.02 78 / .5)}
+.chk .nm{font-size:.86rem;font-weight:400;color:var(--espresso)}
+.chk .kind{font-family:var(--display);font-size:.58rem;letter-spacing:.18em;color:var(--clay);display:block}
+.btn{width:100%;margin-top:26px;font-family:var(--display);font-weight:500;letter-spacing:.12em;font-size:.85rem;
+  text-transform:uppercase;padding:16px;border-radius:999px;border:none;cursor:pointer;
+  background:linear-gradient(120deg,var(--gold),var(--gold-deep));color:var(--espresso);transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.note{font-size:.74rem;color:var(--mocha);text-align:center;margin-top:16px}
+.done{text-align:center;padding:30px 10px}
+.done .ic{width:64px;height:64px;border-radius:999px;background:oklch(0.92 0.06 150);color:var(--ok);
+  display:grid;place-items:center;font-size:1.8rem;margin:0 auto 18px}
+.done h2{font-family:var(--serif);font-size:1.6rem;font-weight:500;margin-bottom:8px}
+.done p{color:var(--mocha);font-size:.9rem}
+.hidden{display:none}
+.err{background:oklch(0.94 0.06 30);color:oklch(0.5 0.12 30);border-radius:10px;padding:12px 14px;font-size:.82rem;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">GRANDFUSION<small>MAKER SUPPORT</small></div>
+  <div class="card">
+    <form id="form">
+      <span class="eyebrow">Application</span>
+      <h1>導入申し込み</h1>
+      <p class="lead">導入したい商材・マシン・講座を選択してお申し込みください。<br>担当より折り返しご連絡いたします。</p>
+
+      <div class="field"><label>サロン名 <span class="req">*</span></label><input name="salon" required></div>
+      <div class="field"><label>オーナー名 <span class="req">*</span></label><input name="owner" required></div>
+      <div class="field"><label>メールアドレス <span class="req">*</span></label>
+        <input name="email" type="email" required>
+        <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ LINEログイン時にこのメールでサロンが自動紐付けされます。</p></div>
+      <div class="field"><label>電話番号</label><input name="tel" type="tel"></div>
+
+      <div class="grouptitle">導入したい商材・マシン・講座 <span class="req">*</span>（複数選択可）</div>
+      <div class="checks" id="items"></div>
+
+      <div class="field" style="margin-top:22px"><label>ご質問・ご要望</label><textarea name="message"></textarea></div>
+
+      <button class="btn" type="submit" id="submit">この内容で申し込む</button>
+      <p class="note">送信内容は申込シートに記録され、承認後に会員ページのコンテンツが自動解放されます。</p>
+      <div class="err hidden" id="err"></div>
+    </form>
+
+    <div class="done hidden" id="done">
+      <div class="ic">&#10003;</div>
+      <h2>お申し込みを受け付けました</h2>
+      <p>担当者より折り返しご連絡いたします。<br>承認後、会員ページにて該当コンテンツが解放されます。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== 設定：GASのウェブアプリURL（/exec）を貼り付け ===== */
+var GAS_URL = "https://script.google.com/macros/s/AKfycbyK0kqm7poOtrZFj08C6_gjESa9SXeoGnMEJ4MXbaYs8-GwAmrHnXo223aM70ctYm08/exec";
+/* 送信後に遷移する学習サイトのURL（末尾スラッシュまで） */
+var SITE_URL = "https://grandfusion-lp.vercel.app/learning-site/";
+/* true=申し込みで即解放（自分の導入分が開く） / false=申込のみ（管理者が後で承認） */
+var AUTO_GRANT = true;
+var lastEmail = "";
+
+/* 申込で選べる項目（productKey はスプシ列名と一致） */
+var ITEMS = [
+  {key:"aura_pack",        name:"炭酸オーラパック",          kind:"商材"},
+  {key:"aura_cream",       name:"オーラクリーム",            kind:"商材"},
+  {key:"repair_cream",     name:"リペアクリーム pro",        kind:"商材"},
+  {key:"protein",          name:"オーラプロテイン",          kind:"商材"},
+  {key:"skin_bank",        name:"水素skin bank H⁺",         kind:"商材"},
+  {key:"btxtherma",        name:"BTXtherma",                kind:"マシン"},
+  {key:"regecell",         name:"リジェセル",                kind:"マシン"},
+  {key:"kaigyo_pack",      name:"開業サポートパック",        kind:"マシン"},
+  {key:"course_marketing", name:"集客・マーケティング完全講座", kind:"有料講座"},
+  {key:"course_management",name:"サロン経営マスター講座",     kind:"有料講座"},
+  {key:"course_finance",   name:"融資・補助金 実務講座",       kind:"有料講座"},
+];
+
+function initForm(){
+var box = document.getElementById("items");
+box.innerHTML = ITEMS.map(function(it){
+  return '<label class="chk"><input type="checkbox" value="'+it.key+'" data-name="'+it.name+'">'
+    + '<span><span class="kind">'+it.kind+'</span><span class="nm">'+it.name+'</span></span></label>';
+}).join("");
+box.querySelectorAll(".chk").forEach(function(l){
+  l.querySelector("input").addEventListener("change",function(){ l.classList.toggle("on",this.checked); });
+});
+
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var err = document.getElementById("err"); err.classList.add("hidden");
+  var f = e.target;
+  var checked = [].slice.call(box.querySelectorAll("input:checked"));
+  var keys  = checked.map(function(i){return i.value;});                 // productKey（解放用）
+  var names = checked.map(function(i){return i.getAttribute("data-name");}); // 表示名（記録用）
+  if (!keys.length){ err.textContent="導入したい商材・マシン・講座を1つ以上選択してください。"; err.classList.remove("hidden"); return; }
+
+  lastEmail = f.email.value;
+  var payload = {
+    action:"apply",
+    salon:f.salon.value, owner:f.owner.value, email:f.email.value,
+    tel:f.tel.value, items:names, keys:keys, autoGrant:AUTO_GRANT, message:f.message.value
+  };
+
+  var btn = document.getElementById("submit");
+  btn.disabled = true; btn.textContent = "送信中...";
+  function fail(res){ btn.disabled=false; btn.textContent="この内容で申し込む";
+    err.textContent="送信エラー："+((res&&res.error)||"不明"); err.classList.remove("hidden"); }
+
+  if (window.google && google.script && google.script.run){
+    // GASからURL配信されたフォーム（CORS不要・直接送信）
+    google.script.run
+      .withSuccessHandler(function(res){ (res&&res.ok)?showDone():fail(res); })
+      .withFailureHandler(function(e){ fail({error:String(e)}); })
+      .submitApply(payload);
+  } else if (GAS_URL.indexOf("PASTE_") !== 0){
+    // 単体ファイル / Vercel等で配信した場合
+    fetch(GAS_URL, { method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(payload) })
+      .then(function(r){ return r.json(); })
+      .then(function(res){ (res&&res.ok)?showDone():fail(res); })
+      .catch(function(ex){ fail({error:ex.message}); });
+  } else {
+    setTimeout(showDone, 600); // 未設定時はデモ表示
+  }
+});
+} /* end initForm */
+if (document.readyState !== "loading") initForm();
+else document.addEventListener("DOMContentLoaded", initForm);
+
+function showDone(){
+  document.getElementById("form").classList.add("hidden");
+  document.getElementById("done").classList.remove("hidden");
+  // 送信後、学習サイトへ遷移してメールで自動解放
+  var go = SITE_URL + "#/courses?email=" + encodeURIComponent(lastEmail||"");
+  var dn = document.getElementById("done");
+  var a = document.createElement("a");
+  a.href = go; a.target = "_top"; a.className = "btn"; a.style.display="inline-block"; a.style.width="auto"; a.style.marginTop="20px";
+  a.textContent = "学習サイトを開く（解放済みのコンテンツを見る）";
+  dn.appendChild(a);
+  if (AUTO_GRANT && lastEmail){ setTimeout(function(){ try{ window.top.location.href = go; }catch(_){ location.href = go; } }, 1800); }
+}
+</script>
+</body>
+</html>
