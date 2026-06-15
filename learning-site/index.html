@@ -562,11 +562,19 @@ function topnav(){
     <a href="#/" class="brand">GRANDFUSION<small>MAKER SUPPORT</small></a>
     <button class="nav-toggle" onclick="document.getElementById('nlinks').classList.toggle('open')">&#9776;</button>
     <nav class="nav-links" id="nlinks">
-      <a href="#/#about">強み</a><a href="#/#philosophy">哲学</a><a href="#/#products">商材</a>
-      <a href="#/#unlock">解放のしくみ</a><a href="#/#blog">ブログ</a><a href="#/#support">サポート</a><a href="#/#faq">FAQ</a>
+      <a href="#" onclick="goSection('about');return false">強み</a><a href="#" onclick="goSection('philosophy');return false">哲学</a><a href="#" onclick="goSection('products');return false">商材</a>
+      <a href="#" onclick="goSection('unlock');return false">解放のしくみ</a><a href="#" onclick="goSection('blog');return false">ブログ</a><a href="#" onclick="goSection('support');return false">サポート</a><a href="#" onclick="goSection('faq');return false">FAQ</a>
       <a href="https://lin.ee/wNXRto9" target="_blank">LINE相談</a>
-      <a href="#/courses" class="btn btn-primary btn-sm">コンテンツを見る</a>
+      <a href="#/courses" class="btn btn-primary btn-sm" style="color:#fff">コンテンツを見る</a>
     </nav></div></header>`;
+}
+/* ナビ：同ページ内のセクションへスムーズスクロール */
+function goSection(id){
+  document.getElementById('nlinks').classList.remove('open');
+  var path = (location.hash.replace(/^#/,'').split("?")[0]) || "/";
+  function scroll(){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
+  if(path !== "/"){ location.hash = "/"; setTimeout(scroll, 80); }
+  else scroll();
 }
 
 /* ===================================================================
@@ -581,9 +589,9 @@ ${topnav()}
     <h1>サロン様専用<br>学習サイト</h1>
     <p class="lead">導入した商材・マシン・講座ごとに、専用の限定コンテンツが解放されるサロンオーナーのための学習サイト。</p>
     <div class="hero-cta">
-      <a href="#/courses" class="btn btn-primary">コンテンツを見る</a>
+      <a href="#/courses" class="btn btn-primary" style="color:#fff">コンテンツを見る</a>
       <a href="#/news" class="btn btn-gold">お知らせ・ブログ</a>
-      <a href="#philosophy" class="btn btn-ghost">詳しく見る</a>
+      <a href="#" onclick="goSection('philosophy');return false" class="btn btn-ghost">詳しく見る</a>
     </div>
   </div>
   <div class="scroll-hint">SCROLL ▾</div>
@@ -687,7 +695,7 @@ ${(()=>{const bl=getBlog().filter(b=>String(b.published)!=="FALSE"&&(b.scope==="
   <div class="sec-head"><span class="eyebrow">FAQ</span><h2>よくある質問</h2></div>
   <div style="max-width:760px;margin:0 auto">
     ${[
-      ["コンテンツはどのように解放されますか？","導入した商材・マシン・有料講座ごとに、対応する専用コンテンツが自動で解放されます。無料講座はすべての会員がいつでも視聴できます。"],
+      ["コンテンツはどのように解放されますか？","導入申し込みをされた方に、申し込み商材ごとの専用コンテンツが解放されます。無料講座はすべての方がいつでも視聴できます。<br><a href='https://grandfusion-lp.vercel.app/apply.html' target='_blank' style='display:inline-block;margin-top:10px;color:var(--gold-deep);border-bottom:1px solid var(--gold-deep);font-family:var(--display);letter-spacing:.06em'>▶ 導入申し込みフォームはこちら</a>"],
       ["動画コンテンツはどこで視聴できますか？","「コンテンツ」ページからログイン不要で視聴できます。導入者専用の動画は、お申し込み時のメールアドレスを入力すると解放されます。スマホ・PCどちらにも対応しています。"],
       ["有料講座は単体で購入できますか？","はい。集客・経営・融資などの有料講座は、必要なものだけを単体で購入・受講できます。購入後すぐにコンテンツが解放されます。"],
       ["マシン350万円以上購入の伴走サポートとは？","技術指導・集客戦略・カウンセリング研修・売上進捗管理を含む3ヶ月の専任講師サポートです。導入後すぐに結果を出すための個別伴走プログラムです。"],
