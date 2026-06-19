@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPテーマ プレビュー｜GrandFusion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c-base:#faf6f0;
+  --c-beige:#ede3d3;
+  --c-beige-light:#f5efe6;
+  --c-cream:#f7f1e6;
+  --c-gold:#b89968;
+  --c-gold-light:#d4b88a;
+  --c-gold-dark:#9c8062;
+  --c-text:#3d3329;
+  --c-text-sub:#6b5d4f;
+  --c-text-light:#9c8775;
+  --c-line:#d9ccb8;
+  --ff-serif:"Noto Serif JP","Yu Mincho",YuMincho,serif;
+  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --ff-en:"Cormorant Garamond","Times New Roman",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-sans);color:var(--c-text);background:var(--c-base);line-height:1.8;letter-spacing:.04em;font-feature-settings:"palt";-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none;transition:opacity .3s ease}
+a:hover{opacity:.75}
+
+/* プレビューバナー */
+.preview-banner{
+  background:linear-gradient(135deg,#3d3329 0%,#5a4a3a 100%);
+  color:#fff;
+  text-align:center;
+  padding:14px 20px;
+  font-family:var(--ff-serif);
+  font-size:13px;
+  letter-spacing:.1em;
+  position:relative;
+  z-index:200;
+}
+.preview-banner strong{color:var(--c-gold-light);font-weight:600}
+.preview-banner small{display:block;font-size:11px;color:rgba(217,204,184,.7);margin-top:4px;letter-spacing:.05em}
+
+/* HEADER */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,246,240,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--c-line);
+}
+.header-inner{
+  max-width:1280px;margin:0 auto;
+  padding:18px 40px;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+}
+.logo{
+  font-family:var(--ff-en);
+  font-size:24px;font-weight:500;
+  letter-spacing:.25em;
+  color:var(--c-text);
+  padding-left:.25em;
+  white-space:nowrap;
+}
+.logo small{
+  display:block;
+  font-family:var(--ff-serif);
+  font-size:9px;letter-spacing:.4em;
+  margin-top:2px;color:var(--c-text-light);
+}
+.nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.nav a{
+  font-family:var(--ff-serif);
+  font-size:12px;font-weight:500;
+  letter-spacing:.12em;
+  color:var(--c-text-sub);
+  position:relative;
+  white-space:nowrap;
+}
+.nav a::after{
+  content:"";position:absolute;left:50%;bottom:-6px;
+  width:0;height:1px;background:var(--c-gold);
+  transition:width .3s ease,left .3s ease;
+}
+.nav a:hover{color:var(--c-gold-dark);opacity:1}
+.nav a:hover::after{width:100%;left:0}
+.nav .cta-btn{
+  background:var(--c-gold);color:#fff;
+  padding:10px 22px;border-radius:2px;
+  font-size:11px;letter-spacing:.18em;
+}
+.nav .cta-btn::after{display:none}
+.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:90vh;
+  padding:120px 40px 100px;
+  background:
+    radial-gradient(ellipse at 80% 20%,rgba(212,184,138,.25) 0%,transparent 50%),
+    radial-gradient(ellipse at 20% 80%,rgba(184,153,104,.15) 0%,transparent 50%),
+    linear-gradient(180deg,var(--c-base) 0%,var(--c-cream) 100%);
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.hero-inner{
+  max-width:1280px;margin:0 auto;
+  width:100%;text-align:center;
+  position:relative;
+}
+.hero-brand{
+  font-family:var(--ff-en);
+  font-size:14px;letter-spacing:.5em;
+  color:var(--c-gold);margin-bottom:36px;
+  display:inline-flex;align-items:center;gap:18px;
+}
+.hero-brand::before,.hero-brand::after{
+  content:"";width:48px;height:1px;background:var(--c-gold-light);
+}
+.hero-logo{
+  font-family:var(--ff-en);
+  font-size:clamp(48px,7vw,84px);
+  font-weight:500;
+  letter-spacing:.18em;
+  color:var(--c-text);
+  margin-bottom:14px;
+  line-height:1.1;
+  padding-left:.18em;
+}
+.hero-logo-jp{
+  font-family:var(--ff-serif);
+  font-size:14px;letter-spacing:.5em;
+  color:var(--c-text-sub);
+  margin-bottom:50px;
+}
+.hero-title{
+  font-family:var(--ff-serif);
+  font-size:clamp(28px,4vw,52px);
+  font-weight:400;
+  line-height:1.55;
+  letter-spacing:.08em;
+  color:var(--c-text);
+  margin-bottom:36px;
+}
+.hero-title em{font-style:normal;color:var(--c-gold-dark);font-weight:500}
+.hero-sub{
+  font-family:var(--ff-serif);
+  font-size:16px;line-height:2.2;
+  color:var(--c-text-sub);
+  margin-bottom:50px;
+  letter-spacing:.1em;
+  max-width:740px;margin-left:auto;margin-right:auto;
+}
+.hero-cta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 36px;
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.2em;
+  border:1px solid var(--c-gold);
+  color:var(--c-gold-dark);
+  background:transparent;
+  transition:all .3s ease;
+}
+.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
+.btn-fill{background:var(--c-gold);color:#fff;border-color:var(--c-gold)}
+.btn-fill:hover{background:var(--c-gold-dark);border-color:var(--c-gold-dark)}
+.btn::after{content:"→";font-size:14px}
+
+/* セクション共通 */
+.section{padding:120px 40px;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:60px}
+.section-en{
+  font-family:var(--ff-en);
+  font-size:42px;font-weight:400;
+  letter-spacing:.25em;
+  color:var(--c-gold-dark);
+  margin-bottom:14px;
+}
+.section-jp{
+  font-family:var(--ff-serif);
+  font-size:14px;letter-spacing:.4em;
+  color:var(--c-text-sub);
+  position:relative;display:inline-block;
+  padding:0 30px;
+}
+.section-jp::before,.section-jp::after{
+  content:"";position:absolute;top:50%;
+  width:20px;height:1px;background:var(--c-gold-light);
+}
+.section-jp::before{left:-10px}
+.section-jp::after{right:-10px}
+
+/* 既存ページのプレビュー（about の中身） */
+.wp-content-mock{
+  background:#fff;
+  border:1px solid var(--c-line);
+  border-radius:0;
+  padding:80px 60px;
+  max-width:960px;
+  margin:0 auto;
+  box-shadow:0 30px 80px rgba(156,128,98,.10);
+  position:relative;
+}
+.wp-content-mock::before{
+  content:"既存ページ「about」の中身が、新デザインでこう表示されます ──";
+  position:absolute;top:-30px;left:0;
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.2em;
+  color:var(--c-gold-dark);
+}
+.wp-content-mock h1{
+  font-family:var(--ff-serif);
+  font-size:32px;
+  letter-spacing:.06em;
+  margin-bottom:8px;
+}
+.wp-content-mock .post-meta{
+  font-family:var(--ff-en);
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--c-text-light);
+  margin-bottom:40px;
+  padding-bottom:24px;
+  border-bottom:1px solid var(--c-gold-light);
+}
+.wp-content-mock h2{
+  font-family:var(--ff-serif);
+  font-size:22px;
+  margin:40px 0 18px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--c-gold-light);
+}
+.wp-content-mock p{
+  font-family:var(--ff-serif);
+  font-size:15px;
+  line-height:2.1;
+  color:var(--c-text-sub);
+  margin-bottom:1.4em;
+}
+.wp-content-mock strong{color:var(--c-text);font-weight:600}
+.wp-content-mock ul{margin:1em 0 1.5em 1.6em}
+.wp-content-mock li{margin-bottom:.5em;font-family:var(--ff-serif);color:var(--c-text-sub);}
+
+.note{
+  background:var(--c-cream);
+  border-left:3px solid var(--c-gold);
+  padding:18px 22px;
+  margin:1.5em 0;
+  font-family:var(--ff-serif);
+  font-size:14px;color:var(--c-text-sub);
+}
+
+/* ブログ一覧のサンプル */
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.blog-card{
+  background:#fff;
+  border:1px solid var(--c-line);
+  overflow:hidden;
+  transition:all .4s ease;
+}
+.blog-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(156,128,98,.15);
+  border-color:var(--c-gold-light);
+}
+.blog-card-img{
+  height:200px;
+  background:linear-gradient(135deg,var(--c-beige-light),var(--c-cream));
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--c-gold);
+  font-family:var(--ff-en);
+  font-size:24px;letter-spacing:.2em;
+}
+.blog-card-body{padding:28px 26px}
+.blog-card-date{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.18em;
+  color:var(--c-text-light);
+  margin-bottom:10px;
+}
+.blog-card-title{
+  font-family:var(--ff-serif);
+  font-size:17px;
+  font-weight:600;
+  letter-spacing:.06em;
+  margin-bottom:14px;
+  line-height:1.6;
+}
+.blog-card-excerpt{
+  font-size:13px;
+  line-height:1.9;
+  color:var(--c-text-sub);
+  margin-bottom:18px;
+}
+.blog-card-more{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.2em;
+  color:var(--c-gold-dark);
+  border-bottom:1px solid var(--c-gold-light);
+  padding-bottom:2px;
+}
+
+/* FOOTER */
+.footer{
+  background:var(--c-text);
+  color:#d9ccb8;
+  padding:80px 40px 40px;
+  text-align:center;
+}
+.footer-logo{
+  font-family:var(--ff-en);
+  font-size:28px;letter-spacing:.3em;
+  color:var(--c-gold-light);
+  margin-bottom:8px;
+  padding-left:.3em;
+}
+.footer-tag{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.25em;
+  color:rgba(217,204,184,.6);
+  margin-bottom:36px;
+}
+.footer-nav{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:28px;margin-bottom:40px;
+}
+.footer-nav a{
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.15em;
+  color:rgba(217,204,184,.8);
+}
+.copyright{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.2em;
+  color:rgba(217,204,184,.5);
+  padding-top:30px;
+  border-top:1px solid rgba(217,204,184,.15);
+}
+
+/* 区切りラベル */
+.preview-divider{
+  background:#1f1810;
+  color:var(--c-gold-light);
+  padding:20px 30px;
+  text-align:center;
+  font-family:var(--ff-serif);
+  font-size:13px;letter-spacing:.2em;
+}
+.preview-divider strong{color:#fff;font-weight:600;margin-right:8px}
+
+@media(max-width:1024px){
+  .nav{display:none}
+  .blog-grid{grid-template-columns:1fr;gap:20px}
+}
+@media(max-width:900px){
+  .wp-content-mock{padding:50px 28px}
+  .section{padding:60px 20px}
+  .hero{padding:80px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>WordPress テーマ「grandfusion」プレビュー</strong>
+  <small>完成後、grandfusion-official.site が こんなデザインになります</small>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      GrandFusion
+      <small>株式会社グランフュージョン</small>
+    </a>
+    <nav class="nav">
+      <a href="#">エステサロン経営</a>
+      <a href="#">マシン販売</a>
+      <a href="#">アカデミー</a>
+      <a href="#">ヌドゥーク</a>
+      <a href="#">ローマピンク</a>
+      <a href="#">美容室</a>
+      <a href="#">商品卸売</a>
+      <a href="#">BLOG</a>
+      <a href="#" class="cta-btn">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. トップページ（front-page.php） -->
+<div class="preview-divider"><strong>▼ Pattern 1</strong> トップページの見た目</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-brand">CORPORATE SITE</div>
+    <div class="hero-logo">GrandFusion</div>
+    <div class="hero-logo-jp">株式会社 グランフュージョン</div>
+    <h1 class="hero-title">
+      うまれかわる、<em>美しさ</em>を。<br>
+      女性の人生を、輝かせるメーカーへ。
+    </h1>
+    <p class="hero-sub">
+      美容・教育・経営・ライフスタイルを融合させ、<br>
+      女性が"美しく、豊かに、自分らしく在る"ための新しい価値を。
+    </p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-fill">事業を見る</a>
+      <a href="#" class="btn">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 固定ページ（page.php）の見た目 -->
+<div class="preview-divider"><strong>▼ Pattern 2</strong> 既存固定ページ（about / service など）の見た目</div>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-en">About</div>
+    <div class="section-jp">会社情報</div>
+  </div>
+  <div class="wp-content-mock">
+    <h1>株式会社グランフュージョンについて</h1>
+    <div class="post-meta">FINAL UPDATE — 2026.06.19</div>
+
+    <p>株式会社グランフュージョンは、<strong>美容を軸に「女性の人生そのものを輝かせる」</strong>ことを使命に掲げる総合メーカーです。サロン運営、マシン・商材開発、教育事業、融資・経営サポートまで、サロン様の成功をワンストップでお支えします。</p>
+
+    <h2>私たちのビジョン</h2>
+    <p>「うまれかわる、美しさを。」という理念のもと、本質的な美しさと、持続可能な豊かさを追求しています。看護師発想で生まれたNUDUQUEブランド、医療発想で開発したクリニカルマシン、そして"愛され、選ばれ、続いていくサロン"を育てる教育プログラム──そのすべてが、女性の人生をひとつ先のステージへ。</p>
+
+    <div class="note">
+      ※ この本文部分は WordPress の編集画面で書いた内容がそのまま入ります。今と同じ感覚で記事・固定ページを編集できます。
+    </div>
+
+    <h2>事業領域</h2>
+    <ul>
+      <li>業務用化粧品ブランド「NUDUQUE」の企画・製造・卸売</li>
+      <li>クリニカルマシンの開発・販売・導入サポート</li>
+      <li>サロン開業・経営サポート、融資・補助金アドバイス</li>
+      <li>美容従事者向けアカデミー運営</li>
+      <li>自社直営サロン・美容室の運営</li>
+    </ul>
+
+    <h2>代表メッセージ</h2>
+    <p>私たちが目指すのは、「サロン経営者が自信と可能性に満ちあふれて、自分の人生を生きる世界」です。商材を売るためではなく、目の前のサロンが「愛され、選ばれ、続いていく」ために、私たちは存在しています。</p>
+    <p>看護師として培ってきた知見と、美容業界での実践、そして経営・教育の現場で得たすべてを、サロン様の成功に注ぎます。</p>
+  </div>
+</section>
+
+<!-- 3. ブログ一覧（archive.php） -->
+<div class="preview-divider"><strong>▼ Pattern 3</strong> ブログ・お知らせ一覧の見た目</div>
+
+<section class="section" style="background:var(--c-cream)">
+  <div class="section-head">
+    <div class="section-en">Blog</div>
+    <div class="section-jp">ブログ・お役立ち情報</div>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-card-img">EYE CATCH</div>
+      <div class="blog-card-body">
+        <div class="blog-card-date">2026.06.18</div>
+        <h3 class="blog-card-title">サロン経営を変える「幸せな経営」という考え方</h3>
+        <p class="blog-card-excerpt">売上だけを追うのではなく、オーナー自身とスタッフ、お客様の満足を中心に据える──。GrandFusionが大切にしている考え方を紹介します。</p>
+        <span class="blog-card-more">READ MORE →</span>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">EYE CATCH</div>
+      <div class="blog-card-body">
+        <div class="blog-card-date">2026.06.10</div>
+        <h3 class="blog-card-title">細胞から巻き戻す。NUDUQUE商材の設計思想</h3>
+        <p class="blog-card-excerpt">看護師発想から生まれたNUDUQUE。表面的なケアではなく細胞レベルからのアプローチを基本に。その設計思想を解説。</p>
+        <span class="blog-card-more">READ MORE →</span>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">EYE CATCH</div>
+      <div class="blog-card-body">
+        <div class="blog-card-date">2026.05.30</div>
+        <h3 class="blog-card-title">融資を通過させるためのサロン事業計画のコツ</h3>
+        <p class="blog-card-excerpt">サロン開業時の資金調達を成功させるために、事業計画書で抑えるべきポイントを実例を交えて解説します。</p>
+        <span class="blog-card-more">READ MORE →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. フッター -->
+<div class="preview-divider"><strong>▼ Pattern 4</strong> フッター</div>
+
+<footer class="footer">
+  <div class="footer-logo">GrandFusion</div>
+  <div class="footer-tag">株式会社グランフュージョン</div>
+  <nav class="footer-nav">
+    <a href="#">エステサロン経営</a>
+    <a href="#">マシン販売</a>
+    <a href="#">アカデミー</a>
+    <a href="#">ヌドゥーク</a>
+    <a href="#">ローマピンク</a>
+    <a href="#">美容室</a>
+    <a href="#">商品卸売</a>
+    <a href="#">BLOG</a>
+    <a href="#">お問い合わせ</a>
+    <a href="#">プライバシーポリシー</a>
+  </nav>
+  <div class="copyright">© 2026 GrandFusion Co., Ltd. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
