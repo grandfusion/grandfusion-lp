@@ -95,6 +95,71 @@ a:hover{opacity:.75}
 .nav .cta-btn::after{display:none}
 .nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
 
+/* ナビ：ドロップダウン */
+.nav-dropdown{position:relative;display:inline-flex;align-items:center}
+.nav-drop-trigger{cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.nav-caret{font-size:9px;color:var(--c-gold);transition:transform .25s ease}
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown.open .nav-caret{transform:rotate(180deg)}
+.dropdown{
+  position:absolute;top:100%;left:50%;
+  transform:translateX(-50%) translateY(10px);
+  min-width:240px;
+  background:#fff;
+  border:1px solid var(--c-line);
+  box-shadow:0 24px 56px rgba(156,128,98,.18);
+  padding:10px 0;
+  margin-top:16px;
+  opacity:0;visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease;
+  z-index:200;
+}
+.nav-dropdown:hover .dropdown,
+.nav-dropdown.open .dropdown{
+  opacity:1;visibility:visible;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+.dropdown::before{
+  content:"";position:absolute;
+  top:-16px;left:0;right:0;height:16px;
+}
+.dropdown a{
+  display:block;
+  padding:11px 24px;
+  font-family:var(--ff-serif);
+  font-size:12px;letter-spacing:.05em;
+  color:var(--c-text-sub);
+  white-space:nowrap;
+  position:static;
+}
+.dropdown a::after{display:none}
+.dropdown a:hover{
+  background:var(--c-beige-light);
+  color:var(--c-gold-dark);
+  opacity:1;
+}
+.dropdown a small{
+  display:block;
+  font-family:var(--ff-en);
+  font-size:9px;letter-spacing:.18em;
+  color:var(--c-text-light);
+  margin-top:3px;
+}
+.dropdown a.dropdown-head{
+  font-family:var(--ff-en);
+  font-size:11px;letter-spacing:.22em;
+  color:var(--c-gold-dark);
+  font-weight:600;
+  border-bottom:1px solid var(--c-line);
+  margin-bottom:6px;
+  padding:8px 24px 10px;
+}
+.dropdown a.dropdown-head:hover{
+  background:transparent;color:var(--c-gold-dark);
+}
+
 /* HERO */
 .hero{
   position:relative;
@@ -364,6 +429,19 @@ a:hover{opacity:.75}
 @media(max-width:1024px){
   .nav{display:none}
   .blog-grid{grid-template-columns:1fr;gap:20px}
+  /* モバイル時のドロップダウンは展開して縦に並べる */
+  .nav-dropdown{display:block;width:100%}
+  .dropdown{
+    position:static;transform:none;
+    opacity:1;visibility:visible;pointer-events:auto;
+    box-shadow:none;border:none;
+    border-left:2px solid var(--c-gold-light);
+    margin:6px 0 10px 12px;
+    padding:2px 0;
+    min-width:0;
+  }
+  .dropdown::before{display:none}
+  .nav-caret{display:none}
 }
 @media(max-width:900px){
   .wp-content-mock{padding:50px 28px}
@@ -388,7 +466,17 @@ a:hover{opacity:.75}
     <nav class="nav">
       <a href="#">エステサロン経営</a>
       <a href="#">マシン販売</a>
-      <a href="#">ヌドゥーク</a>
+      <div class="nav-dropdown">
+        <a href="#" class="nav-drop-trigger">ヌドゥーク <span class="nav-caret">▼</span></a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-head">NUDUQUE 商材一覧</a>
+          <a href="#">炭酸オーラパック <small>repair aura pack</small></a>
+          <a href="#">オーラクリーム <small>aura cream</small></a>
+          <a href="#">リペアクリーム pro <small>repair cream pro</small></a>
+          <a href="#">オーラプロテイン <small>aura protein</small></a>
+          <a href="#">水素 skin bank H⁺ <small>hydrogen powder</small></a>
+        </div>
+      </div>
       <a href="#">美容室</a>
       <a href="#">BLOG</a>
       <a href="#" class="cta-btn">お問い合わせ</a>
