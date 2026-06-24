@@ -367,9 +367,24 @@ const PROTEIN_COURSE = {
 const EXCLUSIVE = [
   {key:"nas_salon", label:"ナスサロ専用", note:"ナスサロ会員のみ",
    desc:"ナスサロ会員限定の動画講義と配布資料を格納するスペースです。",
-   videos:[
-     {title:"ナスサロ オリエンテーション", dur:"21:30"},
-     {title:"月次グループコンサル アーカイブ", dur:"58:00"},
+   videoGroups:[
+     {label:"ナスサロスライド", tag:"接客・経営", videos:[
+       {title:"お客様のお肌に触れる責任", yt:"64m6tf7RG9M"},
+       {title:"肌改善の本質", yt:"1Kyg6RsQpXY"},
+       {title:"カウンセリング前半", yt:"s9HGs4eaFlQ"},
+       {title:"カウンセリング後編", yt:"t-flzXCqlbc"},
+       {title:"肌分析力", yt:"OIaxGd4hYIE"},
+       {title:"コース提案の考え方", yt:"V74-imw_Ufs"},
+       {title:"都度払いとコース契約", yt:"yyLEBjO3HfQ"},
+       {title:"提案力とクロージング", yt:"ptJNwrHytiA"},
+       {title:"リピートされる接客", yt:"9j5La3CaXpA"},
+       {title:"エステティシャンとしてのあり方", yt:"RDHjetmFZ2U"},
+     ]},
+     {label:"マシン施術マニュアル", tag:"機器操作", videos:[
+       {title:"リジェセル基本動作", yt:"s4_DNtzhfOI"},
+       {title:"リジェセル組み立て・動作確認", yt:"36m5FidV4Wg"},
+       {title:"BOXサーマ組み立て方法", yt:"m-K-Np3SHi0"},
+     ]},
    ],
    docs:[
      {title:"ナスサロ 会員ガイド", type:"PDF"},
@@ -895,13 +910,24 @@ function exclusiveSection(g, c){
       <div class="excl-lock"><div class="lk">🔒</div>
         <p class="muted" style="margin-top:8px">${g.desc}<br>該当の導入・受講で解放されます。</p></div>`;
   }
-  const builtin = g.videos.map(v=>`<div class="course" style="cursor:pointer" onclick="openCourse('${v.title.replace(/'/g,'')}','${v.dur}')">
+  const vcard = (v,i,catLabel)=> v.yt
+    ? `<div class="course" style="cursor:pointer" onclick="openYouTube('${v.yt}',${v.start||0},'${v.title.replace(/'/g,'')}')">
+      <div class="thumb"><img src="${ytThumb(v.yt)}" alt="" loading="lazy"><span class="badge2">${catLabel} ${i+1}</span><div class="play">▶</div></div>
+      <div class="meta"><span class="cat">${catLabel}</span><h3>${v.title}</h3></div></div>`
+    : `<div class="course" style="cursor:pointer" onclick="openCourse('${v.title.replace(/'/g,'')}','${v.dur}')">
       <div class="thumb"><span class="badge2">専用動画</span><div class="play">▶</div></div>
-      <div class="meta"><span class="cat">${g.label}</span><h3>${v.title}</h3><span class="dur">▷ ${v.dur}</span></div></div>`).join("");
-  const added = dynExclusiveVideos(g.key).map(v=>`<div class="course" style="cursor:pointer" onclick="openYouTube('${v.yt}',${v.start||0})">
-      <div class="thumb"><img src="${ytThumb(v.yt)}" alt="" loading="lazy"><span class="badge2">専用動画</span><div class="play">▶</div></div>
-      <div class="meta"><span class="cat">${g.label}</span><h3>${v.title}</h3></div></div>`).join("");
-  const vids = `<div class="courses">${builtin}${added}</div>`;
+      <div class="meta"><span class="cat">${catLabel}</span><h3>${v.title}</h3><span class="dur">▷ ${v.dur}</span></div></div>`;
+  let vids = "";
+  if (Array.isArray(g.videoGroups)){
+    vids = g.videoGroups.map(grp=>`
+      <div class="grouphead" style="margin-top:18px"><h2 style="font-size:1.02rem">${grp.label}</h2>
+        <span class="ct">${grp.tag||""}・${grp.videos.length}本</span><span class="ln"></span></div>
+      <div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`).join("");
+  } else {
+    const builtin = (g.videos||[]).map((v,i)=>vcard(v,i,g.label)).join("");
+    const added = dynExclusiveVideos(g.key).map((v,i)=>vcard(v,i,g.label)).join("");
+    vids = `<div class="courses">${builtin}${added}</div>`;
+  }
   const docs = `<div class="panel" style="margin-top:14px"><h2 style="font-size:1.05rem">配布資料</h2>
       ${g.docs.map(d=>`<div class="docrow"><span class="ft2">${d.type}</span><span class="dn">${d.title}</span>
         <button class="btn btn-ghost btn-sm" onclick="alert('デモ：「${d.title}」をダウンロード（GAS/Drive連携で配信予定）')">ダウンロード</button></div>`).join("")}</div>`;
