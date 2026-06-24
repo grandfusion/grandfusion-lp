@@ -31,7 +31,6 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:500;text-align:center;mar
 .field{margin-bottom:20px}
 .field label{font-family:var(--display);font-size:.72rem;letter-spacing:.1em;color:var(--clay);display:block;margin-bottom:7px}
 .field .req{color:var(--gold-deep)}
-.field .help{font-size:.72rem;color:var(--mocha);margin:2px 0 8px;line-height:1.7;font-weight:300;letter-spacing:0}
 .field input,.field textarea{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;
   font-family:var(--body);font-size:.92rem;background:var(--nude-50);font-weight:300}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--clay)}
@@ -77,33 +76,28 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:500;text-align:center;mar
         <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ LINEログイン時にこのメールでサロンが自動紐付けされます。</p></div>
       <div class="field"><label>電話番号</label><input name="tel" type="tel"></div>
 
-      <div class="field"><label>インスタグラム・ホットペッパーなどサロン情報がわかるリンク <span class="req">*</span></label>
-        <p class="help">こちらは事業者様向け特別価格でのご案内となります。そのため、現在活動されているSNSや店舗確認として、ホットペッパー・インスタグラム・店舗HP・その他SNSリンクなど、いずれかのご記入をお願いしております。いただいた情報をもとに審査制とさせていただきます。</p>
-        <input name="links" required placeholder="https://..."></div>
-
-      <div class="grouptitle">現在のお仕事をご選択ください <span class="req">*</span></div>
-      <div class="checks" id="bizbox">
-        <label class="chk"><input type="radio" name="business" value="エステサロン"><span><span class="nm">エステサロン</span></span></label>
-        <label class="chk"><input type="radio" name="business" value="痩身サロン"><span><span class="nm">痩身サロン</span></span></label>
-        <label class="chk"><input type="radio" name="business" value="まつげサロン"><span><span class="nm">まつげサロン</span></span></label>
-        <label class="chk"><input type="radio" name="business" value="ネイルサロン"><span><span class="nm">ネイルサロン</span></span></label>
-        <label class="chk"><input type="radio" name="business" value="その他"><span><span class="nm">その他</span></span></label>
-      </div>
-
-      <div class="grouptitle">今のお悩みを教えてください <span class="req">*</span>（複数選択可）</div>
-      <div class="checks" id="worrybox">
-        <label class="chk"><input type="checkbox" value="店販が苦手"><span><span class="nm">店販が苦手</span></span></label>
-        <label class="chk"><input type="checkbox" value="集客が苦手"><span><span class="nm">集客が苦手</span></span></label>
-        <label class="chk"><input type="checkbox" value="スタッフ育成が苦手"><span><span class="nm">スタッフ育成が苦手</span></span></label>
-        <label class="chk"><input type="checkbox" value="資金管理が苦手"><span><span class="nm">資金管理が苦手</span></span></label>
-        <label class="chk"><input type="checkbox" value="店舗拡大ができない"><span><span class="nm">店舗拡大ができない</span></span></label>
-        <label class="chk"><input type="checkbox" value="その他"><span><span class="nm">その他</span></span></label>
-      </div>
-
       <div class="grouptitle">導入したい商材・マシン・講座 <span class="req">*</span>（複数選択可）</div>
       <div class="checks" id="items"></div>
 
-      <div class="field" style="margin-top:22px"><label>NUDUQUE商材を導入しようと思ったきっかけ・期待する効果などを教えてください <span class="req">*</span></label><textarea name="motivation" required></textarea></div>
+      <div class="field" style="margin-top:22px"><label>SNS・予約サイト等のリンク <span class="req">*</span></label>
+        <input name="links" required placeholder="Instagram / ホットペッパー / 店舗HP など">
+        <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ サロンの様子がわかるリンクを入力してください（複数可）。</p></div>
+
+      <div class="field"><label>現在のお仕事（業種） <span class="req">*</span></label>
+        <select name="business" required style="width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;font-family:var(--body);font-size:.92rem;background:var(--nude-50);font-weight:300">
+          <option value="">選択してください</option>
+          <option>エステサロン</option>
+          <option>痩身サロン</option>
+          <option>まつげサロン</option>
+          <option>ネイルサロン</option>
+          <option>その他</option>
+        </select></div>
+
+      <div class="grouptitle">今のお悩み <span class="req">*</span>（複数選択可）</div>
+      <div class="checks" id="worries"></div>
+
+      <div class="field" style="margin-top:22px"><label>NUDUQUE商材を導入しようと思ったきっかけ・期待する効果 <span class="req">*</span></label>
+        <textarea name="motivation" required></textarea></div>
 
       <button class="btn" type="submit" id="submit">この内容で申し込む</button>
       <p class="note">送信内容は申込シートに記録され、承認後に会員ページのコンテンツが自動解放されます。</p>
@@ -140,7 +134,11 @@ var ITEMS = [
   {key:"course_marketing", name:"集客・マーケティング完全講座", kind:"有料講座"},
   {key:"course_management",name:"サロン経営マスター講座",     kind:"有料講座"},
   {key:"course_finance",   name:"融資・補助金 実務講座",       kind:"有料講座"},
+  {key:"nas_salon",        name:"ナスサロ専用",              kind:"専用"},
 ];
+
+/* 今のお悩み（複数選択） */
+var WORRIES = ["店販が苦手","集客が苦手","スタッフ育成が苦手","資金管理が苦手","店舗拡大ができない","その他"];
 
 function initForm(){
 var box = document.getElementById("items");
@@ -152,18 +150,11 @@ box.querySelectorAll(".chk").forEach(function(l){
   l.querySelector("input").addEventListener("change",function(){ l.classList.toggle("on",this.checked); });
 });
 
-/* 現在のお仕事（ラジオ：選択時に他をクリア） */
-var bizbox = document.getElementById("bizbox");
-bizbox.querySelectorAll(".chk input").forEach(function(inp){
-  inp.addEventListener("change",function(){
-    bizbox.querySelectorAll(".chk").forEach(function(l){ l.classList.remove("on"); });
-    this.closest(".chk").classList.add("on");
-  });
-});
-
-/* 今のお悩み（チェック：複数選択可） */
-var worrybox = document.getElementById("worrybox");
-worrybox.querySelectorAll(".chk").forEach(function(l){
+var wbox = document.getElementById("worries");
+wbox.innerHTML = WORRIES.map(function(w){
+  return '<label class="chk"><input type="checkbox" value="'+w+'"><span><span class="nm">'+w+'</span></span></label>';
+}).join("");
+wbox.querySelectorAll(".chk").forEach(function(l){
   l.querySelector("input").addEventListener("change",function(){ l.classList.toggle("on",this.checked); });
 });
 
@@ -174,21 +165,16 @@ document.getElementById("form").addEventListener("submit", function(e){
   var checked = [].slice.call(box.querySelectorAll("input:checked"));
   var keys  = checked.map(function(i){return i.value;});                 // productKey（解放用）
   var names = checked.map(function(i){return i.getAttribute("data-name");}); // 表示名（記録用）
-
-  var bizSel = bizbox.querySelector("input:checked");
-  if (!bizSel){ err.textContent="現在のお仕事を選択してください。"; err.classList.remove("hidden"); return; }
-  var worries = [].slice.call(worrybox.querySelectorAll("input:checked")).map(function(i){return i.value;});
-  if (!worries.length){ err.textContent="今のお悩みを1つ以上選択してください。"; err.classList.remove("hidden"); return; }
   if (!keys.length){ err.textContent="導入したい商材・マシン・講座を1つ以上選択してください。"; err.classList.remove("hidden"); return; }
+  var worries = [].slice.call(wbox.querySelectorAll("input:checked")).map(function(i){return i.value;});
+  if (!worries.length){ err.textContent="今のお悩みを1つ以上選択してください。"; err.classList.remove("hidden"); return; }
 
   lastEmail = f.email.value;
   var payload = {
     action:"apply",
-    salon:f.salon.value, owner:f.owner.value, email:f.email.value,
-    tel:f.tel.value, links:f.links.value,
-    business:bizSel.value, worries:worries,
-    items:names, keys:keys, motivation:f.motivation.value,
-    autoGrant:AUTO_GRANT
+    salon:f.salon.value, owner:f.owner.value, email:f.email.value, tel:f.tel.value,
+    items:names, keys:keys, autoGrant:AUTO_GRANT,
+    links:f.links.value, business:f.business.value, worries:worries, motivation:f.motivation.value
   };
 
   var btn = document.getElementById("submit");
