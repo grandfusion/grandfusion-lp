@@ -109,6 +109,19 @@
     .mn-cta-sec h2{font-size:20px;letter-spacing:2px;}
     .mn-cta-btn{padding:18px 44px;letter-spacing:3px;}
   }
+
+  .mn-head-actions{display:flex;gap:10px;align-items:center;}
+  .mn-cta-ghost{background:transparent !important;color:#3d2f25 !important;border:1px solid #3d2f25 !important;}
+  .mn-cta-ghost:hover{background:#3d2f25 !important;color:#f4ede2 !important;}
+  .mn-cta-btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+  .mn-cta-btn-ghost{background:transparent !important;color:#f0d9a8 !important;border:1px solid #f0d9a8 !important;}
+  .mn-cta-btn-ghost:hover{background:#f0d9a8 !important;color:#3d2f25 !important;}
+  @media(max-width:768px){
+    .mn-head-actions{gap:6px;}
+    .mn-cta-ghost{padding:9px 12px !important;font-size:9px !important;}
+    .mn-cta-btns{flex-direction:column;gap:14px;align-items:center;}
+    .mn-cta-btn-ghost{padding:18px 44px !important;}
+  }
 </style>
 </head>
 <body>
@@ -119,7 +132,7 @@
       <span class="mn-logo-script">monet</span>
       <span class="mn-logo-sub">B Y &nbsp; G R A N D F U S I O N</span>
     </a>
-    <a href="https://beauty.hotpepper.jp/slnH000640312/" target="_blank" rel="noopener" class="mn-cta">RESERVATION</a>
+    <div class="mn-head-actions"><a href="https://monet-gokan.com/" target="_blank" rel="noopener" class="mn-cta mn-cta-ghost">専用サイトへ</a><a href="https://beauty.hotpepper.jp/slnH000640312/" target="_blank" rel="noopener" class="mn-cta">RESERVATION</a></div>
   </div>
 </header>
 
@@ -211,7 +224,7 @@
     ご予約はホットペッパービューティーよりお気軽に。<br>
     完全予約制となっております。
   </p>
-  <a href="https://beauty.hotpepper.jp/slnH000640312/" target="_blank" rel="noopener" class="mn-cta-btn">RESERVATION</a>
+  <div class="mn-cta-btns"><a href="https://monet-gokan.com/" target="_blank" rel="noopener" class="mn-cta-btn mn-cta-btn-ghost">専用サイトへ →</a><a href="https://beauty.hotpepper.jp/slnH000640312/" target="_blank" rel="noopener" class="mn-cta-btn">RESERVATION</a></div>
 </section>
 
 <footer class="mn-foot">
