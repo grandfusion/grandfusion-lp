@@ -460,12 +460,29 @@ const LINE_ENABLED = GAS_ENABLED; // 旧フロー互換
 let LIVE = null;        // ログイン中サロン {salon,owner,pref,email,products}
 let ADMIN_PASS = "";    // 管理者パスコード（書き込み用）
 
+/* メール記憶（次回から自動解放）*/
+const REMEMBER_KEY = "gf_member_email";
+let AUTO_TRIED = false;
+function saveEmail(e){ try{ if(e) localStorage.setItem(REMEMBER_KEY, e); }catch(_){} }
+function getSavedEmail(){ try{ return localStorage.getItem(REMEMBER_KEY) || ""; }catch(_){ return ""; } }
+function clearSavedEmail(){ try{ localStorage.removeItem(REMEMBER_KEY); }catch(_){} }
+/* 保存済みメールがあれば一度だけ自動解放を試みる */
+function tryRememberedUnlock(){
+  if(AUTO_TRIED) return;
+  if(SESSION && SESSION.live) return;
+  if(!GAS_ENABLED) return;
+  const saved = getSavedEmail();
+  if(!saved) return;
+  AUTO_TRIED = true;
+  autoUnlock(saved);
+}
+
 /* 管理者表示用プロフィール（全解放） */
 const ADMIN_PROFILE = {owner:"運営管理者", salon:"GrandFusion 運営", pref:"", products:[]};
 /* ゲスト（ログイン不要・無料コンテンツのみ） */
 const GUEST_PROFILE = {owner:"ゲスト閲覧中", salon:"無料コンテンツを表示中", pref:"", products:[]};
 /* ログイン無しでも入れるようゲストセッションを用意 */
-function ensureGuest(){ if(!SESSION){ SESSION={role:"guest"}; if(GAS_ENABLED && DYNAMIC.news===null) loadContent(); } }
+function ensureGuest(){ if(!SESSION){ SESSION={role:"guest"}; if(GAS_ENABLED && DYNAMIC.news===null) loadContent(); tryRememberedUnlock(); } }
 function enterGuest(){ ensureGuest(); go("/courses"); }
 
 /* GASから取得した動的コンテンツ（未取得はnull→ビルトインにフォールバック）*/
@@ -527,7 +544,8 @@ function ytThumb(id){ return "https://img.youtube.com/vi/"+id+"/hqdefault.jpg"; 
 function dynVideoToCourse(v){
   const catMap={free:"無料講座",product:"商材コンテンツ",machine:"マシンコンテンツ",paid:"有料講座"};
   return {id:"g"+v.id, title:v.title||"(無題の動画)", dur:"", type:v.type, key:v.key||null,
-          cat:catMap[v.type]||"コンテンツ", img:ytThumb(v.youtubeId), yt:v.youtubeId, start:Number(v.start)||0};
+          cat:catMap[v.type]||"コンテンツ", grp:(v.cat||"").toString().trim(), order:Number(v.order)||0,
+          img:ytThumb(v.youtubeId), yt:v.youtubeId, start:Number(v.start)||0};
 }
 function effectiveCourses(){
   const dyn = getVideos().filter(v=>v.type!=="exclusive").map(dynVideoToCourse);
@@ -535,7 +553,19 @@ function effectiveCourses(){
 }
 function dynExclusiveVideos(key){
   return getVideos().filter(v=>v.type==="exclusive" && v.key===key)
-    .map(v=>({title:v.title||"(無題の動画)", yt:v.youtubeId, start:Number(v.start)||0}));
+    .map(v=>({title:v.title||"(無題の動画)", yt:v.youtubeId, start:Number(v.start)||0,
+              grp:(v.cat||"").toString().trim(), order:Number(v.order)||0}));
+}
+/* カテゴリ名（grp）でまとめる。同名は同じグループへ、order昇順で整列（未指定は後ろ・追加順） */
+function groupByCat(items, fallbackLabel){
+  const groups=[], map={};
+  items.forEach(it=>{
+    const label=(it.grp&&it.grp.length)?it.grp:(fallbackLabel||"");
+    if(!map[label]){ map[label]={label:label, items:[]}; groups.push(map[label]); }
+    map[label].items.push(it);
+  });
+  groups.forEach(g=>g.items.sort((a,b)=>((a.order||9999)-(b.order||9999))));
+  return groups;
 }
 function keyName(key){
   const p=PRODUCTS.find(x=>x.productKey===key); if(p) return p.name;
@@ -785,6 +815,7 @@ function unlockByEmail(){
   msg("確認中…");
   fetch(GAS_URL+"?action=member&email="+encodeURIComponent(email)).then(r=>r.json()).then(res=>{
     if(res && res.ok){
+      saveEmail(res.email||email);
       LIVE={salon:res.salon,owner:res.owner,pref:res.pref,email:res.email,products:res.products||[]};
       SESSION={role:"client",live:true};
       render();
@@ -793,12 +824,13 @@ function unlockByEmail(){
     }
   }).catch(()=>msg("通信エラーが発生しました。"));
 }
-function backToGuest(){ LIVE=null; SESSION={role:"guest"}; render(); }
+function backToGuest(){ clearSavedEmail(); LIVE=null; SESSION={role:"guest"}; render(); }
 /* 申し込み後にメール付きで遷移してきたら自動解放 */
 function autoUnlock(email){
   if(!GAS_ENABLED || !email) return;
   fetch(GAS_URL+"?action=member&email="+encodeURIComponent(email)).then(r=>r.json()).then(res=>{
     if(res && res.ok){
+      saveEmail(res.email||email);
       LIVE={salon:res.salon,owner:res.owner,pref:res.pref,email:res.email,products:res.products||[]};
       SESSION={role:"client",live:true};
       render();
@@ -916,16 +948,24 @@ function exclusiveSection(g, c){
     : `<div class="course" style="cursor:pointer" onclick="openCourse('${v.title.replace(/'/g,'')}','${v.dur}')">
       <div class="thumb"><span class="badge2">専用動画</span><div class="play">▶</div></div>
       <div class="meta"><span class="cat">${catLabel}</span><h3>${v.title}</h3><span class="dur">▷ ${v.dur}</span></div></div>`;
-  let vids = "";
-  if (Array.isArray(g.videoGroups)){
-    vids = g.videoGroups.map(grp=>`
+  /* 組み込みグループ＋管理画面追加分（カテゴリ名で自動グループ化・同名は合流） */
+  let groups = [];
+  if (Array.isArray(g.videoGroups)) groups = g.videoGroups.map(x=>({label:x.label, tag:x.tag||"", videos:x.videos.slice()}));
+  else if ((g.videos||[]).length) groups = [{label:g.label, tag:"", videos:g.videos.slice()}];
+  const byLabel={}; groups.forEach(x=>byLabel[x.label]=x);
+  groupByCat(dynExclusiveVideos(g.key), "追加動画").forEach(dg=>{
+    if(byLabel[dg.label]) byLabel[dg.label].videos = byLabel[dg.label].videos.concat(dg.items);
+    else { const ng={label:dg.label, tag:"管理画面から追加", videos:dg.items}; groups.push(ng); byLabel[dg.label]=ng; }
+  });
+  let vids;
+  if (Array.isArray(g.videoGroups) || groups.length > 1){
+    vids = groups.map(grp=>`
       <div class="grouphead" style="margin-top:18px"><h2 style="font-size:1.02rem">${grp.label}</h2>
-        <span class="ct">${grp.tag||""}・${grp.videos.length}本</span><span class="ln"></span></div>
+        <span class="ct">${grp.tag?grp.tag+"・":""}${grp.videos.length}本</span><span class="ln"></span></div>
       <div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`).join("");
   } else {
-    const builtin = (g.videos||[]).map((v,i)=>vcard(v,i,g.label)).join("");
-    const added = dynExclusiveVideos(g.key).map((v,i)=>vcard(v,i,g.label)).join("");
-    vids = `<div class="courses">${builtin}${added}</div>`;
+    const grp = groups[0] || {label:g.label, videos:[]};
+    vids = `<div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`;
   }
   const docs = `<div class="panel" style="margin-top:14px"><h2 style="font-size:1.05rem">配布資料</h2>
       ${g.docs.map(d=>`<div class="docrow"><span class="ft2">${d.type}</span><span class="dn">${d.title}</span>
@@ -947,9 +987,19 @@ route("/courses", () => {
   const sections = groups.map(g=>{
     const list=all.filter(x=>x.type===g.key);
     const openN=list.filter(x=>isUnlocked(x,c)).length;
+    const hasNamed = list.some(x=>x.grp);
+    let body;
+    if(hasNamed){
+      body = groupByCat(list, "").map(sg=>`
+        ${sg.label?`<div class="grouphead" style="margin-top:14px"><h2 style="font-size:1rem">${sg.label}</h2>
+          <span class="ct">${sg.items.length}本</span><span class="ln"></span></div>`:``}
+        <div class="courses">${sg.items.map(co=>courseCard(co,c)).join("")}</div>`).join("");
+    } else {
+      body = `<div class="courses">${list.map(co=>courseCard(co,c)).join("")}</div>`;
+    }
     return `<div class="grouphead"><h2>${g.label}</h2>
         <span class="ct">${g.note}・解放 ${openN}/${list.length}</span><span class="ln"></span></div>
-      <div class="courses">${list.map(co=>courseCard(co,c)).join("")}</div>`;
+      ${body}`;
   }).join("");
   const exclusives = EXCLUSIVE.map(g=>exclusiveSection(g,c)).join("");
   const totalOpen=all.filter(x=>isUnlocked(x,c)).length;
@@ -957,7 +1007,7 @@ route("/courses", () => {
     ? `<div class="panel" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between">
         <div style="flex:1;min-width:220px"><b>導入済みの方へ</b>
           <span class="muted" style="font-size:.85rem">お申し込み時のメールアドレスを入力すると、導入済みコンテンツが解放されます（任意）。</span></div>
-        <div style="display:flex;gap:8px"><input id="guestEmail" type="email" placeholder="メールアドレス" style="padding:10px 12px;border:1px solid var(--line);border-radius:10px">
+        <div style="display:flex;gap:8px"><input id="guestEmail" type="email" placeholder="メールアドレス" value="${getSavedEmail()}" style="padding:10px 12px;border:1px solid var(--line);border-radius:10px">
           <button class="btn btn-primary btn-sm" onclick="unlockByEmail()">解放</button></div>
         <div id="guestMsg" class="muted" style="font-size:.8rem;width:100%"></div></div>`
     : (SESSION.live ? `<div class="panel" style="padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
@@ -1269,6 +1319,7 @@ route("/admin/videos", () => {
   if(SESSION?.role!=="admin") return routes["/login"]();
   const e=EDIT.video||{}; const list=getVideos();
   const sel=(v,o)=>v===o?"selected":"";
+  const cats=Array.from(new Set(list.map(v=>(v.cat||"").toString().trim()).filter(Boolean)));
   setTimeout(vKeyOptions,0);
   return shell("advideos", `
     <div class="page-head"><div><h1>動画コンテンツ管理</h1><p>YouTube動画を会員コンテンツに追加（公開範囲を指定）</p></div></div>
@@ -1285,13 +1336,18 @@ route("/admin/videos", () => {
         <option value="paid" ${sel(e.type,'paid')}>有料講座（購入者のみ）</option>
         <option value="exclusive" ${sel(e.type,'exclusive')}>専用セクション</option></select></div>
       <div class="field" id="v_keywrap"><label>対象（商材／講座／専用）</label><select id="v_key"></select></div>
+      <div class="field"><label>カテゴリ（自由入力・同じ名前でまとまります）</label>
+        <input id="v_cat" list="catList" value="${(e.cat||'').replace(/"/g,'&quot;')}" placeholder="例：ナスサロスライド／マシン施術マニュアル">
+        <datalist id="catList">${cats.map(c=>`<option value="${c.replace(/"/g,'&quot;')}">`).join("")}</datalist></div>
+      <div class="field"><label>並び順（任意・小さい数字が先）</label><input id="v_order" value="${e.order||''}" placeholder="1"></div>
       <div class="field"><label>開始秒（任意）</label><input id="v_start" value="${e.start||''}" placeholder="0"></div>
       <button class="btn btn-primary btn-sm" onclick="saveVideo('${e.id||''}')">${e.id?"更新する":"追加する"}</button>
       ${e.id?`<button class="btn btn-ghost btn-sm" style="margin-left:8px" onclick="EDIT.video=null;render()">キャンセル</button>`:''}
     </div>
-    <div class="panel"><h2>追加済み動画（${list.length}）</h2><table class="tbl"><thead><tr><th></th><th>タイトル</th><th>範囲</th><th>対象</th><th>操作</th></tr></thead><tbody>
+    <div class="panel"><h2>追加済み動画（${list.length}）</h2><table class="tbl"><thead><tr><th></th><th>タイトル</th><th>範囲</th><th>対象</th><th>カテゴリ</th><th>順</th><th>操作</th></tr></thead><tbody>
       ${list.map((v,i)=>`<tr><td><img src="${ytThumb(v.youtubeId)}" style="width:84px;border-radius:6px"></td>
         <td>${v.title||'(無題)'}</td><td><span class="badge muted">${v.type}</span></td><td>${v.key?keyName(v.key):'-'}</td>
+        <td>${v.cat||'-'}</td><td>${v.order||'-'}</td>
         <td><button class="btn btn-ghost btn-sm" onclick="editVideo(${i})">編集</button>
         <button class="btn btn-ghost btn-sm" style="margin-left:6px" onclick="delVideo('${v.id||''}')">削除</button></td></tr>`).join("")}
     </tbody></table></div>
@@ -1320,7 +1376,8 @@ function saveVideo(id){
   if(adminGuard()!=="ok"){ alert("デモ環境、または管理者パスコード未入力のため保存できません。"); return; }
   const type=val("v_type");
   gasPost({action:"save_video", id:id, youtubeId:ytId(val("v_url")), title:val("v_title"),
-    type:type, key:type==="free"?"":val("v_key"), start:val("v_start")}, afterSave);
+    type:type, key:type==="free"?"":val("v_key"), start:val("v_start"),
+    cat:val("v_cat"), order:val("v_order")}, afterSave);
 }
 function delVideo(id){ if(confirm("削除しますか？")) gasPost({action:"del_video", id:id}, afterSave); }
 function val(id){ const el=document.getElementById(id); return el?el.value:""; }
