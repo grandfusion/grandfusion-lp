@@ -268,6 +268,26 @@ footer.ft small{font-size:.72rem;color:var(--nude-400)}
 
 .back-link{font-family:var(--display);font-size:.74rem;letter-spacing:.1em;color:var(--clay);margin-bottom:18px;display:inline-block}
 .hidden{display:none!important}
+
+/* 章別アコーディオン (kaigyo_pack) */
+.chapfold{background:rgba(255,255,255,0.55);border:1px solid rgba(200,168,117,0.18);border-radius:14px;margin-top:12px;overflow:hidden;transition:.3s;}
+.chapfold[open]{background:rgba(255,255,255,0.85);box-shadow:0 4px 14px rgba(120,80,40,0.06);}
+.chapfold summary{cursor:pointer;list-style:none;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.chapfold summary::-webkit-details-marker{display:none;}
+.chapfold-title{font-weight:600;color:var(--espresso);font-size:1rem;letter-spacing:.02em;}
+.chapfold-tag{font-size:.78rem;color:#8a7560;margin-top:4px;letter-spacing:.05em;}
+.chapfold-r{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.chapfold-count{font-size:.78rem;color:var(--clay);letter-spacing:.05em;background:rgba(200,168,117,0.12);padding:4px 12px;border-radius:999px;}
+.chapfold-caret{color:var(--clay);font-size:.9rem;transition:.3s;display:inline-block;}
+.chapfold[open] .chapfold-caret{transform:rotate(180deg);}
+.chapfold-body{padding:0 22px 12px;}
+.chapvid{display:flex;align-items:center;gap:14px;padding:14px 6px;border-top:1px dashed rgba(0,0,0,0.08);cursor:pointer;transition:.2s;}
+.chapvid:first-child{border-top:none;}
+.chapvid:hover{background:rgba(200,168,117,0.06);border-radius:8px;}
+.chapvid-play{width:34px;height:34px;background:rgba(200,168,117,0.15);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--clay);font-size:.72rem;flex-shrink:0;}
+.chapvid-title{flex:1;color:var(--espresso);font-size:.92rem;line-height:1.5;}
+.chapvid-dur{font-size:.75rem;color:#999;letter-spacing:.05em;flex-shrink:0;}
+@media(max-width:640px){.chapfold summary{padding:14px 16px;}.chapfold-body{padding:0 16px 10px;}.chapfold-title{font-size:.9rem;}}
 </style>
 </head>
 <body>
@@ -1041,10 +1061,37 @@ function exclusiveSection(g, c){
     const groups = g.videoGroups.slice();
     const dyn = dynExclusiveVideos(g.key);
     if (dyn.length) groups.push({label:"追加動画", tag:"管理画面から追加", videos:dyn});
-    vids = groups.map(grp=>`
-      <div class="grouphead" style="margin-top:18px"><h2 style="font-size:1.02rem">${grp.label}</h2>
-        <span class="ct">${grp.tag||""}・${grp.videos.length}本</span><span class="ln"></span></div>
-      <div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`).join("");
+    if (g.key === "kaigyo_pack") {
+      // アコーディオン式（章ごとに折りたたみ）
+      vids = groups.map((grp, gi)=>`
+        <details class="chapfold"${gi===0?' open':''}>
+          <summary>
+            <div class="chapfold-l">
+              <div class="chapfold-title">${grp.label}</div>
+              <div class="chapfold-tag">${grp.tag||""}</div>
+            </div>
+            <div class="chapfold-r"><span class="chapfold-count">${grp.videos.length}本</span><span class="chapfold-caret">▾</span></div>
+          </summary>
+          <div class="chapfold-body">
+            ${grp.videos.map((v,i)=>{
+              const clickAttr = v.yt
+                ? `onclick="openYouTube('${v.yt}',${v.start||0},'${v.title.replace(/'/g,'')}')"`
+                : `onclick="openCourse('${v.title.replace(/'/g,'')}','${v.dur}')"`;
+              return `<div class="chapvid" ${clickAttr}>
+                <span class="chapvid-play">▶</span>
+                <span class="chapvid-title">${v.title}</span>
+                <span class="chapvid-dur">${v.dur}</span>
+              </div>`;
+            }).join("")}
+          </div>
+        </details>
+      `).join("");
+    } else {
+      vids = groups.map(grp=>`
+        <div class="grouphead" style="margin-top:18px"><h2 style="font-size:1.02rem">${grp.label}</h2>
+          <span class="ct">${grp.tag||""}・${grp.videos.length}本</span><span class="ln"></span></div>
+        <div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`).join("");
+    }
   } else {
     const builtin = (g.videos||[]).map((v,i)=>vcard(v,i,g.label)).join("");
     const added = dynExclusiveVideos(g.key).map((v,i)=>vcard(v,i,g.label)).join("");
