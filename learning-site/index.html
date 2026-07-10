@@ -1040,10 +1040,37 @@ function exclusiveSection(g, c){
   });
   let vids;
   if (Array.isArray(g.videoGroups) || groups.length > 1){
-    vids = groups.map(grp=>`
-      <div class="grouphead" style="margin-top:18px"><h2 style="font-size:1.02rem">${grp.label}</h2>
-        <span class="ct">${grp.tag?grp.tag+"・":""}${grp.videos.length}本</span><span class="ln"></span></div>
-      <div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`).join("");
+    if (g.key === "kaigyo_pack") {
+      vids = groups.map((grp, gi)=>`
+        <details class="chapfold"${gi===0?' open':''}>
+          <summary>
+            <div class="chapfold-l">
+              <div class="chapfold-title">${grp.label}</div>
+              <div class="chapfold-tag">${grp.tag||""}</div>
+            </div>
+            <div class="chapfold-r"><span class="chapfold-count">${grp.videos.length}本</span><span class="chapfold-caret">▾</span></div>
+          </summary>
+          <div class="chapfold-body">
+            ${grp.videos.map((v,i)=>{
+              const clickAttr = v.yt
+                ? `onclick="openYouTube('${v.yt}',${v.start||0},'${v.title.replace(/'/g,'')}')"`
+                : `onclick="openCourse('${v.title.replace(/'/g,'')}','${v.dur}')"`;
+              const thumb = v.yt ? `<img class="chapvid-thumb" src="${ytThumb(v.yt)}" loading="lazy" alt="">` : '<span class="chapvid-play">▶</span>';
+              return `<div class="chapvid" ${clickAttr}>
+                ${thumb}
+                <span class="chapvid-title">${v.title}</span>
+                ${v.dur?`<span class="chapvid-dur">${v.dur}</span>`:''}
+              </div>`;
+            }).join("")}
+          </div>
+        </details>
+      `).join("");
+    } else {
+      vids = groups.map(grp=>`
+        <div class="grouphead" style="margin-top:18px"><h2 style="font-size:1.02rem">${grp.label}</h2>
+          <span class="ct">${grp.tag?grp.tag+"・":""}${grp.videos.length}本</span><span class="ln"></span></div>
+        <div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`).join("");
+    }
   } else {
     const grp = groups[0] || {label:g.label, videos:[]};
     vids = `<div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`;
