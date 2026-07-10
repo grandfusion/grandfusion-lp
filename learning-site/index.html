@@ -296,7 +296,7 @@ footer.ft small{font-size:.72rem;color:var(--nude-400)}
 <div class="modal" id="modal">
   <div class="modal-card" style="position:relative">
     <button class="close" onclick="closeModal()">&times;</button>
-    <div class="vid"><div class="pl">&#9658;</div><span style="font-family:var(--display);letter-spacing:.2em;font-size:.7rem">HD VIDEO STREAM (DEMO)</span></div>
+    <div class="vid"><div class="pl">&#9658;</div><span style="font-family:var(--display);letter-spacing:.2em;font-size:.7rem">COMING SOON</span></div>
     <div class="mbody"><h2 id="mtitle"></h2><p id="mdesc"></p></div>
   </div>
 </div>
@@ -1468,10 +1468,10 @@ function val(id){ const el=document.getElementById(id); return el?el.value:""; }
 /* ===================================================================
    helpers
 =================================================================== */
-const VID_PLACEHOLDER = '<div class="pl">&#9658;</div><span style="font-family:var(--display);letter-spacing:.2em;font-size:.7rem">HD VIDEO STREAM (DEMO)</span>';
+const VID_PLACEHOLDER = '<div class="pl">&#9658;</div><span style="font-family:var(--display);letter-spacing:.2em;font-size:.7rem">COMING SOON</span>';
 function openCourse(title,dur){
   document.getElementById("mtitle").textContent=title;
-  document.getElementById("mdesc").textContent=`再生時間 ${dur} ・ HD動画配信（デモ）。導入商材・有料講座に応じて解放されたコンテンツです。`;
+  document.getElementById("mdesc").textContent = (dur==='準備中' || !dur) ? '動画は現在準備中です。撮影が完了次第、こちらで公開されます。' : `再生時間 ${dur} ・ HD動画配信。導入商材・有料講座に応じて解放されたコンテンツです。`;
   document.querySelector("#modal .vid").innerHTML=VID_PLACEHOLDER;
   document.getElementById("modal").classList.add("show");
 }
