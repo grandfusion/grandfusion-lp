@@ -268,26 +268,6 @@ footer.ft small{font-size:.72rem;color:var(--nude-400)}
 
 .back-link{font-family:var(--display);font-size:.74rem;letter-spacing:.1em;color:var(--clay);margin-bottom:18px;display:inline-block}
 .hidden{display:none!important}
-
-/* 章別アコーディオン (kaigyo_pack) */
-.chapfold{background:rgba(255,255,255,0.55);border:1px solid rgba(200,168,117,0.18);border-radius:14px;margin-top:12px;overflow:hidden;transition:.3s;}
-.chapfold[open]{background:rgba(255,255,255,0.85);box-shadow:0 4px 14px rgba(120,80,40,0.06);}
-.chapfold summary{cursor:pointer;list-style:none;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.chapfold summary::-webkit-details-marker{display:none;}
-.chapfold-title{font-weight:600;color:var(--espresso);font-size:1rem;letter-spacing:.02em;}
-.chapfold-tag{font-size:.78rem;color:#8a7560;margin-top:4px;letter-spacing:.05em;}
-.chapfold-r{display:flex;align-items:center;gap:12px;flex-shrink:0;}
-.chapfold-count{font-size:.78rem;color:var(--clay);letter-spacing:.05em;background:rgba(200,168,117,0.12);padding:4px 12px;border-radius:999px;}
-.chapfold-caret{color:var(--clay);font-size:.9rem;transition:.3s;display:inline-block;}
-.chapfold[open] .chapfold-caret{transform:rotate(180deg);}
-.chapfold-body{padding:0 22px 12px;}
-.chapvid{display:flex;align-items:center;gap:14px;padding:14px 6px;border-top:1px dashed rgba(0,0,0,0.08);cursor:pointer;transition:.2s;}
-.chapvid:first-child{border-top:none;}
-.chapvid:hover{background:rgba(200,168,117,0.06);border-radius:8px;}
-.chapvid-play{width:34px;height:34px;background:rgba(200,168,117,0.15);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--clay);font-size:.72rem;flex-shrink:0;}
-.chapvid-title{flex:1;color:var(--espresso);font-size:.92rem;line-height:1.5;}
-.chapvid-dur{font-size:.75rem;color:#999;letter-spacing:.05em;flex-shrink:0;}
-@media(max-width:640px){.chapfold summary{padding:14px 16px;}.chapfold-body{padding:0 16px 10px;}.chapfold-title{font-size:.9rem;}}
 </style>
 </head>
 <body>
@@ -373,113 +353,8 @@ const EXCLUSIVE = [
      {title:"施術メニュー設計テンプレート", type:"XLSX"},
    ]},
   {key:"kaigyo_pack", label:"開業パック受講者専用", note:"開業パック導入者のみ",
-   desc:"開業サポートパック受講者だけが視聴できる、全11章の講義動画と特別コンテンツです。動画は順次公開予定です。",
-   videoGroups:[
-     {label:"第1章 マインドセット", tag:"開業の土台作り", videos:[
-       {title:"マインドセット", dur:"準備中"},
-     ]},
-     {label:"第2章 美容の基礎とエリアリサーチ", tag:"事業成功の前提知識", videos:[
-       {title:"グルコン", dur:"準備中"},
-       {title:"美容の概念・老化のメカニズム", dur:"準備中"},
-       {title:"エリアリサーチ", dur:"準備中"},
-       {title:"看護師サロンの事業成功戦略", dur:"準備中"},
-       {title:"ルールブック説明", dur:"準備中"},
-     ]},
-     {label:"第3章 関連図と商材理解", tag:"施術ロジック構築", videos:[
-       {title:"関連図講義", dur:"準備中"},
-       {title:"美容ランク付け", dur:"準備中"},
-       {title:"関連図課題書き方", dur:"準備中"},
-       {title:"NUDUQUEオーラパック説明", dur:"準備中"},
-       {title:"INCELLDERM説明", dur:"準備中"},
-       {title:"NUDUQUEリペアクリーム説明", dur:"準備中"},
-       {title:"ペルソナ設計（課題説明あり）", dur:"準備中"},
-       {title:"関連図課題症例", dur:"準備中"},
-       {title:"グルコン／エリアリサーチ", dur:"準備中"},
-     ]},
-     {label:"第4章 施術実践", tag:"巡リフト・リジェセル・BTX", videos:[
-       {title:"巡リフト", dur:"準備中"},
-       {title:"リジェセル ボトックスサーマ", dur:"準備中"},
-       {title:"サロンレジ管理／内装説明", dur:"準備中"},
-       {title:"関連図振り返り", dur:"準備中"},
-       {title:"関連図フィードバック⑵", dur:"準備中"},
-     ]},
-     {label:"第5章 カウンセリング基礎とトークスクリプト", tag:"信頼を得る接客", videos:[
-       {title:"プロの姿勢でお客様の信頼を得るカウンセリング", dur:"準備中"},
-       {title:"カウンセリング基礎", dur:"準備中"},
-       {title:"カウンセリング事例紹介", dur:"準備中"},
-       {title:"カウンセリング・トークスクリプト", dur:"準備中"},
-       {title:"トークスクリプトの注意点", dur:"準備中"},
-       {title:"課題説明", dur:"準備中"},
-       {title:"合宿前要点説明", dur:"準備中"},
-     ]},
-     {label:"第6章 インスタ集客とメニュー設計", tag:"SNSと料金戦略", videos:[
-       {title:"インスタ集客の極意（前提条件の話）", dur:"準備中"},
-       {title:"インスタ〜過去の失敗パターン〜", dur:"準備中"},
-       {title:"インスタ〜キャンバ実践編〜", dur:"準備中"},
-       {title:"インスタ〜データ分析〜", dur:"準備中"},
-       {title:"メニュー設計（高額販売）", dur:"準備中"},
-       {title:"メニュー設計 追加", dur:"準備中"},
-       {title:"口コミの自動獲得方法", dur:"準備中"},
-       {title:"インスタモニターの獲得方法", dur:"準備中"},
-       {title:"インスタ＆メニュー設計 課題", dur:"準備中"},
-     ]},
-     {label:"第7章 クロージング", tag:"成約率を上げる", videos:[
-       {title:"クロージングの前提", dur:"準備中"},
-       {title:"クロージングの基本", dur:"準備中"},
-       {title:"クロージングの基本２", dur:"準備中"},
-       {title:"Q＆A＋課題", dur:"準備中"},
-     ]},
-     {label:"第8章 マーケティング戦略", tag:"HPB / Google / LINE", videos:[
-       {title:"マーケティング講座①", dur:"準備中"},
-       {title:"マーケティング講座②", dur:"準備中"},
-       {title:"マーケティング講座③", dur:"準備中"},
-       {title:"マーケティング講座④", dur:"準備中"},
-       {title:"マーケティング講座⑤", dur:"準備中"},
-       {title:"マーケティング実践", dur:"準備中"},
-       {title:"HPB広告戦略MEO／GPT戦略（西尾）", dur:"準備中"},
-       {title:"課題", dur:"準備中"},
-     ]},
-     {label:"第9章 販売スキルと決済", tag:"物販と会計", videos:[
-       {title:"最新たるみ治療 総集編", dur:"準備中"},
-       {title:"感情を動かす販売スキル", dur:"準備中"},
-       {title:"決済ツールの選び方", dur:"準備中"},
-       {title:"質疑応答／課題", dur:"準備中"},
-     ]},
-     {label:"第10章 卒業前実践", tag:"卒業検定へ向けて", videos:[
-       {title:"カウンセリングとクロージングの極意", dur:"準備中"},
-       {title:"課題", dur:"準備中"},
-       {title:"仁木先生講義（想いを利益に変える）", dur:"準備中"},
-     ]},
-     {label:"第11章 最終講義・認定", tag:"卒業", videos:[
-       {title:"最終講義１", dur:"準備中"},
-       {title:"認定サロン説明", dur:"準備中"},
-       {title:"最終講義３『HPB添削』", dur:"準備中"},
-       {title:"最終講義４", dur:"準備中"},
-     ]},
-     {label:"特別動画 ／ 高田講師", tag:"YouTube・CANVA", videos:[
-       {title:"YOUTUBEアップロード方法", dur:"準備中"},
-       {title:"CANVA基本操作", dur:"準備中"},
-     ]},
-     {label:"特別動画 ／ 中田講師", tag:"リジェセル・BTXサーマ実技", videos:[
-       {title:"リジェセル基本操作", dur:"準備中"},
-       {title:"リジェセル組み立て・動作確認", dur:"準備中"},
-       {title:"BTXサーマ 基本照射方法", dur:"準備中"},
-       {title:"BTXサーマ 組み立て方法", dur:"準備中"},
-       {title:"ビフォーアフターの撮り方", dur:"準備中"},
-       {title:"タオルワーク・クレンジング手技", dur:"準備中"},
-     ]},
-     {label:"特別動画 ／ 氏原講師", tag:"リール・CapCut", videos:[
-       {title:"リール動画の基本と作り方", dur:"準備中"},
-       {title:"CapCut 動画制作レクチャー", dur:"準備中"},
-       {title:"オープン告知テンプレ", dur:"準備中"},
-     ]},
-     {label:"特別動画 ／ ごっちゃんSNSセミナー", tag:"SNS戦略", videos:[
-       {title:"ごっちゃんSNSセミナー", dur:"準備中"},
-     ]},
-     {label:"特別動画 ／ 伊藤様 水素講義", tag:"水素パウダー", videos:[
-       {title:"水素パウダーレクチャー（伊藤様）", dur:"準備中"},
-     ]},
-   ],
+   desc:"開業サポートパック受講者だけが視聴できる開業準備の動画と資料です。",
+   videos:[],
    docs:[
      {title:"開業準備チェックリスト", type:"PDF"},
      {title:"資金計画シート", type:"XLSX"},
