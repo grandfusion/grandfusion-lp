@@ -493,6 +493,7 @@ const EXCLUSIVE = [
      {title:"開業準備チェックリスト", type:"PDF"},
      {title:"資金計画シート", type:"XLSX"},
      {title:"メニュー価格表テンプレート", type:"PDF"},
+     {title:"開業パック・マシン購入者様用ページ", type:"LINK", url:"https://app.notion.com/p/aa090672c14a4339b315863a01582446?source=copy_link", desc:"マシン資料・カウンセリング資料・各種マニュアル・SNS使用可能バナー・症例写真 など"},
    ]},
   {key:"protein", label:"プロテイン導入者専用", note:"オーラプロテイン導入者のみ",
    desc:"オーラプロテイン導入サロン限定の販売ノウハウ動画と販促資料です。",
@@ -1084,8 +1085,14 @@ function exclusiveSection(g, c){
     vids = `<div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`;
   }
   const docs = `<div class="panel" style="margin-top:14px"><h2 style="font-size:1.05rem">配布資料</h2>
-      ${g.docs.map(d=>`<div class="docrow"><span class="ft2">${d.type}</span><span class="dn">${d.title}</span>
-        <button class="btn btn-ghost btn-sm" onclick="alert('デモ：「${d.title}」をダウンロード（GAS/Drive連携で配信予定）')">ダウンロード</button></div>`).join("")}</div>`;
+      ${g.docs.map(d=>{
+        if (d.url) {
+          return `<div class="docrow"><span class="ft2" style="background:#c9a875;color:#fff">${d.type||"LINK"}</span><span class="dn">${d.title}${d.desc?`<small style="display:block;color:#8a7560;margin-top:4px;font-size:.75rem;line-height:1.5">${d.desc}</small>`:""}</span>
+        <a href="${d.url}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">開く</a></div>`;
+        }
+        return `<div class="docrow"><span class="ft2">${d.type}</span><span class="dn">${d.title}</span>
+        <button class="btn btn-ghost btn-sm" onclick="alert('デモ：「${d.title}」をダウンロード（GAS/Drive連携で配信予定）')">ダウンロード</button></div>`;
+      }).join("")}</div>`;
   return `<div class="grouphead excl"><h2>${g.label}</h2>
       <span class="ct">${g.note}・解放中</span><span class="ln"></span></div>
     ${vids}${docs}`;
