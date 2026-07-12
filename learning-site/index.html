@@ -1042,7 +1042,7 @@ function exclusiveSection(g, c){
   if (Array.isArray(g.videoGroups)) groups = g.videoGroups.map(x=>({label:x.label, tag:x.tag||"", videos:x.videos.slice()}));
   else if ((g.videos||[]).length) groups = [{label:g.label, tag:"", videos:g.videos.slice()}];
   const byLabel={}; groups.forEach(x=>byLabel[x.label]=x);
-  groupByCat(dynExclusiveVideos(g.key), "追加動画").forEach(dg=>{
+  if (g.key !== "kaigyo_pack") groupByCat(dynExclusiveVideos(g.key), "追加動画").forEach(dg=>{
     if(byLabel[dg.label]) byLabel[dg.label].videos = byLabel[dg.label].videos.concat(dg.items);
     else { const ng={label:dg.label, tag:"管理画面から追加", videos:dg.items}; groups.push(ng); byLabel[dg.label]=ng; }
   });
