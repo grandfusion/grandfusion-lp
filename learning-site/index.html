@@ -1128,6 +1128,16 @@ route("/courses", () => {
     } else {
       body = `<div class="courses">${list.map(co=>courseCard(co,c)).join("")}</div>`;
     }
+    // 商材コンテンツ欄には NUDUQUE 製品資料 Notion リンクを常時表示
+    if (g.key === "product") {
+      body += `<div class="courses" style="margin-top:12px"><a href="https://misty-sale-587.notion.site/NUDUQUE-2af0cfedbf2e46a8bc5f55a40cbe5f67?source=copy_link" target="_blank" rel="noopener" class="course" style="text-decoration:none;color:inherit;cursor:pointer;display:block">
+        <div class="thumb" style="background:linear-gradient(135deg,#e8dfd0 0%,#c9a875 100%);display:flex;align-items:center;justify-content:center;position:relative">
+          <span class="badge2" style="background:#c9a875;color:#fff">製品資料</span>
+          <div style="font-family:var(--display);color:#fff;letter-spacing:.18em;font-weight:600;font-size:1.35rem;text-shadow:0 2px 8px rgba(0,0,0,0.18)">NUDUQUE</div>
+        </div>
+        <div class="meta"><span class="cat">Notion 製品資料</span><h3>NUDUQUE 製品資料ページ</h3><span class="dur">▷ オーラパック / オーラクリーム / リペアクリーム / プロテイン ほか</span></div>
+      </a></div>`;
+    }
     return `<div class="grouphead"><h2>${g.label}</h2>
         <span class="ct">${g.note}・解放 ${openN}/${list.length}</span><span class="ln"></span></div>
       ${body}`;
