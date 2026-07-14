@@ -996,6 +996,8 @@ function shell(active, body){
         <a href="#/news" class="${active==='news'?'active':''}"><span class="ico">✦</span>お知らせ</a>
         <a href="#/myproducts" class="${active==='myproducts'?'active':''}"><span class="ico">◷</span>導入商材・講座</a>
         ${adminLinks}
+        <div class="grp">導入をお考えの方</div>
+        <a href="https://grandfusion-official.site/lp/apply.html" target="_blank" rel="noopener" style="background:linear-gradient(135deg,#c9a875 0%,#b08a5a 100%);color:#fff;font-weight:600;letter-spacing:.04em;box-shadow:0 4px 12px rgba(176,138,90,0.25);margin:6px 8px;border-radius:10px;text-align:center;padding:12px 10px;display:block"><span class="ico" style="color:#fff">✦</span>導入申し込みフォーム</a>
         <div class="grp">アカウント</div>
         <a href="#/"><span class="ico">⤺</span>公開サイト</a>
         <a href="#" onclick="logout();return false"><span class="ico">⏻</span>ログアウト</a>
@@ -1135,7 +1137,11 @@ route("/courses", () => {
           <span class="muted" style="font-size:.85rem">お申し込み時のメールアドレスを入力すると、導入済みコンテンツが解放されます（任意）。</span></div>
         <div style="display:flex;gap:8px"><input id="guestEmail" type="email" placeholder="メールアドレス" value="${getSavedEmail()}" style="padding:10px 12px;border:1px solid var(--line);border-radius:10px">
           <button class="btn btn-primary btn-sm" onclick="unlockByEmail()">解放</button></div>
-        <div id="guestMsg" class="muted" style="font-size:.8rem;width:100%"></div></div>`
+        <div id="guestMsg" class="muted" style="font-size:.8rem;width:100%"></div>
+        <div style="width:100%;padding-top:10px;margin-top:6px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <span class="muted" style="font-size:.85rem">まだ導入されていない方はこちら</span>
+          <a href="https://grandfusion-official.site/lp/apply.html" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="text-decoration:none">導入申し込みフォームへ →</a>
+        </div></div>`
     : (SESSION.live ? `<div class="panel" style="padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
         <span class="muted" style="font-size:.85rem"><b>${LIVE.salon}</b> として表示中（導入 ${LIVE.products.length} 件を解放）</span>
         <a href="#" onclick="backToGuest();return false" style="font-size:.8rem;color:var(--clay)">解除する</a></div>` : "");
