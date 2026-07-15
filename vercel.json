@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "grandfusion-lp.vercel.app" }],
+      "missing": [{ "type": "header", "key": "x-gf-proxy" }],
+      "destination": "https://grandfusion-official.site/",
+      "permanent": true
+    }
+  ]
+}
