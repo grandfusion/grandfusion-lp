@@ -196,12 +196,17 @@ document.getElementById("form").addEventListener("submit", function(e){
   if (!list_publish){ err.textContent="「導入サロン一覧」への掲載可否を選択してください。"; err.classList.remove("hidden"); return; }
 
   lastEmail = f.email.value;
-  // 互換のため links には Instagram / ホットペッパー を結合して送信（既存GASのlinks列にも入る）
-  var linksCombined = "Instagram: " + f.instagram.value + " / ホットペッパー: " + f.hotpepper.value;
+  // 既存GAS（12列固定）に全項目を保存するため、既存の空き列にまとめる：
+  //   links列   ← Instagram / ホットペッパー
+  //   message列 ← 発送可否 / 掲載可否
+  //   motivation列 ← 導入のきっかけ・期待効果（そのまま）
+  var linksCombined   = "Instagram: " + f.instagram.value + " / ホットペッパー: " + f.hotpepper.value;
+  var messageCombined = "全国発送・オンライン販売：" + shipping_credit + " / 導入サロン一覧掲載：" + list_publish;
   var payload = {
     action:"apply",
     salon:f.salon.value, owner:f.owner.value, email:f.email.value, tel:f.tel.value,
     items:names, keys:keys, autoGrant:AUTO_GRANT,
+    message:messageCombined,
     instagram:f.instagram.value, hotpepper:f.hotpepper.value, links:linksCombined,
     business:f.business.value,
     shipping_credit:shipping_credit, list_publish:list_publish,
