@@ -366,13 +366,10 @@ const PROTEIN_COURSE = {
 // --- 専用セクション（動画＋資料を格納。導入/受講者のみ解放）---
 const EXCLUSIVE = [
   // ※ 動画は全て管理画面で登録（範囲＝専用セクション、対象で各セクションを選ぶ）。カテゴリ欄でグループ分けされます。
-  {key:"nas_salon", label:"ナスサロ専用", note:"ナスサロ会員のみ",
-   desc:"ナスサロ会員限定の動画講義と配布資料を格納するスペースです。",
+  {key:"nas_salon", label:"教育動画", note:"導入サロン様全員向け",
+   desc:"NUDUQUE導入サロン様全員が視聴できる教育動画コンテンツです。",
    videos:[],
-   docs:[
-     {title:"ナスサロ 会員ガイド", type:"PDF"},
-     {title:"施術メニュー設計テンプレート", type:"XLSX"},
-   ]},
+   docs:[]},
   {key:"kaigyo_pack", label:"開業パック受講者専用", note:"開業パック導入者のみ",
    desc:"開業サポートパック受講者だけが視聴できる、全11章の講義動画と特別コンテンツです。",
    videoGroups:[
@@ -670,6 +667,7 @@ function keyLp(key){
 function isUnlocked(course, client){
   if(SESSION?.role==="admin") return true;
   if(course.type==="free") return true;
+  if(course.key==="nas_salon") return SESSION?.role==="client";  // 教育動画：登録者全員に開放
   return client.products.includes(course.key);
 }
 
@@ -1031,7 +1029,7 @@ function courseCard(co, c){
 }
 
 /* ---------- Courses (商材連動) ---------- */
-function ownsKey(key, c){ return SESSION?.role==="admin" || c.products.includes(key); }
+function ownsKey(key, c){ if(SESSION?.role==="admin") return true; if(key==="nas_salon") return SESSION?.role==="client"; return c.products.includes(key); }
 function exclusiveSection(g, c){
   const open = ownsKey(g.key, c);
   if(!open){
@@ -1142,7 +1140,7 @@ route("/courses", () => {
         <span class="ct">${g.note}・解放 ${openN}/${list.length}</span><span class="ln"></span></div>
       ${body}`;
   }).join("");
-  const exclusives = EXCLUSIVE.map(g=>exclusiveSection(g,c)).join("");
+  const exclusives = EXCLUSIVE.filter(g=>!(SESSION?.role==="guest" && g.key==="nas_salon")).map(g=>exclusiveSection(g,c)).join("");
   const totalOpen=all.filter(x=>isUnlocked(x,c)).length;
   const banner = SESSION.role==="guest"
     ? `<div class="panel" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between">
