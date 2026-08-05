@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script>if(location.hostname==="grandfusion-lp.vercel.app")location.replace("https://grandfusion-official.site/lp/products/");</script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>導入申し込み | GrandFusion メーカーサポート</title>
@@ -67,7 +67,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:500;text-align:center;mar
     <form id="form">
       <span class="eyebrow">Application</span>
       <h1>導入申し込み</h1>
-      <p class="lead">導入済みの商材・マシン・講座を選択してお申し込みください。<br>担当より折り返しご連絡いたします。</p>
+      <p class="lead">導入したい商材・マシン・講座を選択してお申し込みください。<br>担当より折り返しご連絡いたします。</p>
 
       <div class="field"><label>サロン名 <span class="req">*</span></label><input name="salon" required></div>
       <div class="field"><label>オーナー名 <span class="req">*</span></label><input name="owner" required></div>
@@ -76,16 +76,12 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:500;text-align:center;mar
         <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ LINEログイン時にこのメールでサロンが自動紐付けされます。</p></div>
       <div class="field"><label>電話番号</label><input name="tel" type="tel"></div>
 
-      <div class="grouptitle">導入済みの商材・マシン・講座 <span class="req">*</span>（複数選択可）</div>
+      <div class="grouptitle">導入したい商材・マシン・講座 <span class="req">*</span>（複数選択可）</div>
       <div class="checks" id="items"></div>
 
-      <div class="field" style="margin-top:22px"><label>Instagramのリンク <span class="req">*</span></label>
-        <input name="instagram" required placeholder="例：https://www.instagram.com/xxxxx/">
-        <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ ない場合は「なし」とご記入ください。</p></div>
-
-      <div class="field"><label>ホットペッパービューティーのリンク <span class="req">*</span></label>
-        <input name="hotpepper" required placeholder="例：https://beauty.hotpepper.jp/slnH000000000/">
-        <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ ない場合は「なし」とご記入ください。</p></div>
+      <div class="field" style="margin-top:22px"><label>SNS・予約サイト等のリンク <span class="req">*</span></label>
+        <input name="links" required placeholder="Instagram / ホットペッパー / 店舗HP など">
+        <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ サロンの様子がわかるリンクを入力してください（複数可）。</p></div>
 
       <div class="field"><label>現在のお仕事（業種） <span class="req">*</span></label>
         <select name="business" required style="width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;font-family:var(--body);font-size:.92rem;background:var(--nude-50);font-weight:300">
@@ -94,24 +90,8 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:500;text-align:center;mar
           <option>痩身サロン</option>
           <option>まつげサロン</option>
           <option>ネイルサロン</option>
-          <option>美容師</option>
-          <option>ピラティス／ヨガインストラクター</option>
           <option>その他</option>
         </select></div>
-
-      <div class="field"><label>全国発送・オンライン販売（クレジット決済）は可能ですか？ <span class="req">*</span></label>
-        <div style="display:flex;gap:24px;padding:10px 2px;flex-wrap:wrap">
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;cursor:pointer"><input type="radio" name="shipping_credit" value="可能" required style="width:18px;height:18px;accent-color:var(--gold-deep)">可能</label>
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;cursor:pointer"><input type="radio" name="shipping_credit" value="不可" style="width:18px;height:18px;accent-color:var(--gold-deep)">不可</label>
-        </div>
-        <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ 可能な場合、お客様をご紹介させていただくことがあります。</p></div>
-
-      <div class="field"><label>「導入サロン一覧」への情報掲載 <span class="req">*</span></label>
-        <div style="display:flex;gap:24px;padding:10px 2px;flex-wrap:wrap">
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;cursor:pointer"><input type="radio" name="list_publish" value="掲載可" required style="width:18px;height:18px;accent-color:var(--gold-deep)">掲載可</label>
-          <label style="display:flex;align-items:center;gap:8px;font-weight:400;cursor:pointer"><input type="radio" name="list_publish" value="掲載不可" style="width:18px;height:18px;accent-color:var(--gold-deep)">掲載不可</label>
-        </div>
-        <p style="font-size:.72rem;color:var(--mocha);margin-top:6px">※ NUDUQUE公式サイト等の「導入サロン一覧」にサロン名・地域等を掲載する場合があります。</p></div>
 
       <div class="grouptitle">今のお悩み <span class="req">*</span>（複数選択可）</div>
       <div class="checks" id="worries"></div>
@@ -136,7 +116,7 @@ h1{font-family:var(--serif);font-size:2rem;font-weight:500;text-align:center;mar
 /* ===== 設定：GASのウェブアプリURL（/exec）を貼り付け ===== */
 var GAS_URL = "https://script.google.com/macros/s/AKfycbyK0kqm7poOtrZFj08C6_gjESa9SXeoGnMEJ4MXbaYs8-GwAmrHnXo223aM70ctYm08/exec";
 /* 送信後に遷移する学習サイトのURL（末尾スラッシュまで） */
-var SITE_URL = "https://grandfusion-official.site/lp/learning-site/";
+var SITE_URL = "https://grandfusion-lp.vercel.app/learning-site/";
 /* true=申し込みで即解放（自分の導入分が開く） / false=申込のみ（管理者が後で承認） */
 var AUTO_GRANT = true;
 var lastEmail = "";
@@ -151,10 +131,6 @@ var ITEMS = [
   {key:"btxtherma",        name:"BTXtherma",                kind:"マシン"},
   {key:"regecell",         name:"リジェセル",                kind:"マシン"},
   {key:"kaigyo_pack",      name:"開業サポートパック",        kind:"マシン"},
-  {key:"course_marketing", name:"集客・マーケティング完全講座", kind:"有料講座"},
-  {key:"course_management",name:"サロン経営マスター講座",     kind:"有料講座"},
-  {key:"course_finance",   name:"融資・補助金 実務講座",       kind:"有料講座"},
-  {key:"nas_salon",        name:"ナスサロ専用",              kind:"専用"},
 ];
 
 /* 今のお悩み（複数選択） */
@@ -185,32 +161,16 @@ document.getElementById("form").addEventListener("submit", function(e){
   var checked = [].slice.call(box.querySelectorAll("input:checked"));
   var keys  = checked.map(function(i){return i.value;});                 // productKey（解放用）
   var names = checked.map(function(i){return i.getAttribute("data-name");}); // 表示名（記録用）
-  if (!keys.length){ err.textContent="導入済みの商材・マシン・講座を1つ以上選択してください。"; err.classList.remove("hidden"); return; }
+  if (!keys.length){ err.textContent="導入したい商材・マシン・講座を1つ以上選択してください。"; err.classList.remove("hidden"); return; }
   var worries = [].slice.call(wbox.querySelectorAll("input:checked")).map(function(i){return i.value;});
   if (!worries.length){ err.textContent="今のお悩みを1つ以上選択してください。"; err.classList.remove("hidden"); return; }
 
-  var fd = new FormData(f);
-  var shipping_credit = fd.get("shipping_credit") || "";
-  var list_publish    = fd.get("list_publish")    || "";
-  if (!shipping_credit){ err.textContent="全国発送・オンライン販売の可否を選択してください。"; err.classList.remove("hidden"); return; }
-  if (!list_publish){ err.textContent="「導入サロン一覧」への掲載可否を選択してください。"; err.classList.remove("hidden"); return; }
-
   lastEmail = f.email.value;
-  // 既存GAS（12列固定）に全項目を保存するため、既存の空き列にまとめる：
-  //   links列   ← Instagram / ホットペッパー
-  //   message列 ← 発送可否 / 掲載可否
-  //   motivation列 ← 導入のきっかけ・期待効果（そのまま）
-  var linksCombined   = "Instagram: " + f.instagram.value + " / ホットペッパー: " + f.hotpepper.value;
-  var messageCombined = "全国発送・オンライン販売：" + shipping_credit + " / 導入サロン一覧掲載：" + list_publish;
   var payload = {
     action:"apply",
     salon:f.salon.value, owner:f.owner.value, email:f.email.value, tel:f.tel.value,
     items:names, keys:keys, autoGrant:AUTO_GRANT,
-    message:messageCombined,
-    instagram:f.instagram.value, hotpepper:f.hotpepper.value, links:linksCombined,
-    business:f.business.value,
-    shipping_credit:shipping_credit, list_publish:list_publish,
-    worries:worries, motivation:f.motivation.value
+    links:f.links.value, business:f.business.value, worries:worries, motivation:f.motivation.value
   };
 
   var btn = document.getElementById("submit");
