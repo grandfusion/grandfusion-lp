@@ -492,7 +492,6 @@ const EXCLUSIVE = [
      ]},
    ],
    docs:[
-     {title:"開業パック・マシン購入者様用ページ", type:"LINK", url:"https://misty-sale-587.notion.site/39b82a0b580580518131d651958c7a05?source=copy_link", desc:"マシン資料・カウンセリング資料・各種マニュアル・SNS使用可能バナー・症例写真 など"},
    ]},
   {key:"protein", label:"プロテイン導入者専用", note:"オーラプロテイン導入者のみ",
    desc:"オーラプロテイン導入サロン限定の販売ノウハウ動画と販促資料です。",
@@ -998,6 +997,9 @@ function shell(active, body){
         <a href="#/blog" class="${active==='blog'?'active':''}"><span class="ico">✎</span>ブログ</a>
         <a href="#/news" class="${active==='news'?'active':''}"><span class="ico">✦</span>お知らせ</a>
         <a href="#/myproducts" class="${active==='myproducts'?'active':''}"><span class="ico">◷</span>導入商材・講座</a>
+        <div class="grp">資料ダウンロード</div>
+        <a href="https://misty-sale-587.notion.site/NUDUQUE-2af0cfedbf2e46a8bc5f55a40cbe5f67?source=copy_link" target="_blank" rel="noopener"><span class="ico">📁</span>NUDUQUE 製品資料</a>
+        ${(SESSION?.role==="admin" || (c.products||[]).includes("kaigyo_pack")) ? `<a href="https://misty-sale-587.notion.site/39b82a0b580580518131d651958c7a05?source=copy_link" target="_blank" rel="noopener"><span class="ico">🔑</span>開業パック・マシン購入者様用</a>` : ""}
         ${adminLinks}
         <div class="grp">アカウント</div>
         <a href="#/"><span class="ico">⤺</span>公開サイト</a>
@@ -1127,15 +1129,7 @@ route("/courses", () => {
     } else {
       body = `<div class="courses">${list.map(co=>courseCard(co,c)).join("")}</div>`;
     }
-    // 商材コンテンツ欄には NUDUQUE 製品資料 Notion リンクを常時表示（配布資料と同じ docrow スタイル）
-    if (g.key === "product") {
-      body += `<div class="panel" style="margin-top:14px;padding:14px 20px">
-        <div class="docrow"><span class="ft2" style="background:#c9a875;color:#fff">LINK</span>
-          <span class="dn">NUDUQUE 製品資料ページ<small style="display:block;color:#8a7560;margin-top:4px;font-size:.75rem;line-height:1.5">オーラパック / オーラクリーム / リペアクリーム / プロテイン ほかの製品資料をまとめたNotionページ</small></span>
-          <a href="https://misty-sale-587.notion.site/NUDUQUE-2af0cfedbf2e46a8bc5f55a40cbe5f67?source=copy_link" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">開く</a>
-        </div>
-      </div>`;
-    }
+    // NUDUQUE 製品資料 Notion リンクは左サイドバー「資料ダウンロード」に移動
     return `<div class="grouphead"><h2>${g.label}</h2>
         <span class="ct">${g.note}・解放 ${openN}/${list.length}</span><span class="ln"></span></div>
       ${body}`;
