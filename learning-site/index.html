@@ -1442,8 +1442,28 @@ function renderStatsTop(res){
   if(!list.length){ document.getElementById("__stats_top").innerHTML='<p class="muted">まだデータがありません。</p>'; return; }
   document.getElementById("__stats_top").innerHTML =
     '<table class="tbl"><thead><tr><th>#</th><th>動画</th><th>再生数</th><th>完視聴率</th></tr></thead><tbody>'
-    + list.map(function(v,i){ return '<tr><td>'+(i+1)+'</td><td>'+esc(v.title||v.videoId)+'</td><td>▶ '+v.views+'</td><td>'+Math.round(v.completion||0)+'%</td></tr>'; }).join('')
+    + list.map(function(v,i){
+        var displayTitle = v.title && v.title.length > 0 ? v.title : (YT_TITLES[v.videoId] || v.videoId);
+        var cellId = 'gf_ytt_'+v.videoId.replace(/[^a-zA-Z0-9]/g,'_');
+        return '<tr><td>'+(i+1)+'</td><td id="'+cellId+'" data-vid="'+v.videoId+'">'+esc(displayTitle)+'</td><td>▶ '+v.views+'</td><td>'+Math.round(v.completion||0)+'%</td></tr>';
+      }).join('')
     + '</tbody></table>';
+  // Fetch missing titles asynchronously
+  list.forEach(function(v){
+    if(v.title && v.title.length > 0) return;
+    if(YT_TITLES[v.videoId]){
+      var el = document.getElementById('gf_ytt_'+v.videoId.replace(/[^a-zA-Z0-9]/g,'_'));
+      if(el) el.textContent = YT_TITLES[v.videoId];
+      return;
+    }
+    fetch("https://noembed.com/embed?url=https://youtu.be/"+v.videoId).then(function(r){return r.json();}).then(function(d){
+      if(d && d.title){
+        YT_TITLES[v.videoId] = d.title;
+        var el = document.getElementById('gf_ytt_'+v.videoId.replace(/[^a-zA-Z0-9]/g,'_'));
+        if(el) el.textContent = d.title;
+      }
+    }).catch(function(){});
+  });
 }
 function renderStatsAlerts(res){
   var viewStats = {};
@@ -1782,7 +1802,18 @@ function openYouTube(id,start,title){
   document.getElementById("mdesc").textContent="";
   document.querySelector("#modal .vid").innerHTML='<div id="__gf_yt_slot" style="width:100%;height:100%"></div>';
   document.getElementById("modal").classList.add("show");
-  __GF_VIDEO = {id:id, title:title||"", startedAt:new Date()};
+  __GF_VIDEO = {id:id, title:title||YT_TITLES[id]||"", startedAt:new Date()};
+  // タイトル未取得時は noembed で取得しておく（次回以降のlogViewで正しいタイトルが送られる）
+  if(!__GF_VIDEO.title){
+    fetch("https://noembed.com/embed?url=https://youtu.be/"+id).then(function(r){return r.json();}).then(function(d){
+      if(d && d.title){
+        YT_TITLES[id] = d.title;
+        if(__GF_VIDEO && __GF_VIDEO.id === id){ __GF_VIDEO.title = d.title; }
+        var mt = document.getElementById("mtitle");
+        if(mt && (mt.textContent==="動画再生中" || !mt.textContent)) mt.textContent = d.title;
+      }
+    }).catch(function(){});
+  }
   __GF_LOGGED = {25:false,50:false,75:false,100:false};
   __GF_LAST_SEC = 0;
   __gfLogView("start", 0);
