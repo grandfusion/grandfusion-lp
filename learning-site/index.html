@@ -541,6 +541,7 @@ let SESSION = null; // {role:'client'|'admin', clientId} または {role:'client
 /* ===== 連携設定：GASウェブアプリURL（/exec）を貼り付け。未設定ならデモ動作 ===== */
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyK0kqm7poOtrZFj08C6_gjESa9SXeoGnMEJ4MXbaYs8-GwAmrHnXo223aM70ctYm08/exec";
 const GAS_ENABLED = GAS_URL.indexOf("PASTE_") !== 0;
+const ANALYTICS_GAS_URL = "https://script.google.com/macros/s/AKfycbyAOCfv5cT7l6eU1RY2WXqAQhMzn064EOUuiy-ypzXAOnrHAz0i9HCvdD1UmDd9_naXPA/exec";
 const LINE_ENABLED = GAS_ENABLED; // 旧フロー互換
 let LIVE = null;        // ログイン中サロン {salon,owner,pref,email,products}
 let ADMIN_PASS = "";    // 管理者パスコード（書き込み用）
@@ -1338,13 +1339,13 @@ route("/admin/analytics", () => {
 
 function loadAnalytics(days){
   var st = document.getElementById("__stats_status"); if(!st) return;
-  if(typeof GAS_ENABLED === "undefined" || !GAS_ENABLED){
-    st.textContent = "デモ環境"; st.className = "badge wait";
-    document.getElementById("__stats_summary").innerHTML = '<p class="muted">GAS未接続のためデータは表示できません。</p>';
+  if(typeof ANALYTICS_GAS_URL !== "string" || !ANALYTICS_GAS_URL){
+    st.textContent = "未接続"; st.className = "badge wait";
+    document.getElementById("__stats_summary").innerHTML = '<p class="muted">視聴分析GASのURLが未設定です。</p>';
     return;
   }
   st.textContent = "読み込み中…";
-  fetch(GAS_URL + "?action=stats&days=" + (days||0)).then(r=>r.json()).then(res=>{
+  fetch(ANALYTICS_GAS_URL + "?action=stats&days=" + (days||0)).then(r=>r.json()).then(res=>{
     if(!res || !res.ok){
       st.textContent = "データなし"; st.className = "badge wait";
       document.getElementById("__stats_summary").innerHTML = '<p class="muted">まだ視聴データがありません。動画が再生されると集計が始まります。<br><small>※GAS側で「logView / stats」エンドポイントが有効になっている必要があります。</small></p>';
@@ -1652,8 +1653,8 @@ function __gfLogView(event, progress){
       role: (SESSION && SESSION.role) || "guest",
       ts: new Date().toISOString()
     };
-    if(typeof GAS_ENABLED !== "undefined" && GAS_ENABLED){
-      fetch(GAS_URL, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(payload), keepalive:true}).catch(function(){});
+    if(typeof ANALYTICS_GAS_URL === "string" && ANALYTICS_GAS_URL){
+      fetch(ANALYTICS_GAS_URL, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(payload), keepalive:true}).catch(function(){});
     }
   } catch(e){}
 }
