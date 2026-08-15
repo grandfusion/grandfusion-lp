@@ -967,6 +967,7 @@ function shell(active, body){
     <a href="#/admin/news" class="${active==='adnews'?'active':''}"><span class="ico">✎</span>お知らせ管理</a>
     <a href="#/admin/blog" class="${active==='adblog'?'active':''}"><span class="ico">✦</span>ブログ管理</a>
     <a href="#/admin/videos" class="${active==='advideos'?'active':''}"><span class="ico">▷</span>動画コンテンツ管理</a>
+    <a href="#/admin/analytics" class="${active==='analytics'?'active':''}"><span class="ico">📊</span>動画分析</a>
     <a href="#/admin/clients" class="${active==='clients'?'active':''}"><span class="ico">◍</span>クライアント管理</a>
     <a href="#/admin/paiditems" class="${active==='paiditems'?'active':''}"><span class="ico">▦</span>商材・有料講座・申込</a>` : "";
   const isGuest = SESSION.role==="guest";
@@ -1300,6 +1301,103 @@ const TOGGLE_KEYS = [
   {key:"nas_salon", label:"ナスサロ専用", grp:"専用"},
 ];
 function esc(s){ return String(s||"").replace(/'/g,"\\'"); }
+
+/* ---------- 動画分析（admin） ---------- */
+route("/admin/analytics", () => {
+  if(SESSION?.role!=="admin") return routes["/login"]();
+  const body = `
+    <div class="page-head"><div><h1>動画分析</h1>
+      <p>視聴データの集計 <span class="badge wait" id="__stats_status">読み込み中…</span></p></div>
+      <div style="display:flex;gap:8px"><button class="btn btn-sm" onclick="loadAnalytics(7)">今週</button>
+        <button class="btn btn-sm" onclick="loadAnalytics(30)">今月</button>
+        <button class="btn btn-sm" onclick="loadAnalytics(0)">全期間</button></div>
+    </div>
+
+    <div class="panel" style="margin-bottom:16px" id="__stats_summary">
+      <p class="muted">データ取得中…</p>
+    </div>
+
+    <div class="panel" style="margin-bottom:16px">
+      <h2>🏆 人気の動画 TOP 10</h2>
+      <div id="__stats_top" class="muted">読み込み中…</div>
+    </div>
+
+    <div class="panel" style="margin-bottom:16px">
+      <h2>⚠️ 視聴が少ないサロン（要フォロー）</h2>
+      <div id="__stats_alerts" class="muted">読み込み中…</div>
+    </div>
+
+    <div class="panel">
+      <h2>👥 サロン別 視聴サマリー</h2>
+      <div id="__stats_salons" class="muted">読み込み中…</div>
+    </div>
+  `;
+  setTimeout(function(){ loadAnalytics(30); }, 100);
+  return shell("analytics", body);
+});
+
+function loadAnalytics(days){
+  var st = document.getElementById("__stats_status"); if(!st) return;
+  if(typeof GAS_ENABLED === "undefined" || !GAS_ENABLED){
+    st.textContent = "デモ環境"; st.className = "badge wait";
+    document.getElementById("__stats_summary").innerHTML = '<p class="muted">GAS未接続のためデータは表示できません。</p>';
+    return;
+  }
+  st.textContent = "読み込み中…";
+  fetch(GAS_URL + "?action=stats&days=" + (days||0)).then(r=>r.json()).then(res=>{
+    if(!res || !res.ok){
+      st.textContent = "データなし"; st.className = "badge wait";
+      document.getElementById("__stats_summary").innerHTML = '<p class="muted">まだ視聴データがありません。動画が再生されると集計が始まります。<br><small>※GAS側で「logView / stats」エンドポイントが有効になっている必要があります。</small></p>';
+      document.getElementById("__stats_top").innerHTML='<p class="muted">-</p>';
+      document.getElementById("__stats_alerts").innerHTML='<p class="muted">-</p>';
+      document.getElementById("__stats_salons").innerHTML='<p class="muted">-</p>';
+      return;
+    }
+    st.textContent = "取得済"; st.className = "badge ok";
+    renderStatsSummary(res);
+    renderStatsTop(res);
+    renderStatsAlerts(res);
+    renderStatsSalons(res);
+  }).catch(function(){
+    st.textContent = "接続エラー"; st.className = "badge wait";
+  });
+}
+function renderStatsSummary(res){
+  var s = res.summary || {};
+  document.getElementById("__stats_summary").innerHTML =
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px">'
+    +'<div><div class="muted" style="font-size:.72rem">総再生数</div><b style="font-size:1.6rem">'+(s.totalViews||0)+'</b></div>'
+    +'<div><div class="muted" style="font-size:.72rem">ユニーク視聴者</div><b style="font-size:1.6rem">'+(s.uniqueSalons||0)+' <small>サロン</small></b></div>'
+    +'<div><div class="muted" style="font-size:.72rem">平均完視聴率</div><b style="font-size:1.6rem">'+Math.round(s.avgCompletion||0)+'%</b></div>'
+    +'<div><div class="muted" style="font-size:.72rem">総視聴時間</div><b style="font-size:1.6rem">'+Math.round((s.totalMinutes||0))+' <small>分</small></b></div>'
+    +'</div>';
+}
+function renderStatsTop(res){
+  var list = (res.topVideos||[]).slice(0,10);
+  if(!list.length){ document.getElementById("__stats_top").innerHTML='<p class="muted">まだデータがありません。</p>'; return; }
+  document.getElementById("__stats_top").innerHTML =
+    '<table class="tbl"><thead><tr><th>#</th><th>動画</th><th>再生数</th><th>完視聴率</th></tr></thead><tbody>'
+    + list.map(function(v,i){ return '<tr><td>'+(i+1)+'</td><td>'+esc(v.title||v.videoId)+'</td><td>▶ '+v.views+'</td><td>'+Math.round(v.completion||0)+'%</td></tr>'; }).join('')
+    + '</tbody></table>';
+}
+function renderStatsAlerts(res){
+  var alerts = res.alertSalons || [];
+  if(!alerts.length){ document.getElementById("__stats_alerts").innerHTML='<p class="muted" style="color:#4a7f4a">🌱 全サロン順調に視聴中です！</p>'; return; }
+  document.getElementById("__stats_alerts").innerHTML = alerts.map(function(a){
+    return '<div style="padding:10px 14px;background:#fef8f0;border-left:3px solid #d4a054;border-radius:6px;margin-bottom:8px">'
+      +'<b>'+esc(a.salon)+'</b> <small class="muted">'+esc(a.owner||'')+'</small><br>'
+      +'<small>'+esc(a.reason||'')+'</small></div>';
+  }).join('');
+}
+function renderStatsSalons(res){
+  var list = res.salonStats || [];
+  if(!list.length){ document.getElementById("__stats_salons").innerHTML='<p class="muted">まだデータがありません。</p>'; return; }
+  document.getElementById("__stats_salons").innerHTML =
+    '<table class="tbl"><thead><tr><th>サロン</th><th>視聴数</th><th>平均完視聴</th><th>最終視聴</th></tr></thead><tbody>'
+    + list.map(function(s){ return '<tr><td><b>'+esc(s.salon)+'</b><br><small class="muted">'+esc(s.owner||'')+'</small></td><td>'+s.views+'本</td><td>'+Math.round(s.avgCompletion||0)+'%</td><td><small>'+(s.lastAt||'-')+'</small></td></tr>'; }).join('')
+    + '</tbody></table>';
+}
+
 route("/admin/clients", () => {
   if(SESSION?.role!=="admin") return routes["/login"]();
   const clients=getAdminClients(); const live=!!DYNAMIC.clients;
@@ -1526,14 +1624,94 @@ function openCourse(title,dur){
   document.getElementById("modal").classList.add("show");
 }
 const YT_TITLES = {}; // {videoId: "YouTubeの実タイトル"}
-function openYouTube(id,start,title){
-  document.getElementById("mtitle").textContent = title || YT_TITLES[id] || "プロテインマスター講座";
-  document.getElementById("mdesc").textContent="プロテインマスター講座 ・ オーラプロテイン導入者専用";
-  const src="https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1"+(start?("&start="+start):"");
-  document.querySelector("#modal .vid").innerHTML=
-    '<iframe src="'+src+'" style="width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-  document.getElementById("modal").classList.add("show");
+/* ===== 視聴トラッキング（YT IFrame Player API） ===== */
+var __YT_LOADED = false;
+var __GF_VIDEO = null;   // {id, title, startedAt}
+var __GF_LOGGED = {};    // {25:false, 50:false, 75:false, 100:false}
+var __GF_TIMER = null;
+var __GF_LAST_SEC = 0;
+function __gfLoadYT(cb){
+  if(window.YT && window.YT.Player){ cb(); return; }
+  if(__YT_LOADED){ var iv=setInterval(function(){ if(window.YT&&window.YT.Player){ clearInterval(iv); cb(); } }, 100); return; }
+  __YT_LOADED = true;
+  window.onYouTubeIframeAPIReady = function(){ cb(); };
+  var t=document.createElement("script"); t.src="https://www.youtube.com/iframe_api"; document.head.appendChild(t);
 }
+function __gfLogView(event, progress){
+  if(!__GF_VIDEO) return;
+  try {
+    var c = (typeof currentClient === "function") ? currentClient() : {};
+    var payload = {
+      action: "logView",
+      videoId: __GF_VIDEO.id,
+      title: __GF_VIDEO.title || (YT_TITLES[__GF_VIDEO.id]||""),
+      email: c.email || (SESSION && SESSION.email) || "",
+      salon: c.salon || "",
+      owner: c.owner || "",
+      event: event, progress: progress, seconds: Math.round(__GF_LAST_SEC),
+      role: (SESSION && SESSION.role) || "guest",
+      ts: new Date().toISOString()
+    };
+    if(typeof GAS_ENABLED !== "undefined" && GAS_ENABLED){
+      fetch(GAS_URL, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(payload), keepalive:true}).catch(function(){});
+    }
+  } catch(e){}
+}
+function __gfCheckProgress(){
+  if(!window.__gfPlayer || !window.__gfPlayer.getCurrentTime) return;
+  try {
+    var cur = window.__gfPlayer.getCurrentTime();
+    var dur = window.__gfPlayer.getDuration();
+    if(!dur) return;
+    __GF_LAST_SEC = cur;
+    var pct = Math.floor((cur/dur)*100);
+    [25,50,75,100].forEach(function(mark){
+      if(pct >= mark && !__GF_LOGGED[mark]){
+        __GF_LOGGED[mark] = true;
+        __gfLogView(mark===100 ? "complete" : "progress", mark);
+      }
+    });
+  } catch(e){}
+}
+function openYouTube(id,start,title){
+  document.getElementById("mtitle").textContent = title || YT_TITLES[id] || "動画再生中";
+  document.getElementById("mdesc").textContent="";
+  document.querySelector("#modal .vid").innerHTML='<div id="__gf_yt_slot" style="width:100%;height:100%"></div>';
+  document.getElementById("modal").classList.add("show");
+  __GF_VIDEO = {id:id, title:title||"", startedAt:new Date()};
+  __GF_LOGGED = {25:false,50:false,75:false,100:false};
+  __GF_LAST_SEC = 0;
+  __gfLogView("start", 0);
+  __gfLoadYT(function(){
+    if(window.__gfPlayer && window.__gfPlayer.destroy){ try{window.__gfPlayer.destroy();}catch(e){} }
+    window.__gfPlayer = new YT.Player("__gf_yt_slot",{
+      height:"100%", width:"100%", videoId:id,
+      playerVars:{rel:0, modestbranding:1, start:(start||0), playsinline:1},
+      events:{
+        "onStateChange": function(e){
+          if(e.data === YT.PlayerState.PLAYING){
+            if(!__GF_TIMER) __GF_TIMER = setInterval(__gfCheckProgress, 3000);
+          } else if(e.data === YT.PlayerState.PAUSED){
+            if(__GF_TIMER){ clearInterval(__GF_TIMER); __GF_TIMER=null; }
+          } else if(e.data === YT.PlayerState.ENDED){
+            if(__GF_TIMER){ clearInterval(__GF_TIMER); __GF_TIMER=null; }
+            if(!__GF_LOGGED[100]){ __GF_LOGGED[100]=true; __gfLogView("complete", 100); }
+          }
+        }
+      }
+    });
+  });
+}
+/* モーダル閉じ時にプレイヤー破棄 */
+document.addEventListener("click", function(e){
+  var m = document.getElementById("modal");
+  if(!m || !m.classList.contains("show")) return;
+  if(e.target && (e.target.id==="modal" || e.target.classList.contains("mclose") || e.target.closest && e.target.closest(".mclose"))){
+    if(__GF_TIMER){ clearInterval(__GF_TIMER); __GF_TIMER=null; }
+    if(window.__gfPlayer && window.__gfPlayer.destroy){ try{window.__gfPlayer.destroy();}catch(e){} window.__gfPlayer=null; }
+    __GF_VIDEO = null;
+  }
+}, true);
 /* YouTubeから実タイトルを取得して表に反映（タイトル変更も自動追従）*/
 function loadProteinTitles(){
   PROTEIN_COURSE.lessons.forEach(function(l){
