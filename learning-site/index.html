@@ -1400,19 +1400,29 @@ function loadAnalytics(days){
   }
   st.textContent = "読み込み中…";
   fetch(ANALYTICS_GAS_URL + "?action=stats&days=" + (days||0)).then(r=>r.json()).then(res=>{
-    if(!res || !res.ok){
-      st.textContent = "データなし"; st.className = "badge wait";
-      document.getElementById("__stats_summary").innerHTML = '<p class="muted">まだ視聴データがありません。動画が再生されると集計が始まります。<br><small>※GAS側で「logView / stats」エンドポイントが有効になっている必要があります。</small></p>';
-      document.getElementById("__stats_top").innerHTML='<p class="muted">-</p>';
-      document.getElementById("__stats_alerts").innerHTML='<p class="muted">-</p>';
-      document.getElementById("__stats_salons").innerHTML='<p class="muted">-</p>';
-      return;
+    var hasData = res && res.ok;
+    if(hasData){
+      st.textContent = "取得済"; st.className = "badge ok";
+    } else {
+      st.textContent = "視聴データ収集中"; st.className = "badge wait";
     }
-    st.textContent = "取得済"; st.className = "badge ok";
-    renderStatsSummary(res);
-    renderStatsTop(res);
-    renderStatsAlerts(res);
-    renderStatsSalons(res);
+    // 空データ用のダミー結果
+    var stats = hasData ? res : { ok:true, summary:{totalViews:0,uniqueSalons:0,avgCompletion:0,totalMinutes:0}, topVideos:[], salonStats:[], alertSalons:[] };
+    renderStatsSummary(stats);
+    renderStatsTop(stats);
+    renderStatsAlerts(stats);
+    renderStatsSalons(stats);
+    if(!hasData){
+      var noteEl = document.createElement("p");
+      noteEl.className = "muted";
+      noteEl.style.cssText = "font-size:.75rem;margin-top:10px;color:#a99a83";
+      noteEl.textContent = "※ まだ視聴データがありません。サロン様が動画を再生すると集計が始まります。";
+      var sumBox = document.getElementById("__stats_summary");
+      if(sumBox && !sumBox.querySelector("[data-nodata-note]")){
+        noteEl.setAttribute("data-nodata-note","1");
+        sumBox.appendChild(noteEl);
+      }
+    }
   }).catch(function(){
     st.textContent = "接続エラー"; st.className = "badge wait";
   });
