@@ -1092,6 +1092,17 @@ function exclusiveSection(g, c){
     const grp = groups[0] || {label:g.label, videos:[]};
     vids = `<div class="courses">${grp.videos.map((v,i)=>vcard(v,i,grp.label)).join("")}</div>`;
   }
+  // グループごとに紐付け先の資料ダウンロードページ
+  const MATERIALS_MAP = {
+    "kaigyo_pack": { route: "#/materials/kaigyo", label: "開業パック・マシン購入者様用 資料ダウンロード", desc: "マシン資料・カウンセリング資料・各種マニュアル・SNS使用可能バナー・症例写真 など" },
+    "protein":     { route: "#/materials/nuduque", label: "NUDUQUE 製品資料ダウンロード", desc: "オーラプロテイン ほか NUDUQUE製品の資料まとめ" },
+    "nas_salon":   { route: "#/materials/nuduque", label: "NUDUQUE 製品資料ダウンロード", desc: "NUDUQUE製品の資料まとめ" }
+  };
+  const mLink = MATERIALS_MAP[g.key];
+  const materialsRow = mLink ? `<div class="docrow" style="border-top:1px dashed var(--line);padding-top:14px;margin-top:8px">
+        <span class="ft2" style="background:#c9a875;color:#fff">LINK</span>
+        <span class="dn"><b>${mLink.label}</b><small style="display:block;color:#8a7560;margin-top:4px;font-size:.75rem;line-height:1.5">${mLink.desc}</small></span>
+        <a href="${mLink.route}" class="btn btn-ghost btn-sm">開く →</a></div>` : "";
   const docs = `<div class="panel" style="margin-top:14px"><h2 style="font-size:1.05rem">配布資料</h2>
       ${g.docs.map(d=>{
         if (d.url) {
@@ -1100,7 +1111,7 @@ function exclusiveSection(g, c){
         }
         return `<div class="docrow"><span class="ft2">${d.type}</span><span class="dn">${d.title}</span>
         <button class="btn btn-ghost btn-sm" onclick="alert('デモ：「${d.title}」をダウンロード（GAS/Drive連携で配信予定）')">ダウンロード</button></div>`;
-      }).join("")}</div>`;
+      }).join("")}${materialsRow}</div>`;
   return `<div class="grouphead excl"><h2>${g.label}</h2>
       <span class="ct">${g.note}・解放中</span><span class="ln"></span></div>
     ${vids}${docs}`;
