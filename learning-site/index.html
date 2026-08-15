@@ -1436,20 +1436,59 @@ function renderStatsTop(res){
     + '</tbody></table>';
 }
 function renderStatsAlerts(res){
-  var alerts = res.alertSalons || [];
-  if(!alerts.length){ document.getElementById("__stats_alerts").innerHTML='<p class="muted" style="color:#4a7f4a">🌱 全サロン順調に視聴中です！</p>'; return; }
+  var viewStats = {};
+  (res.salonStats||[]).forEach(function(s){ viewStats[s.salon] = s; });
+  var allClients = (typeof getAdminClients==='function') ? getAdminClients() : [];
+  var alerts = [];
+  var now = new Date();
+  allClients.forEach(function(c){
+    var s = viewStats[c.salon];
+    if(!s || s.views === 0){
+      alerts.push({salon:c.salon, owner:c.owner||'', reason:'📵 まだ動画を視聴していません', level:'high'});
+    } else if(s.avgCompletion < 30 && s.views >= 2){
+      alerts.push({salon:c.salon, owner:c.owner||'', reason:'⚠️ 平均完視聴率が '+Math.round(s.avgCompletion)+'%（途中離脱多め）', level:'mid'});
+    } else if(s.lastAt && s.lastAt !== '-'){
+      var last = new Date(s.lastAt);
+      var days = Math.floor((now - last) / (1000*60*60*24));
+      if(days >= 14) alerts.push({salon:c.salon, owner:c.owner||'', reason:'😴 最終視聴から '+days+' 日経過', level:'mid'});
+    }
+  });
+  if(!alerts.length){
+    document.getElementById("__stats_alerts").innerHTML='<p class="muted" style="color:#4a7f4a">🌱 全サロン順調に視聴中です！</p>'; return;
+  }
   document.getElementById("__stats_alerts").innerHTML = alerts.map(function(a){
-    return '<div style="padding:10px 14px;background:#fef8f0;border-left:3px solid #d4a054;border-radius:6px;margin-bottom:8px">'
-      +'<b>'+esc(a.salon)+'</b> <small class="muted">'+esc(a.owner||'')+'</small><br>'
-      +'<small>'+esc(a.reason||'')+'</small></div>';
-  }).join('');
+    var color = a.level==='high' ? '#c66' : '#d4a054';
+    var bg = a.level==='high' ? '#fdf4f4' : '#fef8f0';
+    return '<div style="padding:10px 14px;background:'+bg+';border-left:3px solid '+color+';border-radius:6px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">'
+      +'<div><b>'+esc(a.salon)+'</b> <small class="muted">'+esc(a.owner||'')+'</small><br>'
+      +'<small>'+esc(a.reason||'')+'</small></div></div>';
+  }).join('') + '<p class="muted" style="font-size:.72rem;margin-top:8px">全 '+allClients.length+' サロン中 '+alerts.length+' サロンが要フォロー</p>';
 }
 function renderStatsSalons(res){
-  var list = res.salonStats || [];
-  if(!list.length){ document.getElementById("__stats_salons").innerHTML='<p class="muted">まだデータがありません。</p>'; return; }
+  var viewStats = {};
+  (res.salonStats||[]).forEach(function(s){ viewStats[s.salon] = s; });
+  var allClients = (typeof getAdminClients==='function') ? getAdminClients() : [];
+  if(!allClients.length){
+    document.getElementById("__stats_salons").innerHTML='<p class="muted">サロン情報を取得できませんでした。</p>'; return;
+  }
+  // Sort: viewed salons first (by views desc), then unviewed
+  var rows = allClients.map(function(c){
+    var s = viewStats[c.salon] || {views:0, avgCompletion:0, lastAt:'-'};
+    return {salon:c.salon, owner:c.owner||'', views:s.views||0, avgCompletion:s.avgCompletion||0, lastAt:s.lastAt||'-', products:c.products||[]};
+  }).sort(function(a,b){ return b.views - a.views; });
   document.getElementById("__stats_salons").innerHTML =
-    '<table class="tbl"><thead><tr><th>サロン</th><th>視聴数</th><th>平均完視聴</th><th>最終視聴</th></tr></thead><tbody>'
-    + list.map(function(s){ return '<tr><td><b>'+esc(s.salon)+'</b><br><small class="muted">'+esc(s.owner||'')+'</small></td><td>'+s.views+'本</td><td>'+Math.round(s.avgCompletion||0)+'%</td><td><small>'+(s.lastAt||'-')+'</small></td></tr>'; }).join('')
+    '<table class="tbl"><thead><tr><th>サロン</th><th>導入</th><th>視聴数</th><th>平均完視聴</th><th>最終視聴</th></tr></thead><tbody>'
+    + rows.map(function(r){
+        var viewCell = r.views === 0
+          ? '<span style="color:#c66;font-weight:600">0本</span>'
+          : r.views + '本';
+        var pctCell = r.views === 0 ? '<span class="muted">-</span>' : Math.round(r.avgCompletion)+'%';
+        return '<tr><td><b>'+esc(r.salon)+'</b><br><small class="muted">'+esc(r.owner)+'</small></td>'
+          +'<td><small class="muted">'+r.products.length+'件</small></td>'
+          +'<td>'+viewCell+'</td>'
+          +'<td>'+pctCell+'</td>'
+          +'<td><small>'+esc(r.lastAt)+'</small></td></tr>';
+      }).join('')
     + '</tbody></table>';
 }
 
