@@ -1312,7 +1312,7 @@ route("/myproducts", () => {
       ${availProd.map(p=>`<tr><td>${p.name}</td><td>${p.kind}</td><td class="muted">${p.unlock}</td>
         <td><a href="${p.lp}" target="_blank" class="btn btn-ghost btn-sm">LP →</a></td></tr>`).join("")}
       ${availCourse.map(p=>`<tr><td>${p.name}</td><td>有料講座</td><td class="muted">${p.desc}（${p.price}）</td>
-        <td><a href="https://lin.ee/wNXRto9" target="_blank" class="btn btn-gold btn-sm">購入</a></td></tr>`).join("")}
+        <td><button disabled class="btn btn-sm" style="background:#e5ddd0;color:#9a8b78;border:1px solid #d9cbb5;cursor:not-allowed;opacity:.75;pointer-events:none">準備中</button></td></tr>`).join("")}
       </tbody></table></div>
   `);
 });
