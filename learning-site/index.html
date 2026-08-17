@@ -1359,7 +1359,39 @@ function esc(s){ return String(s||"").replace(/'/g,"\\'"); }
 /* ---------- 動画分析（admin） ---------- */
 route("/materials/nuduque", () => {
   ensureGuest();
+  const isLoggedIn = SESSION?.role === "admin" || (SESSION?.role === "guest" && SESSION?.live) || SESSION?.role === "client";
   const NOTION_URL = "https://misty-sale-587.notion.site/NUDUQUE-2af0cfedbf2e46a8bc5f55a40cbe5f67?source=copy_link";
+  const previewToc = `
+    <div style="max-width:640px;margin:24px auto 0;padding:24px 28px;background:#fff;border:1px dashed #d9cbb5;border-radius:12px;text-align:left">
+      <div style="font-family:var(--display);font-size:.7rem;letter-spacing:.15em;color:#8b6f4a;margin-bottom:12px">📋 資料に含まれる内容（プレビュー）</div>
+      <ul style="list-style:none;padding:0;margin:0;font-size:.86rem;color:#5c4a3a;line-height:2">
+        <li>◆ 各製品の商品説明書・成分表</li>
+        <li>◆ カウンセリングトーク例・提案スクリプト</li>
+        <li>◆ 症例写真・ビフォーアフター素材</li>
+        <li>◆ SNS投稿用バナー・画像素材</li>
+        <li>◆ 店頭POP・ショップカード用データ</li>
+        <li>◆ よくあるお客様Q&amp;A集</li>
+        <li>◆ 販売価格・卸価格 早見表</li>
+      </ul>
+    </div>`;
+  if (!isLoggedIn) {
+    return shell("m_nuduque", `
+      <div class="page-head"><div><h1>NUDUQUE 製品資料</h1>
+        <p>オーラパック / オーラクリーム / リペアクリーム / プロテイン ほか</p></div></div>
+      <div class="panel" style="padding:40px 28px;text-align:center">
+        <div style="font-size:44px;margin-bottom:12px;opacity:.4">🔒</div>
+        <h2 style="font-size:1.15rem;color:var(--espresso);margin-bottom:8px">このページは導入サロン様専用です</h2>
+        <p class="muted" style="font-size:.9rem;max-width:520px;margin:0 auto 8px;line-height:1.9">
+          NUDUQUE商材をご導入いただいたサロン様のみアクセスいただけます。<br>
+          左サイドバーから「ログイン（解放）」してください。
+        </p>
+        <p class="muted" style="font-size:.8rem;color:#a99a83;margin:0 auto">
+          未導入の方は「新規導入お申し込み」からご検討ください。
+        </p>
+        ${previewToc}
+      </div>
+    `);
+  }
   return shell("m_nuduque", `
     <div class="page-head"><div><h1>NUDUQUE 製品資料</h1>
       <p>オーラパック / オーラクリーム / リペアクリーム / プロテイン ほか</p></div></div>
@@ -1373,6 +1405,7 @@ route("/materials/nuduque", () => {
       <a href="${NOTION_URL}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-block;padding:14px 40px;font-size:15px;letter-spacing:.05em">📄 開く（Notionページへ）</a>
       <p style="font-size:11px;color:#a99a83;margin-top:20px">※ 資料の内容は随時更新されます</p>
     </div>
+    ${previewToc}
   `);
 });
 
