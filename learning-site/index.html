@@ -977,7 +977,7 @@ function shell(active, body){
         <span class="cnt">管理モード</span></div>`
     : isGuest
     ? `<div class="me"><div class="nm">${c.owner}</div><div class="salon">${c.salon}</div>
-        <span class="cnt">ログイン不要</span></div>`
+        </div>`
     : `<div class="me"><div class="nm">${c.owner} 様</div><div class="salon">${c.salon} ・ ${c.pref}</div>
         <span class="cnt">導入 ${c.products.length} 件</span></div>`;
   return `<div class="app-shell">
