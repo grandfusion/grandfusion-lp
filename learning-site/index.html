@@ -1000,28 +1000,32 @@ function shell(active, body){
     ? `<div class="me"><div class="nm">${c.owner}</div><div class="salon">${c.salon}</div>
         <span class="cnt">管理モード</span></div>`
     : isGuest
-    ? `<div class="me"><div class="nm">ゲスト閲覧中</div><div class="salon" style="font-size:.7rem;line-height:1.55;opacity:.85;margin-top:4px">無料コンテンツを閲覧中<br>導入済みの方はログインで<br>専用動画が解放されます</div>
-        <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15)">
-          <div style="font-size:.7rem;letter-spacing:.1em;opacity:.85;margin-bottom:6px">🔑 ログイン（解放）</div>
-          <input id="sideGuestEmail" type="email" placeholder="お申込時のメールアドレス" value="${(typeof getSavedEmail==='function'?getSavedEmail():'')}" style="width:100%;padding:8px 10px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;border-radius:8px;font-size:.75rem;box-sizing:border-box;margin-bottom:6px" />
-          <button onclick="sideUnlock()" style="width:100%;padding:8px;background:linear-gradient(135deg,#c9a875,#b08a5a);color:#fff;border:none;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;letter-spacing:.05em">解放する</button>
-          <div id="sideGuestMsg" style="font-size:.68rem;margin-top:6px;opacity:.85;min-height:1em"></div>
-        </div>
-      </div>`
+    ? `<div class="me"><div class="nm">ゲスト閲覧中</div><div class="salon" style="font-size:.7rem;line-height:1.55;opacity:.8;margin-top:4px">無料コンテンツを閲覧中</div></div>`
     : `<div class="me"><div class="nm">${c.owner} 様</div><div class="salon">${c.salon} ・ ${c.pref}</div>
         <span class="cnt">導入 ${c.products.length} 件</span></div>`;
   return `<div class="app-shell">
     <aside class="side">
       <a href="#/" class="brand">GRANDFUSION<small>MAKER SUPPORT</small></a>
       ${meBox}
-      ${isGuest ? `<a href="https://grandfusion-official.site/lp/apply.html" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,#c9a875 0%,#b08a5a 100%);color:#fff;margin:12px 14px 4px;padding:14px 14px;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(176,138,90,0.28)">
-        <div style="font-weight:700;letter-spacing:.04em;font-size:.95rem;margin-bottom:6px">✦ 導入申し込みはこちら</div>
-        <div style="font-size:.72rem;line-height:1.55;opacity:.95">商材購入・導入お申し込み・各種サポート動画の視聴のお申し込みはこちらのフォームから。</div>
-        <div style="font-size:.68rem;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.28);opacity:.88">※開業パック／マシン購入者向けサポートは、契約済みの方のみお申し込みいただけます。</div>
+      ${isGuest ? `
+      <!-- ① ログイン(解放) — 既存導入者向け -->
+      <div style="margin:12px 14px 4px;padding:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,117,0.3);border-radius:10px">
+        <div style="font-size:.7rem;letter-spacing:.1em;color:var(--nude-100);opacity:.9;margin-bottom:8px">🔑 導入済みの方はこちら</div>
+        <input id="sideGuestEmail" type="email" placeholder="お申込時のメールアドレス" value="${(typeof getSavedEmail==='function'?getSavedEmail():'')}" style="width:100%;padding:8px 10px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.15);color:#fff;border-radius:6px;font-size:.75rem;box-sizing:border-box;margin-bottom:6px" />
+        <button onclick="sideUnlock()" style="width:100%;padding:9px;background:transparent;color:#c9a875;border:1px solid #c9a875;border-radius:6px;font-size:.78rem;font-weight:600;cursor:pointer;letter-spacing:.05em;transition:.2s" onmouseover="this.style.background='rgba(201,168,117,0.15)'" onmouseout="this.style.background='transparent'">ログイン（解放）</button>
+        <div id="sideGuestMsg" style="font-size:.68rem;margin-top:6px;opacity:.85;min-height:1em;color:var(--nude-100)"></div>
+      </div>
+
+      <!-- ② 導入申込 — 主役CTA -->
+      <a href="https://grandfusion-official.site/lp/apply.html" target="_blank" rel="noopener" style="display:block;margin:8px 14px 4px;padding:14px;background:linear-gradient(135deg,#c9a875 0%,#b08a5a 100%);color:#fff;border-radius:10px;text-decoration:none;box-shadow:0 4px 14px rgba(176,138,90,0.28)">
+        <div style="font-weight:700;letter-spacing:.04em;font-size:.9rem;margin-bottom:6px">✦ 新規導入お申し込み</div>
+        <div style="font-size:.7rem;line-height:1.55;opacity:.95">商材購入・各種サポートの申込はこちらから</div>
       </a>
-      <a href="https://misty-sale-587.notion.site/39c82a0b5805805eaf0bcd78cfff6a5b" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;margin:8px 14px 4px;padding:11px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,117,0.4);border-radius:10px;color:var(--nude-100);text-decoration:none;font-size:.78rem;line-height:1.45;transition:.2s" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">
-        <span style="font-size:1rem">📖</span>
-        <span>サポートサイトの登録方法・閲覧方法はこちら</span>
+
+      <!-- ③ サポートサイト使い方 — 補足リンク -->
+      <a href="https://misty-sale-587.notion.site/39c82a0b5805805eaf0bcd78cfff6a5b" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;margin:8px 14px 4px;padding:11px 14px;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:var(--nude-200);text-decoration:none;font-size:.75rem;line-height:1.4;transition:.2s" onmouseover="this.style.borderColor='rgba(201,168,117,0.5)';this.style.color='var(--nude-50)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='var(--nude-200)'">
+        <span style="font-size:.95rem">📖</span>
+        <span>サポートサイトの使い方</span>
       </a>` : ""}
       <nav>
         <div class="grp">マイページ</div>
