@@ -894,6 +894,30 @@ function loginAdmin(){
 function logout(){ SESSION=null; LIVE=null; ADMIN_PASS=""; go("/"); }
 
 /* 任意：メールで自分の導入コンテンツを解放（ログインではなく解放のみ）*/
+function sideUnlock(){
+  var el = document.getElementById("sideGuestEmail");
+  var msgEl = document.getElementById("sideGuestMsg");
+  if(!el) return;
+  var email = (el.value||"").trim();
+  if(!email){ if(msgEl) msgEl.textContent = "メールアドレスを入力してください"; return; }
+  if(msgEl){ msgEl.textContent = "認証中…"; }
+  if(typeof GAS_ENABLED === "undefined" || !GAS_ENABLED){
+    if(msgEl) msgEl.textContent = "デモ環境では解放できません";
+    return;
+  }
+  fetch(GAS_URL+"?action=member&email="+encodeURIComponent(email)).then(function(r){return r.json();}).then(function(res){
+    if(res && res.ok && res.item){
+      try{ localStorage.setItem(REMEMBER_KEY, email); }catch(_){}
+      LIVE = res.item; SESSION = {role:"guest", live:true, email:email};
+      if(msgEl) msgEl.textContent = "✅ 解放しました：" + (res.item.salon||"");
+      setTimeout(function(){ render(); }, 400);
+    } else {
+      if(msgEl) msgEl.textContent = "該当なし。メールアドレスをご確認ください";
+    }
+  }).catch(function(){
+    if(msgEl) msgEl.textContent = "接続エラー";
+  });
+}
 function unlockByEmail(){
   const email=(val("guestEmail")||"").trim();
   const box=document.getElementById("guestMsg");
@@ -976,8 +1000,14 @@ function shell(active, body){
     ? `<div class="me"><div class="nm">${c.owner}</div><div class="salon">${c.salon}</div>
         <span class="cnt">管理モード</span></div>`
     : isGuest
-    ? `<div class="me"><div class="nm">${c.owner}</div><div class="salon">${c.salon}</div>
-        </div>`
+    ? `<div class="me"><div class="nm">ゲスト閲覧中</div><div class="salon" style="font-size:.7rem;line-height:1.55;opacity:.85;margin-top:4px">無料コンテンツを閲覧中<br>導入済みの方はログインで<br>専用動画が解放されます</div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15)">
+          <div style="font-size:.7rem;letter-spacing:.1em;opacity:.85;margin-bottom:6px">🔑 ログイン（解放）</div>
+          <input id="sideGuestEmail" type="email" placeholder="お申込時のメールアドレス" value="${(typeof getSavedEmail==='function'?getSavedEmail():'')}" style="width:100%;padding:8px 10px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;border-radius:8px;font-size:.75rem;box-sizing:border-box;margin-bottom:6px" />
+          <button onclick="sideUnlock()" style="width:100%;padding:8px;background:linear-gradient(135deg,#c9a875,#b08a5a);color:#fff;border:none;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;letter-spacing:.05em">解放する</button>
+          <div id="sideGuestMsg" style="font-size:.68rem;margin-top:6px;opacity:.85;min-height:1em"></div>
+        </div>
+      </div>`
     : `<div class="me"><div class="nm">${c.owner} 様</div><div class="salon">${c.salon} ・ ${c.pref}</div>
         <span class="cnt">導入 ${c.products.length} 件</span></div>`;
   return `<div class="app-shell">
