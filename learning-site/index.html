@@ -902,17 +902,19 @@ function sideUnlock(){
   if(!email){ if(msgEl) msgEl.textContent = "メールアドレスを入力してください"; return; }
   if(msgEl){ msgEl.textContent = "認証中…"; }
   if(typeof GAS_ENABLED === "undefined" || !GAS_ENABLED){
-    if(msgEl) msgEl.textContent = "デモ環境では解放できません";
+    if(msgEl) msgEl.textContent = "デモ環境ではログインできません";
     return;
   }
   fetch(GAS_URL+"?action=member&email="+encodeURIComponent(email)).then(function(r){return r.json();}).then(function(res){
-    if(res && res.ok && res.item){
+    // GASレスポンスがフラット構造の場合とネスト構造の両方に対応
+    var item = res && res.ok ? (res.item || (res.salon ? res : null)) : null;
+    if(item && item.salon){
       try{ localStorage.setItem(REMEMBER_KEY, email); }catch(_){}
-      LIVE = res.item; SESSION = {role:"guest", live:true, email:email};
-      if(msgEl) msgEl.textContent = "✅ 解放しました：" + (res.item.salon||"");
+      LIVE = item; SESSION = {role:"guest", live:true, email:email};
+      if(msgEl) msgEl.textContent = "✅ ログインしました：" + (item.salon||"");
       setTimeout(function(){ render(); }, 400);
     } else {
-      if(msgEl) msgEl.textContent = "該当なし。メールアドレスをご確認ください";
+      if(msgEl) msgEl.textContent = "該当なし。お申込時のメールアドレスをご確認ください";
     }
   }).catch(function(){
     if(msgEl) msgEl.textContent = "接続エラー";
@@ -1010,9 +1012,9 @@ function shell(active, body){
       ${isGuest ? `
       <!-- ① ログイン(解放) — 既存導入者向け -->
       <div style="margin:12px 14px 4px;padding:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,117,0.3);border-radius:10px">
-        <div style="font-size:.7rem;letter-spacing:.1em;color:var(--nude-100);opacity:.9;margin-bottom:8px">🔑 導入済みの方はこちら</div>
+        <div style="font-size:.7rem;letter-spacing:.1em;color:var(--nude-100);opacity:.9;margin-bottom:8px">🔑 導入済みの方 ログイン</div>
         <input id="sideGuestEmail" type="email" placeholder="お申込時のメールアドレス" value="${(typeof getSavedEmail==='function'?getSavedEmail():'')}" style="width:100%;padding:8px 10px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.15);color:#fff;border-radius:6px;font-size:.75rem;box-sizing:border-box;margin-bottom:6px" />
-        <button onclick="sideUnlock()" style="width:100%;padding:9px;background:transparent;color:#c9a875;border:1px solid #c9a875;border-radius:6px;font-size:.78rem;font-weight:600;cursor:pointer;letter-spacing:.05em;transition:.2s" onmouseover="this.style.background='rgba(201,168,117,0.15)'" onmouseout="this.style.background='transparent'">ログイン（解放）</button>
+        <button onclick="sideUnlock()" style="width:100%;padding:9px;background:transparent;color:#c9a875;border:1px solid #c9a875;border-radius:6px;font-size:.78rem;font-weight:600;cursor:pointer;letter-spacing:.05em;transition:.2s" onmouseover="this.style.background='rgba(201,168,117,0.15)'" onmouseout="this.style.background='transparent'">ログインする</button>
         <div id="sideGuestMsg" style="font-size:.68rem;margin-top:6px;opacity:.85;min-height:1em;color:var(--nude-100)"></div>
       </div>
 
