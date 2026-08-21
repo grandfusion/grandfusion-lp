@@ -915,11 +915,11 @@ function sideUnlock(){
   }
   fetch(GAS_URL+"?action=member&email="+encodeURIComponent(email)).then(function(r){return r.json();}).then(function(res){
     // GASレスポンスがフラット構造の場合とネスト構造の両方に対応
-    var item = res && res.ok ? (res.item || (res.salon ? res : null)) : null;
-    if(item && item.salon){
-      try{ localStorage.setItem(REMEMBER_KEY, email); }catch(_){}
-      LIVE = item; SESSION = {role:"guest", live:true, email:email};
-      if(msgEl) msgEl.textContent = "✅ ログインしました：" + (item.salon||"");
+    if(res && res.ok && res.salon){
+      try{ if(typeof saveEmail==="function") saveEmail(res.email||email); else localStorage.setItem(REMEMBER_KEY, email); }catch(_){}
+      LIVE = {salon:res.salon, owner:res.owner, pref:res.pref, email:res.email||email, products:res.products||[]};
+      SESSION = {role:"client", live:true};
+      if(msgEl) msgEl.textContent = "✅ ログインしました：" + (res.salon||"");
       setTimeout(function(){ render(); }, 400);
     } else {
       if(msgEl) msgEl.textContent = "該当なし。お申込時のメールアドレスをご確認ください";
