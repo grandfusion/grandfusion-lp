@@ -185,6 +185,18 @@ a:hover{opacity:.75}
 .movie .yt{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 32px rgba(139,111,74,.18);background:#000;margin-bottom:28px}
 .movie .yt iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 .movie .movie-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* BEFORE/AFTER section */
+.ba{background:var(--c-cream)}
+.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1000px;margin:0 auto}
+.ba-card{background:#fff;border:1px solid var(--c-line);overflow:hidden;transition:transform .3s ease,box-shadow .3s ease}
+.ba-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(156,128,98,.16);border-color:var(--c-gold-light)}
+.ba-card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:#f5efe6;display:block}
+.ba-card .ba-body{padding:20px 22px}
+.ba-tag{font-family:var(--ff-en);font-size:11px;letter-spacing:.22em;color:var(--c-gold);margin-bottom:6px}
+.ba-card h4{font-family:var(--ff-serif);font-size:16px;font-weight:600;color:var(--c-text);margin-bottom:6px;line-height:1.5}
+.ba-card p{font-size:13px;line-height:1.85;color:var(--c-text-sub)}
+.ba-notice{max-width:1000px;margin:24px auto 0;font-size:11.5px;line-height:1.8;color:var(--c-text-light);text-align:center;padding:14px 16px;background:rgba(255,255,255,.6);border:1px dashed var(--c-line)}
+@media(max-width:768px){.ba-grid{grid-template-columns:1fr}}
 .header-left{display:flex;align-items:center;gap:16px}
 .portal-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--ff-serif);font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--c-gold-dark);background:var(--c-beige-light);border:1px solid var(--c-gold-light);border-radius:3px;padding:5px 11px;white-space:nowrap;line-height:1.2}
 .portal-link:hover{background:var(--c-gold);color:#fff;border-color:var(--c-gold);opacity:1}
@@ -312,6 +324,52 @@ a:hover{opacity:.75}
         </tbody>
       </table>
     </div>
+  </div>
+</section>
+
+<!-- ===== Before / After ===== -->
+<section class="sec ba" id="before-after">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <div class="sec-en">Before / After</div>
+      <div class="sec-jp">続けた方の記録</div>
+    </div>
+    <p class="sec-lead">3日・1か月・1年、そして部位ごと。<em>時間をかけて続けた"見た印象"</em>の変化を、ありのままご覧ください。</p>
+    <div class="ba-grid">
+      <div class="ba-card">
+        <img src="images/before-after/ba-3days.jpg" alt="3日間続けた見た印象">
+        <div class="ba-body">
+          <div class="ba-tag">DAY 3</div>
+          <h4>3日間、続けた見た印象</h4>
+          <p>お風呂で塗って流すだけ。短期間で"肌にのった空気感"の違いを感じた方の記録です。</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <img src="images/before-after/ba-1month.jpg" alt="1か月続けた見た印象">
+        <div class="ba-body">
+          <div class="ba-tag">1 MONTH</div>
+          <h4>1か月、続けた見た印象</h4>
+          <p>頬まわりの印象の変化。毎日のリズムに"のせる"だけを続けた1か月です。</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <img src="images/before-after/ba-1year.jpg" alt="1年間続けた見た印象">
+        <div class="ba-body">
+          <div class="ba-tag">1 YEAR</div>
+          <h4>1年間、毎日続けた記録</h4>
+          <p>「年齢＋28日」を何周も。続けた先の見た印象を、ご本人の同意のもと掲載しています。</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <img src="images/before-after/ba-neck.jpg" alt="首もとの見た印象の変化">
+        <div class="ba-body">
+          <div class="ba-tag">NECK</div>
+          <h4>首もとの見た印象の変化</h4>
+          <p>お顔だけでなく首もとまで。塗る部位を広げた方の記録です。</p>
+        </div>
+      </div>
+    </div>
+    <p class="ba-notice">※ 感じ方には個人差があります／※ 写真は同条件（同じ照明・ノーメイク・無加工）で撮影しています／※ スタッフ・モニターの方による自社商品の使用レポートです。効果を保証するものではありません。</p>
   </div>
 </section>
 
