@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script>if(location.hostname==="grandfusion-lp.vercel.app")location.replace("https://grandfusion-official.site/lp/products/");</script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
@@ -200,6 +200,8 @@ a:hover{opacity:.75}
   gap:24px;
 }
 .biz-grid--3{grid-template-columns:repeat(3,1fr)}
+.startup-grid{grid-template-columns:repeat(2,1fr);gap:30px;max-width:1000px;margin:0 auto}
+@media(max-width:768px){.startup-grid{grid-template-columns:1fr;max-width:500px;gap:24px}}
 .biz-card{
   background:#fff;
   border:1px solid var(--c-line);
@@ -666,313 +668,36 @@ a:hover{opacity:.75}
 .portal-ic{font-size:11px;line-height:1}
 @media(max-width:1080px){.header-left{gap:10px}.portal-link{font-size:10px;padding:4px 8px}}
 @media(max-width:520px){.header-left{gap:9px}.portal-link{font-size:10px;padding:4px 8px}.portal-ic{font-size:10px}}
-
-/* ============ PORTAL PREVIEW ============ */
-.portal-preview{
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:60px;
-  align-items:center;
-  background:#fff;
-  border:1px solid var(--c-line);
-  padding:60px;
-  margin-bottom:80px;
-  position:relative;
-  overflow:hidden;
-}
-.portal-preview::before{
-  content:"";position:absolute;top:0;left:0;
-  width:6px;height:100%;
-  background:linear-gradient(180deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
-}
-.portal-tag{
-  font-family:var(--ff-en);
-  font-size:11px;letter-spacing:.3em;
-  color:var(--c-gold);
-  padding:6px 14px;
-  border:1px solid var(--c-gold-light);
-  display:inline-block;margin-bottom:20px;
-}
-.portal-en{
-  font-family:var(--ff-en);
-  font-size:22px;letter-spacing:.2em;
-  color:var(--c-gold-dark);
-  margin-bottom:10px;
-}
-.portal-title{
-  font-family:var(--ff-serif);
-  font-size:28px;font-weight:600;
-  letter-spacing:.08em;
-  line-height:1.5;
-  margin-bottom:20px;
-  color:var(--c-text);
-}
-.portal-desc{
-  font-family:var(--ff-serif);
-  font-size:14px;line-height:2.1;
-  color:var(--c-text-sub);
-  letter-spacing:.06em;
-  margin-bottom:24px;
-}
-.portal-desc em{font-style:normal;color:var(--c-gold-dark);font-weight:500}
-.portal-features{
-  list-style:none;margin:0 0 30px;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:8px 18px;
-}
-.portal-features li{
-  font-size:12.5px;
-  color:var(--c-text-sub);
-  padding-left:22px;position:relative;
-}
-.portal-features li::before{
-  content:"";position:absolute;left:0;top:8px;
-  width:14px;height:14px;border-radius:50%;
-  border:1px solid var(--c-gold);
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/9px no-repeat;
-}
-
-/* ▼ モックアップ画面 */
-.portal-mockup{position:relative}
-.mockup-frame{
-  background:#1f1810;
-  border-radius:10px;
-  padding:14px 14px 18px;
-  box-shadow:0 30px 80px rgba(31,24,16,.25);
-  overflow:hidden;
-}
-.mockup-bar{
-  display:flex;align-items:center;gap:6px;
-  padding:6px 4px 12px;
-  position:relative;
-}
-.mockup-dot{
-  width:10px;height:10px;border-radius:50%;
-  background:#3a3024;
-}
-.mockup-dot:nth-child(1){background:#e07d5b}
-.mockup-dot:nth-child(2){background:#dab46b}
-.mockup-dot:nth-child(3){background:#8aaa6b}
-.mockup-url{
-  margin:0 auto;
-  font-family:var(--ff-en);
-  font-size:11px;
-  letter-spacing:.15em;
-  color:#7a6a5a;
-  background:#2a2218;
-  padding:4px 16px;
-  border-radius:10px;
-}
-.mockup-screen{
-  background:linear-gradient(180deg,#faf6f0 0%,#f5efe6 100%);
-  border-radius:6px;
-  padding:22px 22px 24px;
-}
-/* ヘッダー */
-.mockup-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:14px;
-  border-bottom:1px solid var(--c-line);
-  margin-bottom:18px;
-}
-.mockup-brand{
-  font-family:var(--ff-en);
-  font-size:14px;letter-spacing:.25em;
-  color:var(--c-text);
-  font-weight:500;
-}
-.mockup-rank{display:flex;align-items:center;gap:10px}
-.mockup-rank-label{
-  font-family:var(--ff-en);
-  font-size:9px;letter-spacing:.25em;
-  color:var(--c-text-light);
-}
-.mockup-rank-badge{
-  font-family:var(--ff-en);
-  font-size:10px;letter-spacing:.2em;
-  padding:4px 12px;border-radius:14px;
-  background:#f5e6c8;color:#9c7a3a;
-  border:1px solid #d4b88a;
-}
-/* 進捗 */
-.mockup-progress{
-  background:#fff;
-  border:1px solid var(--c-line);
-  border-radius:4px;
-  padding:14px 16px;
-  margin-bottom:18px;
-}
-.mockup-progress-head{
-  display:flex;justify-content:space-between;align-items:baseline;
-  font-size:10.5px;color:var(--c-text-sub);
-  letter-spacing:.05em;margin-bottom:8px;
-}
-.mockup-amount{
-  font-family:var(--ff-en);
-  font-size:13px;font-weight:600;
-  color:var(--c-gold-dark);
-  letter-spacing:.05em;
-}
-.mockup-bar-track{
-  width:100%;height:5px;
-  background:var(--c-beige-light);
-  border-radius:3px;overflow:hidden;
-}
-.mockup-bar-fill{
-  width:62%;height:100%;
-  background:linear-gradient(90deg,var(--c-gold) 0%,var(--c-gold-light) 100%);
-  border-radius:3px;
-}
-.mockup-progress-foot{
-  font-size:9.5px;color:var(--c-text-light);
-  margin-top:6px;text-align:right;
-}
-/* 動画グリッド */
-.mockup-section-title{
-  font-family:var(--ff-serif);
-  font-size:12px;font-weight:600;
-  letter-spacing:.15em;
-  color:var(--c-text);
-  margin-bottom:10px;
-}
-.mockup-videos{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-}
-.mockup-video{
-  background:#fff;
-  border:1px solid var(--c-line);
-  border-radius:3px;
-  overflow:hidden;
-  position:relative;
-}
-.mockup-thumb{
-  height:60px;
-  background:linear-gradient(135deg,#d4b88a 0%,#b89968 100%);
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;
-  font-size:18px;
-}
-.mockup-thumb--alt{background:linear-gradient(135deg,#c9ccd0 0%,#8b8e93 100%)}
-.mockup-thumb--gold{background:linear-gradient(135deg,#f0c878 0%,#c99847 100%)}
-.mockup-thumb--lock{
-  background:#ebe3d3;
-  color:#9c8775;
-  font-size:16px;
-}
-.mockup-play{
-  width:22px;height:22px;
-  border-radius:50%;
-  background:rgba(255,255,255,.25);
-  display:flex;align-items:center;justify-content:center;
-  font-size:9px;
-  backdrop-filter:blur(4px);
-}
-.mockup-lock{font-size:14px;opacity:.6}
-.mockup-vtag{
-  position:absolute;top:6px;left:6px;
-  font-family:var(--ff-en);
-  font-size:8px;letter-spacing:.15em;
-  padding:2px 6px;border-radius:8px;
-  background:rgba(255,255,255,.95);
-  color:var(--c-gold-dark);
-  border:1px solid var(--c-gold-light);
-}
-.mockup-vtag--lock{
-  background:rgba(0,0,0,.4);
-  color:#fff;
-  border-color:transparent;
-}
-.mockup-vname{
-  padding:6px 8px;
-  font-family:var(--ff-serif);
-  font-size:10px;
-  color:var(--c-text);
-  letter-spacing:.02em;
-}
-.mockup-video--lock .mockup-vname{color:var(--c-text-light)}
-
-.portal-mockup-note{
-  text-align:right;
-  font-size:10px;
-  color:var(--c-text-light);
-  letter-spacing:.1em;
-  margin-top:10px;
-}
-
-@media(max-width:900px){
-  .portal-preview{grid-template-columns:1fr;gap:36px;padding:36px 24px}
-  .portal-title{font-size:22px}
-  .portal-features{grid-template-columns:1fr}
-}
-@media(max-width:520px){
-  .mockup-videos{grid-template-columns:repeat(2,1fr)}
-}
-.support-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-}
-.support-grid--2{
-  grid-template-columns:repeat(2,1fr);
-  max-width:880px;
-  margin:0 auto;
-}
-.support-foot-note{
-  text-align:center;
-  font-family:var(--ff-serif);
-  font-size:13px;
-  color:var(--c-text-sub);
-  letter-spacing:.06em;
-  background:var(--c-beige-light);
-  padding:18px 24px;
-  border-radius:4px;
-  max-width:780px;
-  margin:0 auto;
-  line-height:2;
-}
-.support-foot-note strong{
-  color:var(--c-gold-dark);
-  font-weight:600;
-}
-.support-foot-note a{
-  color:var(--c-gold-dark);
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
 </style>
-<style>.nav-home{display:inline-flex;align-items:center;padding:7px 14px;border:1px solid rgba(255,255,255,0.4);border-radius:999px;font-size:12px;letter-spacing:1px;transition:0.3s;color:inherit;margin-right:4px;}.nav-home:hover{background:rgba(0,0,0,0.06);}</style>
 </head>
 <body>
 <!-- ===== HEADER ===== -->
 <header class="header">
   <div class="header-inner">
     <div class="header-left">
-      <a href="https://grandfusion-official.site/" class="logo">
+      <a href="../index.html" class="logo">
       Grand Fusion
       <small>株式会社グランフュージョン</small>
     </a>
-      <a class="portal-link" href="https://grandfusion-official.site/lp/learning-site/#/" target="_blank" rel="noopener" title="導入者様専用 学習サイト"><span class="portal-ic">🔑</span><span class="portal-label">導入者様専用サイト</span></a>
+      <a class="portal-link" href="https://grandfusion-lp.vercel.app/learning-site/" target="_blank" rel="noopener" title="導入者様専用 学習サイト"><span class="portal-ic">🔑</span><span class="portal-label">導入者様専用サイト</span></a>
     </div>
     <nav class="nav" id="nav">
-      <a href="https://grandfusion-official.site/" class="nav-home">← TOPページ</a>
-      <a href="https://salon-mgmt.grandfusion-official.site/">エステサロン経営</a>
+      <a href="../beauty_salon_mgmt/index.html">エステサロン経営</a>
       <a href="#machines">エステマシン販売</a>
             <div class="nav-item nav-dropdown">
         <a class="nav-drop-trigger">ヌドゥーク<span class="nav-caret">▾</span></a>
         <div class="dropdown">
-          <a href="https://suiso.grandfusion-official.site/">水素 skin bank H⁺<small>水素パウダー</small></a>
-          <a href="https://aura-pack.grandfusion-official.site/">炭酸オーラパック</a>
-          <a href="https://aura-cream.grandfusion-official.site/">オーラクリーム<small>仕上げオーラクリーム</small></a>
-          <a href="https://repair-cream.grandfusion-official.site/">リペアクリーム pro</a>
-          <a href="https://protein.grandfusion-official.site/" target="_blank" rel="noopener">オーラプロテイン</a>
+          <a href="../nuduque/suiso/index.html">水素 skin bank H⁺<small>水素パウダー</small></a>
+          <a href="../nuduque/aura-pack/index.html">炭酸オーラパック</a>
+          <a href="../nuduque/aura-cream/index.html">オーラクリーム<small>仕上げオーラクリーム</small></a>
+          <a href="../nuduque/repair-cream/index.html">リペアクリーム pro</a>
+          <a href="https://nuduqueprotein-blp.manus.space/" target="_blank" rel="noopener">オーラプロテイン</a>
         </div>
       </div>
-      <a href="https://hair-salon.grandfusion-official.site/">美容室</a>
+      <a href="https://grandfusion-official.site/hair_salon/">美容室</a>
       <a href="#blog">BLOG</a>
-      <a href="https://grandfusion-official.site/events/">イベント・セミナー</a>
-      <a href="https://s.lmes.jp/landing-qr/2004208943-Z6WEoRgX?uLand=8y8zXO" target="_blank" rel="noopener" class="cta-btn">お問い合わせ</a>
+      <a href="#">イベント・セミナー</a>
+      <a href="../index.html#contact" class="cta-btn">お問い合わせ</a>
     </nav>
     <button class="menu-btn" id="menuBtn">≡</button>
   </div>
@@ -1066,20 +791,7 @@ a:hover{opacity:.75}
           <div class="biz-name-en">repair aura pack</div>
           <div class="biz-name">炭酸オーラパック</div>
           <p class="biz-desc">CO₂による細胞活性アプローチ。医療技術から生まれた次世代スキンケア。</p>
-          <a href="https://aura-pack.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
-        </div>
-      </div>
-
-      <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/nuduque-aura-cream.jpg" alt="オーラクリーム">
-        </div>
-        <div class="biz-body">
-          <div class="biz-name-en">aura cream</div>
-          <div class="biz-name">オーラクリーム</div>
-          <p class="biz-desc">守りながら、育てる。紫外線対策と肌育を一本に。AC-11配合の業務用 仕上げオーラクリーム。</p>
-          <a href="https://aura-cream.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <a href="../nuduque/aura-pack/index.html" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
         </div>
       </div>
 
@@ -1092,7 +804,7 @@ a:hover{opacity:.75}
           <div class="biz-name-en">repair cream pro</div>
           <div class="biz-name">リペアクリーム pro</div>
           <p class="biz-desc">施術後の肌を素早く回復。バリア機能をサポートする高機能クリーム。</p>
-          <a href="https://repair-cream.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <a href="../nuduque/repair-cream/index.html" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
         </div>
       </div>
 
@@ -1105,7 +817,7 @@ a:hover{opacity:.75}
           <div class="biz-name-en">aura protein</div>
           <div class="biz-name">オーラプロテイン</div>
           <p class="biz-desc">体質改善・根本改善をサポート。インナーから美しさを引き出す。</p>
-          <a href="https://protein.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <a href="https://nuduqueprotein-blp.manus.space/" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
         </div>
       </div>
 
@@ -1118,7 +830,7 @@ a:hover{opacity:.75}
           <div class="biz-name-en">skin bank H⁺</div>
           <div class="biz-name">水素 skin bank H⁺</div>
           <p class="biz-desc">次世代高濃度水素パウダー。活性酸素を除去し、細胞レベルから整える。</p>
-          <a href="https://suiso.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
+          <a href="../nuduque/suiso/index.html" target="_blank" rel="noopener" class="biz-link">商品の詳細を見る</a>
         </div>
       </div>
     </div>
@@ -1147,7 +859,7 @@ a:hover{opacity:.75}
           <div class="biz-name-en">CLINICAL GRADE RF</div>
           <div class="biz-name">BTXtherma</div>
           <p class="biz-desc">40.68MHz超高周波を採用した次世代RFマシン。高い安全性と、幅広い施術メニュー展開を実現します。</p>
-          <a href="https://btxtherma.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
+          <a href="btxtherma/index.html" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
         </div>
       </div>
 
@@ -1160,7 +872,7 @@ a:hover{opacity:.75}
           <div class="biz-name-en">ELECTROPORATION</div>
           <div class="biz-name">リジェセル</div>
           <p class="biz-desc">エレクトロポレーション技術で有効成分を真皮層まで浸透。クリニック級の結果をサロンで実現します。</p>
-          <a href="https://regecell.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
+          <a href="regecell/index.html" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
         </div>
       </div>
     </div>
@@ -1179,7 +891,7 @@ a:hover{opacity:.75}
       サロン経営をワンストップで支えるサポートをご用意しています。
     </p>
 
-    <div class="biz-grid" style="grid-template-columns:repeat(2,1fr);gap:30px;max-width:1000px;margin:0 auto;">
+    <div class="biz-grid startup-grid">
 
       <!-- ▼ 開業サポートパック -->
       <div class="biz-card biz-card--feature">
@@ -1193,7 +905,7 @@ a:hover{opacity:.75}
           <p class="biz-desc">
             BTXtherma × リジェセル マシン2台＋6ヶ月伴走サポート。価格設定・ブランディング不要で、「悩まない開業」を実現します。サロンの立ち上げから安定経営まで、伴走型でサポート。
           </p>
-          <a href="https://kaigyo.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link biz-link--fill">開業パック詳細を見る</a>
+          <a href="kaigyo/index.html" target="_blank" rel="noopener" class="biz-link biz-link--fill">開業パック詳細を見る</a>
         </div>
       </div>
 
@@ -1215,7 +927,7 @@ a:hover{opacity:.75}
             <li>補助金・助成金 申請支援</li>
             <li>個別ご相談対応</li>
           </ul>
-          <a href="https://financing.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link biz-link--fill">融資サポートはこちら</a>
+          <a href="financing/index.html" target="_blank" rel="noopener" class="biz-link biz-link--fill">融資サポートはこちら</a>
           <div class="biz-note">※ 別途お申し込みが必要なオプションサービスです</div>
         </div>
       </div>
@@ -1224,107 +936,6 @@ a:hover{opacity:.75}
 </section>
 
 <!-- ===== BACK CTA ===== -->
-<section class="section support-section" id="support">
-  <div class="section-inner">
-    <div class="section-head">
-      <div class="section-en">Support</div>
-      <div class="section-jp">導入サポート体制</div>
-    </div>
-
-    <!-- ▼ メーカーポータル サンプル -->
-    <div class="portal-preview">
-      <div class="portal-preview__text">
-        <div class="portal-tag">MEMBERS ONLY</div>
-        <div class="portal-en">GrandFusion Maker Portal</div>
-        <h3 class="portal-title">導入者様専用<br>学習コンテンツポータル</h3>
-        <p class="portal-desc">
-          仕入れ額に応じて解放される、<em>50本以上の動画学習コンテンツ</em>を会員専用ポータルにて提供。<br>
-          施術技術・集客・経営・カウンセリングまで、サロン経営のすべてが学べます。
-        </p>
-        <ul class="portal-features">
-          <li>仕入れ額連動 8段階ランク制度</li>
-          <li>動画コンテンツ50本以上</li>
-          <li>学習ログの可視化・管理</li>
-          <li>年1〜2回 GrandFusionアワード</li>
-        </ul>
-        <a href="https://grandfusion-official.site/lp/learning-site/#/" target="_blank" rel="noopener" class="btn btn-fill">学習サイトのサンプルを見る</a>
-      </div>
-
-      <!-- ▼ ポータルのモックアップ -->
-      <div class="portal-mockup">
-        <div class="mockup-frame">
-          <div class="mockup-bar">
-            <span class="mockup-dot"></span>
-            <span class="mockup-dot"></span>
-            <span class="mockup-dot"></span>
-            <span class="mockup-url">grandfusion-portal.com</span>
-          </div>
-          <div class="mockup-screen">
-            <!-- ヘッダー -->
-            <div class="mockup-header">
-              <div class="mockup-brand">GrandFusion</div>
-              <div class="mockup-rank">
-                <span class="mockup-rank-label">YOUR RANK</span>
-                <span class="mockup-rank-badge">GOLD</span>
-              </div>
-            </div>
-            <!-- 進捗 -->
-            <div class="mockup-progress">
-              <div class="mockup-progress-head">
-                <span>累計仕入れ額</span>
-                <span class="mockup-amount">¥ 620,000</span>
-              </div>
-              <div class="mockup-bar-track">
-                <div class="mockup-bar-fill"></div>
-              </div>
-              <div class="mockup-progress-foot">次のランク AMBER まで ¥80,000</div>
-            </div>
-            <!-- 動画グリッド -->
-            <div class="mockup-section-title">学習コンテンツ</div>
-            <div class="mockup-videos">
-              <div class="mockup-video">
-                <div class="mockup-thumb"><span class="mockup-play">▶</span></div>
-                <div class="mockup-vtag">BRONZE</div>
-                <div class="mockup-vname">商材の基礎知識</div>
-              </div>
-              <div class="mockup-video">
-                <div class="mockup-thumb mockup-thumb--alt"><span class="mockup-play">▶</span></div>
-                <div class="mockup-vtag">SILVER</div>
-                <div class="mockup-vname">カウンセリング術</div>
-              </div>
-              <div class="mockup-video">
-                <div class="mockup-thumb mockup-thumb--gold"><span class="mockup-play">▶</span></div>
-                <div class="mockup-vtag">GOLD</div>
-                <div class="mockup-vname">痩身技術アドバンス</div>
-              </div>
-              <div class="mockup-video mockup-video--lock">
-                <div class="mockup-thumb mockup-thumb--lock"><span class="mockup-lock">🔒</span></div>
-                <div class="mockup-vtag mockup-vtag--lock">AMBER</div>
-                <div class="mockup-vname">集客マーケ講座</div>
-              </div>
-              <div class="mockup-video mockup-video--lock">
-                <div class="mockup-thumb mockup-thumb--lock"><span class="mockup-lock">🔒</span></div>
-                <div class="mockup-vtag mockup-vtag--lock">DIAMOND</div>
-                <div class="mockup-vname">経営・マインド</div>
-              </div>
-              <div class="mockup-video mockup-video--lock">
-                <div class="mockup-thumb mockup-thumb--lock"><span class="mockup-lock">🔒</span></div>
-                <div class="mockup-vtag mockup-vtag--lock">LEGEND</div>
-                <div class="mockup-vname">全コンテンツ解放</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="portal-mockup-note">※ イメージ画面です</div>
-      </div>
-    </div>
-
-    <p class="support-foot-note">
-      ※ サロン開業時の<strong>融資サポート</strong>については、<a href="#startup">開業・融資サポートのページ</a>をご覧ください。
-    </p>
-  </div>
-</section>
-
 <section class="back-cta">
   <div class="back-cta-inner">
     <div class="back-cta-tag">CONTACT</div>
@@ -1355,7 +966,7 @@ a:hover{opacity:.75}
     </div>
 
     <div class="back-cta-buttons back-cta-buttons--primary">
-      <a href="https://s.lmes.jp/landing-qr/2004208943-Z6WEoRgX?uLand=8y8zXO" target="_blank" rel="noopener" class="contact-line">お問い合わせはこちら</a>
+      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="contact-line">お問い合わせはこちら</a>
     </div>
     <div class="back-cta-buttons">
       <a href="#products" class="btn btn-fill">↑ 商材一覧へ戻る</a>
@@ -1425,7 +1036,7 @@ a:hover{opacity:.75}
     <a href="#machines">MACHINES</a>
     <a href="#startup">START UP</a>
     <a href="#blog">BLOG</a>
-    <a href="https://s.lmes.jp/landing-qr/2004208943-Z6WEoRgX?uLand=8y8zXO" target="_blank" rel="noopener">CONTACT</a>
+    <a href="../index.html#contact">CONTACT</a>
   </nav>
   <div class="copyright">© 2026 GrandFusion Co., Ltd. All Rights Reserved.</div>
 </footer>
