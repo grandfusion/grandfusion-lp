@@ -315,14 +315,14 @@ footer.ft small{font-size:.72rem;color:var(--nude-400)}
    MOCK DATA  —  解放は「導入商材・マシン・有料講座」連動 (ランク制度なし)
 =================================================================== */
 const IMG = {
-  hero:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-hero-products_6bdc7be0.jpg",
-  aura:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-aura-pack_bf792d56.jpg",
-  repair:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-repair-cream_e39c5659.webp",
-  protein:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-protein_a44a55a2.jpg",
-  skinbank:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/nuduque-skinbank_33abd3db.jpg",
-  btx:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/btxtherma-machine_b8b7295a.webp",
-  rege:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/regecell-machine_786263b5.webp",
-  kaigyo:"https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/mxgQY3saBZok99TjGMgj4n/kaigyopack-hero_94e4ee44.webp",
+  hero:"https://lp.grandfusion-official.site/images/nuduque-collection.webp",
+  aura:"https://lp.grandfusion-official.site/images/nuduque-aura-pack.jpg",
+  repair:"https://lp.grandfusion-official.site/images/nuduque-repair-cream.webp",
+  protein:"https://lp.grandfusion-official.site/images/nuduque-protein.jpg",
+  skinbank:"https://lp.grandfusion-official.site/images/nuduque-skinbank.jpg",
+  btx:"https://lp.grandfusion-official.site/images/btxtherma-machine.webp",
+  rege:"https://lp.grandfusion-official.site/images/regecell-machine.webp",
+  kaigyo:"https://lp.grandfusion-official.site/images/kaigyopack-hero.webp",
 };
 
 // --- 商材・マシン (productKey) ---
@@ -330,8 +330,8 @@ const PRODUCTS = [
   {productKey:"aura_pack",  name:"炭酸オーラパック",  brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:IMG.aura,
    desc:"CO₂による細胞活性アプローチ。医療技術から生まれた次世代スキンケア。", lp:"https://nuduquelp-aura.manus.space",
    unlock:"炭酸パック施術マスター講座を解放"},
-  {productKey:"aura_cream", name:"オーラクリーム",      brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:"https://grandfusion-lp.vercel.app/nuduque/aura-cream/images/product.png",
-   desc:"守りながら、育てる。紫外線対策と肌育を一本に。AC-11配合の業務用 仕上げオーラクリーム。", lp:"https://grandfusion-lp.vercel.app/nuduque/aura-cream/index.html",
+  {productKey:"aura_cream", name:"オーラクリーム",      brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:"https://lp.grandfusion-official.site/images/nuduque-aura-cream.jpg",
+   desc:"守りながら、育てる。紫外線対策と肌育を一本に。AC-11配合の業務用 仕上げオーラクリーム。", lp:"https://aura-cream.grandfusion-official.site/",
    unlock:"オーラクリーム 仕上げ活用講座を解放"},
   {productKey:"repair_cream",name:"リペアクリーム pro", brand:"NUDUQUE", kind:"商材", cat:"COSMETIC", img:IMG.repair,
    desc:"施術後の肌を素早く回復。バリア機能をサポートする高機能クリーム。", lp:"https://repair-blp.manus.space",
@@ -838,7 +838,7 @@ ${(()=>{const bl=getBlog().filter(b=>String(b.published)!=="FALSE"&&(b.scope==="
   <div class="sec-head"><span class="eyebrow">FAQ</span><h2>よくある質問</h2></div>
   <div style="max-width:760px;margin:0 auto">
     ${[
-      ["コンテンツはどのように解放されますか？","導入申し込みをされた方に、申し込み商材ごとの専用コンテンツが解放されます。無料講座はすべての方がいつでも視聴できます。<br><a href='https://grandfusion-lp.vercel.app/apply.html' target='_blank' style='display:inline-block;margin-top:10px;color:var(--gold-deep);border-bottom:1px solid var(--gold-deep);font-family:var(--display);letter-spacing:.06em'>▶ 導入申し込みフォームはこちら</a>"],
+      ["コンテンツはどのように解放されますか？","導入申し込みをされた方に、申し込み商材ごとの専用コンテンツが解放されます。無料講座はすべての方がいつでも視聴できます。<br><a href='https://grandfusion-official.site/lp/apply.html' target='_blank' style='display:inline-block;margin-top:10px;color:var(--gold-deep);border-bottom:1px solid var(--gold-deep);font-family:var(--display);letter-spacing:.06em'>▶ 導入申し込みフォームはこちら</a>"],
       ["動画コンテンツはどこで視聴できますか？","「コンテンツ」ページからログイン不要で視聴できます。導入者専用の動画は、お申し込み時のメールアドレスを入力すると解放されます。スマホ・PCどちらにも対応しています。"],
       ["有料講座は単体で購入できますか？","はい。集客・経営・融資などの有料講座は、必要なものだけを単体で購入・受講できます。購入後すぐにコンテンツが解放されます。"],
       ["マシン350万円以上購入の伴走サポートとは？","技術指導・集客戦略・カウンセリング研修・売上進捗管理を含む3ヶ月の専任講師サポートです。導入後すぐに結果を出すための個別伴走プログラムです。"],
