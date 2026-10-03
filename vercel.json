@@ -1,7 +1,13 @@
 {
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/learning-site",
+      "destination": "https://grandfusion-official.site/members/",
+      "permanent": false
+    },
+    {
+      "source": "/learning-site/",
       "destination": "https://grandfusion-official.site/members/",
       "permanent": false
     },
