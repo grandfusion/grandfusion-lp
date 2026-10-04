@@ -72,6 +72,8 @@ header.nav{position:sticky;top:0;z-index:80;backdrop-filter:blur(14px);backgroun
 .nav-in{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:24px}
 .brand{font-family:var(--display);font-weight:600;letter-spacing:.22em;font-size:1.05rem}
 .brand small{display:block;font-size:.52rem;letter-spacing:.4em;color:var(--clay);font-weight:400}
+.hp-back{font-family:var(--display);font-size:.72rem;letter-spacing:.08em;color:var(--clay);border:1px solid var(--line);border-radius:999px;padding:5px 13px;white-space:nowrap;transition:.2s;line-height:1}
+.hp-back:hover{color:var(--espresso);border-color:var(--clay);background:rgba(0,0,0,.02)}
 .nav-links{display:flex;gap:22px;margin-left:auto;align-items:center}
 .nav-links a{font-family:var(--display);font-size:.8rem;letter-spacing:.08em;color:var(--mocha);transition:.2s}
 .nav-links a:hover{color:var(--espresso)}
@@ -704,12 +706,12 @@ window.addEventListener("load", loadContent); // 公開ブログ等のためGAS�
 function topnav(){
   return `<header class="nav"><div class="nav-in">
     <a href="#/" class="brand">GRANDFUSION<small>MAKER SUPPORT</small></a>
+    <a href="https://grandfusion-official.site/" class="hp-back">← HP TOP</a>
     <button class="nav-toggle" onclick="document.getElementById('nlinks').classList.toggle('open')">&#9776;</button>
     <nav class="nav-links" id="nlinks">
       <a href="#" onclick="goSection('about');return false">強み</a><a href="#" onclick="goSection('philosophy');return false">哲学</a><a href="#" onclick="goSection('products');return false">商材</a>
       <a href="#" onclick="goSection('unlock');return false">解放のしくみ</a><a href="#" onclick="goSection('blog');return false">ブログ</a><a href="#" onclick="goSection('support');return false">サポート</a><a href="#" onclick="goSection('faq');return false">FAQ</a>
       <a href="https://lin.ee/wNXRto9" target="_blank">LINE相談</a>
-      <a href="https://grandfusion-official.site/">GrandFusion HP</a>
       <a href="#/courses" class="btn btn-primary btn-sm" style="color:#fff">コンテンツを見る</a>
     </nav></div></header>`;
 }
