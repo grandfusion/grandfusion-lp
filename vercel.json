@@ -2,21 +2,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/products/financing",
-      "destination": "https://grandfusion-official.site/financing/",
-      "permanent": true
-    },
-    {
-      "source": "/products/financing/",
-      "destination": "https://grandfusion-official.site/financing/",
-      "permanent": true
-    },
-    {
-      "source": "/products/financing/:path*",
-      "destination": "https://grandfusion-official.site/financing/",
-      "permanent": true
-    },
-    {
       "source": "/learning-site",
       "destination": "https://grandfusion-official.site/members/",
       "permanent": false
