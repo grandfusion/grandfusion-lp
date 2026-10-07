@@ -1,1003 +1,292 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>エステマシン販売｜自社クリニカルマシン・開業サポート｜GrandFusion</title>
-<meta name="description" content="株式会社GrandFusionのエステマシン販売ページ。医療発想で開発したBTXtherma・リジェセルの自社クリニカルマシン、開業サポートパック、融資サポートまでサロン経営をワンストップで支援します。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="医療発想で開発した自社クリニカルマシンと、導入時の開業・融資サポートまで。サロン経営をワンストップで支える製品ラインナップです。">
 <style>
-:root{
-  --c-base:#faf6f0;
-  --c-beige:#ede3d3;
-  --c-beige-light:#f5efe6;
-  --c-cream:#f7f1e6;
-  --c-gold:#b89968;
-  --c-gold-light:#d4b88a;
-  --c-gold-dark:#9c8062;
-  --c-text:#3d3329;
-  --c-text-sub:#6b5d4f;
-  --c-text-light:#9c8775;
-  --c-line:#d9ccb8;
-  --ff-serif:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
-  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
-  --ff-en:"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
-}
-
 *{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF; --off:#F7F4EF; --col:#F2EBE3;
+  --ink:#1C1A18; --sub:#6E665D; --taupe:#948575;
+  --line:#EAE4DA; --accent:#A9695A;
+  --gothic:"Hiragino Sans","Yu Gothic","Helvetica Neue",sans-serif;
+  --latin:"Futura","Avenir Next","Optima",sans-serif;
+}
 html{scroll-behavior:smooth}
-body{
-  font-family:var(--ff-sans);
-  font-weight:400;
-  color:var(--c-text);
-  background:var(--c-base);
-  line-height:1.8;
-  letter-spacing:.04em;
-  font-feature-settings:"palt";
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none;transition:opacity .3s ease,color .3s ease}
-a:hover{opacity:.75}
+body{font-family:var(--gothic);color:var(--ink);background:var(--bg);
+  font-size:15px;line-height:2;font-weight:400;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 48px}
 
-/* ============ HEADER ============ */
-.header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(250,246,240,.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--c-line);
-}
-.header-inner{
-  max-width:1280px;margin:0 auto;
-  padding:18px 40px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.logo{
-  font-family:var(--ff-en);
-  font-size:24px;font-weight:500;
-  letter-spacing:.16em;
-  color:var(--c-text);
-  padding-left:.25em;
-  white-space:nowrap;
-}
-.logo small{
-  display:block;
-  font-family:var(--ff-serif);
-  font-size:9px;letter-spacing:.4em;
-  margin-top:2px;color:var(--c-text-light);
-}
-.nav{display:flex;align-items:center;gap:14px}
-.nav a{
-  font-family:var(--ff-serif);
-  font-size:13px;font-weight:500;
-  letter-spacing:.04em;
-  color:var(--c-text-sub);
-  position:relative;
-  white-space:nowrap;
-}
-.nav a::after{
-  content:"";position:absolute;left:50%;bottom:-6px;
-  width:0;height:1px;background:var(--c-gold);
-  transition:width .3s ease,left .3s ease;
-}
-.nav a:hover{color:var(--c-gold-dark);opacity:1}
-.nav a:hover::after{width:100%;left:0}
-.nav .cta-btn{
-  background:var(--c-gold);color:#fff;
-  padding:10px 24px;border-radius:2px;
-  font-size:12px;letter-spacing:.18em;
-}
-.nav .cta-btn::after{display:none}
-.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
-.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--c-text)}
+/* header */
+.hd{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd-in{max-width:1320px;margin:0 auto;padding:18px 48px;display:flex;align-items:center;gap:26px}
+.hd-logo{font-family:var(--latin);font-size:17px;letter-spacing:.3em;font-weight:500}
+.hd-logo small{display:block;font-family:var(--gothic);font-size:9.5px;letter-spacing:.18em;color:var(--taupe);margin-top:4px;font-weight:400}
+.hd-nav{margin-left:auto;display:flex;gap:28px;align-items:center}
+.hd-nav a{font-size:12px;letter-spacing:.14em;color:var(--sub);transition:color .2s}
+.hd-nav a:hover{color:var(--ink)}
+.hd-cta{background:var(--ink);color:#fff;padding:11px 22px;font-size:11.5px;letter-spacing:.14em}
+.hd-cta:hover{opacity:.82}
 
-@media(max-width:1080px){
-  .header-inner{padding:14px 20px}
-  .nav{display:none}
-  .nav.open{
-    display:flex;flex-direction:column;
-    position:absolute;top:100%;left:0;right:0;
-    background:var(--c-base);padding:26px 20px;gap:18px;
-    border-bottom:1px solid var(--c-line);
-  }
-  .menu-btn{display:block}
-  .logo{font-size:18px}
-}
+/* common */
+section{padding:112px 0}
+.eyebrow{font-family:var(--latin);font-size:10px;letter-spacing:.44em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.sec-h{font-size:clamp(21px,2.6vw,29px);font-weight:300;letter-spacing:.1em;line-height:1.7;margin-bottom:20px}
+.sec-lead{font-size:13.5px;line-height:2.4;color:var(--sub);max-width:34em}
+.center{text-align:center}
+.center .sec-lead{margin-left:auto;margin-right:auto}
 
-/* ============ PAGE HERO ============ */
-.page-hero{
-  padding:180px 40px 100px;
-  background:
-    radial-gradient(ellipse at 80% 20%,rgba(212,184,138,.2) 0%,transparent 50%),
-    linear-gradient(180deg,var(--c-base) 0%,var(--c-cream) 100%);
-  text-align:center;
-  position:relative;
+/* hero */
+.hero{padding:76px 0 96px;position:relative;
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.80) 0%,rgba(255,255,255,.90) 55%,#fff 100%),
+    url(../images/photo/linen-drape.jpg);
+  background-size:cover;background-position:center;background-repeat:no-repeat}
+.crumb{font-size:11px;letter-spacing:.1em;color:var(--taupe);margin-bottom:46px}
+.crumb a:hover{color:var(--ink)}
+.hero h1{font-family:var(--latin);font-size:clamp(34px,6vw,62px);font-weight:300;
+  letter-spacing:.14em;line-height:1.35;margin-bottom:14px}
+.hero .jp{font-size:12.5px;letter-spacing:.3em;color:var(--taupe);margin-bottom:40px}
+.hero p{font-size:13.5px;line-height:2.5;color:var(--sub);max-width:36em;margin:0 auto}
+
+/* thoughts */
+.thoughts{background:var(--off)}
+.mem{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:56px}
+.mem figure{background:#fff;border:1px solid var(--line)}
+.mem .ph{aspect-ratio:4/3;overflow:hidden;background:var(--col)}
+.mem .ph img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.mem figcaption{padding:32px 34px 36px}
+.mem .role{font-family:var(--latin);font-size:10px;letter-spacing:.3em;color:var(--accent);
+  padding-bottom:13px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.mem .nm{font-size:16px;font-weight:500;letter-spacing:.12em;margin-bottom:18px}
+.mem .q{font-size:12.5px;line-height:2.3;color:var(--sub)}
+
+.band{height:clamp(200px,26vw,330px);
+  background-image:url(../images/photo/stone-shadow.jpg);
+  background-size:cover;background-position:center 60%}
+
+/* products */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:54px 36px;margin-top:62px}
+.pc .ph{aspect-ratio:4/5;overflow:hidden;background:var(--col);margin-bottom:22px;position:relative}
+.pc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pc:hover .ph img{transform:scale(1.03)}
+.pc .cat{position:absolute;top:14px;left:14px;z-index:2;background:rgba(255,255,255,.9);
+  font-family:var(--latin);font-size:9px;letter-spacing:.22em;padding:5px 11px;color:var(--sub)}
+.pc .en{font-family:var(--latin);font-size:11.5px;letter-spacing:.22em;color:var(--accent);margin-bottom:7px}
+.pc h3{font-size:16px;font-weight:500;letter-spacing:.09em;margin-bottom:12px;line-height:1.7}
+.pc p{font-size:12.5px;line-height:2.2;color:var(--sub);margin-bottom:16px}
+.pc .lk{display:inline-block;font-size:11.5px;letter-spacing:.18em;color:var(--ink);
+  border-bottom:1px solid var(--ink);padding-bottom:5px;transition:opacity .2s}
+.pc:hover .lk{opacity:.55}
+
+/* contact */
+.ct{position:relative;
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.93) 100%),
+    url(../images/photo/stone-shadow.jpg);
+  background-size:cover;background-position:center}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin:56px 0 52px;max-width:860px;margin-left:auto;margin-right:auto}
+.steps div{text-align:center;padding:30px 18px;background:#fff;border:1px solid var(--line)}
+.steps .n{font-family:var(--latin);font-size:24px;font-weight:300;color:var(--accent);margin-bottom:12px}
+.steps b{display:block;font-size:13px;font-weight:500;letter-spacing:.06em;margin-bottom:6px}
+.steps span{font-size:11.5px;color:var(--taupe)}
+.btn{display:inline-flex;align-items:center;gap:.6em;background:#06C755;color:#fff;
+  padding:17px 44px;font-size:14px;font-weight:500;letter-spacing:.08em;border-radius:999px;
+  box-shadow:0 6px 20px rgba(6,199,85,.24);transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(6,199,85,.3)}
+.back{display:inline-block;margin-top:30px;font-size:12px;letter-spacing:.16em;color:var(--sub);
+  border-bottom:1px solid var(--line);padding-bottom:5px}
+
+/* blog */
+.bl{max-width:760px;margin:52px auto 0}
+.bl a{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:baseline;
+  padding:22px 4px;border-top:1px solid var(--line);transition:opacity .2s}
+.bl a:last-child{border-bottom:1px solid var(--line)}
+.bl a:hover{opacity:.6}
+.bl .d{font-family:var(--latin);font-size:11.5px;letter-spacing:.1em;color:var(--taupe)}
+.bl .t{font-size:13.5px;line-height:1.9}
+.more{text-align:center;margin-top:40px}
+.more a{font-size:12px;letter-spacing:.18em;border-bottom:1px solid var(--ink);padding-bottom:5px}
+
+/* footer */
+.ft{background:var(--off);border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
+.ft .lg{font-family:var(--latin);font-size:15px;letter-spacing:.3em;margin-bottom:10px;color:var(--ink)}
+.ft p{font-size:11.5px;color:var(--sub);line-height:2.1}
+.ft nav{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;margin:26px 0 30px}
+.ft nav a{font-size:11.5px;letter-spacing:.12em;color:var(--sub);transition:color .2s}
+.ft nav a:hover{color:var(--ink)}
+.ft small{display:block;margin-top:24px;font-size:10.5px;color:var(--taupe);letter-spacing:.18em}
+
+@media(max-width:1000px){
+  .wrap,.hd-in{padding-left:22px;padding-right:22px}
+  section{padding:84px 0}
+  .pg{grid-template-columns:repeat(2,1fr);gap:44px 24px}
+  .mem{grid-template-columns:1fr;gap:34px}
+  .hd-nav{display:none}
 }
-.crumb{
-  font-family:var(--ff-en);
-  font-size:12px;letter-spacing:.25em;
-  color:var(--c-text-light);
-  margin-bottom:30px;
-}
-.crumb a{color:var(--c-gold-dark)}
-.crumb span{margin:0 12px;opacity:.4}
-.page-en{
-  font-family:var(--ff-en);
-  font-size:clamp(38px,5vw,64px);
-  font-weight:400;
-  letter-spacing:.2em;
-  color:var(--c-text);
-  margin-bottom:14px;
-  line-height:1.1;
-  padding-left:.2em;
-}
-.page-jp{
-  font-family:var(--ff-serif);
-  font-size:15px;letter-spacing:.4em;
-  color:var(--c-text-sub);
-  position:relative;display:inline-block;
-  padding:0 36px;
-  margin-bottom:40px;
-}
-.page-jp::before,.page-jp::after{
-  content:"";position:absolute;top:50%;
-  width:24px;height:1px;background:var(--c-gold-light);
-}
-.page-jp::before{left:-10px}
-.page-jp::after{right:-10px}
-.page-lead{
-  font-family:var(--ff-serif);
-  font-size:16px;line-height:2.2;
-  color:var(--c-text-sub);
-  max-width:700px;margin:0 auto;
-  letter-spacing:.08em;
-}
-@media(max-width:900px){
-  .page-hero{padding:130px 20px 70px}
+@media(max-width:600px){
+  .pg{grid-template-columns:1fr;gap:46px}
+  .steps{grid-template-columns:1fr;gap:14px}
+  .hero{padding:50px 0 70px}
+  .bl a{grid-template-columns:1fr;gap:5px}
+  .btn{width:100%;justify-content:center;padding:17px 20px}
 }
 
-/* ============ SECTION ============ */
-.section{padding:90px 40px;position:relative}
-.section-inner{max-width:1200px;margin:0 auto}
-.section-head{text-align:center;margin-bottom:60px}
-.section-en{
-  font-family:var(--ff-en);
-  font-size:36px;font-weight:400;
-  letter-spacing:.25em;
-  color:var(--c-gold-dark);
-  margin-bottom:12px;
-  text-transform:uppercase;
-}
-.section-jp{
-  font-family:var(--ff-serif);
-  font-size:13px;letter-spacing:.4em;
-  color:var(--c-text-sub);
-  position:relative;display:inline-block;
-  padding:0 30px;
-}
-.section-jp::before,.section-jp::after{
-  content:"";position:absolute;top:50%;
-  width:20px;height:1px;background:var(--c-gold-light);
-}
-.section-jp::before{left:-10px}
-.section-jp::after{right:-10px}
-@media(max-width:900px){
-  .section{padding:70px 20px}
-  .section-en{font-size:28px}
-}
-
-/* ============ BIZ CARDS ============ */
-.biz-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:30px;
-}
-.biz-grid--4{
-  grid-template-columns:repeat(4,1fr);
-  gap:24px;
-}
-.biz-grid--3{grid-template-columns:repeat(3,1fr)}
-.startup-grid{grid-template-columns:repeat(2,1fr);gap:30px;max-width:1000px;margin:0 auto}
-@media(max-width:768px){.startup-grid{grid-template-columns:1fr;max-width:500px;gap:24px}}
-.nuduque-grid{grid-template-columns:repeat(3,1fr);gap:24px}
-@media(max-width:900px){.nuduque-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.nuduque-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
-.biz-card{
-  background:#fff;
-  border:1px solid var(--c-line);
-  display:flex;flex-direction:column;
-  overflow:hidden;
-  transition:all .4s ease;
-}
-.biz-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 30px 70px rgba(156,128,98,.18);
-  border-color:var(--c-gold-light);
-}
-.biz-visual--photo{
-  height:240px;
-  overflow:hidden;
-  position:relative;
-}
-.biz-grid--4 .biz-visual--photo{height:200px}
-.biz-visual--photo img{
-  width:100%;height:100%;
-  object-fit:cover;display:block;
-}
-.biz-cat{
-  position:absolute;top:20px;left:20px;
-  font-family:var(--ff-en);
-  font-size:11px;letter-spacing:.3em;
-  padding:5px 14px;
-  background:var(--c-gold);color:#fff;
-  z-index:1;
-}
-.biz-cat--accent{background:var(--c-text)}
-.biz-body{
-  padding:32px 30px 30px;
-  flex:1;
-  display:flex;flex-direction:column;
-}
-.biz-grid--4 .biz-body{padding:26px 22px 24px}
-.biz-name-en{
-  font-family:var(--ff-en);
-  font-size:13px;letter-spacing:.25em;
-  color:var(--c-gold);margin-bottom:6px;
-}
-.biz-name{
-  font-family:var(--ff-serif);
-  font-size:22px;font-weight:600;
-  letter-spacing:.08em;color:var(--c-text);
-  margin-bottom:16px;
-}
-.biz-grid--4 .biz-name{font-size:18px;margin-bottom:12px}
-.biz-desc{
-  font-size:13.5px;line-height:1.95;
-  color:var(--c-text-sub);
-  margin-bottom:22px;flex:1;
-}
-.biz-grid--4 .biz-desc{font-size:13px}
-.biz-link{
-  display:inline-flex;align-items:center;
-  align-self:flex-start;gap:12px;
-  padding:14px 28px;
-  font-family:var(--ff-serif);
-  font-size:13px;letter-spacing:.2em;
-  border:1px solid var(--c-gold);
-  color:var(--c-gold-dark);
-  background:transparent;
-  transition:all .3s ease;
-}
-.biz-grid--4 .biz-link{padding:12px 22px;font-size:12px}
-.biz-link:hover{background:var(--c-gold);color:#fff;opacity:1}
-.biz-link::after{content:"→";font-size:14px;transition:transform .3s ease}
-.biz-link:hover::after{transform:translateX(4px)}
-.biz-link--fill{background:var(--c-gold);color:#fff}
-.biz-link--fill:hover{background:var(--c-gold-dark);color:#fff}
-
-.biz-price{
-  display:inline-block;
-  font-family:var(--ff-en);
-  font-size:15px;
-  letter-spacing:.08em;
-  color:var(--c-gold-dark);
-  background:var(--c-beige-light);
-  padding:3px 12px;
-  border-radius:2px;
-  margin-left:8px;
-  vertical-align:middle;
-  font-weight:500;
-}
-.biz-features{
-  list-style:none;
-  margin:0 0 18px;
-  padding:0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px 14px;
-}
-.biz-features li{
-  font-size:12.5px;
-  color:var(--c-text-sub);
-  padding-left:20px;
-  position:relative;
-  letter-spacing:.02em;
-}
-.biz-features li::before{
-  content:"";
-  position:absolute;left:0;top:7px;
-  width:12px;height:12px;
-  border-radius:50%;
-  border:1px solid var(--c-gold);
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/8px no-repeat;
-}
-.biz-note{
-  font-size:11px;
-  color:var(--c-text-light);
-  letter-spacing:.04em;
-  padding-top:12px;
-  border-top:1px solid var(--c-line);
-  margin-top:auto;
-}
-
-.biz-card--feature{
-  border-color:var(--c-gold);
-  border-width:2px;
-  position:relative;
-}
-.biz-card--feature::before{
-  content:"PICK UP";
-  position:absolute;top:-1px;right:-1px;
-  background:var(--c-gold);color:#fff;
-  font-family:var(--ff-en);
-  font-size:10px;letter-spacing:.2em;
-  padding:5px 14px;z-index:2;
-}
-
-.section-lead{
-  text-align:center;
-  font-family:var(--ff-serif);
-  font-size:15px;line-height:2;
-  color:var(--c-text-sub);
-  letter-spacing:.1em;
-  margin:-30px auto 50px;
-  max-width:760px;
-}
-
-@media(max-width:1024px){
-  .biz-grid--4{grid-template-columns:repeat(2,1fr)}
-  .biz-grid--3{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:768px){
-  .biz-grid,.biz-grid--3,.biz-grid--4{grid-template-columns:1fr}
-}
-
-/* ============ DIVIDER ============ */
-.section-products{background:var(--c-base)}
-.section-machines{background:var(--c-cream)}
-.voice-section{background:var(--c-cream)}
-
-/* ============ MEMBER (代表+担当者) ============ */
-.member-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:50px;
-}
-.member-card{
-  background:#fff;
-  border:1px solid var(--c-line);
-  display:grid;
-  grid-template-rows:auto 1fr;
-  overflow:hidden;
-}
-.member-image{
-  position:relative;
-  height:380px;
-  overflow:hidden;
-  background:#efe1d3;
-}
-.member-image img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 18%;
-  display:block;
-}
-.member-image::after{
-  content:"";position:absolute;
-  bottom:0;left:0;right:0;
-  height:40%;
-  background:linear-gradient(180deg,transparent 0%,rgba(61,51,41,.45) 100%);
-  pointer-events:none;
-}
-.member-body{
-  padding:36px 40px 42px;
-  position:relative;
-}
-.member-role{
-  font-family:var(--ff-en);
-  font-size:11px;letter-spacing:.3em;
-  color:var(--c-gold);
-  padding-bottom:14px;
-  margin-bottom:16px;
-  border-bottom:1px solid var(--c-line);
-}
-.member-name{
-  font-family:var(--ff-serif);
-  font-size:22px;
-  font-weight:600;
-  letter-spacing:.15em;
-  color:var(--c-text);
-  margin-bottom:24px;
-}
-.member-name .member-en{
-  font-family:var(--ff-en);
-  font-size:14px;
-  font-weight:400;
-  letter-spacing:.15em;
-  color:var(--c-text-sub);
-  margin-left:8px;
-}
-.member-quote{
-  font-family:var(--ff-serif);
-  font-size:14px;
-  line-height:2.1;
-  color:var(--c-text-sub);
-  letter-spacing:.05em;
-}
-.member-quote em{
-  font-style:normal;
-  color:var(--c-gold-dark);
-  font-weight:500;
-}
-@media(max-width:900px){
-  .member-grid{grid-template-columns:1fr;gap:36px}
-  .member-image{height:320px}
-  .member-body{padding:28px 24px 32px}
-  .member-name{font-size:18px}
-}
-
-/* ============ BACK CTA ============ */
-.back-cta{
-  background:linear-gradient(135deg,var(--c-cream) 0%,var(--c-beige-light) 100%);
-  padding:100px 40px;
-  text-align:center;
-}
-.back-cta-inner{
-  max-width:960px;
-  margin:0 auto;
-}
-.back-cta-tag{
-  font-family:var(--ff-en);
-  font-size:12px;letter-spacing:.4em;
-  color:var(--c-gold);
-  padding:6px 18px;
-  border:1px solid var(--c-gold-light);
-  display:inline-block;
-  margin-bottom:24px;
-}
-.back-cta h3{
-  font-family:var(--ff-serif);
-  font-size:clamp(24px,2.8vw,32px);
-  font-weight:500;
-  letter-spacing:.08em;
-  color:var(--c-text);
-  margin-bottom:24px;
-  line-height:1.6;
-}
-.back-cta h3 em{
-  font-style:normal;
-  color:var(--c-gold-dark);
-  font-weight:600;
-}
-.back-cta p{
-  font-size:14px;
-  color:var(--c-text-sub);
-  margin-bottom:50px;
-  line-height:2.1;
-  letter-spacing:.06em;
-}
-.back-cta p strong{
-  color:var(--c-text);
-  font-weight:600;
-}
-.back-cta-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  max-width:780px;
-  margin:0 auto 50px;
-}
-.back-cta-col{
-  background:#fff;
-  border:1px solid var(--c-line);
-  border-radius:4px;
-  padding:28px 18px;
-  text-align:center;
-  position:relative;
-}
-.back-cta-num{
-  font-family:var(--ff-en);
-  font-size:30px;
-  font-weight:300;
-  color:var(--c-gold);
-  margin-bottom:14px;
-  letter-spacing:.1em;
-}
-.back-cta-step-title{
-  font-family:var(--ff-serif);
-  font-size:15px;
-  font-weight:600;
-  color:var(--c-text);
-  letter-spacing:.06em;
-  margin-bottom:8px;
-  line-height:1.5;
-}
-.back-cta-step-note{
-  font-family:var(--ff-serif);
-  font-size:12px;
-  color:var(--c-text-sub);
-  letter-spacing:.04em;
-  line-height:1.6;
-}
-.back-cta-buttons{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  flex-wrap:wrap;
-}
-.back-cta-buttons--primary{
-  margin-bottom:18px;
-}
-.contact-line{
-  display:inline-flex;align-items:center;gap:12px;
-  padding:18px 36px;
-  background:#06c755;color:#fff;
-  font-family:var(--ff-serif);
-  font-size:14px;letter-spacing:.18em;
-  border-radius:2px;
-  transition:background .3s ease;
-}
-.contact-line:hover{background:#05a647;opacity:1}
-.contact-line::before{
-  content:"";
-  width:22px;height:22px;
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M12 2C6.48 2 2 5.86 2 10.61c0 3.04 1.83 5.69 4.56 7.21-.2.74-.71 2.63-.81 3.04-.13.5.18.5.39.36.16-.11 2.6-1.77 3.65-2.49.74.11 1.5.17 2.21.17 5.52 0 10-3.86 10-8.61S17.52 2 12 2z'/></svg>") center/contain no-repeat;
-}
-.btn{
-  display:inline-flex;align-items:center;gap:12px;
-  padding:16px 36px;
-  font-family:var(--ff-serif);
-  font-size:13px;letter-spacing:.2em;
-  border:1px solid var(--c-gold);
-  color:var(--c-gold-dark);
-  background:transparent;
-  transition:all .3s ease;
-}
-.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
-.btn-fill{
-  background:var(--c-gold);
-  color:#fff;
-}
-.btn-fill:hover{
-  background:var(--c-gold-dark);
-  color:#fff;
-}
-@media(max-width:768px){
-  .back-cta-grid{grid-template-columns:1fr;gap:14px}
-}
-
-/* ============ FOOTER ============ */
-.footer{
-  background:var(--c-text);
-  color:#d9ccb8;
-  padding:50px 40px 28px;
-  text-align:center;
-}
-.footer-logo{
-  font-family:var(--ff-en);
-  font-size:22px;letter-spacing:.3em;
-  color:var(--c-gold-light);
-  margin-bottom:8px;padding-left:.3em;
-}
-.footer-tag{
-  font-family:var(--ff-serif);
-  font-size:12px;letter-spacing:.25em;
-  color:rgba(217,204,184,.6);
-  margin-bottom:30px;
-}
-.footer-nav{
-  display:flex;justify-content:center;flex-wrap:wrap;
-  gap:24px;margin-bottom:30px;
-}
-.footer-nav a{
-  font-family:var(--ff-serif);
-  font-size:12px;letter-spacing:.15em;
-  color:rgba(217,204,184,.8);
-}
-.copyright{
-  font-family:var(--ff-en);
-  font-size:11px;letter-spacing:.2em;
-  color:rgba(217,204,184,.5);
-  padding-top:24px;
-  border-top:1px solid rgba(217,204,184,.15);
-}
-
-/* ===== NAV DROPDOWN (ヌドゥーク商材一覧) ===== */
-.nav-item{position:relative;display:inline-flex;align-items:center}
-.nav-drop-trigger{cursor:pointer;display:inline-flex;align-items:center;gap:5px}
-.nav-caret{font-size:9px;color:var(--c-gold);transition:transform .25s ease}
-.nav-dropdown.open .nav-caret{transform:rotate(180deg)}
-.dropdown{
-  position:absolute;top:100%;left:50%;
-  transform:translateX(-50%) translateY(10px);
-  min-width:252px;background:#fff;border:1px solid var(--c-line);
-  box-shadow:0 24px 56px rgba(156,128,98,.18);
-  padding:10px 0;margin-top:16px;
-  opacity:0;visibility:hidden;pointer-events:none;
-  transition:opacity .25s ease,transform .25s ease;z-index:200;
-}
-.nav-dropdown:hover .dropdown,
-.nav-dropdown.open .dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
-.dropdown::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
-.dropdown a{display:block;padding:11px 24px;font-family:var(--ff-serif);font-size:13px;letter-spacing:.04em;color:var(--c-text-sub);white-space:nowrap}
-.dropdown a::after{display:none}
-.dropdown a:hover{background:var(--c-beige-light);color:var(--c-gold-dark);opacity:1}
-.dropdown a small{display:block;font-size:10px;letter-spacing:.1em;color:var(--c-text-light);margin-top:2px}
-.dropdown-head{color:var(--c-gold-dark)!important;font-weight:600;border-bottom:1px solid var(--c-line);margin-bottom:6px}
-@media(max-width:1080px){
-  .nav-item{display:block}
-  .dropdown{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;border-left:2px solid var(--c-gold-light);margin:6px 0 10px 12px;padding:2px 0;min-width:0}
-  .dropdown::before{display:none}
-  .nav-caret{display:none}
-}
-
-/* ===== 流体タイポ（モバイル/PC 安定化 / fluid typography） ===== */
-.sec-en{font-size:clamp(24px,5.6vw,34px)}
-.sec-lead{font-size:clamp(14.5px,1.5vw,16px)}
-.lp-hero .h1-jp{font-size:clamp(18px,2.5vw,22px)}
-.lp-hero-sub{font-size:clamp(14px,1.5vw,15px)}
-.card-ttl{font-size:clamp(16px,2vw,18px)}
-.card-desc,.case-desc,.voice p{font-size:clamp(13px,1.6vw,13.5px)}
-.ing h4{font-size:clamp(15.5px,2vw,17px)}
-.case-ttl,.flow-step h4,.faq-q{font-size:clamp(15px,1.9vw,16px)}
-.faq-a{font-size:clamp(13.5px,1.6vw,14px)}
-.lp-cta-card h2,.motto h2{font-size:clamp(22px,4.6vw,34px)}
-.profile-body .pf-name{font-size:clamp(21px,3.2vw,26px)}
-.price-row .pr-val{font-size:clamp(17px,2.6vw,22px)}
-.stat .st-val,.sim .sim-val{font-size:clamp(24px,4.6vw,34px)}
-.problem-q{font-size:clamp(19px,3.6vw,30px)}
-.pack-hero,.archive h2{font-size:clamp(18px,3.2vw,24px)}
-.section-en{font-size:clamp(26px,6vw,42px)}
-.philos-title,.support-title{font-size:clamp(17px,2.2vw,20px)}
-.biz-name{font-size:clamp(18px,2.6vw,24px)}
-.biz-desc,.voice-text,.philos-desc,.essence-detail{font-size:clamp(13px,1.6vw,14px)}
-.essence-name,.vision-author-name,.member-name{font-size:clamp(18px,2.4vw,22px)}
-.contact-card h3{font-size:clamp(20px,3.2vw,26px)}
-.blog-title{font-size:clamp(15px,1.9vw,16px)}
-.lineup-title{font-size:clamp(22px,3.4vw,30px)}
-.lineup-en{font-size:clamp(34px,6vw,48px)}
-.startup-title{font-size:clamp(23px,3.4vw,32px)}
-.portal-title{font-size:clamp(22px,3.1vw,28px)}
-.page-lead{font-size:clamp(14.5px,1.6vw,16px)}
-.member-quote,.lineup-desc,.startup-desc{font-size:clamp(14px,1.6vw,15px)}
-
-/* === 導入者様専用サイト リンク === */
-.header-left{display:flex;align-items:center;gap:16px}
-.portal-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--ff-serif);font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--c-gold-dark);background:var(--c-beige-light);border:1px solid var(--c-gold-light);border-radius:3px;padding:5px 11px;white-space:nowrap;line-height:1.2}
-.portal-link:hover{background:var(--c-gold);color:#fff;border-color:var(--c-gold);opacity:1}
-.portal-ic{font-size:11px;line-height:1}
-@media(max-width:1080px){.header-left{gap:10px}.portal-link{font-size:10px;padding:4px 8px}}
-@media(max-width:520px){.header-left{gap:9px}.portal-link{font-size:10px;padding:4px 8px}.portal-ic{font-size:10px}}
+/* 横長写真のカード（マシン・サポート）用 */
+.mg{display:grid;grid-template-columns:repeat(2,1fr);gap:54px 36px;margin-top:62px}
+.mg .pc .ph{aspect-ratio:16/10}
+.mg .pc .price{display:inline-block;margin-left:.6em;font-family:var(--latin);
+  font-size:12.5px;letter-spacing:.06em;color:var(--accent)}
+@media(max-width:1000px){.mg{grid-template-columns:1fr;gap:46px}}
 </style>
 </head>
 <body>
-<!-- ===== HEADER ===== -->
-<header class="header">
-  <div class="header-inner">
-    <div class="header-left">
-      <a href="../index.html" class="logo">
-      Grand Fusion
-      <small>株式会社グランフュージョン</small>
-    </a>
-      <a class="portal-link" href="https://grandfusion-official.site/lp/learning-site/#/" target="_blank" rel="noopener" title="導入者様専用 学習サイト"><span class="portal-ic">🔑</span><span class="portal-label">導入者様専用サイト</span></a>
-    </div>
-    <nav class="nav" id="nav">
-      <a href="https://grandfusion-official.site/" title="GrandFusion メインTOPページへ">← メインTOPへ戻る</a>
-      <div class="nav-item nav-dropdown">
-        <a class="nav-drop-trigger">エステマシン販売<span class="nav-caret">▾</span></a>
-        <div class="dropdown">
-          <a href="https://btxtherma.grandfusion-official.site/" target="_blank" rel="noopener">BTXtherma<small>Clinical Grade RF</small></a>
-          <a href="https://regecell.grandfusion-official.site/" target="_blank" rel="noopener">リジェセル<small>Electroporation</small></a>
-          <a href="https://kaigyo.grandfusion-official.site/" target="_blank" rel="noopener">開業サポートパック</a>
-          <a href="https://grandfusion-official.site/financing/" target="_blank" rel="noopener">融資サポート</a>
-        </div>
-      </div>
-      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1784529110" target="_blank" rel="noopener" class="cta-btn">お問い合わせ</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn">≡</button>
-  </div>
-</header>
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero">
-  <div class="crumb">
-    <a href="../index.html">TOP</a><span>/</span>エステマシン販売
-  </div>
-  <div class="page-en">Clinical Machines</div>
-  <div class="page-jp">エステマシン販売</div>
-  <p class="page-lead">
-    医療発想で開発した自社クリニカルマシンと、<br>
-    導入時の開業・融資サポートまで。<br>
-    サロン経営をワンストップで支える製品ラインナップです。
-  </p>
-</section>
-
-<!-- ===== VOICE FROM US / メーカー・商材への想い ===== -->
-<section class="section voice-section">
-  <div class="section-inner">
-    <div class="section-head">
-      <div class="section-en">Our Thoughts</div>
-      <div class="section-jp">メーカー・商材への想い</div>
-    </div>
-
-    <div class="member-grid">
-      <!-- ▼ 粕谷ありさ -->
-      <div class="member-card">
-        <div class="member-image">
-          <img src="../images/kasuya-arisa.jpg" alt="株式会社GrandFusion 代表取締役 粕谷ありさ" onerror="this.onerror=null;this.src='../images/kasuya-arisa-placeholder.svg';">
-        </div>
-        <div class="member-body">
-          <div class="member-role">CEO / 代表取締役</div>
-          <div class="member-name">粕谷 ありさ <span class="member-en">Arisa Kasuya</span></div>
-          <p class="member-quote">
-            「商材は、人の人生を変えうるもの。」<br><br>
-            私たちが提供するのは、ただの化粧品・マシンではありません。<br>
-            肌が変わると、自信が変わる。自信が変わると、人生が変わる。<br>
-            その確信を、自社で開発する一つひとつの商材に込めています。<br><br>
-            看護師として、医療現場で多くの女性の悩みに向き合ってきた経験から、<br>
-            「本当に結果が出るもの」だけを、妥協なく厳選しました。<br>
-            GrandFusionの商材が、あなたのサロンの<em>"選ばれる理由"</em>になりますように。
-          </p>
-        </div>
-      </div>
-
-      <!-- ▼ 仁木愛結 -->
-      <div class="member-card">
-        <div class="member-image">
-          <img src="../images/niki-mayu.jpg" alt="株式会社GrandFusion メーカー担当 仁木愛結" onerror="this.onerror=null;this.src='../images/niki-mayu-placeholder.svg';">
-        </div>
-        <div class="member-body">
-          <div class="member-role">MAKER MANAGER / メーカー担当</div>
-          <div class="member-name">仁木 愛結 <span class="member-en">Mayu Niki</span></div>
-          <p class="member-quote">
-            「サロン様の隣で、結果を一緒に喜びたい。」<br><br>
-            導入後の"使いこなし"までが、メーカーの役目だと思っています。<br>
-            商材の選び方、施術の流れ、お客様への伝え方、そして仕入れの組み立てまで。<br>
-            ひとつひとつのご質問に、一番近くで向き合うのが私の仕事です。<br><br>
-            「売って終わり」ではなく、<em>「使い続けて、結果を出し続けるサロン」</em>を、<br>
-            メーカー担当として全力でサポートいたします。<br>
-            気軽に、なんでもご相談ください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== MACHINES ===== -->
-<section class="section section-machines" id="machines">
-  <div class="section-inner">
-    <div class="section-head">
-      <div class="section-en">Clinical Machines</div>
-      <div class="section-jp">自社クリニカルマシン</div>
-    </div>
-    <p class="section-lead">
-      医療発想で開発した自社メーカーマシン。<br>
-      クリニックレベルの結果を、サロンに。
-    </p>
-
-    <div class="biz-grid">
-      <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/btxtherma-machine.webp" alt="BTXtherma">
-        </div>
-        <div class="biz-body">
-          <div class="biz-name-en">CLINICAL GRADE RF</div>
-          <div class="biz-name">BTXtherma</div>
-          <p class="biz-desc">40.68MHz超高周波を採用した次世代RFマシン。高い安全性と、幅広い施術メニュー展開を実現します。</p>
-          <a href="https://btxtherma.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
-        </div>
-      </div>
-
-      <div class="biz-card">
-        <div class="biz-visual biz-visual--photo">
-          <span class="biz-cat">NUDUQUE</span>
-          <img src="../images/regecell-machine.webp" alt="リジェセル">
-        </div>
-        <div class="biz-body">
-          <div class="biz-name-en">ELECTROPORATION</div>
-          <div class="biz-name">リジェセル</div>
-          <p class="biz-desc">エレクトロポレーション技術で有効成分を真皮層まで浸透。クリニック級の結果をサロンで実現します。</p>
-          <a href="https://regecell.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link">マシンの詳細を見る</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== STARTUP / 開業・融資サポート ===== -->
-<section class="section section-products" id="startup">
-  <div class="section-inner">
-    <div class="section-head">
-      <div class="section-en">Support Packages</div>
-      <div class="section-jp">開業・融資サポート</div>
-    </div>
-    <p class="section-lead">
-      マシン導入とあわせて、開業準備から資金調達まで。<br>
-      サロン経営をワンストップで支えるサポートをご用意しています。
-    </p>
-
-    <div class="biz-grid startup-grid">
-
-      <!-- ▼ 開業サポートパック -->
-      <div class="biz-card biz-card--feature">
-        <div class="biz-visual biz-visual--photo" style="height:240px;">
-          <span class="biz-cat biz-cat--accent">開業パック</span>
-          <img src="../images/kaigyopack-hero.webp" alt="開業サポートパック">
-        </div>
-        <div class="biz-body">
-          <div class="biz-name-en">ALL-IN-ONE PACKAGE</div>
-          <div class="biz-name">開業サポートパック</div>
-          <p class="biz-desc">
-            BTXtherma × リジェセル マシン2台＋6ヶ月伴走サポート。価格設定・ブランディング不要で、「悩まない開業」を実現します。サロンの立ち上げから安定経営まで、伴走型でサポート。
-          </p>
-          <a href="https://kaigyo.grandfusion-official.site/" target="_blank" rel="noopener" class="biz-link biz-link--fill">開業パック詳細を見る</a>
-        </div>
-      </div>
-
-      <!-- ▼ 融資サポート -->
-      <div class="biz-card">
-        <div class="biz-visual biz-visual--photo" style="height:240px;">
-          <span class="biz-cat">FINANCE</span>
-          <img src="../images/finance-support.jpg" alt="融資サポート">
-        </div>
-        <div class="biz-body">
-          <div class="biz-name-en">FINANCE SUPPORT</div>
-          <div class="biz-name">融資サポート <span class="biz-price">¥50,000</span></div>
-          <p class="biz-desc">
-            マシン導入時の資金調達を、専門スタッフがしっかりサポート。事業計画書の作成サポート・添削、補助金・助成金の申請支援、さらに「誰に相談したらいいか分からない」ご質問まで個別に対応します。
-          </p>
-          <ul class="biz-features">
-            <li>事業計画書 作成サポート</li>
-            <li>書類の添削・整備</li>
-            <li>補助金・助成金 申請支援</li>
-            <li>個別ご相談対応</li>
-          </ul>
-          <a href="https://grandfusion-official.site/financing/" target="_blank" rel="noopener" class="biz-link biz-link--fill">融資サポートはこちら</a>
-          <div class="biz-note">※ 別途お申し込みが必要なオプションサービスです</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== BACK CTA ===== -->
-<section class="back-cta">
-  <div class="back-cta-inner">
-    <div class="back-cta-tag">CONTACT</div>
-    <h3>お問い合わせは<br><em>商材ごとの紹介ページ</em>から</h3>
-    <p>
-      製品のご相談・サンプル請求・導入のご質問は、<br>
-      気になる商材・マシンの紹介ページにある<br>
-      <strong>公式LINE</strong>から直接お受けしております。<br>
-      ご相談内容に合わせて、専門の担当者がご対応します。
-    </p>
-
-    <div class="back-cta-grid">
-      <div class="back-cta-col">
-        <div class="back-cta-num">01</div>
-        <div class="back-cta-step-title">気になる商材を選ぶ</div>
-        <div class="back-cta-step-note">上の一覧からクリック</div>
-      </div>
-      <div class="back-cta-col">
-        <div class="back-cta-num">02</div>
-        <div class="back-cta-step-title">紹介ページが開きます</div>
-        <div class="back-cta-step-note">商材ごとの詳しい説明</div>
-      </div>
-      <div class="back-cta-col">
-        <div class="back-cta-num">03</div>
-        <div class="back-cta-step-title">LINEでお問い合わせ</div>
-        <div class="back-cta-step-note">ページ内のボタンから</div>
-      </div>
-    </div>
-
-    <div class="back-cta-buttons back-cta-buttons--primary">
-      <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1779514201" target="_blank" rel="noopener" class="contact-line">お問い合わせはこちら</a>
-    </div>
-    <div class="back-cta-buttons">
-      <a href="#products" class="btn btn-fill">↑ 商材一覧へ戻る</a>
-      <a href="../index.html" class="btn">会社情報（GrandFusionトップ）</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== BLOG ===== -->
-<style>
-.blog{background:var(--c-cream)}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.blog-card{background:#fff;border:1px solid var(--c-line);display:flex;flex-direction:column;overflow:hidden;transition:all .4s ease}
-.blog-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(156,128,98,.16);border-color:var(--c-gold-light);opacity:1}
-.blog-thumb{height:184px;background:linear-gradient(135deg,var(--c-beige-light) 0%,var(--c-cream) 100%);position:relative;overflow:hidden}
-.blog-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.blog-cat{position:absolute;top:14px;left:14px;font-family:var(--ff-en);font-size:10px;letter-spacing:.2em;padding:5px 12px;background:var(--c-gold);color:#fff;z-index:1}
-.blog-body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
-.blog-date{font-family:var(--ff-en);font-size:12px;letter-spacing:.12em;color:var(--c-gold-dark);margin-bottom:10px}
-.blog-title{font-family:var(--ff-serif);font-size:16px;font-weight:600;line-height:1.7;letter-spacing:.04em;color:var(--c-text)}
-.blog-foot{text-align:center;margin-top:54px}
-@media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
-</style>
-<section class="section blog" id="blog">
-  <div class="section-inner">
-    <div class="section-head">
-      <div class="section-en">Blog</div>
-      <div class="section-jp">ブログ・お役立ち情報</div>
-    </div>
-    <!-- WordPress反映時は「最新記事ループ」に置き換え（下記はサンプル表示） -->
-    <div class="blog-grid">
-      <a href="https://grandfusion-official.site/blog_custom/%e7%9c%8b%e8%ad%b7%e5%b8%ab%e3%81%8c%e4%ba%ba%e7%94%9f%e3%81%ab%e6%82%a9%e3%82%93%e3%81%a0%e3%81%a8%e3%81%8d/" target="_blank" rel="noopener" class="blog-card">
-        <div class="blog-thumb"><span class="blog-cat">COLUMN</span></div>
-        <div class="blog-body">
-          <span class="blog-date">2026.05.29</span>
-          <h3 class="blog-title">看護師が人生に悩んだとき</h3>
-        </div>
-      </a>
-      <a href="https://grandfusion-official.site/blog_custom/%e7%9c%8b%e8%ad%b7%e5%b8%ab%e3%81%ab%e5%bf%85%e8%a6%81%e3%81%aa%e7%b5%8c%e5%96%b6%e3%83%9e%e3%82%a4%e3%83%b3%e3%83%89-2/" target="_blank" rel="noopener" class="blog-card">
-        <div class="blog-thumb"><span class="blog-cat">COLUMN</span></div>
-        <div class="blog-body">
-          <span class="blog-date">2026.05.28</span>
-          <h3 class="blog-title">看護師に必要な経営マインド</h3>
-        </div>
-      </a>
-      <a href="https://grandfusion-official.site/blog_custom/%e7%9c%8b%e8%ad%b7%e5%b8%ab%e3%81%ae%e8%87%aa%e5%88%86%e8%bb%b8%e3%81%ae%e8%a6%8b%e3%81%a4%e3%81%91%e6%96%b9/" target="_blank" rel="noopener" class="blog-card">
-        <div class="blog-thumb"><span class="blog-cat">COLUMN</span></div>
-        <div class="blog-body">
-          <span class="blog-date">2026.05.27</span>
-          <h3 class="blog-title">看護師の自分軸の見つけ方</h3>
-        </div>
-      </a>
-    </div>
-    <div class="blog-foot">
-      <a href="https://grandfusion-official.site/blog" target="_blank" rel="noopener" class="btn">ブログ一覧を見る</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="footer-logo">GrandFusion</div>
-  <div class="footer-tag">株式会社グランフュージョン</div>
-  <nav class="footer-nav">
-    <a href="../index.html">TOP</a>
-    <a href="#products">PRODUCTS</a>
-    <a href="#machines">MACHINES</a>
-    <a href="#startup">START UP</a>
-    <a href="#blog">BLOG</a>
-    <a href="../index.html#contact">CONTACT</a>
+<header class="hd"><div class="hd-in">
+  <a class="hd-logo" href="https://grandfusion-official.site/">GRANDFUSION<small>株式会社グランフュージョン</small></a>
+  <nav class="hd-nav">
+    <a href="https://grandfusion-official.site/">メインTOP</a>
+    <a href="#machines">クリニカルマシン</a>
+    <a href="#startup">開業・融資サポート</a>
+    <a class="hd-cta" href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1784529110" target="_blank" rel="noopener">お問い合わせ</a>
   </nav>
-  <div class="copyright">© 2026 GrandFusion Co., Ltd. All Rights Reserved.</div>
-</footer>
+</div></header>
 
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const nav = document.getElementById('nav');
-  menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-</script>
+<section class="hero"><div class="wrap center">
+  <div class="crumb"><a href="https://grandfusion-official.site/">TOP</a> ／ エステマシン販売</div>
+  <h1>Clinical Machines</h1>
+  <div class="jp">エステマシン販売</div>
+  <p>医療発想で開発した自社クリニカルマシンと、導入時の開業・融資サポートまで。<br>
+     サロン経営をワンストップで支える製品ラインナップです。</p>
+</div></section>
 
+<section class="thoughts"><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Our Thoughts</div>
+    <h2 class="sec-h">メーカー・商材への想い</h2>
+  </div>
+  <div class="mem">
+      <figure>
+        <div class="ph"><img src="../images/kasuya-arisa.jpg" alt="粕谷 ありさ Arisa Kasuya" loading="lazy"></div>
+        <figcaption>
+          <div class="role">CEO / 代表取締役</div>
+          <div class="nm">粕谷 ありさ Arisa Kasuya</div>
+          <p class="q">「商材は、人の人生を変えうるもの。」 私たちが提供するのは、ただの化粧品・マシンではありません。 肌が変わると、自信が変わる。自信が変わると、人生が変わる。 その確信を、自社で開発する一つひとつの商材に込めています。 看護師として、医療現場で多くの女性の悩みに向き合ってきた経験から、 「本当に結果が出るもの」だけを、妥協なく厳選しました。 GrandFusionの商材が、あなたのサロンの&quot;選ばれる理由&quot;になりますように。</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img src="../images/niki-mayu.jpg" alt="仁木 愛結 Mayu Niki" loading="lazy"></div>
+        <figcaption>
+          <div class="role">MAKER MANAGER / メーカー担当</div>
+          <div class="nm">仁木 愛結 Mayu Niki</div>
+          <p class="q">「サロン様の隣で、結果を一緒に喜びたい。」 導入後の&quot;使いこなし&quot;までが、メーカーの役目だと思っています。 商材の選び方、施術の流れ、お客様への伝え方、そして仕入れの組み立てまで。 ひとつひとつのご質問に、一番近くで向き合うのが私の仕事です。 「売って終わり」ではなく、「使い続けて、結果を出し続けるサロン」を、 メーカー担当として全力でサポートいたします。 気軽に、なんでもご相談ください。</p>
+        </figcaption>
+      </figure>
+  </div>
+</div></section>
 
-<script>
-(function(){
-  var trigs=document.querySelectorAll('.nav-dropdown > .nav-drop-trigger');
-  trigs.forEach(function(t){
-    t.addEventListener('click',function(e){
-      if(window.innerWidth>1080){
-        e.preventDefault();
-        var p=t.parentElement, was=p.classList.contains('open');
-        document.querySelectorAll('.nav-dropdown.open').forEach(function(o){o.classList.remove('open');});
-        if(!was){p.classList.add('open');}
-      }
-    });
-  });
-  document.addEventListener('click',function(e){
-    if(!e.target.closest('.nav-dropdown')){
-      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){o.classList.remove('open');});
-    }
-  });
-})();
-</script>
+<div class="band" role="presentation"></div>
+
+<section id="machines"><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Clinical Machines</div>
+    <h2 class="sec-h">自社クリニカルマシン</h2>
+    <p class="sec-lead">医療発想で開発した自社メーカーマシン。クリニックレベルの結果を、サロンに。</p>
+  </div>
+  <div class="mg">
+      <article class="pc">
+        <a href="https://btxtherma.grandfusion-official.site/" target="_blank" rel="noopener">
+          <div class="ph"><span class="cat">NUDUQUE</span><img src="../images/btxtherma-machine.webp" alt="BTXtherma" loading="lazy"></div>
+          <div class="en">CLINICAL GRADE RF</div>
+          <h3>BTXtherma</h3>
+          <p>40.68MHz超高周波を採用した次世代RFマシン。高い安全性と、幅広い施術メニュー展開を実現します。</p>
+          <span class="lk">マシンの詳細を見る</span>
+        </a>
+      </article>
+      <article class="pc">
+        <a href="https://regecell.grandfusion-official.site/" target="_blank" rel="noopener">
+          <div class="ph"><span class="cat">NUDUQUE</span><img src="../images/regecell-machine.webp" alt="リジェセル" loading="lazy"></div>
+          <div class="en">ELECTROPORATION</div>
+          <h3>リジェセル</h3>
+          <p>エレクトロポレーション技術で有効成分を真皮層まで浸透。クリニック級の結果をサロンで実現します。</p>
+          <span class="lk">マシンの詳細を見る</span>
+        </a>
+      </article>
+  </div>
+</div></section>
+
+<section id="startup" class="ct"><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Support Packages</div>
+    <h2 class="sec-h">開業・融資サポート</h2>
+    <p class="sec-lead">マシン導入とあわせて、開業準備から資金調達まで。サロン経営をワンストップで支えるサポートをご用意しています。</p>
+  </div>
+  <div class="mg">
+      <article class="pc">
+        <a href="https://kaigyo.grandfusion-official.site/" target="_blank" rel="noopener">
+          <div class="ph"><span class="cat">開業パック</span><img src="../images/kaigyopack-hero.webp" alt="開業サポートパック" loading="lazy"></div>
+          <div class="en">ALL-IN-ONE PACKAGE</div>
+          <h3>開業サポートパック</h3>
+          <p>BTXtherma × リジェセル マシン2台＋6ヶ月伴走サポート。価格設定・ブランディング不要で、「悩まない開業」を実現します。サロンの立ち上げから安定経営まで、伴走型でサポート。</p>
+          <span class="lk">開業パック詳細を見る</span>
+        </a>
+      </article>
+      <article class="pc">
+        <a href="https://financing.grandfusion-official.site/" target="_blank" rel="noopener">
+          <div class="ph"><span class="cat">FINANCE</span><img src="../images/finance-support.jpg" alt="融資サポート" loading="lazy"></div>
+          <div class="en">FINANCE SUPPORT</div>
+          <h3>融資サポート<span class="price">¥50,000</span></h3>
+          <p>マシン導入時の資金調達を、専門スタッフがしっかりサポート。事業計画書の作成サポート・添削、補助金・助成金の申請支援、さらに「誰に相談したらいいか分からない」ご質問まで個別に対応します。</p>
+          <span class="lk">融資サポートはこちら</span>
+        </a>
+      </article>
+  </div>
+</div></section>
+
+<section><div class="wrap center">
+  <div class="eyebrow">Contact</div>
+  <h2 class="sec-h">お問い合わせは<br>商材ごとの紹介ページから</h2>
+  <p class="sec-lead">製品のご相談・導入のご質問は、気になるマシン・サポートの紹介ページにある公式LINEから直接お受けしています。ご相談内容に合わせて、専門の担当者がご対応します。</p>
+  <div class="steps">
+    <div><div class="n">01</div><b>気になるものを選ぶ</b><span>上の一覧からクリック</span></div>
+    <div><div class="n">02</div><b>紹介ページが開きます</b><span>製品ごとの詳しい説明</span></div>
+    <div><div class="n">03</div><b>LINEでお問い合わせ</b><span>ページ内のボタンから</span></div>
+  </div>
+  <a class="btn" href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1784529110" target="_blank" rel="noopener">お問い合わせはこちら　→</a>
+  <div><a class="back" href="#machines">↑ マシン一覧へ戻る</a></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="center">
+    <div class="eyebrow">Blog</div>
+    <h2 class="sec-h">ブログ・お役立ち情報</h2>
+  </div>
+  <div class="bl">
+      <a href="https://grandfusion-official.site/blog_custom/%e7%9c%8b%e8%ad%b7%e5%b8%ab%e3%81%8c%e4%ba%ba%e7%94%9f%e3%81%ab%e6%82%a9%e3%82%93%e3%81%a0%e3%81%a8%e3%81%8d/"><span class="d">2026.05.29</span><span class="t">看護師が人生に悩んだとき</span></a>
+      <a href="https://grandfusion-official.site/blog_custom/%e7%9c%8b%e8%ad%b7%e5%b8%ab%e3%81%ab%e5%bf%85%e8%a6%81%e3%81%aa%e7%b5%8c%e5%96%b6%e3%83%9e%e3%82%a4%e3%83%b3%e3%83%89-2/"><span class="d">2026.05.28</span><span class="t">看護師に必要な経営マインド</span></a>
+      <a href="https://grandfusion-official.site/blog_custom/%e7%9c%8b%e8%ad%b7%e5%b8%ab%e3%81%ae%e8%87%aa%e5%88%86%e8%bb%b8%e3%81%ae%e8%a6%8b%e3%81%a4%e3%81%91%e6%96%b9/"><span class="d">2026.05.27</span><span class="t">看護師の自分軸の見つけ方</span></a>
+  </div>
+  <div class="more"><a href="https://grandfusion-official.site/blog/">ブログ一覧を見る</a></div>
+</div></section>
+
+<footer class="ft"><div class="wrap">
+  <div class="lg">GRANDFUSION</div>
+  <p>株式会社グランフュージョン</p>
+  <nav>
+    <a href="https://grandfusion-official.site/">メインTOP</a>
+    <a href="https://lp.grandfusion-official.site/">NUDUQUE 商材</a>
+    <a href="https://grandfusion-official.site/salons/">導入サロン一覧</a>
+    <a href="https://grandfusion-official.site/events/">イベント・セミナー</a>
+    <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&amp;ts=1784529110" target="_blank" rel="noopener">お問い合わせ</a>
+  </nav>
+  <small>© GrandFusion Co., Ltd.</small>
+</div></footer>
+
 </body>
 </html>
