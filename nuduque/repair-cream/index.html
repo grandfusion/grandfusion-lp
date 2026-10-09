@@ -153,6 +153,7 @@ a:hover{opacity:.75}
     .pgcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--c-gold-light)}
     .pgcard .pg-label{font-family:var(--ff-serif);font-size:14px;color:var(--c-text-sub);margin-bottom:10px}
     .pgcard .pg-val{font-family:var(--ff-en);font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--c-gold-dark);line-height:1;margin-bottom:10px}
+    .pgcard .pg-val.is-text{font-family:var(--ff-serif);font-size:clamp(15px,1.9vw,18px);font-weight:500;letter-spacing:.06em;line-height:1.6;white-space:nowrap}
     .pgcard .pg-note{font-size:12px;color:var(--c-text-light);line-height:1.7}
     @media(max-width:700px){.price-grid{grid-template-columns:1fr;gap:16px}}
 
@@ -382,7 +383,7 @@ a:hover{opacity:.75}
     <p class="sec-lead">店販価格。サロン様向けの仕入価格は個別にご案内しています。（金額は税込）</p>
     <div class="price-grid g2">
       <div class="pgcard"><div class="pg-label">店販価格（税込）</div><div class="pg-val">¥13,200</div><div class="pg-note">サロンでのお客様販売価格。約6ヶ月使えます。</div></div>
-      <div class="pgcard"><div class="pg-label">サロン仕入価格</div><div class="pg-val">お問い合わせ</div><div class="pg-note">サロン様向けの卸価格を個別にご案内します。</div></div>
+      <div class="pgcard"><div class="pg-label">サロン仕入価格</div><div class="pg-val is-text">お問い合わせ</div><div class="pg-note">サロン様向けの卸価格を個別にご案内します。</div></div>
     </div>
     <div class="price-card">
       <div class="pc-lead">これ1本で万能・約6ヶ月使える</div>
