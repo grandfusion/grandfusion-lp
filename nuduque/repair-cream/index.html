@@ -146,6 +146,15 @@ a:hover{opacity:.75}
 .step p{font-size:12px;line-height:1.7;color:var(--c-text-sub)}
 @media(max-width:768px){.steps{grid-template-columns:1fr 1fr}}
 .price{background:var(--c-cream)}
+    /* 価格グリッド（2026-10-09 追加：他商材LPと同じ見た目に揃える） */
+    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto 30px}
+    .pgcard{background:#fff;border:1px solid var(--c-line);padding:34px 28px;text-align:center;position:relative}
+    .pgcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--c-gold-light)}
+    .pgcard .pg-label{font-family:var(--ff-serif);font-size:14px;color:var(--c-text-sub);margin-bottom:10px}
+    .pgcard .pg-val{font-family:var(--ff-en);font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--c-gold-dark);line-height:1;margin-bottom:10px}
+    .pgcard .pg-note{font-size:12px;color:var(--c-text-light);line-height:1.7}
+    @media(max-width:700px){.price-grid{grid-template-columns:1fr;gap:16px}}
+
 .price-card{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--c-line);padding:48px 44px;text-align:center}
 .price-card .pc-lead{font-family:var(--ff-serif);font-size:20px;font-weight:600;color:var(--c-gold-dark);margin-bottom:16px}
 .price-card p{font-size:14px;line-height:2;color:var(--c-text-sub);margin-bottom:10px}
@@ -367,13 +376,19 @@ a:hover{opacity:.75}
   <div class="sec-inner">
     <div class="sec-head">
       <div class="sec-en">Price</div>
-      <div class="sec-jp">商品情報・導入プラン</div>
+      <div class="sec-jp">価格・導入プラン</div>
+    </div>
+    <p class="sec-lead">サロン様向けの仕入価格と、店販したときの粗利です。（金額はすべて税込）</p>
+    <div class="price-grid">
+      <div class="pgcard"><div class="pg-label">サロン仕入価格（税込）</div><div class="pg-val">¥8,250〜</div><div class="pg-note">仕入本数・ご契約条件により変動します。</div></div>
+      <div class="pgcard"><div class="pg-label">店販価格（税込）</div><div class="pg-val">¥13,200</div><div class="pg-note">サロンでのお客様販売価格。</div></div>
+      <div class="pgcard"><div class="pg-label">店販粗利</div><div class="pg-val">¥4,950</div><div class="pg-note">1本あたり。粗利率 約37.5%。</div></div>
     </div>
     <div class="price-card">
       <div class="pc-lead">これ1本で万能・約6ヶ月使える</div>
       <p>1個で約6ヶ月使えるコスパ抜群の万能クリーム。唇・口角炎、手荒れ、踵のガサガサなど全身の乾燥ケアに対応します。</p>
       <p><strong>医療機関では数万円以上</strong>するアフターケアを、1本でサロンに。ホームケア物販で、物販収益の新たな柱になります。</p>
-      <span class="price-note">※ 上代・仕入れ価格・代理店プランはお問い合わせください（仕入れ・代理店販売も可能）</span>
+      <span class="price-note">※ 仕入価格はサロン様向けの卸価格（税込）です。仕入本数・ご契約条件により変動します。代理店プランは別途ご案内します。</span>
       <div><a href="https://gf-mall.i19.bcart.jp/" target="_blank" rel="noopener" class="btn btn-line btn-lg">導入・お試し購入はこちら</a></div>
     </div>
   </div>
