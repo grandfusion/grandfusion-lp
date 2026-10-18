@@ -111,7 +111,8 @@ a:hover{opacity:.75}
 .card-desc{font-size:13.5px;line-height:1.95;color:var(--c-text-sub)}
 @media(max-width:900px){.cards3{grid-template-columns:1fr}}
 .story{background:var(--c-cream)}
-.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+/* テクスチャー写真を外したので1カラム。写真を戻すときは .9fr 1.1fr に戻す */
+.story-grid{display:grid;grid-template-columns:1fr;gap:50px;align-items:center;max-width:760px;margin:0 auto}
 .story-grid img{width:100%;border:1px solid var(--c-line);box-shadow:0 20px 50px rgba(28,26,24,.07)}
 .story-grid p{font-family:var(--ff-serif);font-size:15px;line-height:2.1;color:var(--c-text-sub);margin-bottom:16px}
 .story-grid em{font-style:normal;color:var(--c-gold-dark);font-weight:600}
@@ -299,7 +300,6 @@ a:hover{opacity:.75}
       <div class="sec-jp">医療発想から生まれた処方</div>
     </div>
     <div class="story-grid">
-      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/7UDhUoCLW8bQ5f4RUkFym5/cream_02_b09efb2b.jpg" alt="NUDUQUE repair cream pro テクスチャー">
       <div>
         <p>NUDUQUEリペアクリームPROは、<em>看護師として12年間、医療現場で肌ケアに向き合ってきた経験</em>から生まれました。医療ダウンタイムケアで使われる高機能クリームを、日常でも使えるようにしたい——その想いが開発のきっかけです。</p>
         <p>施術後のケアにワセリンを使うのが一般的でしたが、慢性的な肌トラブルには対応できません。医療機関で使われる肌再生クリームは効果が高い反面、数万円以上と高額。<em>「サロンで手軽に提供できる、医療発想のクリームを作りたい」</em>という課題に向き合いました。</p>
@@ -340,10 +340,10 @@ a:hover{opacity:.75}
     </div>
     <p class="sec-lead">実際にご使用いただいたお客様・サロン様の症例です。<em>「結果が出る」</em>から、選ばれ続けています。</p>
     <div class="case-grid">
-      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/7UDhUoCLW8bQ5f4RUkFym5/ba01_8fe62e5d.jpeg" alt="口角炎・唇の荒れ 症例"><div class="case-body"><div class="case-cat">口角炎・唇の荒れ</div><div class="case-ttl">わずか3日で完治</div><p class="case-desc">何を使っても治らなかった口角炎・唇の荒れに塗布したところ、わずか3日で完治。ビタミンB6の粘膜修復作用が直接アプローチした事例です。</p></div></div>
-      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/7UDhUoCLW8bQ5f4RUkFym5/ba02_b72e155a.jpeg" alt="乾癬・手荒れ 症例"><div class="case-body"><div class="case-cat">乾癬・手荒れ</div><div class="case-ttl">4日目で目に見えて改善</div><p class="case-desc">慢性的な腕の赤みと炎症。市販クリームでは改善が見られなかったが、1日2回塗布したところ4日目で改善し、肌のキメも整いました。</p></div></div>
-      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/7UDhUoCLW8bQ5f4RUkFym5/ba03_3cd60484.jpeg" alt="ピーリング後ダウンタイム 症例"><div class="case-body"><div class="case-cat">ピーリング後ケア</div><div class="case-ttl">ダウンタイムを大幅短縮</div><p class="case-desc">ピーリング後の赤みが早く引くように。ラクトフェリンの抗炎症・鎮静作用が短期間で効果を発揮し、ダウンタイムを大幅に短縮できた事例です。</p></div></div>
-      <div class="case"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663474302753/7UDhUoCLW8bQ5f4RUkFym5/ba04_74331072.jpeg" alt="施術後ダウンタイムケア 症例"><div class="case-body"><div class="case-cat">術後ダウンタイムケア</div><div class="case-ttl">腫れの引きが早く</div><p class="case-desc">二重埋没手術後のダウンタイムケアに使用。腫れの引きが早くなったとお客様に大変喜ばれています。</p></div></div>
+      <div class="case"><img src="https://grandfusion-official.site/wp-content/uploads/2026/10/rc-case-01.jpg" alt="口角炎・唇の荒れ 症例"><div class="case-body"><div class="case-cat">口角炎・唇の荒れ</div><div class="case-ttl">わずか3日で完治</div><p class="case-desc">何を使っても治らなかった口角炎・唇の荒れに塗布したところ、わずか3日で完治。ビタミンB6の粘膜修復作用が直接アプローチした事例です。</p></div></div>
+      <div class="case"><img src="https://grandfusion-official.site/wp-content/uploads/2026/10/rc-case-02.jpg" alt="乾癬・手荒れ 症例"><div class="case-body"><div class="case-cat">乾癬・手荒れ</div><div class="case-ttl">4日目で目に見えて改善</div><p class="case-desc">慢性的な腕の赤みと炎症。市販クリームでは改善が見られなかったが、1日2回塗布したところ4日目で改善し、肌のキメも整いました。</p></div></div>
+      <div class="case"><img src="https://grandfusion-official.site/wp-content/uploads/2026/10/rc-case-03.jpg" alt="ピーリング後ダウンタイム 症例"><div class="case-body"><div class="case-cat">ピーリング後ケア</div><div class="case-ttl">ダウンタイムを大幅短縮</div><p class="case-desc">ピーリング後の赤みが早く引くように。ラクトフェリンの抗炎症・鎮静作用が短期間で効果を発揮し、ダウンタイムを大幅に短縮できた事例です。</p></div></div>
+      <div class="case"><img src="https://grandfusion-official.site/wp-content/uploads/2026/10/rc-case-04.jpg" alt="施術後ダウンタイムケア 症例"><div class="case-body"><div class="case-cat">術後ダウンタイムケア</div><div class="case-ttl">腫れの引きが早く</div><p class="case-desc">二重埋没手術後のダウンタイムケアに使用。腫れの引きが早くなったとお客様に大変喜ばれています。</p></div></div>
     </div>
   </div>
 </section>
