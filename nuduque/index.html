@@ -6,25 +6,20 @@
 <title>NUDUQUE（ヌドゥーク）公式サイト｜株式会社GrandFusion</title>
 <meta name="description" content="看護師がつくった本物志向の妥協なき美。NUDUQUE（ヌドゥーク）は、スキンケア×インナーケアで美しさの土台を整える、サロン品質のトータルビューティブランドです。">
 <meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --c-base:#faf6f0;        /* オフホワイト */
-  --c-beige:#ede3d3;       /* ベージュ */
-  --c-beige-light:#f5efe6; /* ライトベージュ */
-  --c-cream:#f7f1e6;       /* クリーム */
-  --c-gold:#b89968;        /* ゴールド */
-  --c-gold-light:#d4b88a;  /* ライトゴールド */
-  --c-gold-dark:#9c8062;   /* ダークゴールド */
-  --c-text:#3d3329;        /* 文字メイン */
-  --c-text-sub:#6b5d4f;    /* 文字サブ */
-  --c-text-light:#9c8775;  /* 文字ライト */
-  --c-line:#d9ccb8;        /* ライン */
-  --ff-serif:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
-  --ff-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
-  --ff-en:"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  /* 2026-10-09 TOP・/events/ と同じ新デザインのトークンに差し替え。
+     変数名は旧のまま、値だけ入れ替えている（構成・文章は未変更）。 */
+  --c-base:#FFFFFF;--c-beige:#F2EBE3;--c-beige-light:#F7F4EF;--c-cream:#F7F4EF;
+  --c-pink:#F6E9E5;--c-pink-light:#F7F4EF;--c-pink-deep:#E9D2CB;
+  --c-gold:#D6C8B4;--c-gold-light:#E7DDCE;--c-gold-dark:#7A6A53;
+  --c-gold-mid:#B5A68E;        /* 境界線・ホバー用の中間 */
+  --c-rose:#7A6A53;--c-mauve:#5E5650;
+  --c-text:#1C1A18;--c-text-sub:#6E665D;--c-text-light:#948575;--c-line:#EAE4DA;
+  --ff-serif:"Hiragino Sans","Yu Gothic","Helvetica Neue",sans-serif;
+  --ff-sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",sans-serif;
+  --ff-en:"Futura","Avenir Next","Optima",sans-serif;
+  --ff-disp:"Futura","Avenir Next","Optima",sans-serif;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -46,7 +41,7 @@ a:hover{opacity:.7}
 /* ============ HEADER ============ */
 .header{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(250,246,240,.95);
+  background:rgba(255,255,255,.95);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--c-line);
   transition:all .3s ease;
@@ -88,12 +83,12 @@ a:hover{opacity:.7}
 .nav a:hover{color:var(--c-gold-dark);opacity:1}
 .nav a:hover::after{width:100%;left:0}
 .nav .cta-btn{
-  background:var(--c-gold);color:#fff;
+  background:var(--c-gold);color:var(--c-text);
   padding:10px 24px;border-radius:2px;
   font-size:12px;letter-spacing:.18em;
 }
 .nav .cta-btn::after{display:none}
-.nav .cta-btn:hover{background:var(--c-gold-dark);opacity:1}
+.nav .cta-btn:hover{background:var(--c-gold-mid);color:var(--c-text);opacity:1}
 
 .menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--c-text)}
 
@@ -122,7 +117,7 @@ a:hover{opacity:.7}
 .hero::before{
   content:"";position:absolute;top:0;right:-10%;
   width:60%;height:100%;
-  background:radial-gradient(ellipse at center,rgba(212,184,138,.15) 0%,transparent 70%);
+  background:radial-gradient(ellipse at center,rgba(181,166,142,.15) 0%,transparent 70%);
   pointer-events:none;
 }
 .hero-inner{
@@ -172,15 +167,15 @@ a:hover{opacity:.7}
   font-family:var(--ff-serif);
   font-size:13px;
   letter-spacing:.2em;
-  border:1px solid var(--c-gold);
+  border:1px solid var(--c-gold-mid);
   color:var(--c-gold-dark);
   background:transparent;
   transition:all .3s ease;
   cursor:pointer;
 }
-.btn:hover{background:var(--c-gold);color:#fff;opacity:1}
-.btn-fill{background:var(--c-gold);color:#fff;border-color:var(--c-gold)}
-.btn-fill:hover{background:var(--c-gold-dark);border-color:var(--c-gold-dark)}
+.btn:hover{background:var(--c-gold);color:var(--c-text);border-color:var(--c-gold);opacity:1}
+.btn-fill{background:var(--c-gold);color:var(--c-text);border-color:var(--c-gold)}
+.btn-fill:hover{background:var(--c-gold-mid);color:var(--c-text);border-color:var(--c-gold-mid)}
 .btn::after{content:"→";font-size:14px}
 
 .hero-image{
@@ -189,7 +184,7 @@ a:hover{opacity:.7}
 }
 .hero-image img{
   border-radius:4px;
-  box-shadow:0 30px 80px rgba(156,128,98,.18);
+  box-shadow:0 30px 80px rgba(28,26,24,.07);
 }
 .hero-scroll{
   position:absolute;bottom:30px;left:50%;
@@ -282,7 +277,7 @@ a:hover{opacity:.7}
   font-size:11px;
   letter-spacing:.18em;
   padding:5px 14px;
-  background:var(--c-gold);color:#fff;
+  background:var(--c-gold);color:var(--c-text);
   min-width:90px;text-align:center;
 }
 .news-cat.info{background:var(--c-text-sub)}
@@ -306,7 +301,7 @@ a:hover{opacity:.7}
 .about::before{
   content:"";position:absolute;top:-50px;left:-100px;
   width:300px;height:300px;
-  background:radial-gradient(circle,rgba(184,153,104,.1),transparent);
+  background:radial-gradient(circle,rgba(122,106,83,.1),transparent);
   pointer-events:none;
 }
 .about-grid{
@@ -346,7 +341,7 @@ a:hover{opacity:.7}
 .about-image img{
   position:relative;z-index:1;
   border-radius:2px;
-  box-shadow:0 20px 60px rgba(156,128,98,.15);
+  box-shadow:0 20px 60px rgba(28,26,24,.07);
   width:100%;
 }
 /* 代表者写真用ポートレート */
@@ -372,7 +367,7 @@ a:hover{opacity:.7}
   background:linear-gradient(135deg,#efe1d3 0%,#dcc9b3 100%);
   align-items:center;justify-content:center;
   text-align:center;
-  box-shadow:0 20px 60px rgba(156,128,98,.15);
+  box-shadow:0 20px 60px rgba(28,26,24,.07);
 }
 .portrait-fallback-en{
   font-family:var(--ff-en);
@@ -495,7 +490,7 @@ a:hover{opacity:.7}
 }
 .commit-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 20px 50px rgba(156,128,98,.15);
+  box-shadow:0 20px 50px rgba(28,26,24,.07);
   border-color:var(--c-gold-light);
 }
 .commit-num{
@@ -538,8 +533,8 @@ a:hover{opacity:.7}
 .feature{
   background:var(--c-cream);
   background-image:
-    radial-gradient(ellipse at top right,rgba(212,184,138,.12),transparent 50%),
-    radial-gradient(ellipse at bottom left,rgba(212,184,138,.1),transparent 50%);
+    radial-gradient(ellipse at top right,rgba(181,166,142,.12),transparent 50%),
+    radial-gradient(ellipse at bottom left,rgba(181,166,142,.1),transparent 50%);
 }
 .feature-block{
   display:grid;
@@ -560,7 +555,7 @@ a:hover{opacity:.7}
 .feature-img img{
   position:relative;z-index:1;
   width:100%;
-  box-shadow:0 20px 50px rgba(156,128,98,.15);
+  box-shadow:0 20px 50px rgba(28,26,24,.07);
 }
 .feature-num{
   font-family:var(--ff-en);
@@ -612,7 +607,7 @@ a:hover{opacity:.7}
 }
 .product-card:hover{
   transform:translateY(-4px);
-  box-shadow:0 25px 60px rgba(156,128,98,.15);
+  box-shadow:0 25px 60px rgba(28,26,24,.07);
   border-color:var(--c-gold-light);
 }
 .product-img{
@@ -635,7 +630,7 @@ a:hover{opacity:.7}
 .product-img img{
   max-height:240px;
   width:auto;
-  filter:drop-shadow(0 12px 24px rgba(156,128,98,.18));
+  filter:drop-shadow(0 12px 24px rgba(28,26,24,.07));
 }
 .product-body{
   padding:30px 30px 36px;
@@ -676,7 +671,7 @@ a:hover{opacity:.7}
   width:14px;height:14px;
   border-radius:50%;
   border:1px solid var(--c-gold);
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%23b89968' stroke-width='1.5' stroke-linecap='round'/></svg>") center/9px no-repeat;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7l3 3 5-6' fill='none' stroke='%237A6A53' stroke-width='1.5' stroke-linecap='round'/></svg>") center/9px no-repeat;
 }
 .product-meta{
   display:flex;align-items:baseline;justify-content:space-between;
@@ -696,6 +691,16 @@ a:hover{opacity:.7}
   color:var(--c-gold-dark);
 }
 .product-price small{font-size:11px;color:var(--c-text-light);margin-left:4px}
+a.product-card{text-decoration:none;color:inherit;display:flex}
+a.product-card:hover{opacity:1}
+.product-link{
+  display:inline-block;margin-top:16px;
+  font-family:var(--ff-serif);font-size:12.5px;letter-spacing:.1em;
+  color:var(--c-gold-dark);
+  border-bottom:1px solid var(--c-gold-light);padding-bottom:3px;
+  align-self:flex-start;transition:border-color .3s ease;
+}
+a.product-card:hover .product-link{border-bottom-color:var(--c-gold-dark)}
 
 @media(max-width:768px){
   .product-grid{grid-template-columns:1fr}
@@ -712,8 +717,8 @@ a:hover{opacity:.7}
 .hiring::before{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(ellipse at top right,rgba(212,184,138,.2),transparent 50%),
-    radial-gradient(ellipse at bottom left,rgba(184,153,104,.15),transparent 50%);
+    radial-gradient(ellipse at top right,rgba(181,166,142,.2),transparent 50%),
+    radial-gradient(ellipse at bottom left,rgba(122,106,83,.15),transparent 50%);
 }
 .hiring-inner{position:relative;z-index:1}
 .hiring-en{
@@ -762,7 +767,7 @@ a:hover{opacity:.7}
 }
 .hiring .btn:hover{
   background:var(--c-gold);
-  color:#fff;
+  color:var(--c-text);
   border-color:var(--c-gold);
 }
 
@@ -869,7 +874,7 @@ a:hover{opacity:.7}
 /* ============ FOOTER ============ */
 .footer{
   background:var(--c-text);
-  color:#d9ccb8;
+  color:#EAE4DA;
   padding:60px 40px 30px;
   text-align:center;
 }
@@ -885,7 +890,7 @@ a:hover{opacity:.7}
   font-family:var(--ff-serif);
   font-size:12px;
   letter-spacing:.25em;
-  color:rgba(217,204,184,.6);
+  color:rgba(234,228,218,.6);
   margin-bottom:36px;
 }
 .footer-nav{
@@ -896,15 +901,15 @@ a:hover{opacity:.7}
 .footer-nav a{
   font-family:var(--ff-serif);
   font-size:12px;letter-spacing:.15em;
-  color:rgba(217,204,184,.8);
+  color:rgba(234,228,218,.8);
 }
 .copyright{
   font-family:var(--ff-en);
   font-size:11px;
   letter-spacing:.2em;
-  color:rgba(217,204,184,.5);
+  color:rgba(234,228,218,.5);
   padding-top:30px;
-  border-top:1px solid rgba(217,204,184,.15);
+  border-top:1px solid rgba(234,228,218,.15);
 }
 
 /* ============ Animations ============ */
@@ -927,7 +932,7 @@ a:hover{opacity:.7}
   position:absolute;top:100%;left:50%;
   transform:translateX(-50%) translateY(10px);
   min-width:252px;background:#fff;border:1px solid var(--c-line);
-  box-shadow:0 24px 56px rgba(156,128,98,.18);
+  box-shadow:0 24px 56px rgba(28,26,24,.07);
   padding:10px 0;margin-top:16px;
   opacity:0;visibility:hidden;pointer-events:none;
   transition:opacity .25s ease,transform .25s ease;z-index:200;
@@ -1227,7 +1232,7 @@ a:hover{opacity:.7}
 
     <div class="product-grid">
       <!-- Product 1 -->
-      <div class="product-card">
+      <a class="product-card" href="aura-pack/index.html">
         <div class="product-img">
           <span class="product-label">SKIN CARE</span>
           <img src="images/nuduque-collection.webp" alt="炭酸オーラパック" style="object-fit:contain;">
@@ -1244,11 +1249,12 @@ a:hover{opacity:.7}
             <div class="product-volume">100g</div>
             <div class="product-price">¥13,200<small>（税込）</small></div>
           </div>
+          <span class="product-link">商品の詳細を見る</span>
         </div>
-      </div>
+      </a>
 
       <!-- Product: aura cream -->
-      <div class="product-card">
+      <a class="product-card" href="aura-cream/index.html">
         <div class="product-img">
           <span class="product-label">SKIN CARE</span>
           <img src="aura-cream/images/product.png" alt="オーラクリーム" style="object-fit:contain;background:#fff;">
@@ -1265,11 +1271,12 @@ a:hover{opacity:.7}
             <div class="product-volume">100g</div>
             <div class="product-price">¥13,200<small>（税込）</small></div>
           </div>
+          <span class="product-link">商品の詳細を見る</span>
         </div>
-      </div>
+      </a>
 
       <!-- Product 2 -->
-      <div class="product-card">
+      <a class="product-card" href="repair-cream/index.html">
         <div class="product-img">
           <span class="product-label">SKIN CARE</span>
           <img src="images/nuduque-collection.webp" alt="リペアクリーム pro" style="object-fit:contain;">
@@ -1286,11 +1293,12 @@ a:hover{opacity:.7}
             <div class="product-volume">CREAM</div>
             <div class="product-price">¥13,200<small>（税込）</small></div>
           </div>
+          <span class="product-link">商品の詳細を見る</span>
         </div>
-      </div>
+      </a>
 
       <!-- Product 3 -->
-      <div class="product-card">
+      <a class="product-card" href="suiso/index.html">
         <div class="product-img">
           <span class="product-label">SKIN CARE</span>
           <img src="images/nuduque-collection.webp" alt="水素パウダー" style="object-fit:contain;">
@@ -1307,11 +1315,12 @@ a:hover{opacity:.7}
             <div class="product-volume">30g</div>
             <div class="product-price">¥13,200<small>（税込）</small></div>
           </div>
+          <span class="product-link">商品の詳細を見る</span>
         </div>
-      </div>
+      </a>
 
       <!-- Product 4 -->
-      <div class="product-card">
+      <a class="product-card" href="protein/index.html">
         <div class="product-img">
           <span class="product-label">INNER CARE</span>
           <img src="images/nuduque-collection.webp" alt="高級抹茶ご褒美プロテイン" style="object-fit:contain;">
@@ -1328,11 +1337,12 @@ a:hover{opacity:.7}
             <div class="product-volume">500g</div>
             <div class="product-price">¥7,000<small>（税込 ¥7,560）</small></div>
           </div>
+          <span class="product-link">商品の詳細を見る</span>
         </div>
-      </div>
+      </a>
 
       <!-- Product 5 -->
-      <div class="product-card">
+      <a class="product-card" href="butter/index.html">
         <div class="product-img">
           <span class="product-label">BODY CARE</span>
           <img src="butter/images/hero-butter.jpg" alt="バターソリューション 350mL" style="object-fit:contain;border-radius:3px;">
@@ -1349,11 +1359,12 @@ a:hover{opacity:.7}
             <div class="product-volume">350mL</div>
             <div class="product-price" style="font-size:16px;letter-spacing:.06em">お問い合わせ</div>
           </div>
+          <span class="product-link">商品の詳細を見る</span>
         </div>
-      </div>
+      </a>
 
       <!-- Product 6 -->
-      <div class="product-card">
+      <a class="product-card" href="fill/index.html">
         <div class="product-img">
           <span class="product-label">VOLUME CARE</span>
           <img src="fill/images/hero-fill.jpg" alt="フィルソリューション" style="object-fit:contain;border-radius:3px;">
@@ -1370,8 +1381,9 @@ a:hover{opacity:.7}
             <div class="product-volume">原液使用</div>
             <div class="product-price" style="font-size:16px;letter-spacing:.06em">お問い合わせ</div>
           </div>
+          <span class="product-link">商品の詳細を見る</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1440,10 +1452,10 @@ a:hover{opacity:.7}
 .blog{background:var(--c-cream)}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
 .blog-card{background:#fff;border:1px solid var(--c-line);display:flex;flex-direction:column;overflow:hidden;transition:all .4s ease}
-.blog-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(156,128,98,.16);border-color:var(--c-gold-light);opacity:1}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(28,26,24,.07);border-color:var(--c-gold-light);opacity:1}
 .blog-thumb{height:184px;background:linear-gradient(135deg,var(--c-beige-light) 0%,var(--c-cream) 100%);position:relative;overflow:hidden}
 .blog-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.blog-cat{position:absolute;top:14px;left:14px;font-family:var(--ff-en);font-size:10px;letter-spacing:.2em;padding:5px 12px;background:var(--c-gold);color:#fff;z-index:1}
+.blog-cat{position:absolute;top:14px;left:14px;font-family:var(--ff-en);font-size:10px;letter-spacing:.2em;padding:5px 12px;background:var(--c-gold);color:var(--c-text);z-index:1}
 .blog-body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
 .blog-date{font-family:var(--ff-en);font-size:12px;letter-spacing:.12em;color:var(--c-gold-dark);margin-bottom:10px}
 .blog-title{font-family:var(--ff-serif);font-size:16px;font-weight:600;line-height:1.7;letter-spacing:.04em;color:var(--c-text)}
