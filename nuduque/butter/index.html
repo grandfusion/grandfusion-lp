@@ -230,9 +230,20 @@ a:hover{opacity:.75}
 #case .cs-grid{grid-template-columns:repeat(2,1fr);max-width:900px}
 .movie .reel{max-width:400px;margin:0 auto 28px;background:#fff;border:1px solid var(--c-line);box-shadow:0 8px 32px rgba(28,26,24,.07);border-radius:12px;overflow:hidden}
 .movie .reel iframe{display:block;width:100%;height:800px;border:0;background:#fff}
-.movie .reel-link{margin:-14px 0 24px;font-size:13px}
-.movie .reel-link a{color:var(--c-gold-dark);border-bottom:1px solid var(--c-gold-mid);padding-bottom:2px}
 @media(max-width:440px){.movie .reel iframe{height:720px}}
+.reel-card{display:flex;align-items:stretch;gap:0;max-width:620px;margin:0 auto 28px;background:#fff;border:1px solid var(--c-line);border-radius:14px;overflow:hidden;text-align:left;box-shadow:0 8px 32px rgba(28,26,24,.07);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.reel-card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(28,26,24,.12);border-color:var(--c-gold-light);opacity:1}
+.reel-card .rc-media{position:relative;flex:0 0 240px;align-self:stretch;min-height:180px;display:block;background:var(--c-cream)}
+.reel-card .rc-media img{width:100%;height:100%;object-fit:cover;display:block}
+.reel-card .rc-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 4px 18px rgba(28,26,24,.22);transition:background .3s ease}
+.reel-card .rc-play::after{content:"";position:absolute;left:52%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent var(--c-text)}
+.reel-card:hover .rc-play{background:#fff}
+.reel-card .rc-body{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:26px 26px}
+.reel-card .rc-ig{font-family:var(--ff-en);font-size:11px;letter-spacing:.2em;color:var(--c-gold-dark)}
+.reel-card .rc-ttl{font-family:var(--ff-serif);font-size:16px;font-weight:600;line-height:1.6;color:var(--c-text)}
+.reel-card .rc-desc{font-size:13px;line-height:1.85;color:var(--c-text-sub)}
+.reel-card .rc-go{display:inline-block;margin-top:4px;font-size:12.5px;letter-spacing:.1em;color:var(--c-gold-dark);border-bottom:1px solid var(--c-gold-mid);padding-bottom:3px;align-self:flex-start}
+@media(max-width:560px){.reel-card{flex-direction:column;max-width:340px}.reel-card .rc-media{flex:none;aspect-ratio:4/3;min-height:0}.reel-card .rc-body{padding:22px 22px 24px}.reel-card .rc-ttl{font-size:15px}}
 @media(max-width:900px){#case .cs-grid{grid-template-columns:1fr}}
 .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:920px;margin:0 auto}
 .menu-c{background:#fff;border:1px solid var(--c-line);padding:28px 26px}
@@ -308,10 +319,15 @@ a:hover{opacity:.75}
     <div class="movie-en">MOVIE</div>
     <h3>バターソリューション 説明動画</h3>
     <p>どんな商材で、どう使うのか。まずは動画でご覧ください。</p>
-    <div class="reel">
-      <iframe src="https://www.instagram.com/reel/DfPgsGqDTYS/embed/" title="NUDUQUE バターソリューション 説明動画" loading="lazy" scrolling="no" allowtransparency="true" allowfullscreen></iframe>
-    </div>
-    <p class="reel-link"><a href="https://www.instagram.com/reel/DfPgsGqDTYS/" target="_blank" rel="noopener">Instagramでこのリールを見る</a></p>
+    <a class="reel-card" href="https://www.instagram.com/reel/DfPgsGqDTYS/" target="_blank" rel="noopener">
+      <span class="rc-media"><img src="images/reel-cover.jpg" alt="NUDUQUE バターソリューション・フィルソリューション 解説リール"><span class="rc-play"></span></span>
+      <span class="rc-body">
+        <span class="rc-ig">Instagram リール</span>
+        <span class="rc-ttl">脂肪溶解／増殖は、なぜサロンの単価を<br>UP させられるのか？</span>
+        <span class="rc-desc">バターとフィル、2本の使い分けと単価の組み立て方を動画で解説しています。</span>
+        <span class="rc-go">リールを見る</span>
+      </span>
+    </a>
     <div class="movie-cta">
       <a href="https://gf-mall.i19.bcart.jp/" target="_blank" rel="noopener" class="btn btn-fill">導入・お試し購入はこちら</a>
       <a href="https://liff.line.me/2004208943-gqypDjX5?unique_key=Tc2pkO&ts=1784529110" target="_blank" rel="noopener" class="btn">お問い合わせ</a>
